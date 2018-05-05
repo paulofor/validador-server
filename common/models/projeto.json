@@ -1,0 +1,32 @@
+{
+  "name": "projeto",
+  "plural": "projetos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "valor": {
+      "type": "string"
+    },
+    "mercado": {
+      "type": "string"
+    },
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "dor": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
