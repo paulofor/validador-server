@@ -26,16 +26,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    "projeto-Canvases": {
-      "type": "hasMany",
-      "model": "Projeto-Canvas",
-      "foreignKey": "",
-      "options": {
-        "nestRemoting": true
-      }
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }
