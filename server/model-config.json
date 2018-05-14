@@ -38,5 +38,9 @@
   "projeto": {
     "dataSource": "db",
     "public": true
+  },
+  "ProjetoCanvas": {
+    "dataSource": "db",
+    "public": true
   }
 }

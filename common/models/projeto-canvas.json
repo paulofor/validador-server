@@ -1,0 +1,30 @@
+{
+  "name": "ProjetoCanvas",
+  "plural": "ProjetoCanvases",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "descricao": {
+      "type": "string",
+      "required": true
+    },
+    "idProjeto": {
+      "type": "number",
+      "required": true
+    },
+    "tipo": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
