@@ -24,7 +24,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "projetoCanvasMySqls": {
+      "type": "hasMany",
+      "model": "ProjetoCanvasMySql",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

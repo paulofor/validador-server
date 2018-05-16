@@ -46,5 +46,9 @@
   "ProjetoMySql": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "ProjetoCanvasMySql": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

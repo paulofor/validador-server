@@ -6,11 +6,10 @@
   "mysqlDS": {
     "host": "mysql.lojadigicom.com.br",
     "port": 3306,
-    "url": "mysql://lojadigicom27:aspnet@mysql.lojadigicom.com.br:3306/lojadigicom27",
-    "database": "lojadigicom27",
-    "password": "aspnet",
+    "database": "lojadigicom30",
+    "password": "aspnet007",
     "name": "mysqlDS",
-    "user": "lojadigicom27",
+    "user": "lojadigicom30",
     "connector": "mysql"
   }
 }
