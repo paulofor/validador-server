@@ -2,5 +2,15 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mysqlDS": {
+    "host": "mysql.lojadigicom.com.br",
+    "port": 3306,
+    "url": "mysql://lojadigicom27:aspnet@mysql.lojadigicom.com.br:3306/lojadigicom27",
+    "database": "lojadigicom27",
+    "password": "aspnet",
+    "name": "mysqlDS",
+    "user": "lojadigicom27",
+    "connector": "mysql"
   }
 }

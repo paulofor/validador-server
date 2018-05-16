@@ -1,0 +1,30 @@
+{
+  "name": "ProjetoMySql",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "valor": {
+      "type": "string"
+    },
+    "mercado": {
+      "type": "string"
+    },
+    "dor": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -42,5 +42,9 @@
   "ProjetoCanvas": {
     "dataSource": "db",
     "public": true
+  },
+  "ProjetoMySql": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
