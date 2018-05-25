@@ -44,11 +44,15 @@
     "public": true
   },
   "ProjetoMySql": {
-    "dataSource": "mysqlDS",
+    "dataSource": "db",
     "public": true
   },
   "ProjetoCanvasMySql": {
-    "dataSource": "mysqlDS",
+    "dataSource": "db",
+    "public": true
+  },
+  "MvpCanvasMySql": {
+    "dataSource": "db",
     "public": true
   }
 }
