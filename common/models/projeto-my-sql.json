@@ -29,6 +29,14 @@
       "type": "hasMany",
       "model": "ProjetoCanvasMySql",
       "foreignKey": ""
+    },
+    "mvpCanvasMySqls": {
+      "type": "hasMany",
+      "model": "MvpCanvasMySql",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [],

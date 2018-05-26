@@ -11,6 +11,5 @@
     "name": "mysqlDS",
     "user": "lojadigicom30",
     "connector": "mysql"
-    
   }
 }

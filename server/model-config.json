@@ -52,7 +52,7 @@
     "public": true
   },
   "MvpCanvasMySql": {
-    "dataSource": "db",
+    "dataSource": "mysqlDS",
     "public": true
   }
 }

@@ -19,13 +19,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    "mvpCanvasMySqls": {
-      "type": "hasMany",
-      "model": "MvpCanvasMySql",
-      "foreignKey": ""
-    }
-  },
+  "relations": [],
   "acls": [],
   "methods": {}
 }
