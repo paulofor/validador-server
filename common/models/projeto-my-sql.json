@@ -37,6 +37,14 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "ganhoDorCanvasMySqls": {
+      "type": "hasMany",
+      "model": "GanhoDorCanvasMySql",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [],

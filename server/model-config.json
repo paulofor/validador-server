@@ -54,5 +54,9 @@
   "MvpCanvasMySql": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "GanhoDorCanvasMySql": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "ProjetoCanvasMySql",
+  "name": "GanhoDorCanvasMySql",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
