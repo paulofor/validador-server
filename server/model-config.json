@@ -66,5 +66,9 @@
   "ItemValidacaoPagina": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "RegistroInteresse": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

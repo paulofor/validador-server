@@ -22,6 +22,14 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "registroInteresses": {
+      "type": "hasMany",
+      "model": "RegistroInteresse",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [],
