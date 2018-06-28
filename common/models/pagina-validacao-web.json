@@ -1,5 +1,5 @@
 {
-  "name": "ProjetoCanvasMySql",
+  "name": "PaginaValidacaoWeb",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -9,13 +9,8 @@
     "id": {
       "type": "number"
     },
-    "descricao": {
-      "type": "string",
-      "required": true
-    },
-    "tipo": {
-      "type": "string",
-      "required": true
+    "nome": {
+      "type": "string"
     }
   },
   "validations": [],

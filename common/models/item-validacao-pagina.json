@@ -1,0 +1,44 @@
+{
+  "name": "ItemValidacaoPagina",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "urlImagem": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "descricaoSimples": {
+      "type": "string"
+    },
+    "bullet1": {
+      "type": "string"
+    },
+    "bullet2": {
+      "type": "string"
+    },
+    "bullet3": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "projetoCanvasMySql": {
+      "type": "belongsTo",
+      "model": "ProjetoCanvasMySql",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

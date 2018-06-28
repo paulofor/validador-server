@@ -58,5 +58,13 @@
   "GanhoDorCanvasMySql": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "PaginaValidacaoWeb": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "ItemValidacaoPagina": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
