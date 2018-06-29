@@ -70,5 +70,9 @@
   "RegistroInteresse": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "ProjetoExemplo": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
