@@ -17,7 +17,29 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "projetoCanvasMySqls": {
+      "type": "hasMany",
+      "model": "ProjetoCanvasMySql",
+      "foreignKey": ""
+    },
+    "mvpCanvasMySqls": {
+      "type": "hasMany",
+      "model": "MvpCanvasMySql",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "ganhoDorCanvasMySqls": {
+      "type": "hasMany",
+      "model": "GanhoDorCanvasMySql",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "acls": [],
   "methods": {}
 }
