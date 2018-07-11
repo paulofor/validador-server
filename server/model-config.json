@@ -74,5 +74,9 @@
   "ProjetoExemplo": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "Receita": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

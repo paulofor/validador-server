@@ -1,0 +1,38 @@
+{
+  "name": "Receita",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "precoUnitario": {
+      "type": "number"
+    },
+    "quantidadeMes": {
+      "type": "number"
+    },
+    "tipo": {
+      "type": "string"
+    },
+    "precentualItem": {
+      "type": "number"
+    },
+    "nomeItem": {
+      "type": "string"
+    },
+    "valorMedioItem": {
+      "type": "number"
+    },
+    "quantidadeItemMes": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

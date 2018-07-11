@@ -35,6 +35,14 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "receita": {
+      "type": "hasMany",
+      "model": "Receita",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [],
