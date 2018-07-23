@@ -9,7 +9,22 @@
     "id": {
       "type": "number"
     },
-    "nome": {
+    "mensagemPrincipal": {
+      "type": "string"
+    },
+    "mensagemSecundaria": {
+      "type": "string"
+    },
+    "botaoAcao": {
+      "type": "string"
+    },
+    "imagemFundo" : {
+      "type": "string"
+    },
+    "corBase" : {
+      "type": "string"
+    },
+    "marcaLogo" : {
       "type": "string"
     }
   },
