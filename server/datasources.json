@@ -10,6 +10,18 @@
     "password": "aspnet007",
     "name": "mysqlDS",
     "user": "lojadigicom30",
-    "connector": "mysql"
+    "connector": "memory"
+  },
+  "storage": {
+    "name": "storage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./server/storage"
+  },
+  "myfile": {
+    "name": "myfile",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./server/storage"
   }
 }

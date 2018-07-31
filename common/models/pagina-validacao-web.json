@@ -18,13 +18,13 @@
     "botaoAcao": {
       "type": "string"
     },
-    "imagemFundo" : {
+    "imagemFundo": {
       "type": "string"
     },
-    "corBase" : {
+    "corBase": {
       "type": "string"
     },
-    "marcaLogo" : {
+    "marcaLogo": {
       "type": "string"
     }
   },

@@ -78,5 +78,9 @@
   "Receita": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "container": {
+    "dataSource": "storage",
+    "public": true
   }
 }
