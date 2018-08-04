@@ -1,5 +1,33 @@
 'use strict';
 
-module.exports = function(Itemvalidacaopagina) {
+module.exports = function (Itemvalidacaopagina) {
+
+
+
+/**
+     * retorna o nome de imagem para o proximo registro
+     * @param {number} idCliente Id do Cliente
+     * @param {Function(Error, string)} callback
+     */
+
+    Itemvalidacaopagina.proximoNomeImagem = function (callback) {
+
+        var ds = Itemvalidacaopagina.dataSource;
+        var sql = "SELECT (max(id) + 1) as novoId FROM ItemValidacaoPagina";
+        var nomeImagem = '';
+        ds.connector.query(sql, function (err, result) {
+            //console.log(result);
+            if (err) console.error(err);
+            else nomeImagem = 'img' + result[0].novoId + '.jpg';
+            callback(err, nomeImagem);
+
+        });
+
+    };
+
+
+    
 
 };
+
+

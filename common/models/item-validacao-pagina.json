@@ -43,5 +43,26 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "proximoNomeImagem": {
+      "accepts": [
+      
+      ],
+      "returns": [
+        {
+          "arg": "nomeImagem",
+          "type": "string",
+          "root": false,
+          "description": "Nome da proxima imagem do cliente"
+        }
+      ],
+      "description": "retorna o nome de imagem para o proximo registro",
+      "http": [
+        {
+          "path": "/proximoNomeImagem",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }
