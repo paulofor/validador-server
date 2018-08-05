@@ -16,12 +16,12 @@
     "name": "storage",
     "connector": "loopback-component-storage",
     "provider": "filesystem",
-    "root": "./server/storage"
+    "root": "/home/validacao/apps_nodejs/validador-server/server/storage"
   },
   "myfile": {
     "name": "myfile",
     "connector": "loopback-component-storage",
     "provider": "filesystem",
-    "root": "./server/storage"
+    "root": "/home/validacao/apps_nodejs/validador-server/server/storage"
   }
 }
