@@ -45,6 +45,14 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "projeto": {
+      "type": "belongsTo",
+      "model": "ProjetoMySql",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [],

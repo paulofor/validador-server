@@ -45,9 +45,7 @@
   "acls": [],
   "methods": {
     "proximoNomeImagem": {
-      "accepts": [
-      
-      ],
+      "accepts": [],
       "returns": [
         {
           "arg": "nomeImagem",
