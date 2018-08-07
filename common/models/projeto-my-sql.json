@@ -45,6 +45,14 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "paginaValidacaoWebs": {
+      "type": "hasMany",
+      "model": "PaginaValidacaoWeb",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [],
