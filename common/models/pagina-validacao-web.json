@@ -49,7 +49,7 @@
     "projeto": {
       "type": "belongsTo",
       "model": "ProjetoMySql",
-      "foreignKey": "",
+      "foreignKey": "projetoMySqlId",
       "options": {
         "nestRemoting": true
       }
