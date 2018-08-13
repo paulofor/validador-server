@@ -61,6 +61,31 @@
           "verb": "get"
         }
       ]
+    },
+    "disponiveisPorProjeto": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": "Id do Projeto para pesquisa"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaItens",
+          "type": "array",
+          "root": false,
+          "description": "Itens de Validacao disponiveis"
+        }
+      ],
+      "description": "Retorna os itens disponiveis para um projeto",
+      "http": [
+        {
+          "path": "DisponiveisProjeto",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
