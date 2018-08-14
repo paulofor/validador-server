@@ -36,8 +36,9 @@ module.exports = function (Itemvalidacaopagina) {
         var listaItens = [];
         var ds = Itemvalidacaopagina.dataSource;
         var sql = "select ItemValidacaoPagina.* from ItemValidacaoPagina  " +
+            " inner join ProjetoCanvasMySql on projetoCanvasMySqlId = ProjetoCanvasMySql.id " +
             " where paginaValidacaoWebId is null  " +
-            " and projetoCanvasMySqlId = " + idProjeto;
+            " and projetoMySqlId = " + idProjeto;
         ds.connector.query(sql, function (err, result) {
             //console.log(result);
             if (err) console.error(err);
