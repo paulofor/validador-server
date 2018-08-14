@@ -82,7 +82,7 @@
       "description": "Retorna os itens disponiveis para um projeto",
       "http": [
         {
-          "path": "DisponiveisProjeto",
+          "path": "/disponiveisProjeto",
           "verb": "get"
         }
       ]

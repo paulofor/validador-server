@@ -4,11 +4,11 @@ module.exports = function (Itemvalidacaopagina) {
 
 
 
-/**
-     * retorna o nome de imagem para o proximo registro
-     * @param {number} idCliente Id do Cliente
-     * @param {Function(Error, string)} callback
-     */
+    /**
+         * retorna o nome de imagem para o proximo registro
+         * @param {number} idCliente Id do Cliente
+         * @param {Function(Error, string)} callback
+         */
 
     Itemvalidacaopagina.proximoNomeImagem = function (callback) {
 
@@ -26,7 +26,17 @@ module.exports = function (Itemvalidacaopagina) {
     };
 
 
-    
+    /**
+    * teste
+    * @param {number} idProjeto muito bom
+    * @param {Function(Error, array)} callback
+    */
+
+    Itemvalidacaopagina.disponiveisPorProjeto = function (idProjeto, callback) {
+        var listaItens = [] ;
+        // TODO
+        callback(null, listaItens);
+    };
 
 };
 
