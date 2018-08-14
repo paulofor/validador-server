@@ -34,8 +34,9 @@ module.exports = function (Itemvalidacaopagina) {
 
     Itemvalidacaopagina.disponiveisPorProjeto = function (idProjeto, callback) {
         var listaItens = [];
+        var ds = Itemvalidacaopagina.dataSource;
         var sql = "select ItemValidacaoPagina.* from ItemValidacaoPagina  " +
-            " where paginaValidacaoWebId is null  "
+            " where paginaValidacaoWebId is null  " +
             " and projetoCanvasMySqlId = " + idProjeto;
         ds.connector.query(sql, function (err, result) {
             //console.log(result);
