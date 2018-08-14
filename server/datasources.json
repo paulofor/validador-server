@@ -10,7 +10,7 @@
     "password": "aspnet007",
     "name": "mysqlDS",
     "user": "lojadigicom30",
-    "connector": "memory"
+    "connector": "mysql"
   },
   "storage": {
     "name": "storage",

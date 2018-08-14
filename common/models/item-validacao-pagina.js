@@ -33,9 +33,17 @@ module.exports = function (Itemvalidacaopagina) {
     */
 
     Itemvalidacaopagina.disponiveisPorProjeto = function (idProjeto, callback) {
-        var listaItens = [] ;
-        // TODO
-        callback(null, listaItens);
+        var listaItens = [];
+        var sql = "select ItemValidacaoPagina.* from ItemValidacaoPagina  " +
+            " where paginaValidacaoWebId is null  "
+            " and projetoCanvasMySqlId = " + idProjeto;
+        ds.connector.query(sql, function (err, result) {
+            //console.log(result);
+            if (err) console.error(err);
+            else listaItens = result;
+            callback(err, listaItens);
+
+        });
     };
 
 };
