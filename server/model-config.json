@@ -82,5 +82,9 @@
   "container": {
     "dataSource": "storage",
     "public": true
+  },
+  "Visitante": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

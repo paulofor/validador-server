@@ -12,15 +12,27 @@
     "nome": {
       "type": "string"
     },
-    "data": {
+    "dataHora": {
       "type": "date"
     },
     "email": {
       "type": "string"
+    },
+    "mensagem": {
+      "type": "string"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "visitante": {
+      "type": "belongsTo",
+      "model": "Visitante",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "acls": [],
   "methods": {}
 }
