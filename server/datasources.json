@@ -10,12 +10,12 @@
     "password": "aspnet007",
     "name": "mysqlDS",
     "user": "lojadigicom30",
-    "connector": "memory"
+    "connector": "mysql"
   },
   "storage": {
     "name": "storage",
     "connector": "loopback-component-storage",
     "provider": "filesystem",
-    "root": "./server/storage"
+    "root": "/home/validacao/apps_nodejs/validador-server/server/storage"
   }
 }
