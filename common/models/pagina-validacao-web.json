@@ -26,6 +26,9 @@
     },
     "marcaLogo": {
       "type": "string"
+    },
+    "codigoHash": {
+      "type": "string"
     }
   },
   "validations": [],
