@@ -21,9 +21,6 @@
     "tipo": {
       "type": "string",
       "required": true
-    },
-    "palavraChave" : {
-      "type" : "string"
     }
   },
   "validations": [],
