@@ -29,6 +29,9 @@
     },
     "bullet3": {
       "type": "string"
+    },
+    "mensagemImagem": {
+      "type": "string"
     }
   },
   "validations": [],
