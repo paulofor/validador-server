@@ -37,54 +37,158 @@
   },
   "projeto": {
     "dataSource": "db",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "deleteAll": false,
+          "deleteById": false
+        }
+      }
+    }
   },
   "ProjetoCanvas": {
     "dataSource": "db",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "deleteAll": false,
+          "deleteById": false
+        }
+      }
+    }
   },
   "ProjetoMySql": {
     "dataSource": "mysqlDS",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "deleteAll": false,
+          "deleteById": false
+        }
+      }
+    }
   },
   "ProjetoCanvasMySql": {
     "dataSource": "mysqlDS",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "deleteAll": false,
+          "deleteById": false
+        }
+      }
+    }
   },
   "MvpCanvasMySql": {
     "dataSource": "mysqlDS",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "deleteAll": false,
+          "deleteById": false
+        }
+      }
+    }
   },
   "GanhoDorCanvasMySql": {
     "dataSource": "mysqlDS",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "deleteAll": false,
+          "deleteById": false
+        }
+      }
+    }
   },
   "PaginaValidacaoWeb": {
     "dataSource": "mysqlDS",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "deleteAll": false,
+          "deleteById": false
+        }
+      }
+    }
   },
   "ItemValidacaoPagina": {
     "dataSource": "mysqlDS",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "deleteAll": false,
+          "deleteById": false
+        }
+      }
+    }
   },
   "RegistroInteresse": {
     "dataSource": "mysqlDS",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "deleteAll": false,
+          "deleteById": false
+        }
+      }
+    }
   },
   "ProjetoExemplo": {
     "dataSource": "mysqlDS",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "deleteAll": false,
+          "deleteById": false
+        }
+      }
+    }
   },
   "Receita": {
     "dataSource": "mysqlDS",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "deleteAll": false,
+          "deleteById": false
+        }
+      }
+    }
   },
   "container": {
     "dataSource": "storage",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "deleteAll": false,
+          "deleteById": false
+        }
+      }
+    }
   },
   "Visitante": {
     "dataSource": "mysqlDS",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "deleteAll": false,
+          "deleteById": false
+        }
+      }
+    }
   }
 }

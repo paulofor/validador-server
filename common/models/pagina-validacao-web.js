@@ -2,6 +2,7 @@
 
 const crypto = require('crypto');
 
+
 module.exports = function (Paginavalidacaoweb) {
 
     Paginavalidacaoweb.observe('before save', function updateHash(ctx, next) {
@@ -17,4 +18,4 @@ module.exports = function (Paginavalidacaoweb) {
         }
         next();
     });
-};
+ };
