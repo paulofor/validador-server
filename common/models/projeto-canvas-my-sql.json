@@ -17,8 +17,8 @@
       "type": "string",
       "required": true
     },
-    "palavraChave" : {
-      "type" : "string"
+    "palavraChave": {
+      "type": "string"
     }
   },
   "validations": [],
@@ -42,6 +42,14 @@
     "receita": {
       "type": "hasMany",
       "model": "Receita",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "anuncioAds": {
+      "type": "hasMany",
+      "model": "AnuncioAds",
       "foreignKey": "",
       "options": {
         "nestRemoting": true

@@ -190,5 +190,17 @@
         }
       }
     }
+  },
+  "AnuncioAds": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "CampanhaAds": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "PalavraChaveAds": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

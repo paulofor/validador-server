@@ -1,0 +1,35 @@
+{
+  "name": "AnuncioAds",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "titulo1": {
+      "type": "string"
+    },
+    "titulo2": {
+      "type": "string"
+    },
+    "titulo3": {
+      "type": "string"
+    },
+    "descricao1": {
+      "type": "string"
+    },
+    "descricao2": {
+      "type": "string"
+    },
+    "idAds": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

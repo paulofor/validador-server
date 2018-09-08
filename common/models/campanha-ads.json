@@ -1,0 +1,64 @@
+{
+  "name": "CampanhaAds",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "idAds": {
+      "type": "string"
+    },
+    "nome": {
+      "type": "string"
+    },
+    "dataInicial": {
+      "type": "date"
+    },
+    "dataFinal": {
+      "type": "date"
+    },
+    "quantidadeImpressao": {
+      "type": "number"
+    },
+    "quantidadeClique": {
+      "type": "number"
+    },
+    "quantidadeConversao": {
+      "type": "number"
+    },
+    "orcamentoDia": {
+      "type": "number"
+    },
+    "orcamentoTotalPlanejado": {
+      "type": "number"
+    },
+    "orcamentoTotalExecutado": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "anuncioAds": {
+      "type": "hasAndBelongsToMany",
+      "model": "AnuncioAds",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "palavraChaveAds": {
+      "type": "hasAndBelongsToMany",
+      "model": "PalavraChaveAds",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
