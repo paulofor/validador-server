@@ -202,5 +202,13 @@
   "PalavraChaveAds": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "aplicacao": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "atributo_entidade": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

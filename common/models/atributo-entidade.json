@@ -1,0 +1,35 @@
+{
+  "name": "atributo_entidade",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_atributo_entidade": {
+      "type": "number"
+    },
+    "nome": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    },
+    "obrigatorio": {
+      "type": "boolean"
+    },
+    "editavel": {
+      "type": "boolean"
+    },
+    "label_tela": {
+      "type": "string"
+    },
+    "ordenacao_tela": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

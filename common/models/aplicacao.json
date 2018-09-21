@@ -1,0 +1,29 @@
+{
+  "name": "aplicacao",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_aplicacao": {
+      "type": "number"
+    },
+    "nome": {
+      "type": "string"
+    },
+    "diretorio": {
+      "type": "string"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "diretorio_java": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
