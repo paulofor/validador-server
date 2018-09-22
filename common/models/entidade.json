@@ -8,7 +8,7 @@
   "properties": {
     "id_entidade": {
       "type": "number",
-      "id" : true
+      "id": true
     },
     "nome": {
       "type": "string"
