@@ -210,5 +210,9 @@
   "atributo_entidade": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "entidade": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

@@ -1,0 +1,48 @@
+{
+  "name": "entidade",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_entidade": {
+      "type": "number",
+      "id" : true
+    },
+    "nome": {
+      "type": "string"
+    },
+    "id_chave": {
+      "type": "number"
+    },
+    "classe_pai": {
+      "type": "string"
+    },
+    "ordenacao": {
+      "type": "number"
+    },
+    "associativa": {
+      "type": "boolean"
+    },
+    "id_atributo_identificador": {
+      "type": "number"
+    },
+    "id_entidade_pai": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "atributoEntidades": {
+      "type": "hasMany",
+      "model": "atributo_entidade",
+      "foreignKey": "id_entidade",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

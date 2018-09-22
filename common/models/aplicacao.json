@@ -32,6 +32,14 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "entidades": {
+      "type": "hasMany",
+      "model": "entidade",
+      "foreignKey": "id_aplicacao",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [],
