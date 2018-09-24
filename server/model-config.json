@@ -214,5 +214,13 @@
   "entidade": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "GrupoPalavraChave": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "ModeloCampanhaAds": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

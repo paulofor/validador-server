@@ -54,6 +54,14 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "grupoPalavraChaves": {
+      "type": "hasMany",
+      "model": "GrupoPalavraChave",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [],

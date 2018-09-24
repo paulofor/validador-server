@@ -1,0 +1,23 @@
+{
+  "name": "ModeloCampanhaAds",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "periodo": {
+      "type": "string"
+    },
+    "custoDia": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

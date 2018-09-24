@@ -1,0 +1,26 @@
+{
+  "name": "GrupoPalavraChave",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "fechada": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "palavraChaveAds": {
+      "type": "hasMany",
+      "model": "PalavraChaveAds",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
