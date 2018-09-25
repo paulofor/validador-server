@@ -65,43 +65,5 @@
     }
   },
   "acls": [],
-  "methods": {
-    "ItensAjudaEntidade": {
-      "accepts": [
-        {
-          "arg": "idProjeto",
-          "type": "number",
-          "required": true,
-          "description": ""
-        }
-      ],
-      "returns": [
-        {
-          "arg": "listaMvpCanvas",
-          "type": "array",
-          "root": false,
-          "description": "listaGanhoDorCanvas"
-        },
-        {
-          "arg": "listaGanhoDorCanvas",
-          "type": "array",
-          "root": false,
-          "description": ""
-        },
-        {
-          "arg": "listaProjetoCanvas",
-          "type": "array",
-          "root": false,
-          "description": "Lista de itens do canvas de modelo de negocio"
-        }
-      ],
-      "description": "Itens de modelos canvas que vao ajudar a construir as entidades do sistema gerador",
-      "http": [
-        {
-          "path": "itensAjudaEntidade",
-          "verb": "get"
-        }
-      ]
-    }
-  }
+  "methods": {}
 }

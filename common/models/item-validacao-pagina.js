@@ -40,7 +40,7 @@ module.exports = function (Itemvalidacaopagina) {
             " where paginaValidacaoWebId is null  " +
             " and projetoMySqlId = " + idProjeto;
         ds.connector.query(sql, function (err, result) {
-            //console.log(result);
+            console.log(JSON.stringify(result));
             if (err) console.error(err);
             else listaItens = result;
             callback(err, listaItens);

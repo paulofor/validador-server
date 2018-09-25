@@ -29,7 +29,16 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "projetoCanvasMySql": {
+      "type": "belongsTo",
+      "model": "ProjetoCanvasMySql",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "acls": [],
   "methods": {}
 }
