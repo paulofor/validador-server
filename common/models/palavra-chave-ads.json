@@ -15,7 +15,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "ganhoDorCanvasMySql": {
+      "type": "belongsTo",
+      "model": "GanhoDorCanvasMySql",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
