@@ -11,13 +11,15 @@ module.exports = function(Projetomysql) {
         var listaMvpCanvas = [], listaGanhoDorCanvas  = [], listaProjetoCanvas = [];
         // TODO
         Projetomysql.findById(idProjeto, { "include": "mvpCanvasMySqls" }, function (err, modelInstance) {
+            console.log('Erro:' , err);
             console.log('Valor: ' , JSON.stringify(modelInstance));
             var lista = modelInstance.mvpCanvasMySqls;
-            console.log('Lista:' , lista);
+            console.log('1:' , modelInstance);
+            console.log('2:' + modelInstance.toJSON().mvpCanvasMySqls);
             //modelInstance has properties here and can be returned to
             //the API call using the callback, for example:
             
-            listaMvpCanvas = modelInstance;
+            listaMvpCanvas = modelInstance.toJSON().mvpCanvasMySqls;
             callback(null, listaMvpCanvas, listaGanhoDorCanvas, listaProjetoCanvas);
         });
     }
