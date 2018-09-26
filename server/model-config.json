@@ -67,8 +67,14 @@
         "sharedMethods": {
           "deleteAll": false,
           "deleteById": false,
-          "__destroy__ganhoDorCanvasMySqls" : false,
-          "__destroyById__ganhoDorCanvasMySqls" : false
+          "prototype.__delete__ganhoDorCanvasMySqls" : false,
+          "prototype.__destroyById__ganhoDorCanvasMySqls" : false,
+          "prototype.__delete__mvpCanvasMySqls" : false,
+          "prototype.__destroyById__mvpCanvasMySqls" : false,
+          "prototype.__delete__projetoCanvasMySqls" : false,
+          "prototype.__destroyById__projetoCanvasMySqls" : false,
+          "prototype.__delete__paginaValidacaoWebs" : false,
+          "prototype.__destroyById__paginaValidacaoWebs" : false
         }
       }
     }
@@ -214,10 +220,6 @@
     "public": true
   },
   "entidade": {
-    "dataSource": "mysqlDS",
-    "public": true
-  },
-  "GrupoPalavraChave": {
     "dataSource": "mysqlDS",
     "public": true
   },
