@@ -9,18 +9,31 @@ module.exports = function(Projetomysql) {
 
      Projetomysql.ItensAjudaEntidade = function (idProjeto, callback) {
         var listaMvpCanvas = [], listaGanhoDorCanvas  = [], listaProjetoCanvas = [];
-        // TODO
-        Projetomysql.findById(idProjeto, { "include": "mvpCanvasMySqls" }, function (err, modelInstance) {
-            console.log('Erro:' , err);
-            console.log('Valor: ' , JSON.stringify(modelInstance));
-            var lista = modelInstance.mvpCanvasMySqls;
-            console.log('1:' , modelInstance);
-            console.log('2:' + modelInstance.toJSON().mvpCanvasMySqls);
-            //modelInstance has properties here and can be returned to
-            //the API call using the callback, for example:
+
+        Projetomysql.findById(idProjeto, { "include": "mvpCanvasMySqls" , "where" : {"tipo" : "JORNADA"} }, function (err, modelInstance) {
+            console.log(modelInstance);
+            console.log(err);
+            if (!err) {
+                listaMvpCanvas = modelInstance.toJSON().mvpCanvasMySqls;
+                Projetomysql.findById(idProjeto,  { "include": "ganhoDorCanvasMySqls" } , (err, result) => {
+                    if (!err) {
+                        listaGanhoDorCanvas = result.toJSON().ganhoDorCanvasMySqls;
+                        Projetomysql.findById(idProjeto,  { "include": "projetoCanvasMySqls" ,  "where" : {"tipo" : "VALOR"} } , (err,result) => {
+                            if (!err) {
+                                listaProjetoCanvas = result.toJSON().projetoCanvasMySqls;
+                                callback(null, listaMvpCanvas, listaGanhoDorCanvas, listaProjetoCanvas);
+                            } else {
+                                callback(null, listaMvpCanvas, listaGanhoDorCanvas, listaProjetoCanvas);
+                            }
+                        })
+                    } else {
+                        callback(null, listaMvpCanvas, listaGanhoDorCanvas, listaProjetoCanvas);
+                    }
+                })
+            } else {
+                callback(null, listaMvpCanvas, listaGanhoDorCanvas, listaProjetoCanvas);
+            }
             
-            listaMvpCanvas = modelInstance.toJSON().mvpCanvasMySqls;
-            callback(null, listaMvpCanvas, listaGanhoDorCanvas, listaProjetoCanvas);
         });
     }
 };
