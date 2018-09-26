@@ -19,7 +19,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "palavraChaveAds": {
+      "type": "hasMany",
+      "model": "PalavraChaveAds",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
