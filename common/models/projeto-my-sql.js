@@ -10,15 +10,15 @@ module.exports = function(Projetomysql) {
      Projetomysql.ItensAjudaEntidade = function (idProjeto, callback) {
         var listaMvpCanvas = [], listaGanhoDorCanvas  = [], listaProjetoCanvas = [];
 
-        Projetomysql.findById(idProjeto, { "include": "mvpCanvasMySqls" , "where" : {"tipo" : "JORNADA"} }, function (err, modelInstance) {
+        Projetomysql.findById(idProjeto, {"include" : {"relation": "mvpCanvasMySqls", "scope" : {"where" : { "or" : [{"tipo":"JORNADA"}] }}}}, function (err, modelInstance) {
             console.log(modelInstance);
             console.log(err);
             if (!err) {
                 listaMvpCanvas = modelInstance.toJSON().mvpCanvasMySqls;
-                Projetomysql.findById(idProjeto,  { "include": "ganhoDorCanvasMySqls" } , (err, result) => {
+                Projetomysql.findById(idProjeto, {"include" : {"relation": "ganhoDorCanvasMySqls", "scope" : {"where" : {"tipo":"PRODUTO_SERVICO"} }}}, (err, result) => {
                     if (!err) {
                         listaGanhoDorCanvas = result.toJSON().ganhoDorCanvasMySqls;
-                        Projetomysql.findById(idProjeto,  { "include": "projetoCanvasMySqls" ,  "where" : {"tipo" : "VALOR"} } , (err,result) => {
+                        Projetomysql.findById(idProjeto, {"include" : {"relation": "projetoCanvasMySqls", "scope" : {"where" : {"tipo":"VALOR"} }}} , (err,result) => {
                             if (!err) {
                                 listaProjetoCanvas = result.toJSON().projetoCanvasMySqls;
                                 callback(null, listaMvpCanvas, listaGanhoDorCanvas, listaProjetoCanvas);
