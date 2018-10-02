@@ -62,5 +62,24 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "listaParaPublicar": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "listaCampanha",
+          "type": "array",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "lista de campanhas para ser publicada online",
+      "http": [
+        {
+          "path": "/listaParaPublicar",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }
