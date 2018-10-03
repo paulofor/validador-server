@@ -40,5 +40,31 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "paraCampanhaPorIdPagina": {
+      "accepts": [
+        {
+          "arg": "idPagina",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaAnuncioAds",
+          "type": "array",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/paraCampanhaPorIdPagina",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }
