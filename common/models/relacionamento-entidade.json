@@ -1,0 +1,45 @@
+{
+  "name": "relacionamento_entidade",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_relacionamento_entidade": {
+      "type": "number",
+      "id": true
+    },
+    "qtde_entidade1": {
+      "type": "string"
+    },
+    "qtde_entidade2": {
+      "type": "string"
+    },
+    "nome1": {
+      "type": "string"
+    },
+    "nome2": {
+      "type": "string"
+    },
+    "editavel": {
+      "type": "boolean"
+    },
+    "label_tela": {
+      "type": "string"
+    },
+    "tipo_apresentacao": {
+      "type": "string"
+    },
+    "obrigatorio": {
+      "type": "boolean"
+    },
+    "dependente": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

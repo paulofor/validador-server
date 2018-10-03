@@ -41,8 +41,44 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "rel1": {
+      "type": "hasMany",
+      "model": "relacionamento_entidade",
+      "foreignKey": "id_entidade1"
+    },
+    "rel2": {
+      "type": "hasMany",
+      "model": "relacionamento_entidade",
+      "foreignKey": "id_entidade2"
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "listaCompletaRelacionemnto": {
+      "accepts": [
+        {
+          "arg": "idEntidade",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaRelacionamento",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/listaCompletaRelacionamento",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }
