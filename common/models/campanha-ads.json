@@ -69,7 +69,7 @@
         {
           "arg": "listaCampanha",
           "type": "array",
-          "root": false,
+          "root": true,
           "description": ""
         }
       ],
