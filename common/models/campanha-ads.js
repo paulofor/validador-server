@@ -9,7 +9,7 @@ module.exports = function (Campanhaads) {
 
     Campanhaads.listaParaPublicar = function (callback) {
         var listaCampanha;
-        Campanhaads.find({"include":"anuncioAds", "where" : { "id" : "1" }}, (err, result) => {
+        Campanhaads.find({"where" : { "id" : "1" }, "include" : [{"relation":"anuncioAds"} , {"relation":"palavraChaveAds"}] }, (err, result) => {
             listaCampanha = result;
             callback(err, listaCampanha);
         })

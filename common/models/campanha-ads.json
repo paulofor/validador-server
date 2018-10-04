@@ -47,11 +47,6 @@
       "model": "AnuncioAds",
       "foreignKey": ""
     },
-    "grupoPalavraChaves": {
-      "type": "hasAndBelongsToMany",
-      "model": "GrupoPalavraChave",
-      "foreignKey": ""
-    },
     "modeloCampanhaAds": {
       "type": "belongsTo",
       "model": "ModeloCampanhaAds",
@@ -59,6 +54,11 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "palavraChaveAds": {
+      "type": "hasAndBelongsToMany",
+      "model": "PalavraChaveAds",
+      "foreignKey": ""
     }
   },
   "acls": [],
