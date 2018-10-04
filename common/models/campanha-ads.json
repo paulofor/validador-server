@@ -38,6 +38,9 @@
     },
     "orcamentoTotalExecutado": {
       "type": "number"
+    },
+    "urlAlvo": {
+      "type": "string"
     }
   },
   "validations": [],
