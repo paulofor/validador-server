@@ -1,0 +1,85 @@
+{
+  "name": "CampanhaAds",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "idAds": {
+      "type": "string"
+    },
+    "nome": {
+      "type": "string"
+    },
+    "dataInicial": {
+      "type": "date"
+    },
+    "dataFinal": {
+      "type": "date"
+    },
+    "quantidadeImpressao": {
+      "type": "number"
+    },
+    "quantidadeClique": {
+      "type": "number"
+    },
+    "quantidadeConversao": {
+      "type": "number"
+    },
+    "orcamentoDia": {
+      "type": "number"
+    },
+    "orcamentoTotalPlanejado": {
+      "type": "number"
+    },
+    "orcamentoTotalExecutado": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "anuncioAds": {
+      "type": "hasAndBelongsToMany",
+      "model": "AnuncioAds",
+      "foreignKey": ""
+    },
+    "modeloCampanhaAds": {
+      "type": "belongsTo",
+      "model": "ModeloCampanhaAds",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "palavraChaveAds": {
+      "type": "hasAndBelongsToMany",
+      "model": "PalavraChaveAds",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {
+    "listaParaPublicar": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "listaCampanha",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "lista de campanhas para ser publicada online",
+      "http": [
+        {
+          "path": "/listaParaPublicar",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}
