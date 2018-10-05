@@ -39,7 +39,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "entidade1": {
+      "type": "belongsTo",
+      "model": "entidade",
+      "foreignKey": "id_entidade1"
+    },
+    "entidade2": {
+      "type": "belongsTo",
+      "model": "entidade",
+      "foreignKey": "id_entidade2"
+    }
+  },
   "acls": [],
   "methods": {}
 }

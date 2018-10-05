@@ -10,8 +10,9 @@ module.exports = function (Entidade) {
  */
 
     Entidade.listaCompletaRelacionemnto = function (idEntidade, callback) {
-        var listaRelacionamento;
-        // TODO
-        callback(null, listaRelacionamento);
+        Entidade.findById(idEntidade, {"include": [{ "relation": "rel1" }, { "relation": "rel2" }] }, (err, result) => {
+            listaRelacionamento = result;
+            callback(null, listaRelacionamento);
+        })
     };
 };
