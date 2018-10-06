@@ -54,31 +54,5 @@
     }
   },
   "acls": [],
-  "methods": {
-    "listaCompletaRelacionemnto": {
-      "accepts": [
-        {
-          "arg": "idEntidade",
-          "type": "number",
-          "required": true,
-          "description": ""
-        }
-      ],
-      "returns": [
-        {
-          "arg": "listaRelacionamento",
-          "type": "array",
-          "root": true,
-          "description": ""
-        }
-      ],
-      "description": "",
-      "http": [
-        {
-          "path": "/listaCompletaRelacionamento",
-          "verb": "get"
-        }
-      ]
-    }
-  }
+  "methods": {}
 }

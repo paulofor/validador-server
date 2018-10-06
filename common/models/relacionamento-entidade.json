@@ -52,5 +52,31 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "listaCompletaPorEntidade": {
+      "accepts": [
+        {
+          "arg": "idEntidade",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaRelacionamento",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/listaCompletaPorEntidade",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }
