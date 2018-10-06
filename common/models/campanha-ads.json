@@ -41,6 +41,9 @@
     },
     "urlAlvo": {
       "type": "string"
+    },
+    "finalizadaProducao" : {
+      "type" : "Boolean"
     }
   },
   "validations": [],
