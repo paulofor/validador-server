@@ -86,6 +86,31 @@
           "verb": "get"
         }
       ]
+    },
+    "CriaNovaPorPagina": {
+      "accepts": [
+        {
+          "arg": "idPagina",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "campanha",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Cria uma nova campanha para uma pagina",
+      "http": [
+        {
+          "path": "/criaNovaPorPagina",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
