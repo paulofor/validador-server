@@ -26,9 +26,21 @@ module.exports = function (Campanhaads) {
      */
 
     Campanhaads.CriaNovaPorPagina = function (idPagina, callback) {
-        //var campanha = new CampanhaAds();
-        console.log('Campanha: ' , JSON.stringify(Campanhaads));
-        callback(null, campanha);
+        var campanha = { "nome" : "nova"  , "finalizadaProducao" : false, "paginaValidacaoWebId" : idPagina};
+        Campanhaads.create(campanha, (err, result) => {
+            console.log('Campanha: ' , JSON.stringify(result));
+            var Anuncioads = Campanhaads.app.models.AnuncioAds;
+            for (var ponto in Campanhaads.hasManyRemoting) {
+                console.log(JSON.stringify(ponto));
+            }
+            Anuncioads.paraCampanhaPorIdPagina(idPagina, (err,result) => {
+                //console.log("Lista" , JSON.stringify(result));
+                for (var item of result) {
+                    //console.log("item" , JSON.stringify(item));
+                }
+            })
+            callback(null, result);
+        })
     };
 
 
