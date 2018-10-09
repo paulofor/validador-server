@@ -54,7 +54,7 @@
         {
           "arg": "listaAnuncioAds",
           "type": "array",
-          "root": false,
+          "root": true,
           "description": ""
         }
       ],

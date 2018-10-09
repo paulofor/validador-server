@@ -23,5 +23,31 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "ParaCampanhaPorIdPagina": {
+      "accepts": [
+        {
+          "arg": "idPagina",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaPalavra",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/paraCampanhaPorIdPagina",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }
