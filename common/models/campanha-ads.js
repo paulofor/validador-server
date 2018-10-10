@@ -34,9 +34,9 @@ module.exports = function (Campanhaads) {
                 console.log(JSON.stringify(ponto));
             }
             Anuncioads.paraCampanhaPorIdPagina(idPagina, (err,result) => {
-                //console.log("Lista" , JSON.stringify(result));
+                console.log("Lista" , JSON.stringify(result));
                 for (var item of result) {
-                    //console.log("item" , JSON.stringify(item));
+                    console.log("item" , JSON.stringify(item));
                 }
             })
             callback(null, result);
