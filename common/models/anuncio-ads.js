@@ -21,6 +21,21 @@ module.exports = function (Anuncioads) {
       else listaAnuncioAds = result;
       callback(err, listaAnuncioAds);
     });
-    
   };
+
+
+
+  /**
+   * Somente para teste
+   * @param {Function(Error, array)} callback
+   */
+
+  Anuncioads.ListaParaTesteCampanha = function (callback) {
+    var listaSaida = [];
+    listaSaida.push({ "id": "1", "titulo1": "xxxx", "titulo2": "zzzz" });
+    listaSaida.push({ "id": "2", "titulo1": "xxxx", "titulo2": "zzzz" });
+    listaSaida.push({ "id": "3", "titulo1": "xxxx", "titulo2": "zzzz" });
+    callback(null, listaSaida);
+  };
+
 };
