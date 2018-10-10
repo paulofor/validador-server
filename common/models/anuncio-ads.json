@@ -65,6 +65,24 @@
           "verb": "get"
         }
       ]
+    },
+    "ListaParaTesteCampanha": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "listaSaida",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Somente para teste",
+      "http": [
+        {
+          "path": "/listaTesteCampanha",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

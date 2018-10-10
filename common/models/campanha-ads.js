@@ -26,20 +26,23 @@ module.exports = function (Campanhaads) {
      */
 
     Campanhaads.CriaNovaPorPagina = function (idPagina, callback) {
-        var campanha = { "nome" : "nova"  , "finalizadaProducao" : false, "paginaValidacaoWebId" : idPagina};
-        Campanhaads.create(campanha, (err, result) => {
-            console.log('Campanha: ' , JSON.stringify(result));
-            var Anuncioads = Campanhaads.app.models.AnuncioAds;
-            for (var ponto in Campanhaads.hasManyRemoting) {
-                console.log(JSON.stringify(ponto));
+        //var teste = new AnuncioAds(null,null);
+        console.log('Campanha: ' , JSON.stringify(Campanhaads));
+        var campanha = { 'nome' : 'teste01' , 'finalizadaProducao' : true};
+        Campanhaads.create(campanha, (err,result) => {
+            var campanhaGrava = result;
+            var anuncioSrv = app.models.AnuncioAds;
+            console.log('Campanhaads.hasAndBelongsToMany=' , Campanhaads.hasAndBelongsToMany);
+            for (var item in Campanhaads.hasAndBelongsToMany) {
+                console.log('Propriedade:' , item);
             }
-            Anuncioads.paraCampanhaPorIdPagina(idPagina, (err,result) => {
-                console.log("Lista" , JSON.stringify(result));
+            //console.log('Anuncio Srv: ', anuncioSrv);
+            anuncioSrv.ListaParaTesteCampanha((err, result) => {
                 for (var item of result) {
-                    console.log("item" , JSON.stringify(item));
+                    //console.log('Item', item);
                 }
+                callback(null, campanha);
             })
-            callback(null, result);
         })
     };
 
