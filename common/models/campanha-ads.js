@@ -26,6 +26,19 @@ module.exports = function (Campanhaads) {
      */
 
     Campanhaads.CriaNovaPorPagina = function (idPagina, callback) {
+        var campanha = { 'nome' : 'teste'};
+        var anuncioSrv = app.models.AnuncioAds;
+        anuncioSrv.ListaParaTesteCampanha((err,result) => {
+            console.log('Lista:' , result);
+
+            campanha.anuncioAds = result;
+            console.log('Campanha' , campanha);
+            Campanhaads.create(campanha, callback);
+        })
+    }
+
+     /*
+    Campanhaads.CriaNovaPorPagina = function (idPagina, callback) {
         //var teste = new AnuncioAds(null,null);
         console.log('Campanha: ' , JSON.stringify(Campanhaads));
         var campanha = { 'nome' : 'teste01' , 'finalizadaProducao' : true};
@@ -39,12 +52,20 @@ module.exports = function (Campanhaads) {
             //console.log('Anuncio Srv: ', anuncioSrv);
             anuncioSrv.ListaParaTesteCampanha((err, result) => {
                 for (var item of result) {
-                    //console.log('Item', item);
+                    console.log('Item', item);
                 }
-                callback(null, campanha);
+                campanhaGrava.nome = "Campanha-" + campanhaGrava.id;
+                campanhaGrava.anuncioAds = result;
+                Campanhaads.update(campanhaGrava, (err, result) => {
+                    console.log('Erro:' , err);
+                    console.log("Resultado: " , JSON.stringify(result));
+                    callback(null, campanhaGrava);
+                })
+                
             })
         })
     };
+    */
 
 
 };
