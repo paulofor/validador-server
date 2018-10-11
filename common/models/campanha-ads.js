@@ -18,6 +18,13 @@ module.exports = function (Campanhaads) {
 
     };
 
+    /*
+    assembly.parts.add(partId,
+  function(err) {
+  ...
+});
+*/
+
 
     /**
      * Cria uma nova campanha para uma pagina
