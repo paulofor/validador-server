@@ -32,9 +32,9 @@ module.exports = function (Anuncioads) {
 
   Anuncioads.ListaParaTesteCampanha = function (callback) {
     var listaSaida = [];
-    listaSaida.push({ "id": "1", "titulo1": "xxxx", "titulo2": "zzzz" });
-    listaSaida.push({ "id": "2", "titulo1": "xxxx", "titulo2": "zzzz" });
-    listaSaida.push({ "id": "3", "titulo1": "xxxx", "titulo2": "zzzz" });
+    listaSaida.push({ "titulo1": "xxxx", "titulo2": "zzzz" });
+    listaSaida.push({ "titulo1": "xxxx", "titulo2": "zzzz" });
+    listaSaida.push({ "titulo1": "xxxx", "titulo2": "zzzz" });
     callback(null, listaSaida);
   };
 
