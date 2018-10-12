@@ -16,11 +16,7 @@ module.exports = function (Anuncioads) {
       " from AnuncioAds " +
       " inner join ItemValidacaoPagina on ItemValidacaoPagina.projetoCanvasMySqlId = AnuncioAds.projetoCanvasMySqlId " +
       " where paginaValidacaoWebId = " + idPagina;
-    ds.connector.query(sql, function (err, result) {
-      if (err) console.error(err);
-      else listaAnuncioAds = result;
-      callback(err, listaAnuncioAds);
-    });
+    ds.connector.query(sql, callback);
   };
 
 

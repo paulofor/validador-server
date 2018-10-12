@@ -6,6 +6,16 @@ module.exports = function (Palavrachaveads) {
 
 
 
+/*
+select PalavraChaveAds.*
+from PalavraChaveAds
+inner join GanhoDorCanvasMySql on GanhoDorCanvasMySql.id = PalavraChaveAds.ganhoDorCanvasMySqlId
+inner join PaginaValidacaoWeb on PaginaValidacaoWeb.projetoMySqlId = GanhoDorCanvasMySql.projetoMySqlId
+where PaginaValidacaoWeb.id = 6
+*/
+
+
+
     /**
  * 
  * @param {number} idPagina 
@@ -13,20 +23,13 @@ module.exports = function (Palavrachaveads) {
  */
 
     Palavrachaveads.ParaCampanhaPorIdPagina = function (idPagina, callback) {
-        var Anuncioads = Palavrachaveads.app.models.AnuncioAds;
-        Anuncioads.find((err, result) => {
-            console.log('Result:', JSON.stringify(result));
-            var listaPalavra;
-            callback(null, listaPalavra);
-        })
-        /*
-        Anuncioads.paraCampanhaPorIdPagina(idPagina), ((err, result) => {
-            console.log('Result:', JSON.stringify(result));
-            var listaPalavra;
-            callback(null, listaPalavra);
-        })
-        */
-
+        var ds = Palavrachaveads.dataSource;
+        var sql = "select PalavraChaveAds.* " +
+                " from PalavraChaveAds " +
+                " inner join GanhoDorCanvasMySql on GanhoDorCanvasMySql.id = PalavraChaveAds.ganhoDorCanvasMySqlId " +
+                " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.projetoMySqlId = GanhoDorCanvasMySql.projetoMySqlId " +
+                " where PaginaValidacaoWeb.id = " + idPagina;
+        ds.connector.query(sql, callback);
     };
 
 };

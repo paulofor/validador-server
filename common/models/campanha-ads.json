@@ -111,6 +111,31 @@
           "verb": "get"
         }
       ]
+    },
+    "ParaPublicarPorId": {
+      "accepts": [
+        {
+          "arg": "idCampanha",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "campanha",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "campanha completa pesquisando por id",
+      "http": [
+        {
+          "path": "/paraPublicarPorId",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
