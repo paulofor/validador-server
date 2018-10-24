@@ -5,6 +5,23 @@ var app = require('../../server/server');
 module.exports = function (Campanhaads) {
 
 
+    /**
+    * 
+    * @param {Function(Error, array)} callback
+    * Quem já fechou e não tem ainda resultado.
+    */
+
+   Campanhaads.ListaParaResultado = function(callback) {
+        var listaCampanha;
+        // TODO
+        var ds = Campanhaads.dataSource;
+        var sql = "select CampanhaAds.* " +
+          " from CampanhaAds " +
+          " where paginaValidacaoWebId = " + idPagina;
+        ds.connector.query(sql, callback);
+    };
+  
+
 
     /**
      * campanha completa pesquisando por id

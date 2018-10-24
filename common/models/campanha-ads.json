@@ -136,6 +136,24 @@
           "verb": "get"
         }
       ]
+    },
+    "ListaParaResultado": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "listaCampanha",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/listaParaResultado",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
