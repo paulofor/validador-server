@@ -16,8 +16,7 @@ module.exports = function (Campanhaads) {
         // TODO
         var ds = Campanhaads.dataSource;
         var sql = "select CampanhaAds.* " +
-          " from CampanhaAds " +
-          " where paginaValidacaoWebId = " + idPagina;
+          " from CampanhaAds ";
         ds.connector.query(sql, callback);
     };
   
