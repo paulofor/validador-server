@@ -51,7 +51,18 @@
     "anuncioAds": {
       "type": "hasAndBelongsToMany",
       "model": "AnuncioAds",
-      "foreignKey": ""
+      "foreignKey": "",
+      "properties" : {
+        "orcamentoTotalExecutado": {
+          "type": "number"
+        },
+        "quantidadeImpressao": {
+          "type": "number"
+        },
+        "quantidadeClique": {
+          "type": "number"
+        }
+      }
     },
     "modeloCampanhaAds": {
       "type": "belongsTo",
