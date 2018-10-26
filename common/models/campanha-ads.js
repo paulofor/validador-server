@@ -16,7 +16,9 @@ module.exports = function (Campanhaads) {
         // TODO
         var ds = Campanhaads.dataSource;
         var sql = "select CampanhaAds.* " +
-          " from CampanhaAds ";
+          " from CampanhaAds " ;
+          //" inner join CampanhaAdsAnuncioAds on CampanhaAdsAnuncioAds.campanhaAdsId = CampanhaAds.id " +
+          //" inner join AnuncioAds on AnuncioAds.Id = CampanhaAdsAnuncioAds.anuncioAdsId";
         ds.connector.query(sql, callback);
     };
   

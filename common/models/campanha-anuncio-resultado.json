@@ -1,0 +1,32 @@
+{
+  "name": "CampanhaAnuncioResultado",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "idAds": {
+      "type": "string"
+    },
+    "quantidadeImpressao": {
+      "type": "number"
+    },
+    "quantidadeClique": {
+      "type": "number"
+    },
+    "custo": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "anuncioAds": {
+      "type": "belongsTo",
+      "model": "AnuncioAds",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

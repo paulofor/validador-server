@@ -230,5 +230,9 @@
   "relacionamento_entidade": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "CampanhaAnuncioResultado": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

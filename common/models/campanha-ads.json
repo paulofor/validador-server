@@ -51,18 +51,7 @@
     "anuncioAds": {
       "type": "hasAndBelongsToMany",
       "model": "AnuncioAds",
-      "foreignKey": "",
-      "properties" : {
-        "orcamentoTotalExecutado": {
-          "type": "number"
-        },
-        "quantidadeImpressao": {
-          "type": "number"
-        },
-        "quantidadeClique": {
-          "type": "number"
-        }
-      }
+      "foreignKey": ""
     },
     "modeloCampanhaAds": {
       "type": "belongsTo",
@@ -75,6 +64,11 @@
     "palavraChaveAds": {
       "type": "hasAndBelongsToMany",
       "model": "PalavraChaveAds",
+      "foreignKey": ""
+    },
+    "campanhaAnuncioResultados": {
+      "type": "hasMany",
+      "model": "CampanhaAnuncioResultado",
       "foreignKey": ""
     }
   },
