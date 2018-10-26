@@ -76,22 +76,31 @@ module.exports = function (Campanhaads) {
             };
             Campanhaads.create(campanha, (err, result) => {
                 var campanhaGrava = result;
-
+                // tratando lista de anuncio
                 app.models.AnuncioAds.paraCampanhaPorIdPagina(idPagina, (err, result) => {
                     for (var item of result) {
                         campanhaGrava.anuncioAds.add(item.id, (err, result) => {
                             console.log('Erro2:', err);
                         })
-                    }
-                })
-                app.models.PalavraChaveAds.ParaCampanhaPorIdPagina(idPagina, (err, result) => {
-                    for (var item of result) {
-                        campanhaGrava.palavraChaveAds.add(item.id, (err, result) => {
-                            console.log('Erro3', err);
+                        var campanhaAnuncio = {
+                            "anuncioAdsId" : item.id,
+                            "campanhaAdsId" : campanhaGrava.id
+                        };
+                        app.models.CampanhaAnuncio.create(campanhaAnuncio, (err,result) => {
+                            console.log('Result' , result);
+                            callback(err, result);
                         })
                     }
                 })
-                callback(err, campanhaGrava);
+                // tratando lista de palavra-chave
+                app.models.PalavraChaveAds.ParaCampanhaPorIdPagina(idPagina, (err, result) => {
+                    for (var item of result) {
+                        campanhaGrava.palavraChaveAds.add(item.id, (err, result) => {
+                            console.log('Erro3:', err);
+                        })
+                    }
+                })
+                //callback(err, campanhaGrava);
             });
 
         })
