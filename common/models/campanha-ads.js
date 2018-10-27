@@ -80,16 +80,17 @@ module.exports = function (Campanhaads) {
                 app.models.AnuncioAds.paraCampanhaPorIdPagina(idPagina, (err, result) => {
                     for (var item of result) {
                         campanhaGrava.anuncioAds.add(item.id, (err, result) => {
-                            console.log('Erro2:', err);
+                            
                         })
+                        // Relacionamento novo
                         var campanhaAnuncio = {
                             "anuncioAdsId" : item.id,
                             "campanhaAdsId" : campanhaGrava.id
                         };
-                        app.models.CampanhaAnuncio.create(campanhaAnuncio, (err,result) => {
-                            console.log('Result' , result);
-                            callback(err, result);
+                        app.models.CampanhaAnuncioResultado.create(campanhaAnuncio, (err,result) => {
+                            
                         })
+                       
                     }
                 })
                 // tratando lista de palavra-chave
@@ -100,7 +101,7 @@ module.exports = function (Campanhaads) {
                         })
                     }
                 })
-                //callback(err, campanhaGrava);
+                callback(err, campanhaGrava);
             });
 
         })
