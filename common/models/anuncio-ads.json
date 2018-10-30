@@ -23,9 +23,6 @@
     },
     "descricao2": {
       "type": "string"
-    },
-    "idAds": {
-      "type": "string"
     }
   },
   "validations": [],
