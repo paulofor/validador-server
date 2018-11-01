@@ -44,7 +44,11 @@ module.exports = function (Campanhaads) {
 
     Campanhaads.listaParaPublicar = function (callback) {
         var listaCampanha;
+<<<<<<< HEAD
         Campanhaads.find({ "where": { "id": "43" }, "include": [{ "relation": "campanhaAnuncioResultados" , "scope" : {"include" : "anuncioAds"} }, { "relation": "palavraChaveAds" }] }, (err, result) => {
+=======
+        Campanhaads.find({ "where": { "id": "40" }, "include": [{ "relation": "campanhaAnuncioResultados", scope : { "include" : "anuncioAds" } }, { "relation": "palavraChaveAds" }] }, (err, result) => {
+>>>>>>> a9df2cf1a1914ff25d278435cb556661f69da8c3
             listaCampanha = result;
             callback(err, listaCampanha);
         })
@@ -81,15 +85,21 @@ module.exports = function (Campanhaads) {
                 app.models.AnuncioAds.paraCampanhaPorIdPagina(idPagina, (err, result) => {
                     for (var item of result) {
                         campanhaGrava.anuncioAds.add(item.id, (err, result) => {
-                            console.log('Erro2:', err);
+                            
                         })
+                        // Relacionamento novo
                         var campanhaAnuncio = {
                             "anuncioAdsId" : item.id,
                             "campanhaAdsId" : campanhaGrava.id
                         };
                         app.models.CampanhaAnuncioResultado.create(campanhaAnuncio, (err,result) => {
+<<<<<<< HEAD
                           
+=======
+                            
+>>>>>>> a9df2cf1a1914ff25d278435cb556661f69da8c3
                         })
+                       
                     }
                 })
                 // tratando lista de palavra-chave
