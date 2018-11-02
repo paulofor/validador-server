@@ -67,6 +67,7 @@ module.exports = function (Campanhaads) {
 
     Campanhaads.CriaNovaPorPagina = function (idPagina, callback) {
         var campanha = { "paginaValidacaoWebId": idPagina, "finalizadaProducao": false };
+
         app.models.PaginaValidacaoWeb.findById(idPagina, (err, pagina) => {
 
             var campanha = {
@@ -88,7 +89,7 @@ module.exports = function (Campanhaads) {
                             "campanhaAdsId" : campanhaGrava.id
                         };
                         app.models.CampanhaAnuncioResultado.create(campanhaAnuncio, (err,result) => {
-                            
+
                         })
                        
                     }
