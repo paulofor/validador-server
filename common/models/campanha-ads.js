@@ -44,7 +44,7 @@ module.exports = function (Campanhaads) {
 
     Campanhaads.listaParaPublicar = function (callback) {
         var listaCampanha;
-        Campanhaads.find({ "where": { "id": "40" }, "include": [{ "relation": "campanhaAnuncioResultados", scope : { "include" : "anuncioAds" } }, { "relation": "palavraChaveAds" }] }, (err, result) => {
+        Campanhaads.find({ "where": { "id": "44" }, "include": [{ "relation": "campanhaAnuncioResultados", scope : { "include" : "anuncioAds" } }, { "relation": "palavraChaveAds" }] }, (err, result) => {
             listaCampanha = result;
             callback(err, listaCampanha);
         })
