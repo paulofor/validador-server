@@ -70,6 +70,11 @@
       "type": "hasMany",
       "model": "CampanhaAnuncioResultado",
       "foreignKey": ""
+    },
+    "campanhaPalavraChaveResultados": {
+      "type": "hasMany",
+      "model": "CampanhaPalavraChaveResultado",
+      "foreignKey": ""
     }
   },
   "acls": [],
@@ -88,6 +93,31 @@
       "http": [
         {
           "path": "/listaParaPublicar",
+          "verb": "get"
+        }
+      ]
+    },
+    "listaParaPublicarTeste": {
+      "accepts": [
+        {
+          "arg": "idCampanha",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaCampanha",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "lista de campanhas para ser publicada teste, recebendo um id",
+      "http": [
+        {
+          "path": "/listaParaPublicarTeste",
           "verb": "get"
         }
       ]

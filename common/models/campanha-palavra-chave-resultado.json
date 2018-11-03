@@ -1,0 +1,37 @@
+{
+  "name": "CampanhaPalavraChaveResultado",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "idAds": {
+      "type": "string"
+    },
+    "quantidadeImpressao": {
+      "type": "number"
+    },
+    "quantidadeClique": {
+      "type": "number"
+    },
+    "custo": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "palavraChaveAds": {
+      "type": "belongsTo",
+      "model": "AnuncioAds",
+      "foreignKey": ""
+    },
+    "campanhaAds": {
+      "type": "belongsTo",
+      "model": "CampanhaAds",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

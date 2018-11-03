@@ -234,5 +234,9 @@
   "CampanhaAnuncioResultado": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "CampanhaPalavraChaveResultado": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

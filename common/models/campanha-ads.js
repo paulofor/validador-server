@@ -35,16 +35,37 @@ module.exports = function (Campanhaads) {
             , callback)
     };
 
+     /**
+     * lista de campanhas para ser publicada online
+     * @param {Function(Error, array)} callback
+     */
+    Campanhaads.listaParaPublicarTeste = function (idCampanha, callback) {
+        var listaCampanha;
+        Campanhaads.find({ "where": { "id": idCampanha }, 
+                            "include": [
+                                { "relation": "campanhaAnuncioResultados", scope : { "include" : "anuncioAds" } }, 
+                                { "relation": "campanhaPalavraChaveResultados", scope: { "include" : "palavraChaveAds "} }
+                            ] }, 
+                        (err, result) => {
+            listaCampanha = result;
+            callback(err, listaCampanha);
+        })
+
+    };
 
 
     /**
      * lista de campanhas para ser publicada online
      * @param {Function(Error, array)} callback
      */
-
     Campanhaads.listaParaPublicar = function (callback) {
         var listaCampanha;
-        Campanhaads.find({ "where": { "id": "45" }, "include": [{ "relation": "campanhaAnuncioResultados", scope : { "include" : "anuncioAds" } }, { "relation": "palavraChaveAds" }] }, (err, result) => {
+        Campanhaads.find({ "where": { "id": "47" }, 
+                            "include": [
+                                { "relation": "campanhaAnuncioResultados", scope : { "include" : "anuncioAds" } }, 
+                                { "relation": "campanhaPalavraChaveResultados", scope: { "include" : "palavraChaveAds "} }
+                            ] }, 
+                        (err, result) => {
             listaCampanha = result;
             callback(err, listaCampanha);
         })
@@ -97,6 +118,13 @@ module.exports = function (Campanhaads) {
                 // tratando lista de palavra-chave
                 app.models.PalavraChaveAds.ParaCampanhaPorIdPagina(idPagina, (err, result) => {
                     for (var item of result) {
+                        var campanhaPalavraChave = {
+                            "palavraChaveAdsId" : item.id,
+                            "campanhaAdsId" : campanhaGrava.id
+                        };
+                        app.models.CampanhaPalavraChaveResultado.create(campanhaPalavraChave, (err, result) => {
+
+                        })
                         campanhaGrava.palavraChaveAds.add(item.id, (err, result) => {
                             console.log('Erro3:', err);
                         })
