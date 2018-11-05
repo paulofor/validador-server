@@ -44,7 +44,7 @@ module.exports = function (Campanhaads) {
         Campanhaads.find({ "where": { "id": idCampanha }, 
                             "include": [
                                 { "relation": "campanhaAnuncioResultados", scope : { "include" : "anuncioAds" } }, 
-                                { "relation": "campanhaPalavraChaveResultados", scope: { "include" : "palavraChaveAds "} }
+                                { "relation": "campanhaPalavraChaveResultados", scope: { "include" : "palavraChaveAds"} }
                             ] }, 
                         (err, result) => {
             listaCampanha = result;
@@ -63,7 +63,7 @@ module.exports = function (Campanhaads) {
         Campanhaads.find({ "where": { "id": "47" }, 
                             "include": [
                                 { "relation": "campanhaAnuncioResultados", scope : { "include" : "anuncioAds" } }, 
-                                { "relation": "campanhaPalavraChaveResultados", scope: { "include" : "palavraChaveAds "} }
+                                { "relation": "campanhaPalavraChaveResultados", scope: { "include" : "palavraChaveAds"} }
                             ] }, 
                         (err, result) => {
             listaCampanha = result;

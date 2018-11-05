@@ -23,7 +23,7 @@
   "relations": {
     "palavraChaveAds": {
       "type": "belongsTo",
-      "model": "AnuncioAds",
+      "model": "PalavraChaveAds",
       "foreignKey": ""
     },
     "campanhaAds": {
