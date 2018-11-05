@@ -1,0 +1,32 @@
+{
+  "name": "TelaWeb",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "objetivo": {
+      "type": "string"
+    },
+    "nome": {
+      "type": "string"
+    },
+    "nomeMenu": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "aplicacao": {
+      "type": "belongsTo",
+      "model": "aplicacao",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

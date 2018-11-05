@@ -40,6 +40,11 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "telaWebs": {
+      "type": "hasMany",
+      "model": "TelaWeb",
+      "foreignKey": ""
     }
   },
   "acls": [],
