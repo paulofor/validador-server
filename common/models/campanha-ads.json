@@ -182,10 +182,35 @@
           "description": ""
         }
       ],
-      "description": "",
+      "description": "vai retornar uma lista com as campanhas que precisam atualizar resultados",
       "http": [
         {
           "path": "/listaParaResultado",
+          "verb": "get"
+        }
+      ]
+    },
+    "ListaParaResultadoTeste": {
+      "accepts": [
+        {
+          "arg": "idCampanha",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaCampanha",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "alternativa de teste",
+      "http": [
+        {
+          "path": "/listaParaResultadoTeste",
           "verb": "get"
         }
       ]

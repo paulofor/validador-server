@@ -242,5 +242,9 @@
   "TelaWeb": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "TelaApp": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

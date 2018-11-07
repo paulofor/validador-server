@@ -11,17 +11,42 @@ module.exports = function (Campanhaads) {
     * Quem já fechou e não tem ainda resultado.
     */
 
-   Campanhaads.ListaParaResultado = function(callback) {
+    Campanhaads.ListaParaResultado = function (callback) {
         var listaCampanha;
-        // TODO
-        var ds = Campanhaads.dataSource;
-        var sql = "select CampanhaAds.* " +
-          " from CampanhaAds " ;
-          //" inner join CampanhaAdsAnuncioAds on CampanhaAdsAnuncioAds.campanhaAdsId = CampanhaAds.id " +
-          //" inner join AnuncioAds on AnuncioAds.Id = CampanhaAdsAnuncioAds.anuncioAdsId";
-        ds.connector.query(sql, callback);
+        Campanhaads.find({
+            "where": { "id": "47" },
+            "include": [
+                { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
+                { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
+            ]
+        },
+            (err, result) => {
+                listaCampanha = result;
+                callback(err, listaCampanha);
+            })
     };
-  
+
+
+    /**
+       * 
+       * @param {Function(Error, array)} callback
+       * Quem já fechou e não tem ainda resultado.
+       */
+
+    Campanhaads.ListaParaResultadoTeste = function (idCampanha, callback) {
+        var listaCampanha;
+        Campanhaads.find({
+            "where": { "id": idCampanha },
+            "include": [
+                { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
+                { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
+            ]
+        },
+            (err, result) => {
+                listaCampanha = result;
+                callback(err, listaCampanha);
+            })
+    };
 
 
     /**
@@ -35,21 +60,23 @@ module.exports = function (Campanhaads) {
             , callback)
     };
 
-     /**
-     * lista de campanhas para ser publicada online
-     * @param {Function(Error, array)} callback
-     */
+    /**
+    * lista de campanhas para ser publicada online
+    * @param {Function(Error, array)} callback
+    */
     Campanhaads.listaParaPublicarTeste = function (idCampanha, callback) {
         var listaCampanha;
-        Campanhaads.find({ "where": { "id": idCampanha }, 
-                            "include": [
-                                { "relation": "campanhaAnuncioResultados", scope : { "include" : "anuncioAds" } }, 
-                                { "relation": "campanhaPalavraChaveResultados", scope: { "include" : "palavraChaveAds"} }
-                            ] }, 
-                        (err, result) => {
-            listaCampanha = result;
-            callback(err, listaCampanha);
-        })
+        Campanhaads.find({
+            "where": { "id": idCampanha },
+            "include": [
+                { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
+                { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
+            ]
+        },
+            (err, result) => {
+                listaCampanha = result;
+                callback(err, listaCampanha);
+            })
 
     };
 
@@ -60,15 +87,17 @@ module.exports = function (Campanhaads) {
      */
     Campanhaads.listaParaPublicar = function (callback) {
         var listaCampanha;
-        Campanhaads.find({ "where": { "id": "47" }, 
-                            "include": [
-                                { "relation": "campanhaAnuncioResultados", scope : { "include" : "anuncioAds" } }, 
-                                { "relation": "campanhaPalavraChaveResultados", scope: { "include" : "palavraChaveAds"} }
-                            ] }, 
-                        (err, result) => {
-            listaCampanha = result;
-            callback(err, listaCampanha);
-        })
+        Campanhaads.find({
+            "where": { "id": "47" },
+            "include": [
+                { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
+                { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
+            ]
+        },
+            (err, result) => {
+                listaCampanha = result;
+                callback(err, listaCampanha);
+            })
 
     };
 
@@ -102,25 +131,25 @@ module.exports = function (Campanhaads) {
                 app.models.AnuncioAds.paraCampanhaPorIdPagina(idPagina, (err, result) => {
                     for (var item of result) {
                         campanhaGrava.anuncioAds.add(item.id, (err, result) => {
-                            
+
                         })
                         // Relacionamento novo
                         var campanhaAnuncio = {
-                            "anuncioAdsId" : item.id,
-                            "campanhaAdsId" : campanhaGrava.id
+                            "anuncioAdsId": item.id,
+                            "campanhaAdsId": campanhaGrava.id
                         };
-                        app.models.CampanhaAnuncioResultado.create(campanhaAnuncio, (err,result) => {
+                        app.models.CampanhaAnuncioResultado.create(campanhaAnuncio, (err, result) => {
 
                         })
-                       
+
                     }
                 })
                 // tratando lista de palavra-chave
                 app.models.PalavraChaveAds.ParaCampanhaPorIdPagina(idPagina, (err, result) => {
                     for (var item of result) {
                         var campanhaPalavraChave = {
-                            "palavraChaveAdsId" : item.id,
-                            "campanhaAdsId" : campanhaGrava.id
+                            "palavraChaveAdsId": item.id,
+                            "campanhaAdsId": campanhaGrava.id
                         };
                         app.models.CampanhaPalavraChaveResultado.create(campanhaPalavraChave, (err, result) => {
 
