@@ -21,6 +21,15 @@
     "dataFinal": {
       "type": "date"
     },
+    "dataPublicacao": {
+      "type": "date"
+    },
+    "dataResultado": {
+      "type": "date"
+    },
+    "dataFechamento": {
+      "type": "date"
+    },
     "quantidadeImpressao": {
       "type": "number"
     },

@@ -14,7 +14,7 @@ module.exports = function (Campanhaads) {
     Campanhaads.ListaParaResultado = function (callback) {
         var listaCampanha;
         Campanhaads.find({
-            "where": { "id": "47" },
+            "where": { "dataResultado": null },
             "include": [
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
                 { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
@@ -88,7 +88,7 @@ module.exports = function (Campanhaads) {
     Campanhaads.listaParaPublicar = function (callback) {
         var listaCampanha;
         Campanhaads.find({
-            "where": { "id": "47" },
+            "where": {  and : [ {"dataPublicacao": null} , { lt: {"dataFinal": new Date()} } ] },
             "include": [
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
                 { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
