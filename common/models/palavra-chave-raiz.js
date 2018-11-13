@@ -8,14 +8,14 @@ module.exports = function (Palavrachaveraiz) {
      */
 
     Palavrachaveraiz.ListaParaConsulta = function (callback) {
-        var listaPalavra;
+        var listaPalavra = [ ];
 
         callback(null, listaPalavra);
     };
 
 
     Palavrachaveraiz.ListaParaConsultaTeste = function (callback) {
-        var listaPalavra;
+        var listaPalavra = [ {'palavra' : 'vendas'} ];
 
         callback(null, listaPalavra);
     };
