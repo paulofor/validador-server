@@ -246,5 +246,17 @@
   "TelaApp": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "PalavraChaveRaiz": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "PalavraChaveGoogle": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "PalavraChaveEstatistica": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

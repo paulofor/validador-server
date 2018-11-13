@@ -1,0 +1,19 @@
+{
+  "name": "PalavraChaveGoogle",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "palavra": {
+      "type": "string",
+      "required": true,
+      "id": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
