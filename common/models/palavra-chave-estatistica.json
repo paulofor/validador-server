@@ -5,9 +5,70 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "DataConsulta": {
+      "type": "date"
+    },
+    "MediaCpc": {
+      "type": "number"
+    },
+    "VolumePesquisa": {
+      "type": "number"
+    },
+    "IndiceCompeticao": {
+      "type": "number"
+    }
+  },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "palavraChaveRaiz": {
+      "type": "belongsTo",
+      "model": "PalavraChaveRaiz",
+      "foreignKey": ""
+    },
+    "palavraChaveGoogle": {
+      "type": "belongsTo",
+      "model": "PalavraChaveGoogle",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "InsereLista": {
+      "accepts": [
+        {
+          "arg": "listaResultados",
+          "type": "array",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Insere uma lista de itens coletados",
+      "http": [
+        {
+          "path": "/insereLista",
+          "verb": "put"
+        }
+      ]
+    },
+    "InsereListaTeste": {
+      "accepts": [
+        {
+          "arg": "listaResultados",
+          "type": "array",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Insere uma lista de itens coletados",
+      "http": [
+        {
+          "path": "/insereListaTeste",
+          "verb": "put"
+        }
+      ]
+    }
+  }
 }

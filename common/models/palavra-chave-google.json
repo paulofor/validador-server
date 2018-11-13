@@ -8,8 +8,8 @@
   "properties": {
     "palavra": {
       "type": "string",
-      "required": true,
-      "id": true
+      "id": true,
+      "required": true
     }
   },
   "validations": [],

@@ -8,12 +8,49 @@
   "properties": {
     "palavra": {
       "type": "string",
-      "required": true,
-      "id": true
+      "id": true,
+      "required": true
     }
   },
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {
+    "ListaParaConsulta": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "listaPalavra",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Lista para ir no Ads Google pesquisar",
+      "http": [
+        {
+          "path": "/listaParaConsulta",
+          "verb": "get"
+        }
+      ]
+    },
+    "ListaParaConsultaTeste": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "listaPalavra",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Lista para ir no Ads Google pesquisar",
+      "http": [
+        {
+          "path": "/listaParaConsultaTeste",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }

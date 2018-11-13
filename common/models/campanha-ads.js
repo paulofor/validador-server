@@ -92,11 +92,7 @@ module.exports = function (Campanhaads) {
     Campanhaads.listaParaPublicar = function (callback) {
         var listaCampanha;
         Campanhaads.find({
-<<<<<<< HEAD
-            "where": {  and : [ {"dataPublicacao": null} , { inq: {"dataFechamento": null } } ] },
-=======
             "where": {  and : [ {"dataPublicacao" : null} , { "dataFechamento": {"neq" : null } } ] },
->>>>>>> 2b1b9164fb90ec520af31171ce508f767b80eb7f
             "include": [
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
                 { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
