@@ -9,13 +9,14 @@ module.exports = function (Palavrachaveraiz) {
 
     Palavrachaveraiz.ListaParaConsulta = function (callback) {
         var listaPalavra = [ ];
-
-        callback(null, listaPalavra);
+        Palavrachaveraiz.find(callback);
     };
 
 
     Palavrachaveraiz.ListaParaConsultaTeste = function (callback) {
-        var listaPalavra = [ {'id' : 1, 'palavra' : 'vendas'} ];
+        var listaPalavra = [ 
+            {'id' : 1, 'palavra' : 'vendas' , 'dataUltimaAtualizacao' : null , 'ativo' : null} 
+        ];
 
         callback(null, listaPalavra);
     };
