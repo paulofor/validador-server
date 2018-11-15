@@ -15,7 +15,7 @@ module.exports = function (Palavrachaveraiz) {
 
 
     Palavrachaveraiz.ListaParaConsultaTeste = function (callback) {
-        var listaPalavra = [ {'palavra' : 'vendas'} ];
+        var listaPalavra = [ {'id' : 1, 'palavra' : 'vendas'} ];
 
         callback(null, listaPalavra);
     };

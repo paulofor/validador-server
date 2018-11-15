@@ -8,8 +8,13 @@
   "properties": {
     "palavra": {
       "type": "string",
-      "id": true,
       "required": true
+    },
+    "dataUltimaAtualizacao" : {
+      "type" : "date"
+    },
+    "ativo" : {
+      "type" : "Boolean"
     }
   },
   "validations": [],
