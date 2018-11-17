@@ -8,17 +8,27 @@ module.exports = function (Palavrachaveraiz) {
      */
 
     Palavrachaveraiz.ListaParaConsulta = function (callback) {
-        var listaPalavra = [ ];
-        Palavrachaveraiz.find(callback);
+        var listaPalavra = [];
+        var d = new Date();
+        d.setDate(d.getDate() - 20); // 20 dias 
+        Palavrachaveraiz.find({
+            "where": { "and" : 
+                [ 
+                    { "ativo": 1 }, 
+                    { "or" : [
+                        {"dataUltimaAtualizacao" : { "lt": d } },
+                        {"dataUltimaAtualizacao" : null} 
+                    ]
+                    }
+                ] 
+            }
+        },
+            callback);
     };
 
 
     Palavrachaveraiz.ListaParaConsultaTeste = function (callback) {
-        var listaPalavra = [ 
-            {'id' : 1, 'palavra' : 'vendas' , 'dataUltimaAtualizacao' : null , 'ativo' : null} 
-        ];
-
-        callback(null, listaPalavra);
+        Palavrachaveraiz.find({"where" : {"id" : 1}} , callback);
     };
 
 };

@@ -10,11 +10,11 @@
       "type": "string",
       "required": true
     },
-    "dataUltimaAtualizacao" : {
-      "type" : "date"
+    "dataUltimaAtualizacao": {
+      "type": "date"
     },
-    "ativo" : {
-      "type" : "Boolean"
+    "ativo": {
+      "type": "number"
     }
   },
   "validations": [],
@@ -31,7 +31,7 @@
           "description": ""
         }
       ],
-      "description": "Lista para ir no Ads Google pesquisar",
+      "description": "Lista para o Java. Retorna as palavras ativas ( = 1 ) e com data de ultima atualizacao mais distante que 20 dias ou nula",
       "http": [
         {
           "path": "/listaParaConsulta",

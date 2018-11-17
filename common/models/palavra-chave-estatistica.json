@@ -6,16 +6,19 @@
     "validateUpsert": true
   },
   "properties": {
-    "DataConsulta": {
+    "dataConsulta": {
       "type": "date"
     },
-    "MediaCpc": {
+    "mediaCpc": {
       "type": "number"
     },
-    "VolumePesquisa": {
+    "volumePesquisa": {
       "type": "number"
     },
-    "IndiceCompeticao": {
+    "indiceCompeticao": {
+      "type": "number"
+    },
+    "maisRecente": {
       "type": "number"
     }
   },
@@ -44,11 +47,11 @@
         }
       ],
       "returns": [],
-      "description": "Insere uma lista de itens coletados",
+      "description": "Insere uma lista de itens coletados pelo Java. Insere PalavraChaveGoogle se necessario, atualiza mais recente, insere PalavraChaveEstatistica",
       "http": [
         {
           "path": "/insereLista",
-          "verb": "put"
+          "verb": "post"
         }
       ]
     },
@@ -58,7 +61,7 @@
           "arg": "listaResultados",
           "type": "array",
           "required": true,
-          "description": ""
+          "description": "Fake do InsereLista. Apenas mostra o console o total de itens recebidos."
         }
       ],
       "returns": [],
@@ -67,6 +70,68 @@
         {
           "path": "/insereListaTeste",
           "verb": "put"
+        }
+      ]
+    },
+    "ListaMelhores": {
+      "accepts": [
+        {
+          "arg": "limiteVolume",
+          "type": "number",
+          "required": true,
+          "description": "valor minimo de volume mensal"
+        },
+        {
+          "arg": "limiteCpc",
+          "type": "number",
+          "required": true,
+          "description": "valor maximo de cpc"
+        },
+        {
+          "arg": "idPalavraRaiz",
+          "type": "number",
+          "required": false,
+          "description": "identificado da palavra raiz"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaResultado",
+          "type": "array",
+          "root": true,
+          "description": "Lista com os melhores"
+        }
+      ],
+      "description": "Lista os maisRecentes melhores, ordenados por indiceCompeticao. Considera volume maior que o informado e custo menor",
+      "http": [
+        {
+          "path": "/listaMelhores",
+          "verb": "get"
+        }
+      ]
+    },
+    "ListaMelhoresPadrao": {
+      "accepts": [
+        {
+          "arg": "idPalavraChaveRaiz",
+          "type": "number",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaMelhores",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Lista de melhores casos com valores limites definidos no servidor. (Cpc: 0.9 , Volume: 5000)",
+      "http": [
+        {
+          "path": "/listaMelhoresPadrao",
+          "verb": "get"
         }
       ]
     }

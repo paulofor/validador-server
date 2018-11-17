@@ -14,7 +14,7 @@ module.exports = function (Campanhaads) {
     Campanhaads.ListaParaResultado = function (callback) {
         var listaCampanha;
         Campanhaads.find({
-            "where": { and: [{ "dataResultado": null }, { "gt": { "dataInicial": new Date() } }] },
+            "where": { and: [{ "dataResultado": null }, { "dataInicial": { "gt": new Date() } }] },
             "include": [
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
                 { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
