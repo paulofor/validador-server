@@ -18,7 +18,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "palavraChaveEstatisticas": {
+      "type": "hasMany",
+      "model": "PalavraChaveEstatistica",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {
     "ListaParaConsulta": {
@@ -53,6 +59,31 @@
       "http": [
         {
           "path": "/listaParaConsultaTeste",
+          "verb": "get"
+        }
+      ]
+    },
+    "ObtemComListaMelhoresPadrao": {
+      "accepts": [
+        {
+          "arg": "idPalavraChaveRaiz",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "raizComMelhores",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem o objeto com a lista de melhores baseada nos indices da funcao ListaMelhoresPadrao no objeto PalavraChaveEstatistica",
+      "http": [
+        {
+          "path": "/obtemComListaMelhoresPadrao",
           "verb": "get"
         }
       ]
