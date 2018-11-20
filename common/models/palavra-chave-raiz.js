@@ -9,9 +9,22 @@ module.exports = function (Palavrachaveraiz) {
      */
 
     Palavrachaveraiz.ObtemComListaMelhoresPadrao = function (idPalavraChaveRaiz, callback) {
-        var raizComMelhores;
-        // TODO
-        callback(null, raizComMelhores);
+        Palavrachaveraiz.find({
+            "where" : { "id" : idPalavraChaveRaiz },
+            "include" : { "relation" : "palavraChaveEstatisticas" , 
+                            "scope" :
+                            {
+                                "where" : 
+                                    {"and" : [
+                                        {"mediaCpc" : { "lt" : 0.9 } },
+                                        {"volumePesquisa" : {"gt" : 3000 }},
+                                        {"maisRecente" : 1}
+                                    ]},
+                                "order": "volumePesquisa DESC"
+                            }
+                        }
+        }
+        ,callback);
     };
 
 
