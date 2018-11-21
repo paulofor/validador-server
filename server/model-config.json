@@ -258,5 +258,9 @@
   "PalavraChaveEstatistica": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "PalavraGoogleProjeto": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

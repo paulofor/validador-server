@@ -35,7 +35,7 @@ module.exports = function (Palavrachaveestatistica) {
                         ]
                 },
                 "include": "palavraChaveRaiz",
-                "order": "indiceCompeticao"
+                "order": "volumePesquisa DESC"
             },callback);
         } else {
             Palavrachaveestatistica.find({
@@ -49,7 +49,7 @@ module.exports = function (Palavrachaveestatistica) {
                         ]
                 },
                 "include": "palavraChaveRaiz",
-                "order": "indiceCompeticao"
+                "order": "volumePesquisa DESC"
             }, callback);
         }
     };
