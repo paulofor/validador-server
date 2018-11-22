@@ -53,6 +53,11 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "etapaProjeto": {
+      "type": "belongsTo",
+      "model": "EtapaProjeto",
+      "foreignKey": ""
     }
   },
   "acls": [],

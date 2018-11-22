@@ -262,5 +262,13 @@
   "PalavraGoogleProjeto": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "EtapaProjeto": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "MudancaEtapa": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

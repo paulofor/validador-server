@@ -1,0 +1,29 @@
+{
+  "name": "MudancaEtapa",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "dataInicio": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "projetoMySql": {
+      "type": "belongsTo",
+      "model": "ProjetoMySql",
+      "foreignKey": ""
+    },
+    "etapaProjeto": {
+      "type": "belongsTo",
+      "model": "EtapaProjeto",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
