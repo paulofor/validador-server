@@ -17,7 +17,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "projetoMySqls": {
+      "type": "hasMany",
+      "model": "ProjetoMySql",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

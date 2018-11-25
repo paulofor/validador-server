@@ -1,6 +1,33 @@
 'use strict';
 
 module.exports = function(Projetomysql) {
+
+
+
+
+
+/**
+ * Retorna todos os projetos que ainda estão na fase de serem associados com palavras chaves ainda em momento inicial usando codigo de etapa = IDEA
+ * @param {Function(Error, array)} callback
+ */
+
+Projetomysql.ListaIdeiaBase = function(callback) {
+    //let filtro = { "include" : {"relation" : "etapaProjeto" , 
+    //                        "scope" : { "where" : { "codigo" : "IDEA" }}}};
+    //Projetomysql.find(this.filtro, callback);
+
+    // Usar o Json é perigoso pq o raciocionio é diferente e arriscado.
+    var ds = Projetomysql.dataSource;
+    var sql = "select ProjetoMySql.* " +
+      " from ProjetoMySql " +
+      " inner join EtapaProjeto on EtapaProjeto.id = ProjetoMySql.etapaProjetoId " +
+      " where EtapaProjeto.codigo = 'IDEA' ";
+    ds.connector.query(sql, callback);
+  };
+  
+  
+
+
  /**
      * Itens de modelos canvas que vao ajudar a construir as entidades do sistema gerador
      * @param {number} idProjeto

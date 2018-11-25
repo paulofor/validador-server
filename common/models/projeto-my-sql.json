@@ -98,6 +98,24 @@
           "verb": "get"
         }
       ]
+    },
+    "ListaIdeiaBase": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "listaProjeto",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Retorna todos os projetos que ainda estão na fase de serem associados com palavras chaves ainda em momento inicial usando codigo de etapa = IDEA",
+      "http": [
+        {
+          "path": "/listaIdeiaBase",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
