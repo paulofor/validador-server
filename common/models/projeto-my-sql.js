@@ -4,6 +4,20 @@ module.exports = function(Projetomysql) {
 
 
 
+/**
+ * Pesquisa por trecho no nome do projeto
+ * @param {string} trecho 
+ * @param {Function(Error, array)} callback
+ */
+
+Projetomysql.PesquisaPorTrecho = function(trecho, callback) {
+    var ds = Projetomysql.dataSource;
+    var sql = "select ProjetoMySql.* " +
+      " from ProjetoMySql " +
+      " where UPPER(nome) like '%" + trecho.toUpperCase() + "%' ";
+    ds.connector.query(sql, callback);
+  };
+
 
 
 /**

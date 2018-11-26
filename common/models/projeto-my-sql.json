@@ -116,6 +116,31 @@
           "verb": "get"
         }
       ]
+    },
+    "PesquisaPorTrecho": {
+      "accepts": [
+        {
+          "arg": "trecho",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "lista",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Pesquisa por trecho no nome do projeto",
+      "http": [
+        {
+          "path": "/pesquisaPorTrecho",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
