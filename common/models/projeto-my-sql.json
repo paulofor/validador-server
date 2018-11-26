@@ -141,6 +141,31 @@
           "verb": "get"
         }
       ]
+    },
+    "PesquisaPorTrechoStr": {
+      "accepts": [
+        {
+          "arg": "trecho",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "lista",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Pesquisa retornando apenas strings",
+      "http": [
+        {
+          "path": "/pesquisaPorTrechoStr",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
