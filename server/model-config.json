@@ -270,5 +270,9 @@
   "MudancaEtapa": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "ProcessoNegocio": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
