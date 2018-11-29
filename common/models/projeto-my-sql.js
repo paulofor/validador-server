@@ -33,11 +33,15 @@ module.exports = function (Projetomysql) {
      */
 
     Projetomysql.PesquisaPorTrecho = function (trecho, callback) {
-        var ds = Projetomysql.dataSource;
-        var sql = "select ProjetoMySql.* " +
-            " from ProjetoMySql " +
-            " where UPPER(nome) like '%" + trecho.toUpperCase() + "%' ";
-        ds.connector.query(sql, callback);
+        if (trecho.length <= 3) {
+            callback(null, []);
+        } else {
+            var ds = Projetomysql.dataSource;
+            var sql = "select ProjetoMySql.* " +
+                " from ProjetoMySql " +
+                " where UPPER(nome) like '%" + trecho.toUpperCase() + "%' ";
+            ds.connector.query(sql, callback);
+        }
     };
 
 
