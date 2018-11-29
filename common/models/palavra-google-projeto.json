@@ -20,5 +20,24 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "InsereProjetoRelacionamento": {
+      "accepts": [
+        {
+          "arg": "relacionamentoComProjeto",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "se receber um projeto com id 0 cria o projeto e o relacionamento senão cria somente o relacionamento",
+      "http": [
+        {
+          "path": "/insereProjetoRelacionamento",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }
