@@ -24,7 +24,13 @@
     "InsereProjetoRelacionamento": {
       "accepts": [
         {
-          "arg": "relacionamentoComProjeto",
+          "arg": "relacionamento",
+          "type": "object",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "projeto",
           "type": "object",
           "required": true,
           "description": ""
