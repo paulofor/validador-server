@@ -45,6 +45,11 @@
       "type": "hasMany",
       "model": "TelaWeb",
       "foreignKey": ""
+    },
+    "componenteWebs": {
+      "type": "hasMany",
+      "model": "ComponenteWeb",
+      "foreignKey": ""
     }
   },
   "acls": [],

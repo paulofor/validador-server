@@ -25,6 +25,11 @@
       "type": "belongsTo",
       "model": "aplicacao",
       "foreignKey": ""
+    },
+    "telaComponenteWebs": {
+      "type": "hasMany",
+      "model": "TelaComponenteWeb",
+      "foreignKey": ""
     }
   },
   "acls": [],

@@ -11,7 +11,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "tipoComponenteWebs": {
+      "type": "hasOne",
+      "model": "TipoComponenteWeb",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
