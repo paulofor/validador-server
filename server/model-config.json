@@ -274,5 +274,17 @@
   "ProcessoNegocio": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "ComponenteWeb": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "TelaComponenteWeb": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "TipoComponenteWeb": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
