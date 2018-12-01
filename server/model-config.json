@@ -286,5 +286,9 @@
   "TipoComponenteWeb": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "TipoExperiencia": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
