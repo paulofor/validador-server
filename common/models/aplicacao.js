@@ -13,27 +13,32 @@ module.exports = function (Aplicacao) {
 
     Aplicacao.AtualizaComponenteWeb = function (idAplicacao, callback) {
         console.log('idAplicacao: ', idAplicacao);
+
         app.models.TipoComponenteWeb.find((err, listaComponente) => {
-            console.log('Lista Tipo Componente: ', listaComponente);
-            app.models.entidade.find({ "where": { "id_aplicacao": idAplicacao } }, (err, result) => {
-                console.log('Erro(1): ', err);
-                console.log('Lista Entidade: ', result);
-                result.map((item) => {
-                    trataItem(listaComponente, item);
+            listaComponente.map((tipoComponente) => {
+                app.models.entidade.find({ "where": { "id_aplicacao": idAplicacao } }, (err, listaEntidade) => {
+                    listaEntidade.map((entidade) => {
+                        trataItem(entidade, tipoComponente);
+                    })
                 })
             })
         });
         callback(null);
     }
 
-    function trataItem(listaComponente, item) {
-        listaComponente.map((tipo) => {
-            verifica(item, tipo);
-        })
+    function trataItem(entidade, tipoComponente) {
+        let filtro = {"where": { "and" : [ {"entidadeId" : entidade.id } , {"tipoComponenteWebId" : tipoComponente.id} ] }};
+        app.models.ComponenteWeb.find(filtro, (erro, resultado) => {
+            if (!resultado) {
+                // Inserir
+                let nova = { "entidadeId" : entidade.id , "tipoComponenteWebId" : tipoComponente.id , "nome" : "teste" };
+                app.models.ComponenteWeb.create(nova, (erro, resultado) => {
+                    
+                })
+            }
+        });
     }
 
-    function verifica(item, tipo) {
-        console.log('tipo: ', tipo, ' - item:' , item);
-    }
+   
 
 };

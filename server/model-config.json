@@ -290,5 +290,13 @@
   "TipoExperiencia": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "IndicadorPerformanceProcesso": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "MedidaIndicadorProcesso": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

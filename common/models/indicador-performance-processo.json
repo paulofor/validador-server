@@ -1,0 +1,26 @@
+{
+  "name": "IndicadorPerformanceProcesso",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nome": {
+      "type": "string"
+    },
+    "periodo": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "processoNegocio": {
+      "type": "belongsTo",
+      "model": "ProcessoNegocio",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

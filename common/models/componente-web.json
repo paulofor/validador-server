@@ -16,6 +16,16 @@
       "type": "hasOne",
       "model": "TipoComponenteWeb",
       "foreignKey": ""
+    },
+    "tipoComponenteWeb": {
+      "type": "belongsTo",
+      "model": "TipoComponenteWeb",
+      "foreignKey": ""
+    },
+    "entidade": {
+      "type": "belongsTo",
+      "model": "entidade",
+      "foreignKey": ""
     }
   },
   "acls": [],

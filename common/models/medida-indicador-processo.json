@@ -1,0 +1,29 @@
+{
+  "name": "MedidaIndicadorProcesso",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "data": {
+      "type": "date"
+    },
+    "valor": {
+      "type": "number"
+    },
+    "unidade": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "indicadorPerformanceProcesso": {
+      "type": "belongsTo",
+      "model": "IndicadorPerformanceProcesso",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
