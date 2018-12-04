@@ -53,5 +53,24 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "AtualizaComponenteWeb": {
+      "accepts": [
+        {
+          "arg": "idAplicacao",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Combina tipo componente com entidades para gerar os componentes web",
+      "http": [
+        {
+          "path": "/atualizaComponenteWeb",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }
