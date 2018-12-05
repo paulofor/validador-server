@@ -298,5 +298,9 @@
   "MedidaIndicadorProcesso": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "RespostaMercado": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
