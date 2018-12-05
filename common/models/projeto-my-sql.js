@@ -52,7 +52,7 @@ module.exports = function (Projetomysql) {
      * @param {Function(Error, array)} callback
      */
 
-    ProjetoMySql.PesquisaPorTrechoComPalavra = function (trecho, callback) {
+    Projetomysql.PesquisaPorTrechoComPalavra = function (trecho, callback) {
         var listaProjeto;
         // TODO
         callback(null, listaProjeto);

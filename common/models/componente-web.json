@@ -12,11 +12,6 @@
   },
   "validations": [],
   "relations": {
-    "tipoComponenteWebs": {
-      "type": "hasOne",
-      "model": "TipoComponenteWeb",
-      "foreignKey": ""
-    },
     "tipoComponenteWeb": {
       "type": "belongsTo",
       "model": "TipoComponenteWeb",
