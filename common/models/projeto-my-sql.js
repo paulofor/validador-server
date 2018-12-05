@@ -47,6 +47,21 @@ module.exports = function (Projetomysql) {
 
 
     /**
+     * 
+     * @param {string} trecho 
+     * @param {Function(Error, array)} callback
+     */
+
+    ProjetoMySql.PesquisaPorTrechoComPalavra = function (trecho, callback) {
+        var listaProjeto;
+        // TODO
+        callback(null, listaProjeto);
+    };
+
+
+
+
+    /**
      * Retorna todos os projetos que ainda estão na fase de serem associados com palavras chaves ainda em momento inicial usando codigo de etapa = IDEA
      * @param {Function(Error, array)} callback
      */

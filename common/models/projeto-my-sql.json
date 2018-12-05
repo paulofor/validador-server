@@ -166,6 +166,31 @@
           "verb": "get"
         }
       ]
+    },
+    "PesquisaPorTrechoComPalavra": {
+      "accepts": [
+        {
+          "arg": "trecho",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaProjeto",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/pesquisaPorTrechoComPalavra",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
