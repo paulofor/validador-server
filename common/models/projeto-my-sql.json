@@ -104,7 +104,7 @@
         }
       ]
     },
-    "ListaIdeiaBase": {
+    "ListaIdeiaBaseComPalavras": {
       "accepts": [],
       "returns": [
         {
@@ -117,7 +117,7 @@
       "description": "Retorna todos os projetos que ainda estão na fase de serem associados com palavras chaves ainda em momento inicial usando codigo de etapa = IDEA",
       "http": [
         {
-          "path": "/listaIdeiaBase",
+          "path": "/listaIdeiaBaseComPalavras",
           "verb": "get"
         }
       ]
@@ -193,6 +193,31 @@
       "http": [
         {
           "path": "/pesquisaPorTrechoComPalavra",
+          "verb": "get"
+        }
+      ]
+    },
+    "ListaPalavraChavePorId": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaPalavra",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Retorna uma lista com palavras-chaves do projeto",
+      "http": [
+        {
+          "path": "/listaPalavraChavePorId",
           "verb": "get"
         }
       ]
