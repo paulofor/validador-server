@@ -58,6 +58,11 @@
       "type": "belongsTo",
       "model": "EtapaProjeto",
       "foreignKey": ""
+    },
+    "palavraGoogleProjetos": {
+      "type": "hasMany",
+      "model": "PalavraGoogleProjeto",
+      "foreignKey": ""
     }
   },
   "acls": [],

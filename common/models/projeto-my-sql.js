@@ -66,7 +66,7 @@ module.exports = function (Projetomysql) {
      * @param {Function(Error, array)} callback
      */
 
-    Projetomysql.ListaIdeiaBase = function (callback) {
+    Projetomysql.ListaIdeiaBaseComPalavras = function (callback) {
         //let filtro = { "include" : {"relation" : "etapaProjeto" , 
         //                        "scope" : { "where" : { "codigo" : "IDEA" }}}};
         //Projetomysql.find(this.filtro, callback);
