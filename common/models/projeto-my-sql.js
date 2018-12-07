@@ -76,7 +76,7 @@ module.exports = function (Projetomysql) {
         var sql = "select ProjetoMySql.* " +
             " from ProjetoMySql " +
             " inner join EtapaProjeto on EtapaProjeto.id = ProjetoMySql.etapaProjetoId " +
-            " where EtapaProjeto.codigo = 'IDEA' ";
+            " where EtapaProjeto.codigo = 'IDEAB' ";
         ds.connector.query(sql, callback);
     };
 

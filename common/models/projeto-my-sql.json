@@ -58,11 +58,6 @@
       "type": "belongsTo",
       "model": "EtapaProjeto",
       "foreignKey": ""
-    },
-    "palavraGoogleProjetos": {
-      "type": "hasMany",
-      "model": "PalavraGoogleProjeto",
-      "foreignKey": ""
     }
   },
   "acls": [],
@@ -104,7 +99,7 @@
         }
       ]
     },
-    "ListaIdeiaBase": {
+    "ListaIdeiaBaseComPalavras": {
       "accepts": [],
       "returns": [
         {
@@ -117,7 +112,7 @@
       "description": "Retorna todos os projetos que ainda estão na fase de serem associados com palavras chaves ainda em momento inicial usando codigo de etapa = IDEA",
       "http": [
         {
-          "path": "/listaIdeiaBase",
+          "path": "/listaIdeiaBaseComPalavras",
           "verb": "get"
         }
       ]
