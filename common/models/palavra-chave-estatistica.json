@@ -134,6 +134,31 @@
           "verb": "get"
         }
       ]
+    },
+    "ListaPorIdProjeto": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaPalavra",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Retorna a lista de palavras em sua versao recente relacionadas a um projeto.",
+      "http": [
+        {
+          "path": "/listaPorIdProjeto",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
