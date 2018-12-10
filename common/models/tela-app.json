@@ -13,31 +13,5 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {
-    "ObtemPorIdAplicacaoParaGerador": {
-      "accepts": [
-        {
-          "arg": "idAplicacao",
-          "type": "number",
-          "required": true,
-          "description": ""
-        }
-      ],
-      "returns": [
-        {
-          "arg": "listaTela",
-          "type": "array",
-          "root": true,
-          "description": ""
-        }
-      ],
-      "description": "Obtem todas as telas com elementos internos necessarios para o gerador de codigo",
-      "http": [
-        {
-          "path": "/obtemPorIdAplicacaoParaGerador",
-          "verb": "get"
-        }
-      ]
-    }
-  }
+  "methods": {}
 }

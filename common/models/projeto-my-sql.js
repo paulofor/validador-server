@@ -5,6 +5,33 @@ var app = require('../../server/server');
 module.exports = function (Projetomysql) {
 
     /**
+     * Muda a etapa de um projeto
+     * @param {number} idProjeto 
+     * @param {string} codigoEtapa 
+     * @param {Function(Error)} callback
+     */
+
+    Projetomysql.MudaEtapa = function (idProjeto, codigoEtapa, callback) {
+        app.models.EtapaProjeto.findOne({ "where": { "codigo": codigoEtapa } }, (err, etapa) => {
+            //console.log("Etapa: ", JSON.stringify(etapa));
+            var ds = Projetomysql.dataSource;
+            var sql1 = "update ProjetoMySql set etapaProjetoId = " + etapa.id +
+                " where id = " + idProjeto;
+            ds.connector.query(sql1, (err, result) => {
+                //console.log('Result:' , JSON.stringify(result));
+                //console.log('Erro:' , err);
+                var mudanca = { "projetoMySqlId": idProjeto, "etapaProjetoId": etapa.id , "dataInicio" : new Date() };
+                //console.log('MudancaEtapa: ' , JSON.stringify(mudanca));
+                app.models.MudancaEtapa.create(mudanca, callback);
+            })
+
+        })
+    };
+
+
+
+
+    /**
      * Pesquisa retornando apenas strings
      * @param {string} trecho 
      * @param {Function(Error, array)} callback
@@ -82,7 +109,7 @@ module.exports = function (Projetomysql) {
         ds.connector.query(sql, (err, lista) => {
             lista.map(projeto => {
                 console.log('Projeto:', projeto.nome);
-                
+
             });
             callback(null, lista);
         });
@@ -101,6 +128,19 @@ module.exports = function (Projetomysql) {
         };
         app.models.PalavraGoogleProjeto.find(filtro, callback)
     };
+
+
+    /**
+     * Criacao de um projeto, envolve outros elementos a serem criados. Atualmente -> MudancaEtapa e Aplicacao.
+     * @param {object} projeto 
+     * @param {Function(Error)} callback
+     */
+
+    Projetomysql.CriaProjeto = function (projeto, callback) {
+        Projetomysql.create(projeto,callback);
+    };
+
+
 
 
     /**
