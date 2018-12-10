@@ -19,5 +19,30 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "RemoveRelacao": {
+      "accepts": [
+        {
+          "arg": "idTela",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "idComponente",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Remove a relacao com os ids",
+      "http": [
+        {
+          "path": "/removeRelacao",
+          "verb": "put"
+        }
+      ]
+    }
+  }
 }

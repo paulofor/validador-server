@@ -191,6 +191,31 @@
           "verb": "get"
         }
       ]
+    },
+    "ListaPalavraChavePorId": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaPalavra",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Retorna uma lista com palavras-chaves do projeto",
+      "http": [
+        {
+          "path": "/listaPalavraChavePorId",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

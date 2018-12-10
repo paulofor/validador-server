@@ -11,7 +11,7 @@ module.exports = function (Palavrachaveestatistica) {
      */
 
     Palavrachaveestatistica.ListaMelhoresPadrao = function (idPalavraChaveRaiz, callback) {
-        Palavrachaveestatistica.ListaMelhores(5000,0.9,idPalavraChaveRaiz,callback);
+        Palavrachaveestatistica.ListaMelhores(5000, 0.9, idPalavraChaveRaiz, callback);
     };
 
 
@@ -36,7 +36,7 @@ module.exports = function (Palavrachaveestatistica) {
                 },
                 "include": "palavraChaveRaiz",
                 "order": "volumePesquisa DESC"
-            },callback);
+            }, callback);
         } else {
             Palavrachaveestatistica.find({
                 "where": {
@@ -70,9 +70,9 @@ module.exports = function (Palavrachaveestatistica) {
                 sql = "insert into PalavraChaveGoogle (palavra) values ('" + item.palavraChaveGoogleId + "')";
                 ds.connector.query(sql, (err, result) => { })
             }
-            sql = "update PalavraChaveEstatistica set maisRecente = 0  " + 
-            " where palavraChaveGoogleId = '" + item.palavraChaveGoogleId + "' " +
-            " and palavraChaveRaizId = " + item.palavraChaveRaizId;
+            sql = "update PalavraChaveEstatistica set maisRecente = 0  " +
+                " where palavraChaveGoogleId = '" + item.palavraChaveGoogleId + "' " +
+                " and palavraChaveRaizId = " + item.palavraChaveRaizId;
             ds.connector.query(sql, (err, result) => {
                 //console.log('Result(update):', result);
                 //console.log('Erro(update):', err);
@@ -109,6 +109,21 @@ module.exports = function (Palavrachaveestatistica) {
     };
 
 
+    /**
+     * Retorna a lista de palavras em sua versao recente relacionadas a um projeto.
+     * @param {number} idProjeto 
+     * @param {Function(Error, array)} callback
+     */
+
+    Palavrachaveestatistica.ListaPorIdProjeto = function (idProjeto, callback) {
+        var ds = Palavrachaveestatistica.dataSource;
+        var sql = "select * from PalavraChaveEstatistica " +
+        " inner join PalavraGoogleProjeto  " +
+        " on PalavraGoogleProjeto.palavraChaveGoogleId = PalavraChaveEstatistica.palavraChaveGoogleId " +
+        " where PalavraGoogleProjeto.projetoMySqlId = " + idProjeto + 
+        " and PalavraChaveEstatistica.maisRecente = 1 ";
+        ds.connector.query(sql, callback);
+    };
 
 
 };

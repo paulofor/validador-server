@@ -1,5 +1,7 @@
 'use strict';
 
+var app = require('../../server/server');
+
 module.exports = function (Projetomysql) {
 
     /**
@@ -77,10 +79,28 @@ module.exports = function (Projetomysql) {
             " from ProjetoMySql " +
             " inner join EtapaProjeto on EtapaProjeto.id = ProjetoMySql.etapaProjetoId " +
             " where EtapaProjeto.codigo = 'IDEAB' ";
-        ds.connector.query(sql, callback);
+        ds.connector.query(sql, (err, lista) => {
+            lista.map(projeto => {
+                console.log('Projeto:', projeto.nome);
+                
+            });
+            callback(null, lista);
+        });
+
     };
 
+    /**
+     * Retorna uma lista com palavras-chaves do projeto
+     * @param {number} idProjeto 
+     * @param {Function(Error, string)} callback
+     */
 
+    Projetomysql.ListaPalavraChavePorId = function (idProjeto, callback) {
+        let filtro = {
+            "where": { "projetoMySqlId": idProjeto }, "include": "palavraChaveGoogle"
+        };
+        app.models.PalavraGoogleProjeto.find(filtro, callback)
+    };
 
 
     /**

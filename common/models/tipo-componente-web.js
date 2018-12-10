@@ -1,5 +1,8 @@
 'use strict';
 
-module.exports = function(Tipocomponenteweb) {
+module.exports = function (Tipocomponenteweb) {
+
+
+
 
 };

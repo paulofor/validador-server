@@ -261,7 +261,15 @@
   },
   "PalavraGoogleProjeto": {
     "dataSource": "mysqlDS",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "deleteAll": true,
+          "deleteById": true
+        }
+      }
+    }
   },
   "EtapaProjeto": {
     "dataSource": "mysqlDS",
