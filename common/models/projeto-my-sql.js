@@ -20,7 +20,7 @@ module.exports = function (Projetomysql) {
             ds.connector.query(sql1, (err, result) => {
                 //console.log('Result:' , JSON.stringify(result));
                 //console.log('Erro:' , err);
-                var mudanca = { "projetoMySqlId": idProjeto, "etapaProjetoId": etapa.id , "dataInicio" : new Date() };
+                var mudanca = { "projetoMySqlId": idProjeto, "etapaProjetoId": etapa.id, "dataInicio": new Date() };
                 //console.log('MudancaEtapa: ' , JSON.stringify(mudanca));
                 app.models.MudancaEtapa.create(mudanca, callback);
             })
@@ -87,7 +87,20 @@ module.exports = function (Projetomysql) {
         callback(null, listaProjeto);
     };
 
+    /**
+     * Lista de projetos que atualmente estao em um tipo de etapa
+     * @param {string} codigoEtapa
+     * @param {Function(Error, array)} callback
+     */
 
+    Projetomysql.ListaPorCodigoEtapa = function (codigoEtapa, callback) {
+        var ds = Projetomysql.dataSource;
+        var sql = "select ProjetoMySql.* " +
+            " from ProjetoMySql " +
+            " inner join EtapaProjeto on EtapaProjeto.id = ProjetoMySql.etapaProjetoId " +
+            " where EtapaProjeto.codigo = '" + codigoEtapa + "' ";
+        ds.connector.query(sql, callback);
+    };
 
 
     /**
@@ -137,7 +150,7 @@ module.exports = function (Projetomysql) {
      */
 
     Projetomysql.CriaProjeto = function (projeto, callback) {
-        Projetomysql.create(projeto,callback);
+        Projetomysql.create(projeto, callback);
     };
 
 

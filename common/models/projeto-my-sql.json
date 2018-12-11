@@ -258,6 +258,31 @@
           "verb": "put"
         }
       ]
+    },
+    "ListaPorCodigoEtapa": {
+      "accepts": [
+        {
+          "arg": "codigoEtapa",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaProjeto",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Lista de projetos que atualmente estao em um tipo de etapa",
+      "http": [
+        {
+          "path": "/listaPorCodigoEtapa",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
