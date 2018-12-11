@@ -216,6 +216,48 @@
           "verb": "get"
         }
       ]
+    },
+    "MudaEtapa": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "codigoEtapa",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Muda a etapa de um projeto",
+      "http": [
+        {
+          "path": "/mudaEtapa",
+          "verb": "put"
+        }
+      ]
+    },
+    "CriaProjeto": {
+      "accepts": [
+        {
+          "arg": "projeto",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Criacao de um projeto, envolve outros elementos a serem criados. Atualmente -> MudancaEtapa e Aplicacao.",
+      "http": [
+        {
+          "path": "/criaProjeto",
+          "verb": "put"
+        }
+      ]
     }
   }
 }
