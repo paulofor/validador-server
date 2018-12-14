@@ -310,5 +310,13 @@
   "RespostaMercado": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "ConceitoProduto": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "ValorConceito": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

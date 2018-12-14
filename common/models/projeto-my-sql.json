@@ -58,6 +58,11 @@
       "type": "belongsTo",
       "model": "EtapaProjeto",
       "foreignKey": ""
+    },
+    "conceitoProdutos": {
+      "type": "hasMany",
+      "model": "ConceitoProduto",
+      "foreignKey": ""
     }
   },
   "acls": [],

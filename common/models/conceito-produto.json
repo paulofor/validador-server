@@ -1,0 +1,26 @@
+{
+  "name": "ConceitoProduto",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "descricao": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "valorConceitos": {
+      "type": "hasMany",
+      "model": "ValorConceito",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
