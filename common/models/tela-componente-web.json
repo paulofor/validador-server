@@ -20,7 +20,7 @@
   },
   "acls": [],
   "methods": {
-    "RemoveRelacao": {
+    "RemoveRelacaoTela": {
       "accepts": [
         {
           "arg": "idTela",
@@ -39,7 +39,7 @@
       "description": "Remove a relacao com os ids",
       "http": [
         {
-          "path": "/removeRelacao",
+          "path": "/removeRelacaoTela",
           "verb": "put"
         }
       ]

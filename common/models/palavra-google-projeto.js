@@ -31,7 +31,7 @@ module.exports = function (Palavragoogleprojeto) {
      * @param {Function(Error)} callback
      */
 
-    Palavragoogleprojeto.RemoveRelacao = function (idProjeto, idPalavra, callback) {
+    Palavragoogleprojeto.RemoveRelacaoPalavra = function (idProjeto, idPalavra, callback) {
         var ds = Palavragoogleprojeto.dataSource;
         var sql = "delete from PalavraGoogleProjeto " +
             " where palavraChaveGoogleId = '" + idPalavra + "' and " +

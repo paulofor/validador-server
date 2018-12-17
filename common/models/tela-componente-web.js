@@ -10,7 +10,7 @@ module.exports = function (Telacomponenteweb) {
     * @param {Function(Error)} callback
     */
 
-    Telacomponenteweb.RemoveRelacao = function (idTela, idComponente, callback) {
+    Telacomponenteweb.RemoveRelacaoTela = function (idTela, idComponente, callback) {
         var ds = Telacomponenteweb.dataSource;
         var sql = "delete from TelaComponenteWeb " +
             " where telaWebId = " + idTela + " and " +
