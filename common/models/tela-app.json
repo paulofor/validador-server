@@ -19,5 +19,37 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "ListaTelaAppProjeto": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "idConceito",
+          "type": "number",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaTelaApp",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Retorna as telas de um projeto, pode ser pelo idProjeto ( conceito ativo ) ou pelo idConceito",
+      "http": [
+        {
+          "path": "/listaTelaAppProjeto",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }

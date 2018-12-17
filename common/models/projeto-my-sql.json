@@ -288,6 +288,31 @@
           "verb": "get"
         }
       ]
+    },
+    "ListaPalavraChave": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaPalavra",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Lista das palavras-chaves de um projeto, o ponto inicial do projeto. ",
+      "http": [
+        {
+          "path": "/listaPalavraChave",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
