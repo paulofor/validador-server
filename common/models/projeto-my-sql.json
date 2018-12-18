@@ -313,6 +313,31 @@
           "verb": "get"
         }
       ]
+    },
+    "obtemComPalavraChave": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "projeto",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem dados do projeto e com lista de palavras-chaves",
+      "http": [
+        {
+          "path": "/obtemComPalavraChave",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

@@ -5,6 +5,22 @@ var app = require('../../server/server');
 module.exports = function (Projetomysql) {
 
 
+
+
+    /**
+     * Obtem dados do projeto e com lista de palavras-chaves
+     * @param {number} idProjeto 
+     * @param {Function(Error, object)} callback
+     */
+
+    Projetomysql.obtemComPalavraChave = function (idProjeto, callback) {
+        var projeto;
+        // TODO
+        callback(null, projeto);
+    };
+
+
+
     /**
      * Lista das palavras-chaves de um projeto, o ponto inicial do projeto.
      * @param {number} idProjeto

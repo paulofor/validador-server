@@ -118,12 +118,14 @@ module.exports = function (Palavrachaveestatistica) {
     Palavrachaveestatistica.ListaPorIdProjeto = function (idProjeto, callback) {
         var ds = Palavrachaveestatistica.dataSource;
         var sql = "select * from PalavraChaveEstatistica " +
-        " inner join PalavraGoogleProjeto  " +
-        " on PalavraGoogleProjeto.palavraChaveGoogleId = PalavraChaveEstatistica.palavraChaveGoogleId " +
-        " where PalavraGoogleProjeto.projetoMySqlId = " + idProjeto + 
-        " and PalavraChaveEstatistica.maisRecente = 1 ";
+            " inner join PalavraGoogleProjeto  " +
+            " on PalavraGoogleProjeto.palavraChaveGoogleId = PalavraChaveEstatistica.palavraChaveGoogleId " +
+            " where PalavraGoogleProjeto.projetoMySqlId = " + idProjeto +
+            " and PalavraChaveEstatistica.maisRecente = 1 ";
         ds.connector.query(sql, callback);
     };
+
+
 
 
 };
