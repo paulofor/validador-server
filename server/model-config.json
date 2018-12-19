@@ -322,5 +322,9 @@
   "RecursoConceitoProduto": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "Publico": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
