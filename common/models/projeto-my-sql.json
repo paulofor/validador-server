@@ -338,6 +338,43 @@
           "verb": "get"
         }
       ]
+    },
+    "ProjetoConceitoPalavraChave": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "projeto",
+          "type": "object",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "conceito",
+          "type": "object",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "listaPalavraChave",
+          "type": "array",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "Retorna o projeto, conceito ativo e lista de palavraschaves ( estatistica )",
+      "http": [
+        {
+          "path": "/projetoConceitoPalavraChave",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

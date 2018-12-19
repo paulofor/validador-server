@@ -53,30 +53,6 @@
   },
   "acls": [],
   "methods": {
-    "RemoveRelacaoPalavra": {
-      "accepts": [
-        {
-          "arg": "idTela",
-          "type": "number",
-          "required": true,
-          "description": ""
-        },
-        {
-          "arg": "idComponente",
-          "type": "number",
-          "required": true,
-          "description": ""
-        }
-      ],
-      "returns": [],
-      "description": "Remove a relacao com os ids",
-      "http": [
-        {
-          "path": "/removeRelacaoPalavra",
-          "verb": "put"
-        }
-      ]
-    },
     "listaCompletaPorEntidade": {
       "accepts": [
         {

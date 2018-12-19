@@ -44,6 +44,30 @@
           "verb": "post"
         }
       ]
+    },
+    "RemoveRelacaoPalavra": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "idPalavra",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "",
+      "http": [
+        {
+          "path": "/removeRelacaoPalavra",
+          "verb": "post"
+        }
+      ]
     }
   }
 }

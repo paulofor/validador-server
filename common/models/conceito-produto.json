@@ -11,6 +11,12 @@
     },
     "titulo": {
       "type": "string"
+    },
+    "ativo": {
+      "type": "number"
+    },
+    "dataCriacao": {
+      "type": "date"
     }
   },
   "validations": [],
@@ -22,5 +28,62 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "AtivoComListaPorProjeto": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "ativo",
+          "type": "object",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "listaConceito",
+          "type": "array",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "Retorna o conceito de produto ativo e a lista de todos de um projeto",
+      "http": [
+        {
+          "path": "/ativoComListaPorProjeto",
+          "verb": "get"
+        }
+      ]
+    },
+    "CriaConceitoProduto": {
+      "accepts": [
+        {
+          "arg": "conceitoProduto",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Criando um novo, colocando como ativo e alterando os demais.",
+      "http": [
+        {
+          "path": "/criaConceitoProduto",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }

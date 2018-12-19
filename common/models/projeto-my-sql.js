@@ -4,6 +4,24 @@ var app = require('../../server/server');
 
 module.exports = function (Projetomysql) {
 
+    /**
+     * Retorna o projeto, conceito ativo e lista de palavraschaves ( estatistica )
+     * @param {number} idProjeto 
+     * @param {Function(Error, object, object, array)} callback
+     */
+
+    Projetomysql.ProjetoConceitoPalavraChave = function (idProjeto, callback) {
+        var projeto, conceito, listaPalavraChave;
+        Projetomysql.findById(idProjeto, (err1,result1) => {
+            if (err1) {
+                callback(err1,null,null,null);
+                return;
+            }
+            projeto = result1;
+            
+        })
+        callback(null, projeto, conceito, listaPalavraChave);
+    };
 
 
 
