@@ -318,5 +318,9 @@
   "ValorConceito": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "RecursoConceitoProduto": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

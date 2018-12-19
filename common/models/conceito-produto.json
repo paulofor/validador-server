@@ -25,6 +25,16 @@
       "type": "hasMany",
       "model": "ValorConceito",
       "foreignKey": ""
+    },
+    "telaApps": {
+      "type": "hasMany",
+      "model": "TelaApp",
+      "foreignKey": ""
+    },
+    "telaWebs": {
+      "type": "hasMany",
+      "model": "TelaWeb",
+      "foreignKey": ""
     }
   },
   "acls": [],
@@ -82,6 +92,31 @@
         {
           "path": "/criaConceitoProduto",
           "verb": "post"
+        }
+      ]
+    },
+    "AtivoPorProjeto": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "conceito",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Retorna o conceito ativo do projeto dado como entrada (id)",
+      "http": [
+        {
+          "path": "/ativoPorProjeto",
+          "verb": "get"
         }
       ]
     }

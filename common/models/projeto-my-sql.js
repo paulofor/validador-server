@@ -11,16 +11,32 @@ module.exports = function (Projetomysql) {
      */
 
     Projetomysql.ProjetoConceitoPalavraChave = function (idProjeto, callback) {
-        var projeto, conceito, listaPalavraChave;
+        var projeto = null, conceito = null, listaPalavraChave = null;
         Projetomysql.findById(idProjeto, (err1,result1) => {
             if (err1) {
                 callback(err1,null,null,null);
                 return;
             }
             projeto = result1;
-            
+            app.models.ConceitoProduto.AtivoPorProjeto(idProjeto, (err2,result2) => {
+                if (err2) {
+                    callback(err2,projeto,null,null);
+                    return;
+                }
+                conceito = result2;
+                app.models.PalavraChaveEstatistica.ListaPorIdProjeto(idProjeto, (err3,result3) => {
+                    if (err3) {
+                        callback(err3,projeto, conceito, null);
+                        return;
+                    }
+                    listaPalavraChave = result3;
+                    callback(null, projeto, conceito, listaPalavraChave);
+                })
+                
+            })
+
         })
-        callback(null, projeto, conceito, listaPalavraChave);
+        
     };
 
 

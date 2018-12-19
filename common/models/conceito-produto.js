@@ -8,23 +8,23 @@ module.exports = function (Conceitoproduto) {
     * @param {Function(Error, object, array)} callback
     */
     Conceitoproduto.AtivoComListaPorProjeto = function (idProjeto, callback) {
-        var ativo, listaConceito ;
+        var ativo, listaConceito;
         var ds = Conceitoproduto.dataSource;
         var sql1 = "select ConceitoProduto.* " +
-          " from ConceitoProduto " +
-          " where projetoMySqlId = " + idProjeto + 
-          " and ativo = 1 ";
-        ds.connector.query(sql1, (err1,result1) => {
+            " from ConceitoProduto " +
+            " where projetoMySqlId = " + idProjeto +
+            " and ativo = 1 ";
+        ds.connector.query(sql1, (err1, result1) => {
             if (err1) {
-                callback(err1,null)
+                callback(err1, null)
                 return;
             }
-            ativo = (result1.length>0?result1[0]:{});
+            ativo = (result1.length > 0 ? result1[0] : {});
             var sql2 = "select ConceitoProduto.* " +
-            " from ConceitoProduto " +
-            " where projetoMySqlId = " + idProjeto + 
-            " order by dataCriacao desc"; 
-            ds.connector.query(sql2, (err2,result2) => {
+                " from ConceitoProduto " +
+                " where projetoMySqlId = " + idProjeto +
+                " order by dataCriacao desc";
+            ds.connector.query(sql2, (err2, result2) => {
                 listaConceito = result2;
                 callback(err2, ativo, listaConceito);
             })
@@ -60,16 +60,29 @@ module.exports = function (Conceitoproduto) {
     Conceitoproduto.CriaConceitoProduto = function (conceitoProduto, callback) {
         var ds = Conceitoproduto.dataSource;
         var sql1 = "update ConceitoProduto " +
-          " set ativo = 0 " +
-          " where projetoMySqlId = " + conceitoProduto.projetoMySqlId;
-        ds.connector.query(sql1, (err1,result1) => {
+            " set ativo = 0 " +
+            " where projetoMySqlId = " + conceitoProduto.projetoMySqlId;
+        ds.connector.query(sql1, (err1, result1) => {
             if (err1) {
-                callback(err1,result1)
+                callback(err1, result1)
                 return;
             }
             conceitoProduto.dataCriacao = new Date();
             conceitoProduto.ativo = 1;
-            Conceitoproduto.create(conceitoProduto,callback);
+            Conceitoproduto.create(conceitoProduto, callback);
         });
+    };
+
+
+    /**
+    * Retorna o conceito ativo do projeto dado como entrada (id)
+    * @param {number} idProjeto
+    * @param {Function(Error, object)} callback
+    */
+
+    Conceitoproduto.AtivoPorProjeto = function (idProjeto, callback) {
+        var filtro = { "where" : {"and" : [{"ativo":"1"},{"projetoMySqlId":idProjeto}] } };
+        var conceito;
+        Conceitoproduto.findOne(filtro,callback);
     };
 };
