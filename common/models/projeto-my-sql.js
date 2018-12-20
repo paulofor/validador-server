@@ -4,6 +4,46 @@ var app = require('../../server/server');
 
 module.exports = function (Projetomysql) {
 
+
+    /**
+     * Retorna o conceito ativo e mais uma lista de valor com os anuncios associados.
+     * @param {number} idProjeto
+     * @param {Function(Error, object, array, object)} callback
+     */
+
+    Projetomysql.ConceitoValorAnuncioPorProjeto = function (idProjeto, callback) {
+        var conceito = null, listaValorAnuncio = null, projeto = null;
+
+        Projetomysql.findById(idProjeto, (err1, result1) => {
+            if (err1) {
+                callback(err1, conceito, listaValorAnuncio, projeto);
+                return;
+            }
+            projeto = result1;
+            app.models.ConceitoProduto.AtivoPorProjeto(idProjeto, (err2, result2) => {
+                conceito= result2;
+                if (err2 || !conceito) {
+                    callback(err2, conceito, listaValorAnuncio, projeto);
+                    return;
+                }
+                var filtro = { "where" : {"conceitoProdutoId" : conceito.id } , "include" : "anuncioAds" };
+                app.models.ValorConceito.find(filtro, (err3, result3) => {
+                    listaValorAnuncio = result3;
+                    if (err3) {
+                        callback(err3, conceito, listaValorAnuncio, projeto);
+                        return;
+                    }
+                    callback(null, conceito, listaValorAnuncio, projeto);
+                })
+
+            })
+
+        })
+    };
+
+
+
+
     /**
      * Retorna o projeto, conceito ativo e lista de palavraschaves ( estatistica )
      * @param {number} idProjeto 
@@ -12,31 +52,31 @@ module.exports = function (Projetomysql) {
 
     Projetomysql.ProjetoConceitoPalavraChave = function (idProjeto, callback) {
         var projeto = null, conceito = null, listaPalavraChave = null;
-        Projetomysql.findById(idProjeto, (err1,result1) => {
+        Projetomysql.findById(idProjeto, (err1, result1) => {
             if (err1) {
-                callback(err1,null,null,null);
+                callback(err1, null, null, null);
                 return;
             }
             projeto = result1;
-            app.models.ConceitoProduto.AtivoPorProjeto(idProjeto, (err2,result2) => {
+            app.models.ConceitoProduto.AtivoPorProjeto(idProjeto, (err2, result2) => {
                 if (err2) {
-                    callback(err2,projeto,null,null);
+                    callback(err2, projeto, null, null);
                     return;
                 }
                 conceito = result2;
-                app.models.PalavraChaveEstatistica.ListaPorIdProjeto(idProjeto, (err3,result3) => {
+                app.models.PalavraChaveEstatistica.ListaPorIdProjeto(idProjeto, (err3, result3) => {
                     if (err3) {
-                        callback(err3,projeto, conceito, null);
+                        callback(err3, projeto, conceito, null);
                         return;
                     }
                     listaPalavraChave = result3;
                     callback(null, projeto, conceito, listaPalavraChave);
                 })
-                
+
             })
 
         })
-        
+
     };
 
 

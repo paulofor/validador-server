@@ -375,6 +375,43 @@
           "verb": "get"
         }
       ]
+    },
+    "ConceitoValorAnuncioPorProjeto": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "conceito",
+          "type": "object",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "listaValorAnuncio",
+          "type": "array",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "projeto",
+          "type": "object",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "Retorna o conceito ativo e mais uma lista de valor com os anuncios associados.",
+      "http": [
+        {
+          "path": "/conceitoValorAnuncioPorProjeto",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
