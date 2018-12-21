@@ -6,6 +6,41 @@ module.exports = function (Projetomysql) {
 
 
     /**
+     * Retorna projeto, conceito ativo e paginas de validacao
+     * @param {number} idProjeto 
+     * @param {Function(Error, object, object, array)} callback
+     */
+    Projetomysql.ProjetoConceitoPaginaValidacao = function (idProjeto, callback) {
+        var projeto = null, conceito = null, listaPagina = null;
+        Projetomysql.findById(idProjeto, (err1, result1) => {
+            if (err1) {
+                callback(err1,  projeto, conceito, listaPagina);
+                return;
+            }
+            projeto = result1;
+            app.models.ConceitoProduto.AtivoPorProjeto(idProjeto, (err2, result2) => {
+                conceito = result2;
+                if (err2 || !conceito) {
+                    callback(err2,  projeto, conceito, listaPagina);
+                    return;
+                }
+                var filtro = { "where": { "conceitoProdutoId": conceito.id } };
+                app.models.PaginaValidacaoWeb.find(filtro, (err3, result3) => {
+                    listaPagina = result3;
+                    if (err3) {
+                        callback(err3,  projeto, conceito, listaPagina);
+                        return;
+                    }
+                    callback(null,  projeto, conceito, listaPagina);
+                })
+
+            })
+        })
+    };
+
+
+
+    /**
      * Retorna o conceito ativo e mais uma lista de valor com os anuncios associados.
      * @param {number} idProjeto
      * @param {Function(Error, object, array, object)} callback
@@ -21,12 +56,12 @@ module.exports = function (Projetomysql) {
             }
             projeto = result1;
             app.models.ConceitoProduto.AtivoPorProjeto(idProjeto, (err2, result2) => {
-                conceito= result2;
+                conceito = result2;
                 if (err2 || !conceito) {
                     callback(err2, conceito, listaValorAnuncio, projeto);
                     return;
                 }
-                var filtro = { "where" : {"conceitoProdutoId" : conceito.id } , "include" : "anuncioAds" };
+                var filtro = { "where": { "conceitoProdutoId": conceito.id }, "include": "anuncioAds" };
                 app.models.ValorConceito.find(filtro, (err3, result3) => {
                     listaValorAnuncio = result3;
                     if (err3) {

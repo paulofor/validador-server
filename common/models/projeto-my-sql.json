@@ -412,6 +412,43 @@
           "verb": "get"
         }
       ]
+    },
+    "ProjetoConceitoPaginaValidacao": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "projeto",
+          "type": "object",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "conceito",
+          "type": "object",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "listaPagina",
+          "type": "array",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "Retorna projeto, conceito ativo e paginas de validacao",
+      "http": [
+        {
+          "path": "/projetoConceitoPaginaValidacao",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

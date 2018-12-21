@@ -35,6 +35,11 @@
       "type": "hasMany",
       "model": "TelaWeb",
       "foreignKey": ""
+    },
+    "paginaValidacaoWebs": {
+      "type": "hasMany",
+      "model": "PaginaValidacaoWeb",
+      "foreignKey": ""
     }
   },
   "acls": [],
