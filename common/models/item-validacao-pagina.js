@@ -32,19 +32,33 @@ module.exports = function (Itemvalidacaopagina) {
     * @param {Function(Error, array)} callback
     */
 
-    Itemvalidacaopagina.disponiveisPorProjeto = function (idProjeto, callback) {
+    Itemvalidacaopagina.disponiveisPorProjeto = function (idProjeto,  callback) {
         var listaItens = [];
         var ds = Itemvalidacaopagina.dataSource;
+        /*
         var sql = "select ItemValidacaoPagina.* from ItemValidacaoPagina  " +
             " inner join ProjetoCanvasMySql on projetoCanvasMySqlId = ProjetoCanvasMySql.id " +
             " where paginaValidacaoWebId is null  " +
             " and projetoMySqlId = " + idProjeto;
+        */
+        var sql1 = "SELECT ItemValidacaoPagina.* FROM ItemValidacaoPagina " +
+            " inner join TelaApp on TelaApp.id = ItemValidacaoPagina.telaAppId " +
+            " inner join ConceitoProduto on ConceitoProduto.id = TelaApp.conceitoProdutoId " +
+            " where ConceitoProduto.ativo = 1 " +
+            " and ItemValidacaoPagina.paginaValidacaoWebId is null " +
+            " and ConceitoProduto.projetoMySqlId = " + idProjeto;
+        var sql2 = "SELECT ItemValidacaoPagina.* FROM ItemValidacaoPagina " +
+            " inner join TelaWeb on TelaWeb.id = ItemValidacaoPagina.telaWebId " +
+            " inner join ConceitoProduto on ConceitoProduto.id = TelaWeb.conceitoProdutoId " +
+            " where ConceitoProduto.ativo = 1 " +
+            " and ItemValidacaoPagina.paginaValidacaoWebId is null " +
+            " and ConceitoProduto.projetoMySqlId = " + idProjeto;
+        var sql = sql1 + " union all " + sql2;
         ds.connector.query(sql, function (err, result) {
-            console.log(JSON.stringify(result));
+            //console.log(JSON.stringify(result));
             if (err) console.error(err);
             else listaItens = result;
             callback(err, listaItens);
-
         });
     };
 
