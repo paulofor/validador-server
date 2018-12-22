@@ -6,6 +6,52 @@ module.exports = function (Projetomysql) {
 
 
     /**
+     * Retorna projeto, conceito ativo e lista de item de validacao do idProjeto
+     * @param {number} idProjeto 
+     * @param {Function(Error, object, object, array)} callback
+     */
+
+    Projetomysql.ProjetoConceitoTelaItemValidacao = function (idProjeto, callback) {
+        var projeto = null, conceito = null, listaTelaApp = null, listaTelaWeb;
+        Projetomysql.findById(idProjeto, (err1, result1) => {
+            if (err1) {
+                callback(err1, projeto, conceito, listaTelaApp, listaTelaWeb);
+                return;
+            }
+            projeto = result1;
+            app.models.ConceitoProduto.AtivoPorProjeto(idProjeto, (err2, result2) => {
+                conceito = result2;
+                if (err2 || !conceito) {
+                    callback(err2, projeto, conceito, listaTelaApp, listaTelaWeb);
+                    return;
+                }
+
+                var filtro = { "where": { "conceitoProdutoId": conceito.id } , "include" : "itemValidacaoPaginas" };
+                app.models.TelaApp.find(filtro, (err3, result3) => {
+                    listaTelaApp = result3;
+                    if (err3 || !listaTelaApp) {
+                        callback(err3, projeto, conceito, listaTelaApp, listaTelaWeb);
+                        return;
+                    }
+                    app.models.TelaWeb.find(filtro, (err4,result4) => {
+                        listaTelaWeb = result4;
+                        if (err4 || !listaTelaWeb) {
+                            callback(err4, projeto, conceito, listaTelaApp, listaTelaWeb);
+                            return;
+                        }
+                        callback(null, projeto, conceito, listaTelaApp, listaTelaWeb);
+                    })
+                   
+                })
+
+            })
+        })
+    };
+
+
+
+
+    /**
      * Retorna projeto, conceito ativo e paginas de validacao
      * @param {number} idProjeto 
      * @param {Function(Error, object, object, array)} callback
@@ -14,24 +60,24 @@ module.exports = function (Projetomysql) {
         var projeto = null, conceito = null, listaPagina = null;
         Projetomysql.findById(idProjeto, (err1, result1) => {
             if (err1) {
-                callback(err1,  projeto, conceito, listaPagina);
+                callback(err1, projeto, conceito, listaPagina);
                 return;
             }
             projeto = result1;
             app.models.ConceitoProduto.AtivoPorProjeto(idProjeto, (err2, result2) => {
                 conceito = result2;
                 if (err2 || !conceito) {
-                    callback(err2,  projeto, conceito, listaPagina);
+                    callback(err2, projeto, conceito, listaPagina);
                     return;
                 }
                 var filtro = { "where": { "conceitoProdutoId": conceito.id } };
                 app.models.PaginaValidacaoWeb.find(filtro, (err3, result3) => {
                     listaPagina = result3;
                     if (err3) {
-                        callback(err3,  projeto, conceito, listaPagina);
+                        callback(err3, projeto, conceito, listaPagina);
                         return;
                     }
-                    callback(null,  projeto, conceito, listaPagina);
+                    callback(null, projeto, conceito, listaPagina);
                 })
 
             })

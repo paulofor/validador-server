@@ -11,7 +11,7 @@ module.exports = function (Palavrachaveestatistica) {
      */
 
     Palavrachaveestatistica.ListaMelhoresPadrao = function (idPalavraChaveRaiz, callback) {
-        Palavrachaveestatistica.ListaMelhores(5000, 0.9, idPalavraChaveRaiz, callback);
+        Palavrachaveestatistica.ListaMelhores(10000, 0.9, idPalavraChaveRaiz, callback);
     };
 
 

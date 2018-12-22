@@ -449,6 +449,49 @@
           "verb": "get"
         }
       ]
+    },
+    "ProjetoConceitoTelaItemValidacao": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "projeto",
+          "type": "object",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "conceito",
+          "type": "object",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "listaTelaApp",
+          "type": "array",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "listaTelaWeb",
+          "type": "array",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "Retorna projeto, conceito ativo e lista de item de validacao do idProjeto",
+      "http": [
+        {
+          "path": "/projetoConceitoItemValidacao",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

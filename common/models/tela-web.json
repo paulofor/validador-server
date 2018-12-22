@@ -30,6 +30,11 @@
       "type": "hasMany",
       "model": "TelaComponenteWeb",
       "foreignKey": ""
+    },
+    "itemValidacaoPaginas": {
+      "type": "hasMany",
+      "model": "ItemValidacaoPagina",
+      "foreignKey": ""
     }
   },
   "acls": [],
