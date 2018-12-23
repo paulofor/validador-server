@@ -8,6 +8,9 @@
   "properties": {
     "nome": {
       "type": "string"
+    },
+    "tipo" : {
+      "type" : "string"
     }
   },
   "validations": [],
@@ -20,6 +23,11 @@
     "itemValidacaoPaginas": {
       "type": "hasMany",
       "model": "ItemValidacaoPagina",
+      "foreignKey": ""
+    },
+    "entidade": {
+      "type": "belongsTo",
+      "model": "entidade",
       "foreignKey": ""
     }
   },
