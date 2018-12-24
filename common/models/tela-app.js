@@ -5,6 +5,20 @@ module.exports = function (Telaapp) {
 
 
     /**
+     * Obtem as telas para serem criadas no gerador de codigo por idAplicacao
+     * @param {number} idAplicacao 
+     * @param {Function(Error, array)} callback
+     */
+
+    Telaapp.GeradorListaPorAplicacao = function (idAplicacao, callback) {
+        var listaTelaApp;
+        // TODO
+        callback(null, listaTelaApp);
+    };
+
+
+
+    /**
      * Retorna as telas de um projeto, pode ser pelo idProjeto ( conceito ativo ) ou pelo idConceito
      * @param {number} idProjeto
      * @param {number} idConceito
@@ -25,9 +39,13 @@ module.exports = function (Telaapp) {
  */
 
     Telaapp.ObtemPorIdAplicacaoParaGerador = function (idAplicacao, callback) {
-        var listaTela;
-        // TODO
-        callback(null, listaTela);
+        var ds = Telaapp.dataSource;
+        var sql = "select TelaApp.* from TelaApp " +
+            " inner join ConceitoProduto on ConceitoProduto.id = TelaApp.conceitoProdutoId " +
+            " inner join aplicacao on aplicacao.projetoMySqlId = ConceitoProduto.projetoMySqlId " +
+            " where ConceitoProduto.ativo = 1 " +
+            " and aplicacao.id_aplicacao = " + idAplicacao;
+        ds.connector.query(sql, callback);
     };
 
 

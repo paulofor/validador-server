@@ -9,17 +9,12 @@
     "nome": {
       "type": "string"
     },
-    "tipo" : {
-      "type" : "string"
+    "tipo": {
+      "type": "string"
     }
   },
   "validations": [],
   "relations": {
-    "entidades": {
-      "type": "hasOne",
-      "model": "entidade",
-      "foreignKey": ""
-    },
     "itemValidacaoPaginas": {
       "type": "hasMany",
       "model": "ItemValidacaoPagina",
@@ -28,6 +23,11 @@
     "entidade": {
       "type": "belongsTo",
       "model": "entidade",
+      "foreignKey": ""
+    },
+    "conceitoProduto": {
+      "type": "belongsTo",
+      "model": "ConceitoProduto",
       "foreignKey": ""
     }
   },
@@ -60,6 +60,31 @@
       "http": [
         {
           "path": "/listaTelaAppProjeto",
+          "verb": "get"
+        }
+      ]
+    },
+    "ObtemPorIdAplicacaoParaGerador": {
+      "accepts": [
+        {
+          "arg": "idAplicacao",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaTela",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem as telas para serem criadas no gerador de codigo por idAplicacao",
+      "http": [
+        {
+          "path": "/obtemPorIdAplicacaoParaGerador",
           "verb": "get"
         }
       ]

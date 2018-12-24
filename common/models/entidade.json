@@ -51,6 +51,11 @@
       "type": "hasMany",
       "model": "relacionamento_entidade",
       "foreignKey": "id_entidade2"
+    },
+    "projetoMySql": {
+      "type": "belongsTo",
+      "model": "ProjetoMySql",
+      "foreignKey": ""
     }
   },
   "acls": [],
