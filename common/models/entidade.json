@@ -56,6 +56,16 @@
       "type": "belongsTo",
       "model": "ProjetoMySql",
       "foreignKey": ""
+    },
+    "atributoChave": {
+      "type": "belongsTo",
+      "model": "atributo_entidade",
+      "foreignKey": "id_chave"
+    },
+    "atributoIdentificador": {
+      "type": "belongsTo",
+      "model": "atributo_entidade",
+      "foreignKey": "id_atributo_identificador"
     }
   },
   "acls": [],

@@ -81,7 +81,7 @@
           "description": ""
         }
       ],
-      "description": "Obtem as telas para serem criadas no gerador de codigo por idAplicacao",
+      "description": "Retorna as telas app para o gerador de uma aplicacao",
       "http": [
         {
           "path": "/obtemPorIdAplicacaoParaGerador",

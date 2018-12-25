@@ -1,5 +1,7 @@
 'use strict';
 
+var app = require('../../server/server');
+
 module.exports = function (Telaapp) {
 
 
@@ -33,11 +35,10 @@ module.exports = function (Telaapp) {
 
 
     /**
- * Obtem todas as telas com elementos internos necessarios para o gerador de codigo
- * @param {number} idAplicacao 
- * @param {Function(Error, array)} callback
- */
-
+    * Obtem todas as telas com elementos internos necessarios para o gerador de codigo
+    * @param {number} idAplicacao 
+    * @param {Function(Error, array)} callback
+    */
     Telaapp.ObtemPorIdAplicacaoParaGerador = function (idAplicacao, callback) {
         var ds = Telaapp.dataSource;
         var sql = "select TelaApp.* from TelaApp " +
@@ -45,8 +46,19 @@ module.exports = function (Telaapp) {
             " inner join aplicacao on aplicacao.projetoMySqlId = ConceitoProduto.projetoMySqlId " +
             " where ConceitoProduto.ativo = 1 " +
             " and aplicacao.id_aplicacao = " + idAplicacao;
-        ds.connector.query(sql, callback);
+        ds.connector.query(sql,callback);
+       
     };
 
+    function obtemEntidade(item) {
+        app.models.entidade.findById(item.entidadeId, (err,result) => {
+            console.log('Entidade:' , result);
+            if (!err) {
+                return result;
+            } else {
+                return null;
+            }
+        })
+    }
 
 };
