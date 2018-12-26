@@ -64,7 +64,7 @@
         }
       ]
     },
-    "ObtemPorIdAplicacaoParaGerador": {
+    "TelasAppPorIdAplicacaoParaGerador": {
       "accepts": [
         {
           "arg": "idAplicacao",
@@ -84,7 +84,7 @@
       "description": "Retorna as telas app para o gerador de uma aplicacao",
       "http": [
         {
-          "path": "/obtemPorIdAplicacaoParaGerador",
+          "path": "/telasAppPorIdAplicacaoParaGerador",
           "verb": "get"
         }
       ]

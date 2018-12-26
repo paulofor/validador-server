@@ -5,6 +5,30 @@ var app = require('../../server/server');
 module.exports = function (Aplicacao) {
 
 
+
+    /**
+    * Obtem a aplicacao do conceito
+    * @param {number} idConceito 
+    * @param {Function(Error, object)} callback
+    */
+
+    Aplicacao.ObtemPorIdConceito = function(idConceito, callback) {
+        var ds = Aplicacao.dataSource;
+        var sql = "select aplicacao.* "
+        var sql =   " select aplicacao.* from aplicacao " +
+                    " inner join ConceitoProduto on ConceitoProduto.projetoMySqlId = aplicacao.projetoMySqlId " +
+                    " where ConceitoProduto.id = " + idConceito;
+        ds.connector.query(sql,(err,result) => {
+            if (result.length!=1) {
+                callback('Retornou diferente de um' , null);
+            } else {
+                callback(null,result[0]);
+            }
+        })
+    };
+
+
+
     /**
      * Combina tipo componente com entidades para gerar os componentes web
      * @param {number} idAplicacao 

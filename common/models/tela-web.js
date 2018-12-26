@@ -8,7 +8,7 @@ module.exports = function (Telaweb) {
      * @param {Function(Error, array)} callback
      */
 
-    Telaweb.ObtemPorIdAplicacaoParaGerador = function (idAplicacao, callback) {
+    Telaweb.TelasWebPorIdAplicacaoParaGerador = function (idAplicacao, callback) {
         var filtro = { 
             "where" : {"aplicacaoId" : idAplicacao} ,
             "include" : {"relation" : "telaComponenteWebs" , "scope" : { "include" : "componenteWeb" } }

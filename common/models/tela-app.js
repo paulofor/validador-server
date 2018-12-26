@@ -39,7 +39,7 @@ module.exports = function (Telaapp) {
     * @param {number} idAplicacao 
     * @param {Function(Error, array)} callback
     */
-    Telaapp.ObtemPorIdAplicacaoParaGerador = function (idAplicacao, callback) {
+    Telaapp.TelasAppPorIdAplicacaoParaGerador = function (idAplicacao, callback) {
         var ds = Telaapp.dataSource;
         var sql = "select TelaApp.* from TelaApp " +
             " inner join ConceitoProduto on ConceitoProduto.id = TelaApp.conceitoProdutoId " +

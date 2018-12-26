@@ -71,6 +71,31 @@
           "verb": "post"
         }
       ]
+    },
+    "ObtemPorIdConceito": {
+      "accepts": [
+        {
+          "arg": "idConceito",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "aplicacao",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem a aplicacao do conceito",
+      "http": [
+        {
+          "path": "/obtemPorIdConceito",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

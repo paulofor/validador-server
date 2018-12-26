@@ -38,5 +38,31 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "TelasWebPorIdAplicacaoParaGerador": {
+      "accepts": [
+        {
+          "arg": "idAplicacao",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaTela",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Retorna as telas web para o gerador de uma aplicacao",
+      "http": [
+        {
+          "path": "/telasWebPorIdAplicacaoParaGerador",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }
