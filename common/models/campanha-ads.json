@@ -84,6 +84,11 @@
       "type": "hasMany",
       "model": "CampanhaPalavraChaveResultado",
       "foreignKey": ""
+    },
+    "paginaValidacaoWeb": {
+      "type": "belongsTo",
+      "model": "PaginaValidacaoWeb",
+      "foreignKey": ""
     }
   },
   "acls": [],
@@ -220,6 +225,56 @@
       "http": [
         {
           "path": "/listaParaResultadoTeste",
+          "verb": "get"
+        }
+      ]
+    },
+    "GeralPorProjeto": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaCampanha",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Lista das campanhas de um projeto",
+      "http": [
+        {
+          "path": "/geralPorProjeto",
+          "verb": "get"
+        }
+      ]
+    },
+    "ConceitoAtivoPorProjeto": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaCampanha",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Retorna as campanhas do conceito atual de projetoId",
+      "http": [
+        {
+          "path": "/conceitoAtivoPorProjeto",
           "verb": "get"
         }
       ]

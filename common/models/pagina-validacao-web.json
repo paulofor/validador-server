@@ -64,6 +64,11 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "conceitoProduto": {
+      "type": "belongsTo",
+      "model": "ConceitoProduto",
+      "foreignKey": ""
     }
   },
   "acls": [],

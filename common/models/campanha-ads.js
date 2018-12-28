@@ -5,6 +5,71 @@ var app = require('../../server/server');
 module.exports = function (Campanhaads) {
 
 
+
+    /**
+    * Retorna as campanhas do conceito atual de projetoId
+    * @param {number} idProjeto 
+    * @param {Function(Error, array)} callback
+    */
+
+    Campanhaads.ConceitoAtivoPorProjeto = function (idProjeto, callback) {
+
+        /*
+        var filtro = {
+            "include": {
+                "relation": "paginaValidacaoWeb",
+                "scope": {
+                    "where": { "projetoMySqlId": idProjeto },
+                    "include": "conceitoProduto",
+                    "relation": "conceitoProduto",
+                    "scope": {
+                        "where": { "ativo": "1" }
+                    }
+                }
+            },
+            "order": "dataInicial"
+        }
+        */
+        var sql = "SELECT CampanhaAds.* FROM CampanhaAds " +
+                " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+                " inner join ConceitoProduto on PaginaValidacaoWeb.conceitoProdutoId = ConceitoProduto.id " +
+                " where ConceitoProduto.ativo = 1 and " +
+                " PaginaValidacaoWeb.projetoMySqlId = " + idProjeto +
+                " order by dataInicial desc";
+        var ds = Campanhaads.dataSource;
+         ds.connector.query(sql,callback);
+    };
+
+
+
+    /**
+    * Lista das campanhas de um projeto
+    * @param {number} idProjeto 
+    * @param {Function(Error, array)} callback
+    */
+    Campanhaads.GeralPorProjeto = function (idProjeto, callback) {
+        /*
+        var filtro = {
+            "include": {
+                "relation": "paginaValidacaoWeb",
+                "scope": {
+                    "where": { "projetoMySqlId": idProjeto },
+                    "include": "conceitoProduto"
+                }
+            },
+            "order": "dataInicial"
+        }
+        */
+        var sql = " SELECT CampanhaAds.* FROM CampanhaAds " +
+            " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            " where PaginaValidacaoWeb.projetoMySqlId = " + idProjeto +
+            " order by dataInicial desc ";
+        var ds = Campanhaads.dataSource;
+        ds.connector.query(sql,callback);
+    };
+
+
+
     /**
     * 
     * @param {Function(Error, array)} callback
