@@ -126,7 +126,7 @@ module.exports = function (Campanhaads) {
     };
 
     /**
-    * lista de campanhas para ser publicada online
+    * Retornar a campanha com Id no formato usado pelo listaParaPublicar
     * @param {Function(Error, array)} callback
     */
     Campanhaads.listaParaPublicarTeste = function (idCampanha, callback) {
@@ -148,7 +148,7 @@ module.exports = function (Campanhaads) {
 
 
     /**
-     * lista de campanhas para ser publicada online
+     * Data de Publicação nula e Data de fechamento preenchida
      * @param {Function(Error, array)} callback
      */
     Campanhaads.listaParaPublicar = function (callback) {
