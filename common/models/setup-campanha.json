@@ -1,0 +1,41 @@
+{
+  "name": "SetupCampanha",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "budgetDiario": {
+      "type": "number",
+      "required": true
+    },
+    "estrategia": {
+      "type": "string",
+      "required": true
+    },
+    "diaSemanaInicio": {
+      "type": "string"
+    },
+    "diaSemanaFinal": {
+      "type": "string"
+    },
+    "plataforma": {
+      "type": "string"
+    },
+    "matchPalavra": {
+      "type": "string"
+    },
+    "rotacaoAnuncio": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

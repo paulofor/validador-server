@@ -89,6 +89,11 @@
       "type": "belongsTo",
       "model": "PaginaValidacaoWeb",
       "foreignKey": ""
+    },
+    "setupCampanha": {
+      "type": "belongsTo",
+      "model": "SetupCampanha",
+      "foreignKey": ""
     }
   },
   "acls": [],

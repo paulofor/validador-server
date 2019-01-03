@@ -326,5 +326,9 @@
   "Publico": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "SetupCampanha": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

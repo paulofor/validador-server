@@ -135,7 +135,8 @@ module.exports = function (Campanhaads) {
             "where": { "id": idCampanha },
             "include": [
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
-                { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
+                { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } },
+                "setupCampanha"
             ]
         },
             (err, result) => {
@@ -156,7 +157,8 @@ module.exports = function (Campanhaads) {
             "where": { and: [{ "dataPublicacao": null }, { "dataFechamento": { "neq": null } }] },
             "include": [
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
-                { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
+                { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } } ,
+                "setupCampanha"
             ]
         },
             (err, result) => {
