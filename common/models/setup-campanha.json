@@ -33,8 +33,8 @@
     "rotacaoAnuncio": {
       "type": "string"
     },
-    "permiteEdicao" : {
-      "type" : "number"
+    "permiteEdicao": {
+      "type": "number"
     }
   },
   "validations": [],

@@ -23,6 +23,9 @@
     },
     "descricao2": {
       "type": "string"
+    },
+    "permiteEdicao": {
+      "type": "number"
     }
   },
   "validations": [],
@@ -77,6 +80,31 @@
       "http": [
         {
           "path": "/listaTesteCampanha",
+          "verb": "get"
+        }
+      ]
+    },
+    "DisponiveisPorIdCampanha": {
+      "accepts": [
+        {
+          "arg": "idCampanha",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaAnuncio",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Anuncios disponiveis para serem incluidos em uma campanha. Usar o idPagina da campanha.",
+      "http": [
+        {
+          "path": "/disponiveisPorIdCampanha",
           "verb": "get"
         }
       ]

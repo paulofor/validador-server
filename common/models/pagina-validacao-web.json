@@ -29,6 +29,9 @@
     },
     "codigoHash": {
       "type": "string"
+    },
+    "permiteEdicao": {
+      "type": "number"
     }
   },
   "validations": [],

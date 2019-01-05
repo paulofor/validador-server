@@ -21,6 +21,9 @@
     },
     "dor": {
       "type": "string"
+    },
+    "codigo": {
+      "type": "string"
     }
   },
   "validations": [],

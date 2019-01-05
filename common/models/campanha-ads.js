@@ -5,6 +5,39 @@ var app = require('../../server/server');
 module.exports = function (Campanhaads) {
 
 
+    /**
+    * Recria todos os relacionamentos com palavras-chaves.
+    * @param {number} idCampanha 
+    * @param {Function(Error, number)} callback
+    */
+    Campanhaads.CriaRelacionamentoComPalavraChave = function (idCampanha, callback) {
+        var qtde;
+        var campanha;
+        Campanhaads.findById(idCampanha,(err,result) => {
+            if (err) {
+                callback(err,0);
+                return;
+            } 
+            campanha = result;
+            if (campanha.permiteEditar==1) {
+                callback('Campanha fechada', 0);
+                return;
+            }
+            app.models.PalavraChaveAds.ParaCampanhaPorIdPagina(campanha.paginaValidacaoWebId, (err, result) => {
+                for (var item of result) {
+                    var campanhaPalavraChave = {
+                        "palavraChaveAdsId": item.id,
+                        "campanhaAdsId": campanha.id
+                    };
+                    app.models.CampanhaPalavraChaveResultado.create(campanhaPalavraChave, (err, result) => {
+                        callback(null, qtde);
+                    })
+                }
+            })
+        })
+    };
+
+
 
     /**
     * Retorna as campanhas do conceito atual de projetoId
@@ -31,13 +64,13 @@ module.exports = function (Campanhaads) {
         }
         */
         var sql = "SELECT CampanhaAds.* FROM CampanhaAds " +
-                " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
-                " inner join ConceitoProduto on PaginaValidacaoWeb.conceitoProdutoId = ConceitoProduto.id " +
-                " where ConceitoProduto.ativo = 1 and " +
-                " PaginaValidacaoWeb.projetoMySqlId = " + idProjeto +
-                " order by dataInicial desc";
+            " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            " inner join ConceitoProduto on PaginaValidacaoWeb.conceitoProdutoId = ConceitoProduto.id " +
+            " where ConceitoProduto.ativo = 1 and " +
+            " PaginaValidacaoWeb.projetoMySqlId = " + idProjeto +
+            " order by dataInicial desc";
         var ds = Campanhaads.dataSource;
-         ds.connector.query(sql,callback);
+        ds.connector.query(sql, callback);
     };
 
 
@@ -65,7 +98,7 @@ module.exports = function (Campanhaads) {
             " where PaginaValidacaoWeb.projetoMySqlId = " + idProjeto +
             " order by dataInicial desc ";
         var ds = Campanhaads.dataSource;
-        ds.connector.query(sql,callback);
+        ds.connector.query(sql, callback);
     };
 
 
@@ -157,7 +190,7 @@ module.exports = function (Campanhaads) {
             "where": { and: [{ "dataPublicacao": null }, { "dataFechamento": { "neq": null } }] },
             "include": [
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
-                { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } } ,
+                { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } },
                 "setupCampanha"
             ]
         },

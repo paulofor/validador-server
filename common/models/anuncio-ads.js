@@ -19,7 +19,26 @@ module.exports = function (Anuncioads) {
     ds.connector.query(sql, callback);
   };
 
-
+  /**
+   * Anuncios disponiveis para serem incluidos em uma campanha. Usar o idPagina da campanha.
+   * @param {number} idPagina 
+   * @param {Function(Error, array)} callback
+   */
+  Anuncioads.DisponiveisPorIdCampanha = function (idCampanha, callback) {
+    var ds = Anuncioads.dataSource;
+    var sql = " select AnuncioAds.* from AnuncioAds " +
+              " inner join ValorConceito on ValorConceito.id = AnuncioAds.valorConceitoId " +
+              " inner join ConceitoProduto on ConceitoProduto.id = ValorConceito.conceitoProdutoId " +
+              " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.conceitoProdutoId = ConceitoProduto.id " +
+              " inner join CampanhaAds on CampanhaAds.paginaValidacaoWebId = PaginaValidacaoWeb.id " +
+              " where CampanhaAds.id = " + idCampanha +
+              " and AnuncioAds.id not in " +
+              " ( " +
+              " select CampanhaAnuncioResultado.anuncioAdsId from CampanhaAnuncioResultado " +
+              " where CampanhaAnuncioResultado.campanhaAdsId = " + idCampanha +
+              " ) ";
+    ds.connector.query(sql, callback);
+  };
 
   /**
    * Somente para teste

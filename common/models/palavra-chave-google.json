@@ -15,5 +15,31 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {
+    "ListaDisponivelParaCampanha": {
+      "accepts": [
+        {
+          "arg": "idCampanha",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaPalavra",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Lista das palavras chaves do projeto da campanha",
+      "http": [
+        {
+          "path": "/listaDisponivelParaCampanha",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }
