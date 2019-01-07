@@ -289,31 +289,7 @@
           "verb": "get"
         }
       ]
-    },
-    "CriaRelacionamentoComPalavraChave": {
-      "accepts": [
-        {
-          "arg": "idCampanha",
-          "type": "number",
-          "required": true,
-          "description": ""
-        }
-      ],
-      "returns": [
-        {
-          "arg": "qtde",
-          "type": "number",
-          "root": true,
-          "description": ""
-        }
-      ],
-      "description": "Recria todos os relacionamentos com palavras-chaves.",
-      "http": [
-        {
-          "path": "/criaRelacionamentoComPalavraChave",
-          "verb": "post"
-        }
-      ]
     }
+
   }
 }

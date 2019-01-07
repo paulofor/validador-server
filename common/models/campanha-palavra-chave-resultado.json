@@ -30,8 +30,39 @@
       "type": "belongsTo",
       "model": "CampanhaAds",
       "foreignKey": ""
+    },
+    "palavraChaveGoogle": {
+      "type": "belongsTo",
+      "model": "PalavraChaveGoogle",
+      "foreignKey": ""
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "CriaRelacionamentoPorIdCampanha": {
+      "accepts": [
+        {
+          "arg": "idCampanha",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "qtde",
+          "type": "number",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Recria todos os relacionamentos de palavras-chaves.",
+      "http": [
+        {
+          "path": "/criaRelacionamentoPorIdCampanha",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }

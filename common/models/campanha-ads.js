@@ -5,38 +5,7 @@ var app = require('../../server/server');
 module.exports = function (Campanhaads) {
 
 
-    /**
-    * Recria todos os relacionamentos com palavras-chaves.
-    * @param {number} idCampanha 
-    * @param {Function(Error, number)} callback
-    */
-    Campanhaads.CriaRelacionamentoComPalavraChave = function (idCampanha, callback) {
-        var qtde;
-        var campanha;
-        Campanhaads.findById(idCampanha,(err,result) => {
-            if (err) {
-                callback(err,0);
-                return;
-            } 
-            campanha = result;
-            if (campanha.permiteEditar==1) {
-                callback('Campanha fechada', 0);
-                return;
-            }
-            app.models.PalavraChaveAds.ParaCampanhaPorIdPagina(campanha.paginaValidacaoWebId, (err, result) => {
-                for (var item of result) {
-                    var campanhaPalavraChave = {
-                        "palavraChaveAdsId": item.id,
-                        "campanhaAdsId": campanha.id
-                    };
-                    app.models.CampanhaPalavraChaveResultado.create(campanhaPalavraChave, (err, result) => {
-                        callback(null, qtde);
-                    })
-                }
-            })
-        })
-    };
-
+   
 
 
     /**
