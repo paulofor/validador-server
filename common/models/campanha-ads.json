@@ -54,6 +54,9 @@
     "urlAlvo": {
       "type": "string"
     },
+    "urlAlvoMobile": {
+      "type": "string"
+    },
     "finalizadaProducao": {
       "type": "Boolean"
     },
@@ -289,7 +292,31 @@
           "verb": "get"
         }
       ]
+    },
+    "CriaNova": {
+      "accepts": [
+        {
+          "arg": "campanha",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "final",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Cria uma nova campanha inicializando campos",
+      "http": [
+        {
+          "path": "/criaNova",
+          "verb": "post"
+        }
+      ]
     }
-
   }
 }

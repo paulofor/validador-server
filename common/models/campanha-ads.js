@@ -5,7 +5,7 @@ var app = require('../../server/server');
 module.exports = function (Campanhaads) {
 
 
-   
+
 
 
     /**
@@ -265,6 +265,15 @@ module.exports = function (Campanhaads) {
        })
    };
    */
+    /**
+     * Cria uma nova campanha inicializando campos
+     * @param {object} campanha 
+     * @param {Function(Error, object)} callback
+     */
 
+    Campanhaads.CriaNova = function (campanha, callback) {
+        campanha.dataCriacao = new Date();
+        Campanhaads.create(campanha,callback);
+    };
 
 };
