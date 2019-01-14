@@ -12,6 +12,9 @@
     "urlImagem": {
       "type": "string"
     },
+    "urlImagem2": {
+      "type": "string"
+    },
     "ordenacao": {
       "type": "number"
     },
