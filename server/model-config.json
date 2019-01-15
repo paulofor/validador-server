@@ -330,5 +330,9 @@
   "SetupCampanha": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "EstatisticaMes": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

@@ -1,0 +1,35 @@
+{
+  "name": "EstatisticaMes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "MediaPessoaTestePagina": {
+      "type": "number"
+    },
+    "TotalPessoaTestePagina": {
+      "type": "number"
+    },
+    "CpcMedio": {
+      "type": "number"
+    },
+    "TotalPagina": {
+      "type": "number"
+    },
+    "CustoMedioTeste": {
+      "type": "number"
+    },
+    "CustoMesTotal": {
+      "type": "number"
+    },
+    "MesAno" : {
+      "type" : "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
