@@ -135,6 +135,25 @@
         }
       ]
     },
+    "ListaMelhoresBaixoCusto": {
+      "accepts": [
+      ],
+      "returns": [
+        {
+          "arg": "listaMelhores",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Lista de melhores casos com valores limites definidos no servidor. (Cpc: 0.4 , Volume: 5000)",
+      "http": [
+        {
+          "path": "/listaMelhoresBaixoCusto",
+          "verb": "get"
+        }
+      ]
+    },
     "ListaPorIdProjeto": {
       "accepts": [
         {

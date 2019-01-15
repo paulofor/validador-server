@@ -15,6 +15,9 @@ module.exports = function (Palavrachaveestatistica) {
     };
 
 
+    Palavrachaveestatistica.ListaMelhoresBaixoCusto = function (callback) {
+        Palavrachaveestatistica.ListaMelhores(5000, 0.4, null, callback);
+    };
 
     /**
      * os melhores atualmente com mais volume e menos custo
