@@ -273,7 +273,19 @@ module.exports = function (Campanhaads) {
 
     Campanhaads.CriaNova = function (campanha, callback) {
         campanha.dataCriacao = new Date();
-        Campanhaads.create(campanha,callback);
+        //console.log('campanha: ' , JSON.stringify(campanha));
+        //console.log('campanha.paginaValidacaoWebId' , campanha.paginaValidacaoWebId);
+        app.models.PaginaValidacaoWeb.findById(campanha.paginaValidacaoWebId, (err,result) => {
+            if (err) {
+                callback(err,null);
+                return;
+            }
+            var paginaValidacaoWeb = result;
+            campanha.urlAlvo = 'http://validacao.kinghost.net/oferta/?id=' + paginaValidacaoWeb.codigoHash;
+            campanha.urlAlvoMobile = 'http://validacao.kinghost.net/oferta/?id=' + paginaValidacaoWeb.codigoHash;
+            Campanhaads.create(campanha,callback);
+        })
+        
     };
 
 };
