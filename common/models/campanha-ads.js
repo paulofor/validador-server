@@ -80,8 +80,12 @@ module.exports = function (Campanhaads) {
 
     Campanhaads.ListaParaResultado = function (callback) {
         var listaCampanha;
+        var prazo = new Date();
+        //prazo.setDate(prazo + 60); // 60 dias
+        prazo.setTime( prazo.getTime() - 60 * 86400000 );
+        console.log('Prazo:' , prazo);
         Campanhaads.find({
-            "where": { and: [{ "dataResultado": null }, { "dataInicial": { "gt": new Date() } }] },
+            "where": { and: [{ "dataFinal": {"gt" : prazo } }, { "dataInicial": { "lt": new Date() } }] },
             "include": [
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
                 { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
