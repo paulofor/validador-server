@@ -36,8 +36,8 @@
     "permiteEdicao": {
       "type": "number"
     },
-    "maxCpcGrupoAnuncio" : {
-      "type" : "number"
+    "maxCpcGrupoAnuncio": {
+      "type": "number"
     }
   },
   "validations": [],

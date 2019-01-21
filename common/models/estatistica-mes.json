@@ -24,8 +24,8 @@
     "CustoMesTotal": {
       "type": "number"
     },
-    "MesAno" : {
-      "type" : "date"
+    "MesAno": {
+      "type": "date"
     }
   },
   "validations": [],

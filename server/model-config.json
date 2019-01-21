@@ -334,5 +334,9 @@
   "EstatisticaMes": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "Semana": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

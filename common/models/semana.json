@@ -1,0 +1,28 @@
+{
+  "name": "Semana",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "PrimeiroDia": {
+      "type": "date",
+      "required": true
+    },
+    "UltimoDia": {
+      "type": "date",
+      "required": true
+    },
+    "Mes": {
+      "type": "number"
+    },
+    "Ano": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -63,19 +63,22 @@
     "permiteEdicao": {
       "type": "number"
     },
-    "ctr" : {
+    "ctr": {
       "type": "number"
     },
-    "cpcMedio" : {
-      "type" : "number"
+    "cpcMedio": {
+      "type": "number"
     },
-    "conversao" : {
-      "type" : "number"
+    "conversao": {
+      "type": "number"
     },
-    "custoConversao" : {
-      "type" : "number"
+    "custoConversao": {
+      "type": "number"
     },
-    "taxaConversao" : {
+    "taxaConversao": {
+      "type": "number"
+    },
+    "cliquePlanejado" : {
       "type" : "number"
     }
   },

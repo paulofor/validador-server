@@ -136,8 +136,7 @@
       ]
     },
     "ListaMelhoresBaixoCusto": {
-      "accepts": [
-      ],
+      "accepts": [],
       "returns": [
         {
           "arg": "listaMelhores",
