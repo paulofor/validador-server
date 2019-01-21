@@ -38,6 +38,12 @@
     },
     "maxCpcGrupoAnuncio": {
       "type": "number"
+    },
+    "custoTotal" : {
+      "type" : "number"
+    },
+    "cliqueTotal" : {
+      "type" : "number"
     }
   },
   "validations": [],
