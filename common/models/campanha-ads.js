@@ -5,6 +5,20 @@ var app = require('../../server/server');
 module.exports = function (Campanhaads) {
 
 
+    /**
+     * Altera todos os permite editar relacionados
+     * @param {number} idCampanha 
+     * @param {number} permite 
+     * @param {Function(Error, boolean)} callback
+     */
+
+    Campanhaads.PermiteEditar = function (idCampanha, permite, callback) {
+        var resultado;
+        // TODO
+
+        
+        callback(null, resultado);
+    };
 
 
 
@@ -82,10 +96,10 @@ module.exports = function (Campanhaads) {
         var listaCampanha;
         var prazo = new Date();
         //prazo.setDate(prazo + 60); // 60 dias
-        prazo.setTime( prazo.getTime() - 60 * 86400000 );
-        console.log('Prazo:' , prazo);
+        prazo.setTime(prazo.getTime() - 60 * 86400000);
+        console.log('Prazo:', prazo);
         Campanhaads.find({
-            "where": { and: [{ "dataFinal": {"gt" : prazo } }, { "dataInicial": { "lt": new Date() } }] },
+            "where": { and: [{ "dataFinal": { "gt": prazo } }, { "dataInicial": { "lt": new Date() } }] },
             "include": [
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
                 { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
@@ -279,27 +293,27 @@ module.exports = function (Campanhaads) {
         campanha.dataCriacao = new Date();
         //console.log('campanha: ' , JSON.stringify(campanha));
         //console.log('campanha.paginaValidacaoWebId' , campanha.paginaValidacaoWebId);
-        app.models.PaginaValidacaoWeb.findById(campanha.paginaValidacaoWebId, (err,result) => {
+        app.models.PaginaValidacaoWeb.findById(campanha.paginaValidacaoWebId, (err, result) => {
             if (err) {
-                callback(err,null);
+                callback(err, null);
                 return;
             }
             var paginaValidacaoWeb = result;
             campanha.urlAlvo = 'http://validacao.kinghost.net/oferta/?id=' + paginaValidacaoWeb.codigoHash;
             campanha.urlAlvoMobile = 'http://validacao.kinghost.net/oferta/?id=' + paginaValidacaoWeb.codigoHash;
             campanha.permiteEdicao = 1;
-            app.models.ProjetoMySql.findById(paginaValidacaoWeb.projetoMySqlId, (err,result) => {
+            app.models.ProjetoMySql.findById(paginaValidacaoWeb.projetoMySqlId, (err, result) => {
                 if (err) {
-                    callback(err,null);
+                    callback(err, null);
                     return;
                 }
                 var projeto = result;
                 campanha.nome = projeto.codigo + '_' + campanha.nome;
-                Campanhaads.create(campanha,callback);
+                Campanhaads.create(campanha, callback);
             })
-            
+
         })
-        
+
     };
 
 };

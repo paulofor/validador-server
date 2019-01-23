@@ -78,8 +78,8 @@
     "taxaConversao": {
       "type": "number"
     },
-    "cliquePlanejado" : {
-      "type" : "number"
+    "cliquePlanejado": {
+      "type": "number"
     }
   },
   "validations": [],
@@ -332,6 +332,37 @@
       "http": [
         {
           "path": "/criaNova",
+          "verb": "post"
+        }
+      ]
+    },
+    "PermiteEditar": {
+      "accepts": [
+        {
+          "arg": "idCampanha",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "permite",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "boolean",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Altera todos os permite editar relacionados",
+      "http": [
+        {
+          "path": "/permiteEditar",
           "verb": "post"
         }
       ]
