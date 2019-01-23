@@ -287,7 +287,17 @@ module.exports = function (Campanhaads) {
             var paginaValidacaoWeb = result;
             campanha.urlAlvo = 'http://validacao.kinghost.net/oferta/?id=' + paginaValidacaoWeb.codigoHash;
             campanha.urlAlvoMobile = 'http://validacao.kinghost.net/oferta/?id=' + paginaValidacaoWeb.codigoHash;
-            Campanhaads.create(campanha,callback);
+            campanha.permiteEdicao = 1;
+            app.models.ProjetoMySql.findById(paginaValidacaoWeb.projetoMySqlId, (err,result) => {
+                if (err) {
+                    callback(err,null);
+                    return;
+                }
+                var projeto = result;
+                campanha.nome = projeto.codigo + '_' + campanha.nome;
+                Campanhaads.create(campanha,callback);
+            })
+            
         })
         
     };
