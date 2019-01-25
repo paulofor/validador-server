@@ -1,0 +1,32 @@
+{
+  "name": "PlanoExecucao",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "tempoEstimado": {
+      "type": "date",
+      "required": true
+    },
+    "contexto": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "processoNegocio": {
+      "type": "belongsTo",
+      "model": "ProcessoNegocio",
+      "foreignKey": ""
+    },
+    "diaSemana": {
+      "type": "belongsTo",
+      "model": "DiaSemana",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

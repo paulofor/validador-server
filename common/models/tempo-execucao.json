@@ -1,0 +1,54 @@
+{
+  "name": "TempoExecucao",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "dataReferencia": {
+      "type": "date",
+      "required": true
+    },
+    "horaInicio": {
+      "type": "date",
+      "required": true
+    },
+    "horaTermino": {
+      "type": "date"
+    },
+    "contexto": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "projetoMySql": {
+      "type": "belongsTo",
+      "model": "ProjetoMySql",
+      "foreignKey": ""
+    },
+    "processoNegocio": {
+      "type": "belongsTo",
+      "model": "ProcessoNegocio",
+      "foreignKey": ""
+    },
+    "conceitoProduto": {
+      "type": "belongsTo",
+      "model": "ConceitoProduto",
+      "foreignKey": ""
+    },
+    "semana": {
+      "type": "belongsTo",
+      "model": "Semana",
+      "foreignKey": ""
+    },
+    "diaSemana": {
+      "type": "belongsTo",
+      "model": "DiaSemana",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

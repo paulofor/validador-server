@@ -338,5 +338,17 @@
   "Semana": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "TempoExecucao": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "PlanoExecucao": {
+    "dataSource": "db",
+    "public": true
+  },
+  "DiaSemana": {
+    "dataSource": "db",
+    "public": true
   }
 }

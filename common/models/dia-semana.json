@@ -1,24 +1,15 @@
 {
-  "name": "ProcessoNegocio",
+  "name": "DiaSemana",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "nome": {
+    "nomeDia": {
       "type": "string"
     },
-    "descricao": {
-      "type": "string"
-    },
-    "url": {
-      "type": "string"
-    },
-    "permiteEditar": {
-      "type": "number"
-    },
-    "ativo": {
+    "posicaoDia": {
       "type": "number"
     }
   },
