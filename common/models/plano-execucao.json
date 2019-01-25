@@ -9,9 +9,6 @@
     "tempoEstimado": {
       "type": "date",
       "required": true
-    },
-    "contexto": {
-      "type": "string"
     }
   },
   "validations": [],
@@ -24,6 +21,11 @@
     "diaSemana": {
       "type": "belongsTo",
       "model": "DiaSemana",
+      "foreignKey": ""
+    },
+    "contexto": {
+      "type": "belongsTo",
+      "model": "Contexto",
       "foreignKey": ""
     }
   },

@@ -16,9 +16,6 @@
     },
     "horaTermino": {
       "type": "date"
-    },
-    "contexto": {
-      "type": "string"
     }
   },
   "validations": [],
@@ -46,6 +43,11 @@
     "diaSemana": {
       "type": "belongsTo",
       "model": "DiaSemana",
+      "foreignKey": ""
+    },
+    "contexto": {
+      "type": "belongsTo",
+      "model": "Contexto",
       "foreignKey": ""
     }
   },

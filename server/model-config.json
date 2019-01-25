@@ -344,11 +344,15 @@
     "public": true
   },
   "PlanoExecucao": {
-    "dataSource": "db",
+    "dataSource": "mysqlDS",
     "public": true
   },
   "DiaSemana": {
-    "dataSource": "db",
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "Contexto": {
+    "dataSource": "mysqlDS",
     "public": true
   }
 }
