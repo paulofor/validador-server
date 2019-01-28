@@ -41,8 +41,8 @@
           "description": ""
         },
         {
-          "arg": "contexto",
-          "type": "string",
+          "arg": "idContexto",
+          "type": "number",
           "required": true,
           "description": ""
         }

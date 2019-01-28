@@ -27,6 +27,11 @@
       "type": "belongsTo",
       "model": "Contexto",
       "foreignKey": ""
+    },
+    "semana": {
+      "type": "belongsTo",
+      "model": "Semana",
+      "foreignKey": ""
     }
   },
   "acls": [],

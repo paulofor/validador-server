@@ -11,9 +11,14 @@ module.exports = function (Processonegocio) {
  * @param {Function(Error, array)} callback
  */
 
-    Processonegocio.ObtemComPlanoPorSemana = function (idSemana, contexto, callback) {
+    Processonegocio.ObtemComPlanoPorSemana = function (idSemana, idContexto, callback) {
         var listaProcesso;
-        // TODO
-        callback(null, listaProcesso);
+        var filtro = {  "where" : { "ativo" : "1" } , 
+                        "include" : {
+                            "relation" : "planoExecucaos" , 
+                            "scope" : {"where" : { "and" : [{"semanaId" : idSemana} , {"contextoId" : idContexto }] }}
+                            } 
+                    };
+        Processonegocio.find(filtro,callback);
     };
 };

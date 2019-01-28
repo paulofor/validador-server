@@ -22,7 +22,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "planoExecucaos": {
+      "type": "hasMany",
+      "model": "PlanoExecucao",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {
     "ObtemDeslocada": {
