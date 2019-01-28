@@ -23,7 +23,45 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "planoExecucaos": {
+      "type": "hasMany",
+      "model": "PlanoExecucao",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "ObtemComPlanoPorSemana": {
+      "accepts": [
+        {
+          "arg": "idSemana",
+          "type": "number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "contexto",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaProcesso",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem lista de processo com filtro de contexto e semana",
+      "http": [
+        {
+          "path": "/obtemComPlanoPorSemana",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }

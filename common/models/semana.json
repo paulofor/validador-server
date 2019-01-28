@@ -24,5 +24,31 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {
+    "ObtemDeslocada": {
+      "accepts": [
+        {
+          "arg": "semanas",
+          "type": "number",
+          "required": true,
+          "description": "Quantidade de semanas pode ser positiva ou negativa"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "semana",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/obtemDeslocada",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }
