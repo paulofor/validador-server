@@ -9,6 +9,9 @@
     "tempoEstimado": {
       "type": "date",
       "required": true
+    },
+    "tempoEstimadoStr": {
+      "type": "string"
     }
   },
   "validations": [],
