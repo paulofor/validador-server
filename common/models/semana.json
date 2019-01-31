@@ -6,19 +6,22 @@
     "validateUpsert": true
   },
   "properties": {
-    "PrimeiroDia": {
+    "primeiroDia": {
       "type": "date",
       "required": true
     },
-    "UltimoDia": {
+    "ultimoDia": {
       "type": "date",
       "required": true
     },
-    "Mes": {
+    "mes": {
       "type": "number"
     },
-    "Ano": {
+    "ano": {
       "type": "number"
+    },
+    "seqAno" : {
+      "type" : "number"
     }
   },
   "validations": [],
