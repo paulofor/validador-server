@@ -55,6 +55,24 @@
           "verb": "get"
         }
       ]
+    },
+    "CriaParaAno": {
+      "accepts": [
+        {
+          "arg": "ano",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Cria todas as semanas de um ano",
+      "http": [
+        {
+          "path": "/criaParaAno",
+          "verb": "post"
+        }
+      ]
     }
   }
 }

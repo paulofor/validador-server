@@ -38,5 +38,24 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "CriaPorProcesso": {
+      "accepts": [
+        {
+          "arg": "idProcessoNegocio",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Cria por um processo todas as semanas existentes",
+      "http": [
+        {
+          "path": "/criaPorProcesso",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }
