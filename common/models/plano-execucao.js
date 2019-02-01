@@ -17,12 +17,12 @@ module.exports = function (Planoexecucao) {
         var ds = Planoexecucao.dataSource;
         ds.connector.query(sql, (err, result) => {
             if (err) {
-                console.log(err);
+                //console.log(err);
                 callback(err,null);
                 return;
             }
             result.map((item) => {
-                console.log('Item:' , item);
+                //console.log('Item:' , item);
                 var plano = {   "contextoId" : idContexto , 
                                 "processoNegocioId" : idProcessoNegocio,
                                 "semanaId" : item.id,
@@ -31,10 +31,10 @@ module.exports = function (Planoexecucao) {
                                 "diaSemanaId" : 1
                             }
                  Planoexecucao.create(plano, (res,err) => {
-                    console.log("err:" , err);
+                    //console.log("err:" , err);
                     plano.diaSemanaId = 2;
                     Planoexecucao.create(plano, (res,err) => {
-                        console.log("err:" , err);
+                        //console.log("err:" , err);
                         plano.diaSemanaId = 3;
                         Planoexecucao.create(plano, (res,err) => { 
                             plano.diaSemanaId = 4;
