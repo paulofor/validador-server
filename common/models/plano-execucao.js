@@ -22,14 +22,15 @@ module.exports = function (Planoexecucao) {
                 return;
             }
             result.map((item) => {
+                console.log('Item:' , item);
                 var plano = {   "contextoId" : idContexto , 
                                 "processoNegocioId" : idProcessoNegocio,
-                                "semanaId" : item,
+                                "semanaId" : item.id,
                                 "tempoEstimadoStr" : "00:00",
                                 "tempoEstimado" : new Date(0),
                                 "diaSemanaId" : 1
                             }
-                Planoexecucao.create(plano, (res,err) => {
+                 Planoexecucao.create(plano, (res,err) => {
                     console.log("err:" , err);
                     plano.diaSemanaId = 2;
                     Planoexecucao.create(plano, (res,err) => {
