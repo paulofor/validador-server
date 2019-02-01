@@ -17,8 +17,8 @@ module.exports = function (Semana) {
         var filtro = {
             "where": {
                 "and": [
-                    { "PrimeiroDia": { "lte": dataRef } },
-                    { "UltimoDia": { "gte": dataRef } }
+                    { "primeiroDia": { "lte": dataRef } },
+                    { "ultimoDia": { "gte": dataRef } }
                 ]
             }
         };
