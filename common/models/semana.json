@@ -20,8 +20,8 @@
     "ano": {
       "type": "number"
     },
-    "seqAno" : {
-      "type" : "number"
+    "seqAno": {
+      "type": "number"
     }
   },
   "validations": [],

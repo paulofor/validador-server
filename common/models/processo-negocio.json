@@ -62,6 +62,24 @@
           "verb": "get"
         }
       ]
+    },
+    "AtualizaListaComPlano": {
+      "accepts": [
+        {
+          "arg": "listaProcesso",
+          "type": "array",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Atualiza uma lista com os dados de plano para semana",
+      "http": [
+        {
+          "path": "/autalizaListaComPlano",
+          "verb": "post"
+        }
+      ]
     }
   }
 }
