@@ -5,6 +5,55 @@ var app = require('../../server/server');
 module.exports = function (Processonegocio) {
 
 
+
+    /**
+    * Obtem todas as informações para o dia
+    * @param {Function(Error, array, object, object, array)} callback
+    */
+    Processonegocio.ObtemPlanoDia = function (callback) {
+        var listaProcesso, diaSemana, semana, listaTempoExecucao;
+        var dataReferencia = new Date();
+        app.models.DiaSemana.findOne({ 'where': { 'posicaoDia': dataReferencia.getDay } }, (err, result1) => {
+            console.log('Dia:', result1);
+            diaSemana = result1;
+            app.models.Semana.ObtemPorData(dataReferencia, (err, result2) => {
+                console.log('Semana', result2);
+                semana = result2;
+                var filtroPlano = { 
+                    "include" : "processoNegocio" ,
+                    "where" : 
+                    { "and" : [
+                        {"semanaId" : semana.id},
+                        {"diaSemanaId": diaSemana.id},
+                        {"tempoEstimado" : { "neq" : 0 }},
+                        {"contextoId" : 1 }
+                    ] } 
+                }
+                console.log('Filtro: ' , JSON.stringify(filtroPlano));
+                app.models.PlanoExecucao.find(filtroPlano, (err,result3) => {
+                    listaProcesso = result3;
+                    var filtroTempo = {
+                        "include" : ["processoNegocio" , "projetoMySql"],
+                        "where" : {
+                            "and" : 
+                            [
+                            {"semanaId" : semana.id},
+                            {"diaSemanaId": diaSemana.id},
+                            {"contextoId" : 1 }
+                            ]
+                        },
+                        "order" : "horaInicio"
+                    }
+                    app.models.TempoExecucao.find(filtroTempo, (err,result)=> {
+                        listaTempoExecucao = result;
+                        callback(null, listaProcesso, diaSemana, semana, listaTempoExecucao);
+                    })
+                })
+            })
+        });
+    };
+
+
     /**
      * Atualiza uma lista com os dados de plano para semana
      * @param {array} listaProcesso 
@@ -21,7 +70,7 @@ module.exports = function (Processonegocio) {
                 console.log("Resultado: ", JSON.stringify(result));
             })
             */
-            
+
             item.planoExecucaos.forEach((plano) => {
                 //console.log('Plano: ', JSON.stringify(plano)); 
                 app.models.PlanoExecucao.upsert(plano, (err, result) => {
@@ -29,8 +78,8 @@ module.exports = function (Processonegocio) {
                     //console.log("Resultado: ", JSON.stringify(result));
                 })
             })
-            
-            
+
+
         });
         console.log('Finalizado');
         callback(null);

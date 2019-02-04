@@ -16,6 +16,9 @@
     },
     "horaTermino": {
       "type": "date"
+    },
+    "tempo" : {
+      "type": "date"
     }
   },
   "validations": [],
@@ -25,30 +28,30 @@
       "model": "ProjetoMySql",
       "foreignKey": ""
     },
-    "processoNegocio": {
+    "planoExecucao": {
       "type": "belongsTo",
-      "model": "ProcessoNegocio",
+      "model": "PlanoExecucao",
       "foreignKey": ""
     },
-    "conceitoProduto": {
-      "type": "belongsTo",
-      "model": "ConceitoProduto",
-      "foreignKey": ""
+    "diaSemana" : {
+      "type" : "belongsTo",
+      "model" : "DiaSemana",
+      "foreignKey" : ""
     },
-    "semana": {
-      "type": "belongsTo",
-      "model": "Semana",
-      "foreignKey": ""
+    "semana" : {
+      "type" : "belongsTo",
+      "model" : "Semana",
+      "foreignKey" : ""
     },
-    "diaSemana": {
-      "type": "belongsTo",
-      "model": "DiaSemana",
-      "foreignKey": ""
+    "contexto" : {
+      "type" : "belongsTo",
+      "model" : "Contexto",
+      "foreignKey" : ""
     },
-    "contexto": {
-      "type": "belongsTo",
-      "model": "Contexto",
-      "foreignKey": ""
+    "processoNegocio" : {
+      "type" : "belongsTo",
+      "model" : "ProcessoNegocio",
+      "foreignKey" : ""
     }
   },
   "acls": [],

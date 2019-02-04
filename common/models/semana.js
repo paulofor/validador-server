@@ -5,6 +5,26 @@ var async = require('async');
 module.exports = function (Semana) {
 
 
+
+    /**
+     * Obtem a semana da data de entrada
+     * @param {date} data 
+     * @param {Function(Error, object)} callback
+     */
+
+    Semana.ObtemPorData = function (data, callback) {
+        var filtro = {
+            "where": {
+                "and": [
+                    { "primeiroDia": { "lte": data } },
+                    { "ultimoDia": { "gte": data } }
+                ]
+            }
+        };
+        Semana.findOne(filtro, callback);
+    };
+
+
     /**
     *
     * @param {number} semanas Quantidade de semanas pode ser positiva ou negativa
@@ -14,15 +34,7 @@ module.exports = function (Semana) {
     Semana.ObtemDeslocada = function (semanas, callback) {
         var dataRef = new Date();
         dataRef = new Date(dataRef.setTime(dataRef.getTime() + (semanas * 7) * 86400000));
-        var filtro = {
-            "where": {
-                "and": [
-                    { "primeiroDia": { "lte": dataRef } },
-                    { "ultimoDia": { "gte": dataRef } }
-                ]
-            }
-        };
-        Semana.find(filtro, callback);
+        ObtemPorData(dataRef,callback);
     };
 
 
@@ -44,7 +56,7 @@ module.exports = function (Semana) {
                 console.log("Segunda:" + data);
                 var data2 = new Date(data);
                 data2.setDate(data.getDate() + 6);
-                var semana = new Semana({ "seqAno" : ind, "primeiroDia": data, "ultimoDia": data2, "ano": data.getUTCFullYear(), "mes": data.getUTCMonth() + 1 });
+                var semana = new Semana({ "seqAno": ind, "primeiroDia": data, "ultimoDia": data2, "ano": data.getUTCFullYear(), "mes": data.getUTCMonth() + 1 });
                 console.log('Semana: ', JSON.stringify(semana));
                 Semana.create(semana);
                 data.setDate(data.getDate() + 1);

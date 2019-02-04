@@ -76,6 +76,31 @@
           "verb": "post"
         }
       ]
+    },
+    "ObtemPorData": {
+      "accepts": [
+        {
+          "arg": "data",
+          "type": "date",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "semana",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem a semana da data de entrada",
+      "http": [
+        {
+          "path": "/obtemPorData",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
