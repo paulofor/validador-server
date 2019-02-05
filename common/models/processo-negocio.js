@@ -13,11 +13,11 @@ module.exports = function (Processonegocio) {
     Processonegocio.ObtemPlanoDia = function (callback) {
         var listaProcesso, diaSemana, semana, listaTempoExecucao;
         var dataReferencia = new Date();
-        app.models.DiaSemana.findOne({ 'where': { 'posicaoDia': dataReferencia.getDay } }, (err, result1) => {
-            console.log('Dia:', result1);
+        app.models.DiaSemana.findOne({ 'where': { 'posicaoDia': dataReferencia.getDay() - 1} }, (err, result1) => {
+            //console.log('Dia:', result1);
             diaSemana = result1;
             app.models.Semana.ObtemPorData(dataReferencia, (err, result2) => {
-                console.log('Semana', result2);
+                //console.log('Semana', result2);
                 semana = result2;
                 var filtroPlano = { 
                     "include" : "processoNegocio" ,
@@ -29,7 +29,7 @@ module.exports = function (Processonegocio) {
                         {"contextoId" : 1 }
                     ] } 
                 }
-                console.log('Filtro: ' , JSON.stringify(filtroPlano));
+                //console.log('Filtro: ' , JSON.stringify(filtroPlano));
                 app.models.PlanoExecucao.find(filtroPlano, (err,result3) => {
                     listaProcesso = result3;
                     var filtroTempo = {
