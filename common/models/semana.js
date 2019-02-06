@@ -34,7 +34,7 @@ module.exports = function (Semana) {
     Semana.ObtemDeslocada = function (semanas, callback) {
         var dataRef = new Date();
         dataRef = new Date(dataRef.setTime(dataRef.getTime() + (semanas * 7) * 86400000));
-        ObtemPorData(dataRef,callback);
+        Semana.ObtemPorData(dataRef,callback);
     };
 
 
