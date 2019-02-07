@@ -67,7 +67,7 @@
       "accepts": [
         {
           "arg": "listaProcesso",
-          "type": "array",
+          "type": "object",
           "required": true,
           "description": ""
         }

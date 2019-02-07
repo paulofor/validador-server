@@ -61,8 +61,9 @@ module.exports = function (Processonegocio) {
      */
 
     Processonegocio.AtualizaListaComPlano = function (listaProcesso, callback) {
-        //console.log('Lista de processo: ', listaProcesso.length);
-        listaProcesso.forEach((item) => {
+
+        var listaProcesso2 = listaProcesso.lista;
+        listaProcesso2.forEach((item) => {
             //console.log('Lista de plano: ', item.planoExecucaos.length);
             /*
             app.models.PlanoExecucao.bulkUpdate(item.listaProcesso, null, (err, result) => {
@@ -70,9 +71,9 @@ module.exports = function (Processonegocio) {
                 console.log("Resultado: ", JSON.stringify(result));
             })
             */
-
+            console.log('Item: ' , item);
             item.planoExecucaos.forEach((plano) => {
-                //console.log('Plano: ', JSON.stringify(plano)); 
+                console.log('Plano: ', JSON.stringify(plano)); 
                 app.models.PlanoExecucao.upsert(plano, (err, result) => {
                     //console.log('Erro:', err);
                     //console.log("Resultado: ", JSON.stringify(result));
