@@ -17,7 +17,7 @@
     "horaTermino": {
       "type": "date"
     },
-    "tempo" : {
+    "tempo": {
       "type": "date"
     }
   },
@@ -33,27 +33,64 @@
       "model": "PlanoExecucao",
       "foreignKey": ""
     },
-    "diaSemana" : {
-      "type" : "belongsTo",
-      "model" : "DiaSemana",
-      "foreignKey" : ""
+    "diaSemana": {
+      "type": "belongsTo",
+      "model": "DiaSemana",
+      "foreignKey": ""
     },
-    "semana" : {
-      "type" : "belongsTo",
-      "model" : "Semana",
-      "foreignKey" : ""
+    "semana": {
+      "type": "belongsTo",
+      "model": "Semana",
+      "foreignKey": ""
     },
-    "contexto" : {
-      "type" : "belongsTo",
-      "model" : "Contexto",
-      "foreignKey" : ""
+    "contexto": {
+      "type": "belongsTo",
+      "model": "Contexto",
+      "foreignKey": ""
     },
-    "processoNegocio" : {
-      "type" : "belongsTo",
-      "model" : "ProcessoNegocio",
-      "foreignKey" : ""
+    "processoNegocio": {
+      "type": "belongsTo",
+      "model": "ProcessoNegocio",
+      "foreignKey": ""
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "Insere": {
+      "accepts": [
+        {
+          "arg": "execucao",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Insere novo com os cálculos necessários",
+      "http": [
+        {
+          "path": "/insere",
+          "verb": "post"
+        }
+      ]
+    },
+    "Altera": {
+      "accepts": [
+        {
+          "arg": "execucao",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Alteracao com calculos",
+      "http": [
+        {
+          "path": "/altera",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }

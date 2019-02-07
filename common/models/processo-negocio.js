@@ -42,7 +42,7 @@ module.exports = function (Processonegocio) {
                             {"contextoId" : 1 }
                             ]
                         },
-                        "order" : "horaInicio"
+                        "order" : "horaInicio DESC"
                     }
                     app.models.TempoExecucao.find(filtroTempo, (err,result)=> {
                         listaTempoExecucao = result;

@@ -12,6 +12,13 @@
     },
     "tempoEstimadoStr": {
       "type": "string"
+    },
+    "tempoExecucao": {
+      "type": "date",
+      "required": true
+    },
+    "tempoExecucaoStr": {
+      "type": "string"
     }
   },
   "validations": [],
