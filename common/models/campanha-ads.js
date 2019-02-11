@@ -4,6 +4,24 @@ var app = require('../../server/server');
 
 module.exports = function (Campanhaads) {
 
+    /**
+     * Cria uma data de fechamento e altera as permisoes de edicao
+     * @param {number} idCampanha
+     * @param {Function(Error)} callback
+     */
+
+    Campanhaads.FechaCampanha = function (idCampanha, callback) {
+        var sql1 = "update CampanhaAds set dataFechamento = now() " +
+            " where id = " + idCampanha;
+        var ds = Campanhaads.dataSource;
+        ds.connector.query(sql1, (err1, result1) => {
+            if (err1) {
+                callback(err1, null);
+                return;
+            }
+            Campanhaads.PermiteEditar(idCampanha,0,callback);
+        });
+    };
 
     /**
      * Altera todos os permite editar relacionados
@@ -15,41 +33,41 @@ module.exports = function (Campanhaads) {
     Campanhaads.PermiteEditar = function (idCampanha, permite, callback) {
         var resultado;
         // TODO
-        var sql1 = 'update CampanhaAds set permiteEdicao = ' + permite + 
+        var sql1 = 'update CampanhaAds set permiteEdicao = ' + permite +
             ' where id = ' + idCampanha;
-        var sql2 = 'update AnuncioAds set permiteEdicao = ' + permite + 
+        var sql2 = 'update AnuncioAds set permiteEdicao = ' + permite +
             ' where id in (select anuncioAdsId from CampanhaAnuncioResultado ' +
             ' where campanhaAdsId = ' + idCampanha + ' )';
-        var sql3 = 'update PaginaValidacaoWeb set permiteEdicao = ' + permite + 
+        var sql3 = 'update PaginaValidacaoWeb set permiteEdicao = ' + permite +
             ' where id in (select paginaValidacaoWebId from CampanhaAds ' +
             ' where id = ' + idCampanha + ' )';
         var sql4 = 'update ItemValidacaoPagina set permiteEdicao = ' + permite +
             ' where paginaValidacaoWebId in ( select paginaValidacaoWebId from CampanhaAds ' +
             ' where id = ' + idCampanha + ' )';
         var ds = Campanhaads.dataSource;
-        ds.connector.query(sql1, (err1,result1) => {
+        ds.connector.query(sql1, (err1, result1) => {
             if (err1) {
-                callback(err1,null);
+                callback(err1, null);
                 return;
             }
             ds.connector.query(sql2, (err2, result2) => {
                 if (err2) {
-                    callback(err2,null);
+                    callback(err2, null);
                     return;
                 }
-                ds.connector.query(sql3, (err3,result3) => {
+                ds.connector.query(sql3, (err3, result3) => {
                     if (err3) {
-                        callback(err3,null);
+                        callback(err3, null);
                         return;
                     }
-                    ds.connector.query(sql4, (err4,result4) => {
+                    ds.connector.query(sql4, (err4, result4) => {
                         callback(err4, result4);
                         return;
                     })
                 })
             })
         });
-        
+
     };
 
 

@@ -366,6 +366,24 @@
           "verb": "post"
         }
       ]
+    },
+    "FechaCampanha": {
+      "accepts": [
+        {
+          "arg": "idCampanha",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Cria uma data de fechamento e altera as permisoes de edicao",
+      "http": [
+        {
+          "path": "/fechaCampanha",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
