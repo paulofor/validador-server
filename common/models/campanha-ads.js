@@ -44,6 +44,9 @@ module.exports = function (Campanhaads) {
         var sql4 = 'update ItemValidacaoPagina set permiteEdicao = ' + permite +
             ' where paginaValidacaoWebId in ( select paginaValidacaoWebId from CampanhaAds ' +
             ' where id = ' + idCampanha + ' )';
+        var sql5 = 'update SetupCampanha set permiteEdicao = ' + permite +
+            ' where id in (select setupCampanhaId from CampanhaAds ' +
+            ' where id = ' + idCampanha + ' )';
         var ds = Campanhaads.dataSource;
         ds.connector.query(sql1, (err1, result1) => {
             if (err1) {
@@ -61,8 +64,14 @@ module.exports = function (Campanhaads) {
                         return;
                     }
                     ds.connector.query(sql4, (err4, result4) => {
-                        callback(err4, result4);
-                        return;
+                        if (err4) {
+                            callback(err4, null);
+                            return;
+                        }
+                        ds.connector.query(sql5, (err5, result5) => {
+                            callback(err5, result5);
+                            return;
+                        })
                     })
                 })
             })
