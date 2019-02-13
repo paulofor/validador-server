@@ -135,8 +135,9 @@ module.exports = function (Campanhaads) {
             "order": "dataInicial"
         }
         */
-        var sql = " SELECT CampanhaAds.* FROM CampanhaAds " +
+        var sql = " SELECT CampanhaAds.* , SetupCampanha.* FROM CampanhaAds " +
             " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            " inner join SetupCampanha on SetupCampanha.id = CampanhaAds.setupCampanhaId " +
             " where PaginaValidacaoWeb.projetoMySqlId = " + idProjeto +
             " order by dataInicial desc ";
         var ds = Campanhaads.dataSource;
