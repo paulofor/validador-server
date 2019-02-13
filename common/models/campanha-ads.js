@@ -105,9 +105,13 @@ module.exports = function (Campanhaads) {
             "order": "dataInicial"
         }
         */
-        var sql = "SELECT CampanhaAds.* FROM CampanhaAds " +
+        var sql = " SELECT CampanhaAds.* , " +
+            " SetupCampanha.maxCpcGrupoAnuncio as 'setupCampanhaMaxCpcGrupoAnuncio', " + 
+            " SetupCampanha.nome as 'setupCampanhaNome' " +
+            " FROM CampanhaAds " +
             " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
             " inner join ConceitoProduto on PaginaValidacaoWeb.conceitoProdutoId = ConceitoProduto.id " +
+            " inner join SetupCampanha on SetupCampanha.id = CampanhaAds.setupCampanhaId " +
             " where ConceitoProduto.ativo = 1 and " +
             " PaginaValidacaoWeb.projetoMySqlId = " + idProjeto +
             " order by dataInicial desc";
@@ -135,7 +139,10 @@ module.exports = function (Campanhaads) {
             "order": "dataInicial"
         }
         */
-        var sql = " SELECT CampanhaAds.* , SetupCampanha.* FROM CampanhaAds " +
+        var sql = " SELECT CampanhaAds.* , " +
+            " SetupCampanha.maxCpcGrupoAnuncio as 'setupCampanhaMaxCpcGrupoAnuncio', " + 
+            " SetupCampanha.nome as 'setupCampanhaNome' " +
+            " FROM CampanhaAds " +
             " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
             " inner join SetupCampanha on SetupCampanha.id = CampanhaAds.setupCampanhaId " +
             " where PaginaValidacaoWeb.projetoMySqlId = " + idProjeto +
