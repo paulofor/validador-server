@@ -62,12 +62,20 @@ module.exports = function (Palavrachaveestatistica) {
     function trataItem(ds, item) {
         //console.log('Tratando item: ' + JSON.stringify(item));
         //console.log('item.palavraChaveGoogleId:', item.palavraChaveGoogleId);
+        if (!item.indiceCompeticao) {
+            console.log('Erro indice: ' , item.indiceCompeticao);
+            return;
+        }
         var sql = "select PalavraChaveGoogle.* " +
             " from PalavraChaveGoogle " +
             " where palavra = '" + item.palavraChaveGoogleId + "' limit 1";
         ds.connector.query(sql, (err, result) => {
             //console.log('Result:', result);
-            //console.log('Erro:', err);
+            if (err) {
+                console.log('Erro:', err);
+                callback(err);
+                return;
+            }
             if (result.length == 0) {
                 //console.log('Esta vazio');
                 sql = "insert into PalavraChaveGoogle (palavra) values ('" + item.palavraChaveGoogleId + "')";
@@ -77,14 +85,22 @@ module.exports = function (Palavrachaveestatistica) {
                 " where palavraChaveGoogleId = '" + item.palavraChaveGoogleId + "' " +
                 " and palavraChaveRaizId = " + item.palavraChaveRaizId;
             ds.connector.query(sql, (err, result) => {
-                //console.log('Result(update):', result);
-                //console.log('Erro(update):', err);
+                if (err) {
+                    console.log('Erro(update):', err);
+                    callback(err);
+                    return;
+                }
                 sql = "insert into PalavraChaveEstatistica " +
                     " (dataConsulta, mediaCpc, volumePesquisa, indiceCompeticao, palavraChaveRaizId, palavraChaveGoogleId, maisRecente) " +
                     " values ('" + item.dataConsulta + "' , " + item.mediaCpc + " , " + item.volumePesquisa + " , " +
                     item.indiceCompeticao + " , " + item.palavraChaveRaizId + " , '" + item.palavraChaveGoogleId + "' , 1 )";
                 ds.connector.query(sql, (err, result) => {
-                    //console.log('Result insert:', result);
+                    //if (err) {
+                    //    console.log('Erro(insert):', err);
+                    //    callback(err);
+                    //    return;
+                    //}
+                    console.log('Result insert:', sql);
                     //console.log('Erro insert:', err);
                 })
             })
@@ -100,9 +116,10 @@ module.exports = function (Palavrachaveestatistica) {
 
     Palavrachaveestatistica.InsereLista = function (listaResultados, callback) {
         var ds = Palavrachaveestatistica.dataSource;
-        listaResultados.map((item) => {
+        listaResultados.forEach((item) => {
             trataItem(ds, item);
         })
+        console.log('Resposta');
         callback(null);
     };
 
