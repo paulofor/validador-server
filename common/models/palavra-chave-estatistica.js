@@ -63,7 +63,7 @@ module.exports = function (Palavrachaveestatistica) {
         //console.log('Tratando item: ' + JSON.stringify(item));
         //console.log('item.palavraChaveGoogleId:', item.palavraChaveGoogleId);
         if (!item.indiceCompeticao) {
-            console.log('Erro indice: ' , item.indiceCompeticao);
+            //console.log('Erro indice: ' , item.indiceCompeticao);
             return;
         }
         var sql = "select PalavraChaveGoogle.* " +
@@ -72,7 +72,7 @@ module.exports = function (Palavrachaveestatistica) {
         ds.connector.query(sql, (err, result) => {
             //console.log('Result:', result);
             if (err) {
-                console.log('Erro:', err);
+                //console.log('Erro:', err);
                 callback(err);
                 return;
             }
@@ -82,11 +82,10 @@ module.exports = function (Palavrachaveestatistica) {
                 ds.connector.query(sql, (err, result) => { })
             }
             sql = "update PalavraChaveEstatistica set maisRecente = 0  " +
-                " where palavraChaveGoogleId = '" + item.palavraChaveGoogleId + "' " +
-                " and palavraChaveRaizId = " + item.palavraChaveRaizId;
+                " where palavraChaveGoogleId = '" + item.palavraChaveGoogleId + "' "; 
             ds.connector.query(sql, (err, result) => {
                 if (err) {
-                    console.log('Erro(update):', err);
+                    //console.log('Erro(update):', err);
                     callback(err);
                     return;
                 }
@@ -100,7 +99,7 @@ module.exports = function (Palavrachaveestatistica) {
                     //    callback(err);
                     //    return;
                     //}
-                    console.log('Result insert:', sql);
+                    //console.log('Result insert:', sql);
                     //console.log('Erro insert:', err);
                 })
             })
@@ -115,12 +114,13 @@ module.exports = function (Palavrachaveestatistica) {
      */
 
     Palavrachaveestatistica.InsereLista = function (listaResultados, callback) {
+        console.log('Recebeu lista ' , listaResultados[0].palavraChaveGoogleId);
+        callback(null);
+        console.log('Respondeu lista ', listaResultados[0].palavraChaveGoogleId);
         var ds = Palavrachaveestatistica.dataSource;
         listaResultados.forEach((item) => {
             trataItem(ds, item);
         })
-        console.log('Resposta');
-        callback(null);
     };
 
     Palavrachaveestatistica.InsereListaTeste = function (listaResultados, callback) {
