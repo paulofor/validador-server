@@ -13,7 +13,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "palavraChaveEstatisticas": {
+      "type": "hasMany",
+      "model": "PalavraChaveEstatistica",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {
     "ListaDisponivelParaCampanha": {
