@@ -10,7 +10,8 @@ module.exports = function (Processonegocio) {
     * Obtem todas as informações para o dia
     * @param {Function(Error, array, object, object, array)} callback
     */
-    Processonegocio.ObtemPlanoDia = function (callback) {
+    Processonegocio.ObtemPlanoDia = function (idContexto, callback) {
+        console.log('Contexto' + idContexto);
         var listaProcesso, diaSemana, semana, listaTempoExecucao;
         var dataReferencia = new Date();
         app.models.DiaSemana.findOne({ 'where': { 'posicaoDia': dataReferencia.getDay() - 1} }, (err, result1) => {
@@ -26,7 +27,7 @@ module.exports = function (Processonegocio) {
                         {"semanaId" : semana.id},
                         {"diaSemanaId": diaSemana.id},
                         {"tempoEstimado" : { "neq" : 0 }},
-                        {"contextoId" : 1 }
+                        {"contextoId" : idContexto }
                     ] } 
                 }
                 //console.log('Filtro: ' , JSON.stringify(filtroPlano));
@@ -39,7 +40,7 @@ module.exports = function (Processonegocio) {
                             [
                             {"semanaId" : semana.id},
                             {"diaSemanaId": diaSemana.id},
-                            {"contextoId" : 1 }
+                            {"contextoId" : idContexto }
                             ]
                         },
                         "order" : "horaInicio DESC"

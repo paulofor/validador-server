@@ -82,7 +82,14 @@
       ]
     },
     "ObtemPlanoDia": {
-      "accepts": [],
+      "accepts": [
+        {
+          "arg": "idContexto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
       "returns": [
         {
           "arg": "listaProcesso",
