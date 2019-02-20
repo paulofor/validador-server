@@ -80,6 +80,9 @@
     },
     "cliquePlanejado": {
       "type": "number"
+    },
+    "objetivo" : {
+      "type" : "string"
     }
   },
   "validations": [],
