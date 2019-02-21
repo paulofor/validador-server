@@ -26,7 +26,29 @@
     },
     "permiteEdicao": {
       "type": "number"
+    },
+    "mediaImpressao": {
+      "type": "number"
+    },
+    "desvioImpressao": {
+      "type": "number"
+    },
+    "mediaCtr": {
+      "type": "number"
+    },
+    "desvioCtr": {
+      "type": "number"
+    },
+    "mediaConversao": {
+      "type": "number"
+    },
+    "desvioConversao": {
+      "type": "number"
+    },
+    "ocorrencias" : {
+      "type" : "number"
     }
+
   },
   "validations": [],
   "relations": {
