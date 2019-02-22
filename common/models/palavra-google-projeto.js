@@ -10,16 +10,37 @@ module.exports = function (Palavragoogleprojeto) {
      */
 
     Palavragoogleprojeto.InsereProjetoRelacionamento = function (relacionamentoComProjeto, projeto, callback) {
+
+        var filtro = { "where": { "palavraChaveGoogleId": "palavra" } };
+
         console.log('Relacionamento:', relacionamentoComProjeto);
         console.log('Projeto:', projeto);
+
+
         if (projeto.id == 0) {
             app.models.ProjetoMySql.create(projeto, (err, result) => {
                 relacionamentoComProjeto.projetoMySqlId = result.id;
+                relacionamentoComProjeto.ativo = 1;
                 Palavragoogleprojeto.create(relacionamentoComProjeto, callback);
             })
         } else {
             relacionamentoComProjeto.projetoMySqlId = projeto.id;
-            Palavragoogleprojeto.create(relacionamentoComProjeto, callback);
+            Palavragoogleprojeto.findOne({
+                "where": {
+                    "and": [
+                        { "palavraChaveGoogleId": relacionamentoComProjeto.palavraChaveGoogleId },
+                        { "projetoMySqlId": projeto.id }
+                    ]
+                }
+            }, (err, result) => {
+                if (!result) {
+                    relacionamentoComProjeto.ativo = 1;
+                    Palavragoogleprojeto.create(relacionamentoComProjeto, callback);
+                } else {
+                    result.ativo = 1;
+                    Palavragoogleprojeto.upsert(result, callback);
+                }
+            })
         }
     };
 
@@ -33,7 +54,7 @@ module.exports = function (Palavragoogleprojeto) {
 
     Palavragoogleprojeto.RemoveRelacaoPalavra = function (idProjeto, idPalavra, callback) {
         var ds = Palavragoogleprojeto.dataSource;
-        var sql = "delete from PalavraGoogleProjeto " +
+        var sql = "update PalavraGoogleProjeto set ativo = 0 " +
             " where palavraChaveGoogleId = '" + idPalavra + "' and " +
             " projetoMySqlId = " + idProjeto;
         ds.connector.query(sql, callback);

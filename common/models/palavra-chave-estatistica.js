@@ -141,6 +141,7 @@ module.exports = function (Palavrachaveestatistica) {
             " inner join PalavraGoogleProjeto  " +
             " on PalavraGoogleProjeto.palavraChaveGoogleId = PalavraChaveEstatistica.palavraChaveGoogleId " +
             " where PalavraGoogleProjeto.projetoMySqlId = " + idProjeto +
+            " and PalavraGoogleProjeto.ativo = 1 " +
             " and PalavraChaveEstatistica.maisRecente = 1 ";
         ds.connector.query(sql, callback);
     };
