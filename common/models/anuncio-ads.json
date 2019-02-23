@@ -45,10 +45,9 @@
     "desvioConversao": {
       "type": "number"
     },
-    "ocorrencias" : {
-      "type" : "number"
+    "ocorrencias": {
+      "type": "number"
     }
-
   },
   "validations": [],
   "relations": {

@@ -3,12 +3,40 @@
 module.exports = function (Palavragoogleprojeto) {
 
 
+
+    /**
+     * Cria novo relacionamento
+     * @param {object} relacionamento 
+     * @param {Function(Error, object)} callback
+     */
+
+    Palavragoogleprojeto.CriaRelacionamento = function (relacionamento, callback) {
+        Palavragoogleprojeto.findOne({
+            "where": {
+                "and": [
+                    { "palavraChaveGoogleId": relacionamento.palavraChaveGoogleId },
+                    { "projetoMySqlId": relacionamento.projetoMySqlId }
+                ]
+            }
+        }, (err, result) => {
+            if (!result) {
+                relacionamentoComProjeto.ativo = 1;
+                Palavragoogleprojeto.create(relacionamentoComProjeto, callback);
+            } else {
+                result.ativo = 1;
+                Palavragoogleprojeto.upsert(result, callback);
+            }
+        })
+    };
+
+
+
+    // Acho que isso não esta sendo usado (22-02-2019)
     /**
      * se receber um projeto com id 0 cria o projeto e o relacionamento senão cria somente o relacionamento
      * @param {object} relacionamentoComProjeto 
      * @param {Function(Error)} callback
      */
-
     Palavragoogleprojeto.InsereProjetoRelacionamento = function (relacionamentoComProjeto, projeto, callback) {
 
         var filtro = { "where": { "palavraChaveGoogleId": "palavra" } };

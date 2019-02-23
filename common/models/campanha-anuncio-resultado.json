@@ -33,7 +33,6 @@
     "taxaConversao": {
       "type": "number"
     }
-  
   },
   "validations": [],
   "relations": {

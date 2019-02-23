@@ -24,11 +24,11 @@
     "desvioConversao": {
       "type": "number"
     },
-    "ocorrencias" : {
-      "type" : "number"
+    "ocorrencias": {
+      "type": "number"
     },
-    "ativo" : {
-      "type" : "number"
+    "ativo": {
+      "type": "number"
     }
   },
   "validations": [],
@@ -90,6 +90,31 @@
       "http": [
         {
           "path": "/removeRelacaoPalavra",
+          "verb": "post"
+        }
+      ]
+    },
+    "CriaRelacionamento": {
+      "accepts": [
+        {
+          "arg": "relacionamento",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Cria novo relacionamento",
+      "http": [
+        {
+          "path": "/criaRelacionamento",
           "verb": "post"
         }
       ]
