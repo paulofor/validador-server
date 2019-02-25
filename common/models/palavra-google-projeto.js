@@ -19,9 +19,13 @@ module.exports = function (Palavragoogleprojeto) {
                 ]
             }
         }, (err, result) => {
+            if (err) {
+                callback(err,null);
+                return;
+            }
             if (!result) {
-                relacionamentoComProjeto.ativo = 1;
-                Palavragoogleprojeto.create(relacionamentoComProjeto, callback);
+                relacionamento.ativo = 1;
+                Palavragoogleprojeto.create(relacionamento, callback);
             } else {
                 result.ativo = 1;
                 Palavragoogleprojeto.upsert(result, callback);
