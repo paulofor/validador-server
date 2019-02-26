@@ -7,9 +7,11 @@ module.exports = function (Campanhaads) {
 
     function carregaCampanhaComProjeto(idCampanha) {
         //filtro = {'where' : {'' : idCampanha}}
-        //filtro2 ={"where" : { "id" : "52" } ,  "include" : { "relation" :  "paginaValidacaoWeb" } }
-    }
+        filtro2 = {"where" : { "id" : "52" } ,  "include" : { "relation" :  "paginaValidacaoWeb" , "scope" : { "include" : "projeto" } } }
 
+        filtro =  {"where" : { "id" : "52" } , "include" : { "relation" :  "paginaValidacaoWeb" , "scope" : { "include" : { "relation" : "projeto" }} } }
+    
+      
 
     /**
      * Calcula estatisticas dos itens relacionados
