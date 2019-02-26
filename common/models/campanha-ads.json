@@ -387,6 +387,31 @@
           "verb": "get"
         }
       ]
+    },
+    "CalculaResultados": {
+      "accepts": [
+        {
+          "arg": "idCampanha",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Calcula estatisticas dos itens relacionados",
+      "http": [
+        {
+          "path": "/calculaResultados",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

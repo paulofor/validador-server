@@ -4,6 +4,64 @@ var app = require('../../server/server');
 
 module.exports = function (Campanhaads) {
 
+
+    function carregaCampanhaComProjeto(idCampanha) {
+        //filtro = {'where' : {'' : idCampanha}}
+        //filtro2 ={"where" : { "id" : "52" } ,  "include" : { "relation" :  "paginaValidacaoWeb" } }
+    }
+
+
+    /**
+     * Calcula estatisticas dos itens relacionados
+     * @param {number} idCampanha
+     * @param {Function(Error, object)} callback
+     */
+
+    Campanhaads.CalculaResultados = function (idCampanha, callback) {
+        var saida;
+        // TODO
+        app.models.CampanhaPalavraChaveResultado.find({'where': {'campanhaAdsId' : idCampanha}} , (err,result) => {
+            if (err) {
+                callback(err,null);
+                return;
+            }
+            if (result) {
+                result.foreach((item) => {
+                    app.models.CampanhaPalavraChaveResultado.find({'where' : {'palavraChaveGoogleId' : item.palavraChaveGoogleId }}, (err,result) => {
+                        if (err) {
+                            callback(err,null);
+                            return;
+                        }
+                        if (result) {
+                            // Calcular Aqui
+                            //app.models.PalavraGoogleProjeto.findOne({'where' : {'and' : [{'palavraChaveGoogleId':} , {'projetoMySqlId':}] }})
+                        }
+                    })
+                });
+            }
+        });
+        app.models.CampanhaAnuncioResultado.find({'where': {'campanhaAdsId' : idCampanha}} , (err,result) => {
+            if (err) {
+                callback(err,null);
+                return;
+            }
+            if (result) {
+                result.foreach((item) => {
+                    app.models.CampanhaAnuncioResultado.find({'where' : {'anuncioAdsId' : item.anuncioAdsId }}, (err,result) => {
+                        if (err) {
+                            callback(err,null);
+                            return;
+                        }
+                        if (result) {
+                            // Calcular Aqui
+                        }
+                    })
+                })
+            }
+        })
+        callback(null, saida);
+    };
+
     /**
      * Cria uma data de fechamento e altera as permisoes de edicao
      * @param {number} idCampanha
@@ -19,7 +77,7 @@ module.exports = function (Campanhaads) {
                 callback(err1, null);
                 return;
             }
-            Campanhaads.PermiteEditar(idCampanha,0,callback);
+            Campanhaads.PermiteEditar(idCampanha, 0, callback);
         });
     };
 
@@ -106,7 +164,7 @@ module.exports = function (Campanhaads) {
         }
         */
         var sql = " SELECT CampanhaAds.* , " +
-            " SetupCampanha.maxCpcGrupoAnuncio as 'setupCampanhaMaxCpcGrupoAnuncio', " + 
+            " SetupCampanha.maxCpcGrupoAnuncio as 'setupCampanhaMaxCpcGrupoAnuncio', " +
             " SetupCampanha.nome as 'setupCampanhaNome' " +
             " FROM CampanhaAds " +
             " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
@@ -140,7 +198,7 @@ module.exports = function (Campanhaads) {
         }
         */
         var sql = " SELECT CampanhaAds.* , " +
-            " SetupCampanha.maxCpcGrupoAnuncio as 'setupCampanhaMaxCpcGrupoAnuncio', " + 
+            " SetupCampanha.maxCpcGrupoAnuncio as 'setupCampanhaMaxCpcGrupoAnuncio', " +
             " SetupCampanha.nome as 'setupCampanhaNome' " +
             " FROM CampanhaAds " +
             " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
@@ -281,7 +339,7 @@ module.exports = function (Campanhaads) {
             };
             Campanhaads.create(campanha, (err, result) => {
                 var campanhaGrava = result;
-                // tratando lista de anuncio
+                // ndo lista de anuncio
                 app.models.AnuncioAds.paraCampanhaPorIdPagina(idPagina, (err, result) => {
                     for (var item of result) {
                         campanhaGrava.anuncioAds.add(item.id, (err, result) => {
@@ -298,7 +356,7 @@ module.exports = function (Campanhaads) {
 
                     }
                 })
-                // tratando lista de palavra-chave
+                // ndo lista de palavra-chave
                 app.models.PalavraChaveAds.ParaCampanhaPorIdPagina(idPagina, (err, result) => {
                     for (var item of result) {
                         var campanhaPalavraChave = {
