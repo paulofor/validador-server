@@ -1,17 +1,41 @@
 'use strict';
 
 var app = require('../../server/server');
+var stats = require("stats-lite");
 
 module.exports = function (Campanhaads) {
 
 
-    function carregaCampanhaComProjeto(idCampanha) {
-        //filtro = {'where' : {'' : idCampanha}}
-        filtro2 = {"where" : { "id" : "52" } ,  "include" : { "relation" :  "paginaValidacaoWeb" , "scope" : { "include" : "projeto" } } }
 
-        filtro =  {"where" : { "id" : "52" } , "include" : { "relation" :  "paginaValidacaoWeb" , "scope" : { "include" : { "relation" : "projeto" }} } }
-    
-      
+    /**
+    *
+    * @param {Function(Error)} callback
+    */
+    Campanhaads.TesteEstatistica = function (callback) {
+        // TODO
+        console.log('Ola Mundo');
+        var rolls = [];
+
+        var listaObj  = [{'valor' : 1} , {'valor' : 2} , {'valor' : 3}];
+        listaObj.forEach(obj => {
+            rolls.push(obj.valor);
+        })
+        console.log("soma: %s", stats.stdev(rolls))
+        console.log("desvio: %s", stats.mean(rolls));
+        var result = { 'media' : 0 , 'soma' : 0};
+        console.log('Antes:' + JSON.stringify(result));
+        result.media = stats.mean(rolls);
+        result.soma = stats.sum(rolls);
+        console.log('Depois:' + JSON.stringify(result));
+
+        callback(null);
+    };
+
+
+    function carregaCampanhaComProjeto(idCampanha, retorno) {
+        filtro = { "where": { "id": idCampanha }, "include": { "relation": "paginaValidacaoWeb", "scope": { "include": "projeto" } } }
+        Campanhaads.findOne(filtro, retorno);
+    }
 
     /**
      * Calcula estatisticas dos itens relacionados
@@ -22,36 +46,50 @@ module.exports = function (Campanhaads) {
     Campanhaads.CalculaResultados = function (idCampanha, callback) {
         var saida;
         // TODO
-        app.models.CampanhaPalavraChaveResultado.find({'where': {'campanhaAdsId' : idCampanha}} , (err,result) => {
+        carregaCampanhaComProjeto(idCampanha, (err, result) => {
+            campanhaProjeto = result;
+            app.models.CampanhaPalavraChaveResultado.find({ 'where': { 'campanhaAdsId': idCampanha } }, (err, result) => {
+                if (err) {
+                    callback(err, null);
+                    return;
+                }
+                if (result) {
+                    result.foreach((item) => {
+                        app.models.CampanhaPalavraChaveResultado.find({ 'where': { 'palavraChaveGoogleId': item.palavraChaveGoogleId } }, (err, result) => {
+                            if (err) {
+                                callback(err, null);
+                                return;
+                            }
+                            if (result) {
+                                // Calcular Aqui
+                                app.models.PalavraGoogleProjeto.findOne({
+                                    'where': {
+                                        'and':
+                                            [
+                                                { 'palavraChaveGoogleId': item.palavraChaveGoogleId },
+                                                { 'projetoMySqlId': campanhaProjeto.paginaValidacaoWeb.projetoMySqlId }
+                                            ]
+                                    }
+                                }, (err, result) => {
+
+                                })
+                            }
+                        })
+                    });
+                }
+            });
+        })
+
+        app.models.CampanhaAnuncioResultado.find({ 'where': { 'campanhaAdsId': idCampanha } }, (err, result) => {
             if (err) {
-                callback(err,null);
+                callback(err, null);
                 return;
             }
             if (result) {
                 result.foreach((item) => {
-                    app.models.CampanhaPalavraChaveResultado.find({'where' : {'palavraChaveGoogleId' : item.palavraChaveGoogleId }}, (err,result) => {
+                    app.models.CampanhaAnuncioResultado.find({ 'where': { 'anuncioAdsId': item.anuncioAdsId } }, (err, result) => {
                         if (err) {
-                            callback(err,null);
-                            return;
-                        }
-                        if (result) {
-                            // Calcular Aqui
-                            //app.models.PalavraGoogleProjeto.findOne({'where' : {'and' : [{'palavraChaveGoogleId':} , {'projetoMySqlId':}] }})
-                        }
-                    })
-                });
-            }
-        });
-        app.models.CampanhaAnuncioResultado.find({'where': {'campanhaAdsId' : idCampanha}} , (err,result) => {
-            if (err) {
-                callback(err,null);
-                return;
-            }
-            if (result) {
-                result.foreach((item) => {
-                    app.models.CampanhaAnuncioResultado.find({'where' : {'anuncioAdsId' : item.anuncioAdsId }}, (err,result) => {
-                        if (err) {
-                            callback(err,null);
+                            callback(err, null);
                             return;
                         }
                         if (result) {

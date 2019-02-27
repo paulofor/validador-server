@@ -412,6 +412,17 @@
           "verb": "get"
         }
       ]
+    },
+    "TesteEstatistica": {
+      "accepts": [],
+      "returns": [],
+      "description": "",
+      "http": [
+        {
+          "path": "/testeEstatistica",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
