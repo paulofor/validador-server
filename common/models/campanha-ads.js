@@ -32,6 +32,28 @@ module.exports = function (Campanhaads) {
     };
 
 
+    function extraiEstatisticas(lista , retorno) {
+        var ctrs = [];
+        var conversoes = [];
+        var impressoes = [];
+        lista.forEach(item => {
+            ctrs.push(item.ctr);
+            conversoes.push(item.conversao);
+            impressoes.push(item.quantidadeImpressao);
+        });
+
+        retorno.mediaCtr = stats.mean(ctrs);
+        retorno.mediaImpressao = stats.mean(impressoes);
+        retorno.mediaConversao = stats.mean(conversoes);
+
+        retorno.desvioCtr = stats.stdev(ctrs);
+        retorno.desvioImpressao = stats.stdev(impressoes);
+        retorno.desvioConversao = stats.stdev(conversoes);
+
+        return retorno;
+    }
+
+
     function carregaCampanhaComProjeto(idCampanha, retorno) {
         filtro = { "where": { "id": idCampanha }, "include": { "relation": "paginaValidacaoWeb", "scope": { "include": "projeto" } } }
         Campanhaads.findOne(filtro, retorno);
