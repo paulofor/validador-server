@@ -53,7 +53,9 @@ module.exports = function (Campanhaads) {
         retorno.ocorrencias = ctrs.length;
 
         console.log('Lista: ' , JSON.stringify(lista));
-        console.log('Resultado: ' , JSON.stringify(retorno))
+        console.log('Resultado: ' , JSON.stringify(retorno));
+        
+        var x = Math.max(ctrs);
 
         return retorno;
     }
@@ -82,13 +84,8 @@ module.exports = function (Campanhaads) {
                 }
                 if (listaPalavraCampanha) {
                     listaPalavraCampanha.forEach((palavraResultado) => {
-                        app.models.CampanhaPalavraChaveResultado.find({ 'where': 
-                                    { 'and' : 
-                                    [
-                                        { 'palavraChaveGoogleId': palavraResultado.palavraChaveGoogleId } 
-                                        
-                                    ]}
-                                }, (err, listaResultadoPalavra) => {
+                        app.models.CampanhaPalavraChaveResultado.ListaComResultadoPorPalavraIdProjeto(palavraResultado,campanhaProjeto.paginaValidacaoWeb.projetoMySqlId
+                            , (err, listaResultadoPalavra) => {
                             if (err) {
                                 callback(err, null);
                                 return;
@@ -131,7 +128,7 @@ module.exports = function (Campanhaads) {
             }
             if (listaRelacionamentoAnuncio) {
                 listaRelacionamentoAnuncio.forEach((item) => {
-                    app.models.CampanhaAnuncioResultado.find({'where' : {'anuncioAdsId': item.anuncioAdsId}}, (err, listaResultadoAnuncio)=> {
+                    app.models.CampanhaAnuncioResultado.ListaComResultadoPorIdAnuncio(item.anuncioAdsId, (err, listaResultadoAnuncio)=> {
                         if (err) {
                             callback(err, null);
                             return;

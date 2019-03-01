@@ -5,6 +5,34 @@ var app = require('../../server/server');
 module.exports = function (Campanhapalavrachaveresultado) {
 
 
+
+    /**
+     *
+     * @param {string} palavra
+     * @param {number} idProjeto
+     * @param {Function(Error, array)} callback
+     */
+
+    Campanhapalavrachaveresultado.ListaComResultadoPorPalavraIdProjeto = function (palavra, idProjeto, callback) {
+        /*
+        Não rolou
+
+        { "where" : 
+        { "and" : 
+        [ 
+        {"palavraChaveGoogleId" : "treino"}  , 
+        {"relation" : "campanhaAds" , "scope" : {"where" : {"dataResultado" :  null} } }
+        ] 
+        } 
+        }
+        */
+
+        var listaResultado = [];
+        // TODO
+        callback(null, listaResultado);
+    };
+
+
     /**
    * Recria todos os relacionamentos com palavras-chaves.
    * @param {number} idCampanha 

@@ -48,5 +48,31 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "ListaComResultadoPorIdAnuncio": {
+      "accepts": [
+        {
+          "arg": "idAnuncio",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaResultado",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Lista de resultados por idAnuncio, campanhas com resultados",
+      "http": [
+        {
+          "path": "/listaComResultadoPorIdAnuncio",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }

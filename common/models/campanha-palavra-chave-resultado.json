@@ -78,6 +78,37 @@
           "verb": "post"
         }
       ]
+    },
+    "ListaComResultadoPorPalavraIdProjeto": {
+      "accepts": [
+        {
+          "arg": "palavra",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaResultado",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/listaComResultadoPorPalavraIdProjeto",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
