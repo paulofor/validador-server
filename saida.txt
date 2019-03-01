@@ -1,0 +1,166 @@
+Web server listening at: http://localhost:21101
+Browse your REST API at http://localhost:21101/visao
+Antes:  { mediaImpressao: 143.5,
+  desvioImpressao: 99.4095,
+  mediaCtr: 3.1167,
+  desvioCtr: 0.3279,
+  mediaConversao: 0,
+  desvioConversao: 0,
+  ocorrencias: 4,
+  ativo: 1,
+  id: 42,
+  palavraChaveGoogleId: 'treino',
+  projetoMySqlId: 27 }
+Lista:  [{"idAds":"540074893919","quantidadeImpressao":0,"quantidadeClique":0,"custo":0,"ctr":null,"cpcMedio":null,"conversao":null,"custoConversao":null,"taxaConversao":null,"id":42,"palavraChaveAdsId":8,"campanhaAdsId":50,"palavraChaveGoogleId":"treino"},{"idAds":"954052338","quantidadeImpressao":149,"quantidadeClique":4,"custo":1.08,"ctr":2.68,"cpcMedio":0.27,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":102,"palavraChaveAdsId":null,"campanhaAdsId":52,"palavraChaveGoogleId":"treino"},{"idAds":"954052338","quantidadeImpressao":144,"quantidadeClique":5,"custo":1.08,"ctr":3.47,"cpcMedio":0.216,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":155,"palavraChaveAdsId":null,"campanhaAdsId":54,"palavraChaveGoogleId":"treino"},{"idAds":"954052338","quantidadeImpressao":281,"quantidadeClique":9,"custo":1.24,"ctr":3.2,"cpcMedio":0.138,"conversao":1,"custoConversao":1.24,"taxaConversao":11.11,"id":184,"palavraChaveAdsId":null,"campanhaAdsId":57,"palavraChaveGoogleId":"treino"}]
+Resultado:  {"mediaImpressao":143.5,"desvioImpressao":99.40950658764986,"mediaCtr":3.116666666666667,"desvioCtr":0.3278549814916481,"mediaConversao":0.3333333333333333,"desvioConversao":0.4714045207910317,"ocorrencias":4,"ativo":1,"id":42,"palavraChaveGoogleId":"treino","projetoMySqlId":27}
+Relcionamento Palavra:  {"mediaImpressao":143.5,"desvioImpressao":99.40950658764986,"mediaCtr":3.116666666666667,"desvioCtr":0.3278549814916481,"mediaConversao":0.3333333333333333,"desvioConversao":0.4714045207910317,"ocorrencias":4,"ativo":1,"id":42,"palavraChaveGoogleId":"treino","projetoMySqlId":27}
+Antes:  { mediaImpressao: 39.6667,
+  desvioImpressao: 17.5942,
+  mediaCtr: 1.7533,
+  desvioCtr: 2.4796,
+  mediaConversao: 0,
+  desvioConversao: 0,
+  ocorrencias: 3,
+  ativo: 1,
+  id: 28,
+  palavraChaveGoogleId: 'malhar',
+  projetoMySqlId: 27 }
+Lista:  [{"idAds":"2651102852","quantidadeImpressao":38,"quantidadeClique":2,"custo":0.49,"ctr":5.26,"cpcMedio":0.245,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":93,"palavraChaveAdsId":null,"campanhaAdsId":52,"palavraChaveGoogleId":"malhar"},{"idAds":"2651102852","quantidadeImpressao":62,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":146,"palavraChaveAdsId":null,"campanhaAdsId":54,"palavraChaveGoogleId":"malhar"},{"idAds":"2651102852","quantidadeImpressao":19,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":178,"palavraChaveAdsId":null,"campanhaAdsId":57,"palavraChaveGoogleId":"malhar"}]
+Resultado:  {"mediaImpressao":39.666666666666664,"desvioImpressao":17.594190960528863,"mediaCtr":1.7533333333333332,"desvioCtr":2.4795877793608265,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"ativo":1,"id":28,"palavraChaveGoogleId":"malhar","projetoMySqlId":27}
+Relcionamento Palavra:  {"mediaImpressao":39.666666666666664,"desvioImpressao":17.594190960528863,"mediaCtr":1.7533333333333332,"desvioCtr":2.4795877793608265,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"ativo":1,"id":28,"palavraChaveGoogleId":"malhar","projetoMySqlId":27}
+Antes:  { mediaImpressao: 22.6667,
+  desvioImpressao: 4.0277,
+  mediaCtr: 1.3333,
+  desvioCtr: 1.8856,
+  mediaConversao: 0,
+  desvioConversao: 0,
+  ocorrencias: 3,
+  ativo: 1,
+  id: 16,
+  palavraChaveGoogleId: 'musculação',
+  projetoMySqlId: 25 }
+Lista:  [{"idAds":"325463530524","quantidadeImpressao":25,"quantidadeClique":1,"custo":0.31,"ctr":4,"cpcMedio":0.31,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":103,"palavraChaveAdsId":null,"campanhaAdsId":52,"palavraChaveGoogleId":"musculação"},{"idAds":"325463530524","quantidadeImpressao":26,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":149,"palavraChaveAdsId":null,"campanhaAdsId":54,"palavraChaveGoogleId":"musculação"},{"idAds":"325463530524","quantidadeImpressao":17,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":187,"palavraChaveAdsId":null,"campanhaAdsId":57,"palavraChaveGoogleId":"musculação"}]
+Resultado:  {"mediaImpressao":22.666666666666668,"desvioImpressao":4.0276819911981905,"mediaCtr":1.3333333333333333,"desvioCtr":1.8856180831641267,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"ativo":1,"id":16,"palavraChaveGoogleId":"musculação","projetoMySqlId":25}
+Relcionamento Palavra:  {"mediaImpressao":22.666666666666668,"desvioImpressao":4.0276819911981905,"mediaCtr":1.3333333333333333,"desvioCtr":1.8856180831641267,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"ativo":1,"id":16,"palavraChaveGoogleId":"musculação","projetoMySqlId":25}
+Lista:  [{"idAds":"324482056248","quantidadeImpressao":172,"quantidadeClique":1,"custo":0.41,"ctr":0.58,"cpcMedio":0.41,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":40,"anuncioAdsId":8,"campanhaAdsId":52},{"idAds":"326572623545","quantidadeImpressao":82,"quantidadeClique":3,"custo":0.77,"ctr":3.66,"cpcMedio":0.257,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":46,"anuncioAdsId":8,"campanhaAdsId":54},{"idAds":"329706492234","quantidadeImpressao":52,"quantidadeClique":1,"custo":0.14,"ctr":1.92,"cpcMedio":0.14,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":57,"anuncioAdsId":8,"campanhaAdsId":57}]
+Resultado:  {"id":8,"titulo1":"Aplicativo para seu treino","titulo2":"Leve sua série no bolso","titulo3":null,"descricao1":"Agora você pode levar no seu celular sua série para treino, marcando os exercícios feitos","descricao2":null,"permiteEdicao":0,"mediaImpressao":102,"desvioImpressao":50.99019513592785,"mediaCtr":2.0533333333333332,"desvioCtr":1.2609343978001217,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"projetoCanvasMySqlId":null,"valorConceitoId":5}
+Lista:  [{"idAds":"324482056251","quantidadeImpressao":200,"quantidadeClique":7,"custo":1.99,"ctr":3.5,"cpcMedio":0.284,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":41,"anuncioAdsId":9,"campanhaAdsId":52},{"idAds":"326572623548","quantidadeImpressao":137,"quantidadeClique":1,"custo":0.23,"ctr":0.73,"cpcMedio":0.23,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":47,"anuncioAdsId":9,"campanhaAdsId":54},{"idAds":"329706492237","quantidadeImpressao":124,"quantidadeClique":1,"custo":0.12,"ctr":0.81,"cpcMedio":0.12,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":58,"anuncioAdsId":9,"campanhaAdsId":57}]
+Resultado:  {"id":9,"titulo1":"Aplicativo para seu treino","titulo2":"Acompanhe sua evolução","titulo3":null,"descricao1":"Tenha em suas mãos um aplicativo para usar no treino e registrar sua evolução","descricao2":null,"permiteEdicao":0,"mediaImpressao":153.66666666666666,"desvioImpressao":33.189690501051004,"mediaCtr":1.6800000000000004,"desvioCtr":1.2873486966112433,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"projetoCanvasMySqlId":null,"valorConceitoId":6}
+Antes:  { mediaImpressao: 4.3333,
+  desvioImpressao: 4.714,
+  mediaCtr: 0,
+  desvioCtr: 0,
+  mediaConversao: 0,
+  desvioConversao: 0,
+  ocorrencias: 3,
+  ativo: 1,
+  id: 14,
+  palavraChaveGoogleId: 'bem estar',
+  projetoMySqlId: 25 }
+Lista:  [{"idAds":"300704084581","quantidadeImpressao":1,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":97,"palavraChaveAdsId":null,"campanhaAdsId":52,"palavraChaveGoogleId":"bem estar"},{"idAds":"300704084581","quantidadeImpressao":11,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":156,"palavraChaveAdsId":null,"campanhaAdsId":54,"palavraChaveGoogleId":"bem estar"},{"idAds":"300704084581","quantidadeImpressao":1,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":182,"palavraChaveAdsId":null,"campanhaAdsId":57,"palavraChaveGoogleId":"bem estar"}]
+Resultado:  {"mediaImpressao":4.333333333333333,"desvioImpressao":4.714045207910317,"mediaCtr":0,"desvioCtr":0,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"ativo":1,"id":14,"palavraChaveGoogleId":"bem estar","projetoMySqlId":25}
+Relcionamento Palavra:  {"mediaImpressao":4.333333333333333,"desvioImpressao":4.714045207910317,"mediaCtr":0,"desvioCtr":0,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"ativo":1,"id":14,"palavraChaveGoogleId":"bem estar","projetoMySqlId":25}
+Antes:  { mediaImpressao: 40.3333,
+  desvioImpressao: 20.806,
+  mediaCtr: 0.63,
+  desvioCtr: 0.891,
+  mediaConversao: 0,
+  desvioConversao: 0,
+  ocorrencias: 3,
+  ativo: 1,
+  id: 17,
+  palavraChaveGoogleId: 'supino',
+  projetoMySqlId: 25 }
+Lista:  [{"idAds":"2635622183","quantidadeImpressao":57,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":96,"palavraChaveAdsId":null,"campanhaAdsId":52,"palavraChaveGoogleId":"supino"},{"idAds":"2635622183","quantidadeImpressao":11,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":151,"palavraChaveAdsId":null,"campanhaAdsId":54,"palavraChaveGoogleId":"supino"},{"idAds":"2635622183","quantidadeImpressao":53,"quantidadeClique":1,"custo":0.11,"ctr":1.89,"cpcMedio":0.11,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":188,"palavraChaveAdsId":null,"campanhaAdsId":57,"palavraChaveGoogleId":"supino"}]
+Resultado:  {"mediaImpressao":40.333333333333336,"desvioImpressao":20.805982045769646,"mediaCtr":0.63,"desvioCtr":0.8909545442950497,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"ativo":1,"id":17,"palavraChaveGoogleId":"supino","projetoMySqlId":25}
+Relcionamento Palavra:  {"mediaImpressao":40.333333333333336,"desvioImpressao":20.805982045769646,"mediaCtr":0.63,"desvioCtr":0.8909545442950497,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"ativo":1,"id":17,"palavraChaveGoogleId":"supino","projetoMySqlId":25}
+Antes:  { mediaImpressao: 12,
+  desvioImpressao: 5.7155,
+  mediaCtr: 1.6667,
+  desvioCtr: 2.357,
+  mediaConversao: 0,
+  desvioConversao: 0,
+  ocorrencias: 3,
+  ativo: 1,
+  id: 29,
+  palavraChaveGoogleId: 'exercício físico',
+  projetoMySqlId: 27 }
+Lista:  [{"idAds":"515895640312","quantidadeImpressao":7,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":94,"palavraChaveAdsId":null,"campanhaAdsId":52,"palavraChaveGoogleId":"exercício físico"},{"idAds":"515895640312","quantidadeImpressao":9,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":147,"palavraChaveAdsId":null,"campanhaAdsId":54,"palavraChaveGoogleId":"exercício físico"},{"idAds":"515895640312","quantidadeImpressao":20,"quantidadeClique":1,"custo":0.09,"ctr":5,"cpcMedio":0.09,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":179,"palavraChaveAdsId":null,"campanhaAdsId":57,"palavraChaveGoogleId":"exercício físico"}]
+Resultado:  {"mediaImpressao":12,"desvioImpressao":5.715476066494082,"mediaCtr":1.6666666666666667,"desvioCtr":2.357022603955158,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"ativo":1,"id":29,"palavraChaveGoogleId":"exercício físico","projetoMySqlId":27}
+Relcionamento Palavra:  {"mediaImpressao":12,"desvioImpressao":5.715476066494082,"mediaCtr":1.6666666666666667,"desvioCtr":2.357022603955158,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"ativo":1,"id":29,"palavraChaveGoogleId":"exercício físico","projetoMySqlId":27}
+Lista:  [{"idAds":"324482056260","quantidadeImpressao":900,"quantidadeClique":14,"custo":3.24,"ctr":1.56,"cpcMedio":0.231,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":44,"anuncioAdsId":15,"campanhaAdsId":52},{"idAds":"326572623557","quantidadeImpressao":1575,"quantidadeClique":21,"custo":5.22,"ctr":1.33,"cpcMedio":0.249,"conversao":2,"custoConversao":2.61,"taxaConversao":9.52,"id":50,"anuncioAdsId":15,"campanhaAdsId":54},{"idAds":"329706492366","quantidadeImpressao":1358,"quantidadeClique":38,"custo":4.94,"ctr":2.8,"cpcMedio":0.13,"conversao":1,"custoConversao":4.94,"taxaConversao":2.63,"id":61,"anuncioAdsId":15,"campanhaAdsId":57}]
+Resultado:  {"id":15,"titulo1":"Exercícios físicos","titulo2":"Seu plano de treino no bolso","titulo3":null,"descricao1":"Aplicativo para cadastrar sua série de exercícios e acompanhamento","descricao2":null,"permiteEdicao":0,"mediaImpressao":1277.6666666666667,"desvioImpressao":281.36137301026633,"mediaCtr":1.8966666666666665,"desvioCtr":0.6456177059392207,"mediaConversao":1,"desvioConversao":0.816496580927726,"ocorrencias":3,"projetoCanvasMySqlId":null,"valorConceitoId":5}
+Lista:  [{"idAds":"324482056254","quantidadeImpressao":301,"quantidadeClique":3,"custo":0.48,"ctr":1,"cpcMedio":0.16,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":42,"anuncioAdsId":13,"campanhaAdsId":52},{"idAds":"326572623551","quantidadeImpressao":305,"quantidadeClique":3,"custo":0.72,"ctr":0.98,"cpcMedio":0.24,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":48,"anuncioAdsId":13,"campanhaAdsId":54},{"idAds":"329706492360","quantidadeImpressao":182,"quantidadeClique":6,"custo":0.8,"ctr":3.3,"cpcMedio":0.133,"conversao":1,"custoConversao":0.8,"taxaConversao":16.67,"id":59,"anuncioAdsId":13,"campanhaAdsId":57}]
+Resultado:  {"id":13,"titulo1":"Aplicativo para seu treino","titulo2":"Planeje e acompanhe","titulo3":null,"descricao1":"Aplicativo para montar seu treino e acompanhar sua evolução de forma fácil e simples","descricao2":null,"permiteEdicao":0,"mediaImpressao":262.6666666666667,"desvioImpressao":57.06331765873959,"mediaCtr":1.7599999999999998,"desvioCtr":1.0889750532802238,"mediaConversao":0.3333333333333333,"desvioConversao":0.4714045207910317,"ocorrencias":3,"projetoCanvasMySqlId":null,"valorConceitoId":10}
+Lista:  [{"idAds":"324482056257","quantidadeImpressao":142,"quantidadeClique":2,"custo":0.37,"ctr":1.41,"cpcMedio":0.185,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":43,"anuncioAdsId":14,"campanhaAdsId":52},{"idAds":"326572623554","quantidadeImpressao":61,"quantidadeClique":2,"custo":0.55,"ctr":3.28,"cpcMedio":0.275,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":49,"anuncioAdsId":14,"campanhaAdsId":54},{"idAds":"329706492363","quantidadeImpressao":25,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":60,"anuncioAdsId":14,"campanhaAdsId":57}]
+Resultado:  {"id":14,"titulo1":"Aplicativo para seu treino","titulo2":"Acompanhe sua performance","titulo3":null,"descricao1":"Cadastre sua série, utilize na academia e acompanhe os resutados","descricao2":null,"permiteEdicao":0,"mediaImpressao":76,"desvioImpressao":48.92851929090027,"mediaCtr":1.5633333333333332,"desvioCtr":1.3434367205872488,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"projetoCanvasMySqlId":null,"valorConceitoId":10}
+Antes:  { mediaImpressao: 180.5,
+  desvioImpressao: 112.1528,
+  mediaCtr: 0.8633,
+  desvioCtr: 0.1528,
+  mediaConversao: 0,
+  desvioConversao: 0,
+  ocorrencias: 4,
+  ativo: 1,
+  id: 43,
+  palavraChaveGoogleId: 'ginastica',
+  projetoMySqlId: 27 }
+Lista:  [{"idAds":"295927937279","quantidadeImpressao":0,"quantidadeClique":0,"custo":0,"ctr":null,"cpcMedio":null,"conversao":null,"custoConversao":null,"taxaConversao":null,"id":43,"palavraChaveAdsId":12,"campanhaAdsId":50,"palavraChaveGoogleId":"ginastica"},{"idAds":"261010218","quantidadeImpressao":201,"quantidadeClique":2,"custo":0.25,"ctr":1,"cpcMedio":0.125,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":100,"palavraChaveAdsId":null,"campanhaAdsId":52,"palavraChaveGoogleId":"ginastica"},{"idAds":"261010218","quantidadeImpressao":213,"quantidadeClique":2,"custo":0.43,"ctr":0.94,"cpcMedio":0.215,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":148,"palavraChaveAdsId":null,"campanhaAdsId":54,"palavraChaveGoogleId":"ginastica"},{"idAds":"261010218","quantidadeImpressao":308,"quantidadeClique":2,"custo":0.18,"ctr":0.65,"cpcMedio":0.09,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":185,"palavraChaveAdsId":null,"campanhaAdsId":57,"palavraChaveGoogleId":"ginastica"}]
+Resultado:  {"mediaImpressao":180.5,"desvioImpressao":112.15279755761779,"mediaCtr":0.8633333333333333,"desvioCtr":0.15282524515130197,"mediaConversao":0,"desvioConversao":0,"ocorrencias":4,"ativo":1,"id":43,"palavraChaveGoogleId":"ginastica","projetoMySqlId":27}
+Relcionamento Palavra:  {"mediaImpressao":180.5,"desvioImpressao":112.15279755761779,"mediaCtr":0.8633333333333333,"desvioCtr":0.15282524515130197,"mediaConversao":0,"desvioConversao":0,"ocorrencias":4,"ativo":1,"id":43,"palavraChaveGoogleId":"ginastica","projetoMySqlId":27}
+Antes:  { mediaImpressao: 420,
+  desvioImpressao: 338.0924,
+  mediaCtr: 3.7567,
+  desvioCtr: 0.1605,
+  mediaConversao: 1,
+  desvioConversao: 1,
+  ocorrencias: 4,
+  ativo: 1,
+  id: 34,
+  palavraChaveGoogleId: 'exercicios',
+  projetoMySqlId: 27 }
+Lista:  [{"idAds":"564057270604","quantidadeImpressao":0,"quantidadeClique":0,"custo":0,"ctr":null,"cpcMedio":null,"conversao":null,"custoConversao":null,"taxaConversao":null,"id":34,"palavraChaveAdsId":2,"campanhaAdsId":50,"palavraChaveGoogleId":"exercicios"},{"idAds":"351486545","quantidadeImpressao":251,"quantidadeClique":10,"custo":2.14,"ctr":3.98,"cpcMedio":0.214,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":95,"palavraChaveAdsId":null,"campanhaAdsId":52,"palavraChaveGoogleId":"exercicios"},{"idAds":"351486545","quantidadeImpressao":516,"quantidadeClique":19,"custo":5.06,"ctr":3.68,"cpcMedio":0.266,"conversao":2,"custoConversao":2.53,"taxaConversao":10.53,"id":150,"palavraChaveAdsId":null,"campanhaAdsId":54,"palavraChaveGoogleId":"exercicios"},{"idAds":"351486545","quantidadeImpressao":913,"quantidadeClique":33,"custo":4.38,"ctr":3.61,"cpcMedio":0.133,"conversao":1,"custoConversao":4.38,"taxaConversao":3.03,"id":181,"palavraChaveAdsId":null,"campanhaAdsId":57,"palavraChaveGoogleId":"exercicios"}]
+Resultado:  {"mediaImpressao":420,"desvioImpressao":338.0924429797271,"mediaCtr":3.7566666666666664,"desvioCtr":0.16048537489614298,"mediaConversao":1,"desvioConversao":0.816496580927726,"ocorrencias":4,"ativo":1,"id":34,"palavraChaveGoogleId":"exercicios","projetoMySqlId":27}
+Relcionamento Palavra:  {"mediaImpressao":420,"desvioImpressao":338.0924429797271,"mediaCtr":3.7566666666666664,"desvioCtr":0.16048537489614298,"mediaConversao":1,"desvioConversao":0.816496580927726,"ocorrencias":4,"ativo":1,"id":34,"palavraChaveGoogleId":"exercicios","projetoMySqlId":27}
+Antes:  { mediaImpressao: 21.6667,
+  desvioImpressao: 13.9603,
+  mediaCtr: 4.4433,
+  desvioCtr: 6.2838,
+  mediaConversao: 0,
+  desvioConversao: 0,
+  ocorrencias: 3,
+  ativo: 1,
+  id: 13,
+  palavraChaveGoogleId: 'emagrecer',
+  projetoMySqlId: 25 }
+Lista:  [{"idAds":"95352994","quantidadeImpressao":30,"quantidadeClique":4,"custo":1.51,"ctr":13.33,"cpcMedio":0.378,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":101,"palavraChaveAdsId":null,"campanhaAdsId":52,"palavraChaveGoogleId":"emagrecer"},{"idAds":"95352994","quantidadeImpressao":33,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":153,"palavraChaveAdsId":null,"campanhaAdsId":54,"palavraChaveGoogleId":"emagrecer"},{"idAds":"95352994","quantidadeImpressao":2,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":186,"palavraChaveAdsId":null,"campanhaAdsId":57,"palavraChaveGoogleId":"emagrecer"}]
+Resultado:  {"mediaImpressao":21.666666666666668,"desvioImpressao":13.960261060914616,"mediaCtr":4.443333333333333,"desvioCtr":6.283822262144453,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"ativo":1,"id":13,"palavraChaveGoogleId":"emagrecer","projetoMySqlId":25}
+Relcionamento Palavra:  {"mediaImpressao":21.666666666666668,"desvioImpressao":13.960261060914616,"mediaCtr":4.443333333333333,"desvioCtr":6.283822262144453,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"ativo":1,"id":13,"palavraChaveGoogleId":"emagrecer","projetoMySqlId":25}
+Antes:  { mediaImpressao: 522.5,
+  desvioImpressao: 475.9341,
+  mediaCtr: 0.1967,
+  desvioCtr: 0.1461,
+  mediaConversao: 0,
+  desvioConversao: 0,
+  ocorrencias: 4,
+  ativo: 1,
+  id: 38,
+  palavraChaveGoogleId: 'saude',
+  projetoMySqlId: 27 }
+Lista:  [{"idAds":"540074894119","quantidadeImpressao":0,"quantidadeClique":0,"custo":0,"ctr":null,"cpcMedio":null,"conversao":null,"custoConversao":null,"taxaConversao":null,"id":38,"palavraChaveAdsId":6,"campanhaAdsId":50,"palavraChaveGoogleId":"saude"},{"idAds":"140467558","quantidadeImpressao":845,"quantidadeClique":2,"custo":0.54,"ctr":0.24,"cpcMedio":0.27,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":99,"palavraChaveAdsId":null,"campanhaAdsId":52,"palavraChaveGoogleId":"saude"},{"idAds":"140467558","quantidadeImpressao":1127,"quantidadeClique":4,"custo":0.92,"ctr":0.35,"cpcMedio":0.23,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":154,"palavraChaveAdsId":null,"campanhaAdsId":54,"palavraChaveGoogleId":"saude"},{"idAds":"140467558","quantidadeImpressao":118,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":180,"palavraChaveAdsId":null,"campanhaAdsId":57,"palavraChaveGoogleId":"saude"}]
+Resultado:  {"mediaImpressao":522.5,"desvioImpressao":475.9340815701267,"mediaCtr":0.19666666666666666,"desvioCtr":0.14613540144521983,"mediaConversao":0,"desvioConversao":0,"ocorrencias":4,"ativo":1,"id":38,"palavraChaveGoogleId":"saude","projetoMySqlId":27}
+Relcionamento Palavra:  {"mediaImpressao":522.5,"desvioImpressao":475.9340815701267,"mediaCtr":0.19666666666666666,"desvioCtr":0.14613540144521983,"mediaConversao":0,"desvioConversao":0,"ocorrencias":4,"ativo":1,"id":38,"palavraChaveGoogleId":"saude","projetoMySqlId":27}
+Antes:  { mediaImpressao: 6.3333,
+  desvioImpressao: 3.0912,
+  mediaCtr: 0,
+  desvioCtr: 0,
+  mediaConversao: 0,
+  desvioConversao: 0,
+  ocorrencias: 3,
+  ativo: 1,
+  id: 12,
+  palavraChaveGoogleId: 'hipertrofia',
+  projetoMySqlId: 25 }
+Lista:  [{"idAds":"1208033647","quantidadeImpressao":2,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":98,"palavraChaveAdsId":null,"campanhaAdsId":52,"palavraChaveGoogleId":"hipertrofia"},{"idAds":"1208033647","quantidadeImpressao":8,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":152,"palavraChaveAdsId":null,"campanhaAdsId":54,"palavraChaveGoogleId":"hipertrofia"},{"idAds":"1208033647","quantidadeImpressao":9,"quantidadeClique":0,"custo":0,"ctr":0,"cpcMedio":0,"conversao":0,"custoConversao":0,"taxaConversao":0,"id":183,"palavraChaveAdsId":null,"campanhaAdsId":57,"palavraChaveGoogleId":"hipertrofia"}]
+Resultado:  {"mediaImpressao":6.333333333333333,"desvioImpressao":3.0912061651652345,"mediaCtr":0,"desvioCtr":0,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"ativo":1,"id":12,"palavraChaveGoogleId":"hipertrofia","projetoMySqlId":25}
+Relcionamento Palavra:  {"mediaImpressao":6.333333333333333,"desvioImpressao":3.0912061651652345,"mediaCtr":0,"desvioCtr":0,"mediaConversao":0,"desvioConversao":0,"ocorrencias":3,"ativo":1,"id":12,"palavraChaveGoogleId":"hipertrofia","projetoMySqlId":25}

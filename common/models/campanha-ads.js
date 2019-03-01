@@ -50,12 +50,17 @@ module.exports = function (Campanhaads) {
         retorno.desvioImpressao = stats.stdev(impressoes);
         retorno.desvioConversao = stats.stdev(conversoes);
 
+        retorno.ocorrencias = ctrs.length;
+
+        console.log('Lista: ' , JSON.stringify(lista));
+        console.log('Resultado: ' , JSON.stringify(retorno))
+
         return retorno;
     }
 
 
     function carregaCampanhaComProjeto(idCampanha, retorno) {
-        filtro = { "where": { "id": idCampanha }, "include": { "relation": "paginaValidacaoWeb", "scope": { "include": "projeto" } } }
+        var filtro = { "where": { "id": idCampanha }, "include": { "relation": "paginaValidacaoWeb", "scope": { "include": "projeto" } } }
         Campanhaads.findOne(filtro, retorno);
     }
 
@@ -69,31 +74,48 @@ module.exports = function (Campanhaads) {
         var saida;
         // TODO
         carregaCampanhaComProjeto(idCampanha, (err, result) => {
-            campanhaProjeto = result;
-            app.models.CampanhaPalavraChaveResultado.find({ 'where': { 'campanhaAdsId': idCampanha } }, (err, result) => {
+            var campanhaProjeto = result;
+            app.models.CampanhaPalavraChaveResultado.find({ 'where': { 'campanhaAdsId': idCampanha } }, (err, listaPalavraCampanha) => {
                 if (err) {
                     callback(err, null);
                     return;
                 }
-                if (result) {
-                    result.foreach((item) => {
-                        app.models.CampanhaPalavraChaveResultado.find({ 'where': { 'palavraChaveGoogleId': item.palavraChaveGoogleId } }, (err, result) => {
+                if (listaPalavraCampanha) {
+                    listaPalavraCampanha.forEach((palavraResultado) => {
+                        app.models.CampanhaPalavraChaveResultado.find({ 'where': 
+                                    { 'and' : 
+                                    [
+                                        { 'palavraChaveGoogleId': palavraResultado.palavraChaveGoogleId } 
+                                        
+                                    ]}
+                                }, (err, listaResultadoPalavra) => {
                             if (err) {
                                 callback(err, null);
                                 return;
                             }
-                            if (result) {
+                            if (listaResultadoPalavra) {
                                 // Calcular Aqui
+                                
+
                                 app.models.PalavraGoogleProjeto.findOne({
                                     'where': {
                                         'and':
                                             [
-                                                { 'palavraChaveGoogleId': item.palavraChaveGoogleId },
+                                                { 'palavraChaveGoogleId': palavraResultado.palavraChaveGoogleId },
                                                 { 'projetoMySqlId': campanhaProjeto.paginaValidacaoWeb.projetoMySqlId }
                                             ]
                                     }
-                                }, (err, result) => {
-
+                                }, (err, relacionamentoPalavra) => {
+                                    if (err) {
+                                        callback(err,null);
+                                        return;
+                                    }
+                                    if (relacionamentoPalavra) {
+                                        console.log('Antes: ' , relacionamentoPalavra);
+                                        relacionamentoPalavra = extraiEstatisticas(listaResultadoPalavra,relacionamentoPalavra);
+                                        console.log('Relcionamento Palavra: ', JSON.stringify(relacionamentoPalavra));
+                                        app.models.PalavraGoogleProjeto.upsert(relacionamentoPalavra);
+                                    }
                                 })
                             }
                         })
@@ -102,21 +124,29 @@ module.exports = function (Campanhaads) {
             });
         })
 
-        app.models.CampanhaAnuncioResultado.find({ 'where': { 'campanhaAdsId': idCampanha } }, (err, result) => {
+        app.models.CampanhaAnuncioResultado.find({ 'where': { 'campanhaAdsId': idCampanha } }, (err, listaRelacionamentoAnuncio) => {
             if (err) {
                 callback(err, null);
                 return;
             }
-            if (result) {
-                result.foreach((item) => {
-                    app.models.CampanhaAnuncioResultado.find({ 'where': { 'anuncioAdsId': item.anuncioAdsId } }, (err, result) => {
+            if (listaRelacionamentoAnuncio) {
+                listaRelacionamentoAnuncio.forEach((item) => {
+                    app.models.CampanhaAnuncioResultado.find({'where' : {'anuncioAdsId': item.anuncioAdsId}}, (err, listaResultadoAnuncio)=> {
                         if (err) {
                             callback(err, null);
                             return;
-                        }
-                        if (result) {
-                            // Calcular Aqui
-                        }
+                        };
+                        app.models.AnuncioAds.findById(item.anuncioAdsId , (err, anuncio) => {
+                            if (err) {
+                                callback(err,null);
+                                return;
+                            }
+                            if (anuncio) {
+                                anuncio = extraiEstatisticas(listaResultadoAnuncio,anuncio);
+                                //console.log('Anuncio: ', JSON.stringify(anuncio));
+                                app.models.AnuncioAds.upsert(anuncio);
+                            }
+                        })
                     })
                 })
             }
