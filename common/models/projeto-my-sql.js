@@ -6,6 +6,32 @@ module.exports = function (Projetomysql) {
 
 
     /**
+    * Recupera o projeto de uma campanha
+    * @param {number} idCampanha 
+    * @param {Function(Error)} callback
+    */
+
+    Projetomysql.ObtemPorIdCampanha = function(idCampanha, callback) {
+        var sql = 'select ProjetoMySql.* from ProjetoMySql ' +
+            ' inner join PaginaValidacaoWeb on PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id ' +
+            ' inner join CampanhaAds on CampanhaAds.paginaValidacaoWebId = PaginaValidacaoWeb.id ' +
+            ' where CampanhaAds.id = ' + idCampanha;
+        var ds = Projetomysql.dataSource;
+       
+        ds.connector.query(sql, (err,result) => {
+            if (result) {
+                callback(null,result[0]);
+            } else {
+                callback(err,result);
+            }
+        });
+    };
+  
+
+
+
+
+    /**
      * Retorna projeto, conceito ativo e lista de item de validacao do idProjeto
      * @param {number} idProjeto 
      * @param {Function(Error, object, object, array)} callback

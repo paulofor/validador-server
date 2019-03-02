@@ -26,12 +26,14 @@ module.exports = function (Campanhapalavrachaveresultado) {
         } 
         }
         */
-        var sql = 'select CampanhaPalavraChaveResultado.* from CampanhaPalavraChaveResultado ' +
-            ' inner join CampanhaAds on CampanhaAds.id = CampanhaPalavraChaveResultado.campanhaAdsId ' +
-            ' inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId ' +
-            ' where palavraChaveGoogleId = ' + palavra +
-            ' and CampanhaAds.dataResultado is not null ' +
-            ' and PaginaValidacaoWeb.projetoMySqlId = ' + idProjeto;
+        console.log('ListaComResultadoPorPalavraIdProjeto (palavra) : ' , palavra);
+        console.log('ListaComResultadoPorPalavraIdProjeto (idProjeto) : ' , idProjeto);
+        var sql = "select CampanhaPalavraChaveResultado.* from CampanhaPalavraChaveResultado " +
+            " inner join CampanhaAds on CampanhaAds.id = CampanhaPalavraChaveResultado.campanhaAdsId " +
+            " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            " where palavraChaveGoogleId = '" + palavra + "'" +
+            " and CampanhaAds.dataResultado is not null " +
+            " and PaginaValidacaoWeb.projetoMySqlId = " + idProjeto;
         var ds = Campanhapalavrachaveresultado.dataSource;
         ds.connector.query(sql, callback);
     };

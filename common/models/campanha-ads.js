@@ -62,8 +62,7 @@ module.exports = function (Campanhaads) {
 
 
     function carregaCampanhaComProjeto(idCampanha, retorno) {
-        var filtro = { "where": { "id": idCampanha }, "include": { "relation": "paginaValidacaoWeb", "scope": { "include": "projeto" } } }
-        Campanhaads.findOne(filtro, retorno);
+       
     }
 
     /**
@@ -73,10 +72,14 @@ module.exports = function (Campanhaads) {
      */
 
     Campanhaads.CalculaResultados = function (idCampanha, callback) {
-        var saida;
-        // TODO
-        carregaCampanhaComProjeto(idCampanha, (err, result) => {
-            var campanhaProjeto = result;
+        app.models.ProjetoMySql.ObtemPorIdCampanha(idCampanha, (err, result) => {
+            if (err) {
+                callback(err,null);
+                return;
+            }
+            var projeto = result;
+            //console.log('Projeto: ' , projeto);
+            //console.log('Id: ' , projeto.id);
             app.models.CampanhaPalavraChaveResultado.find({ 'where': { 'campanhaAdsId': idCampanha } }, (err, listaPalavraCampanha) => {
                 if (err) {
                     callback(err, null);
@@ -84,7 +87,7 @@ module.exports = function (Campanhaads) {
                 }
                 if (listaPalavraCampanha) {
                     listaPalavraCampanha.forEach((palavraResultado) => {
-                        app.models.CampanhaPalavraChaveResultado.ListaComResultadoPorPalavraIdProjeto(palavraResultado,campanhaProjeto.paginaValidacaoWeb.projetoMySqlId
+                        app.models.CampanhaPalavraChaveResultado.ListaComResultadoPorPalavraIdProjeto(palavraResultado.palavraChaveGoogleId,projeto.id
                             , (err, listaResultadoPalavra) => {
                             if (err) {
                                 callback(err, null);
@@ -99,7 +102,7 @@ module.exports = function (Campanhaads) {
                                         'and':
                                             [
                                                 { 'palavraChaveGoogleId': palavraResultado.palavraChaveGoogleId },
-                                                { 'projetoMySqlId': campanhaProjeto.paginaValidacaoWeb.projetoMySqlId }
+                                                { 'projetoMySqlId': projeto.id }
                                             ]
                                     }
                                 }, (err, relacionamentoPalavra) => {
@@ -108,9 +111,9 @@ module.exports = function (Campanhaads) {
                                         return;
                                     }
                                     if (relacionamentoPalavra) {
-                                        console.log('Antes: ' , relacionamentoPalavra);
+                                        //console.log('Antes: ' , relacionamentoPalavra);
                                         relacionamentoPalavra = extraiEstatisticas(listaResultadoPalavra,relacionamentoPalavra);
-                                        console.log('Relcionamento Palavra: ', JSON.stringify(relacionamentoPalavra));
+                                        //console.log('Relcionamento Palavra: ', JSON.stringify(relacionamentoPalavra));
                                         app.models.PalavraGoogleProjeto.upsert(relacionamentoPalavra);
                                     }
                                 })
@@ -119,7 +122,7 @@ module.exports = function (Campanhaads) {
                     });
                 }
             });
-        })
+        });
 
         app.models.CampanhaAnuncioResultado.find({ 'where': { 'campanhaAdsId': idCampanha } }, (err, listaRelacionamentoAnuncio) => {
             if (err) {
@@ -148,7 +151,7 @@ module.exports = function (Campanhaads) {
                 })
             }
         })
-        callback(null, saida);
+        callback(null, 'ok');
     };
 
     /**

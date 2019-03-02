@@ -9,10 +9,14 @@ module.exports = function (Campanhaanuncioresultado) {
     * @param {Function(Error, array)} callback
     */
 
-    CampanhaAnuncioResultado.ListaComResultadoPorIdAnuncio = function (idAnuncio,callback) {
-        var listaResultado;
-        // TODO
-        callback(null, listaResultado);
+    Campanhaanuncioresultado.ListaComResultadoPorIdAnuncio = function (idAnuncio, callback) {
+        console.log('Campanhaanuncioresultado (idAnuncio) : ' , idAnuncio);
+        var sql = 'select CampanhaAnuncioResultado.* from CampanhaAnuncioResultado ' +
+            ' inner join CampanhaAds on CampanhaAds.id = CampanhaAnuncioResultado.campanhaAdsId ' +
+            ' where anuncioAdsId = ' + idAnuncio +
+            ' and CampanhaAds.dataResultado is not null ';
+        var ds = Campanhaanuncioresultado.dataSource;
+        ds.connector.query(sql, callback);
     };
 
 };
