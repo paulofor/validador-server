@@ -26,10 +26,14 @@ module.exports = function (Campanhapalavrachaveresultado) {
         } 
         }
         */
-
-        var listaResultado = [];
-        // TODO
-        callback(null, listaResultado);
+        var sql = 'select CampanhaPalavraChaveResultado.* from CampanhaPalavraChaveResultado ' +
+            ' inner join CampanhaAds on CampanhaAds.id = CampanhaPalavraChaveResultado.campanhaAdsId ' +
+            ' inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId ' +
+            ' where palavraChaveGoogleId = ' + palavra +
+            ' and CampanhaAds.dataResultado is not null ' +
+            ' and PaginaValidacaoWeb.projetoMySqlId = ' + idProjeto;
+        var ds = Campanhapalavrachaveresultado.dataSource;
+        ds.connector.query(sql, callback);
     };
 
 
