@@ -24,6 +24,15 @@
     },
     "codigo": {
       "type": "string"
+    },
+    "custoCampanha": {
+      "type": "number"
+    },
+    "quantidadeCampanha": {
+      "type": "number"
+    },
+    "tempoTotal": {
+      "type": "date"
     }
   },
   "validations": [],
@@ -65,6 +74,11 @@
     "conceitoProdutos": {
       "type": "hasMany",
       "model": "ConceitoProduto",
+      "foreignKey": ""
+    },
+    "itemValidacaoPaginas": {
+      "type": "hasMany",
+      "model": "ItemValidacaoPagina",
       "foreignKey": ""
     }
   },
@@ -505,7 +519,7 @@
           "description": ""
         }
       ],
-      "returns":  [
+      "returns": [
         {
           "arg": "projeto",
           "type": "object",
@@ -518,6 +532,86 @@
         {
           "path": "/obtemPorIdCampanha",
           "verb": "get"
+        }
+      ]
+    },
+    "ProjetoConceitoItemValidacao": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "conceito",
+          "type": "object",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "projeto",
+          "type": "object",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "listaItemValidacao",
+          "type": "array",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/projetoConceitoItemValidacao",
+          "verb": "get"
+        }
+      ]
+    },
+    "CalculaSomatorio": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resposta",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Calcula custo e quantidade de campanhas, gasto de tempo.",
+      "http": [
+        {
+          "path": "/calculaSomatorio",
+          "verb": "post"
+        }
+      ]
+    },
+    "CalculaSomatorioTodos": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "resposta",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Calcula somatorio para todos os projetos",
+      "http": [
+        {
+          "path": "/calculaSomatorioTodos",
+          "verb": "post"
         }
       ]
     }

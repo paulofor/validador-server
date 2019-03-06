@@ -11,14 +11,15 @@ module.exports = function (Processonegocio) {
     * @param {Function(Error, array, object, object, array)} callback
     */
     Processonegocio.ObtemPlanoDia = function (idContexto, callback) {
-        console.log('Contexto' + idContexto);
+        //console.log('Contexto' + idContexto);
         var listaProcesso, diaSemana, semana, listaTempoExecucao;
         var dataReferencia = new Date();
+        console.log('Data: ' , dataReferencia);
         app.models.DiaSemana.findOne({ 'where': { 'posicaoDia': dataReferencia.getDay() - 1} }, (err, result1) => {
-            //console.log('Dia:', result1);
+            console.log('Dia:', result1);
             diaSemana = result1;
             app.models.Semana.ObtemPorData(dataReferencia, (err, result2) => {
-                //console.log('Semana', result2);
+                console.log('Semana', result2);
                 semana = result2;
                 var filtroPlano = { 
                     "include" : "processoNegocio" ,

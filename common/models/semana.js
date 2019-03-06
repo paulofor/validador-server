@@ -13,6 +13,7 @@ module.exports = function (Semana) {
      */
 
     Semana.ObtemPorData = function (data, callback) {
+        //console.log('Data:' , new Date.UTC());
         var filtro = {
             "where": {
                 "and": [
@@ -21,6 +22,7 @@ module.exports = function (Semana) {
                 ]
             }
         };
+        console.log('Filtro: ' , filtro);
         Semana.findOne(filtro, callback);
     };
 

@@ -17,6 +17,15 @@
     },
     "dataCriacao": {
       "type": "date"
+    },
+    "custoCampanha": {
+      "type": "number"
+    },
+    "quantidadeCampanha": {
+      "type": "number"
+    },
+    "tempoTotal": {
+      "type": "date"
     }
   },
   "validations": [],
@@ -39,6 +48,11 @@
     "paginaValidacaoWebs": {
       "type": "hasMany",
       "model": "PaginaValidacaoWeb",
+      "foreignKey": ""
+    },
+    "itemValidacaoPaginas": {
+      "type": "hasMany",
+      "model": "ItemValidacaoPagina",
       "foreignKey": ""
     }
   },

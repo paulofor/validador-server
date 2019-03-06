@@ -5,29 +5,118 @@ var app = require('../../server/server');
 module.exports = function (Projetomysql) {
 
 
+
+    /**
+     * Calcula somatorio para todos os projetos
+     * @param {Function(Error, object)} callback
+     */
+
+    Projetomysql.CalculaSomatorioTodos = function (callback) {
+        var resposta;
+        var sqlQuantidade = "update ProjetoMySql set ProjetoMySql.quantidadeCampanha = " +
+            " ( " +
+            " select count(*) from CampanhaAds " +
+            " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            " where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id  " +
+            " and CampanhaAds.dataResultado is not null " +
+            " ) ";
+        var sqlCustoTotal = "update ProjetoMySql set ProjetoMySql.custoCampanha = " +
+            " ( " +
+            " select sum(CampanhaAds.orcamentoTotalExecutado)  from CampanhaAds " +
+            " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            " where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id " +
+            " and CampanhaAds.dataResultado is not null " +
+            " ) ";
+        var ds = Projetomysql.dataSource;
+
+        ds.connector.query(sqlQuantidade, (err, result) => {
+            if (err) {
+                callback(err,null);
+                return;
+            };
+            //console.log('Result1' , result);
+        });
+        ds.connector.query(sqlCustoTotal, (err, result) => {
+            if (err) {
+                callback(err,null);
+                return;
+            };
+            //console.log('Result2' , result);
+        });
+        callback(null,{});
+       
+    };
+
+
+    /**
+     * Calcula custo e quantidade de campanhas, gasto de tempo.
+     * @param {number} idProjeto 
+     * @param {Function(Error, object)} callback
+     */
+
+    Projetomysql.CalculaSomatorio = function (idProjeto, callback) {
+        var resposta;
+        // TODO
+        callback(null, resposta);
+    };
+
+
     /**
     * Recupera o projeto de uma campanha
     * @param {number} idCampanha 
     * @param {Function(Error)} callback
     */
 
-    Projetomysql.ObtemPorIdCampanha = function(idCampanha, callback) {
+    Projetomysql.ObtemPorIdCampanha = function (idCampanha, callback) {
         var sql = 'select ProjetoMySql.* from ProjetoMySql ' +
             ' inner join PaginaValidacaoWeb on PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id ' +
             ' inner join CampanhaAds on CampanhaAds.paginaValidacaoWebId = PaginaValidacaoWeb.id ' +
             ' where CampanhaAds.id = ' + idCampanha;
         var ds = Projetomysql.dataSource;
-       
-        ds.connector.query(sql, (err,result) => {
+
+        ds.connector.query(sql, (err, result) => {
             if (result) {
-                callback(null,result[0]);
+                callback(null, result[0]);
             } else {
-                callback(err,result);
+                callback(err, result);
             }
         });
     };
-  
 
+
+    /**
+     * 
+     * @param {number} idProjeto 
+     * @param {Function(Error, object, object, array)} callback
+     */
+
+    Projetomysql.ProjetoConceitoItemValidacao = function (idProjeto, callback) {
+        var projeto = null, conceito = null, listaItemValidacao = null;
+        Projetomysql.findById(idProjeto, (err1, result1) => {
+            if (err1) {
+                callback(err1, conceito, projeto, listaItemValidacao);
+                return;
+            }
+            projeto = result1;
+            app.models.ConceitoProduto.AtivoPorProjeto(idProjeto, (err2, result2) => {
+                conceito = result2;
+                if (err2 || !conceito) {
+                    callback(err2, conceito, projeto, listaItemValidacao);
+                    return;
+                }
+
+                var filtro = { "where": { "and": [{ "conceitoProdutoId": conceito.id }, { "projetoMySql": projeto.id }] } };
+                app.models.ItemValidacaoPagina.find(filtro, (err3, result3) => {
+                    listaItemValidacao = result3;
+                    if (err3 || !listaItemValidacao) {
+                        callback(err3, conceito, projeto, listaItemValidacao);
+                        return;
+                    }
+                    callback(null, conceito, projeto, listaItemValidacao);
+                })
+            })
+        })
+    };
 
 
 
@@ -36,7 +125,7 @@ module.exports = function (Projetomysql) {
      * @param {number} idProjeto 
      * @param {Function(Error, object, object, array)} callback
      */
-
+    // SUBSTITUIDO PELO ANTERIOR --> ProjetoConceitoItemValidacao
     Projetomysql.ProjetoConceitoTelaItemValidacao = function (idProjeto, callback) {
         var projeto = null, conceito = null, listaTelaApp = null, listaTelaWeb;
         Projetomysql.findById(idProjeto, (err1, result1) => {
@@ -52,14 +141,14 @@ module.exports = function (Projetomysql) {
                     return;
                 }
 
-                var filtro = { "where": { "conceitoProdutoId": conceito.id } , "include" : "itemValidacaoPaginas" };
+                var filtro = { "where": { "conceitoProdutoId": conceito.id }, "include": "itemValidacaoPaginas" };
                 app.models.TelaApp.find(filtro, (err3, result3) => {
                     listaTelaApp = result3;
                     if (err3 || !listaTelaApp) {
                         callback(err3, projeto, conceito, listaTelaApp, listaTelaWeb);
                         return;
                     }
-                    app.models.TelaWeb.find(filtro, (err4,result4) => {
+                    app.models.TelaWeb.find(filtro, (err4, result4) => {
                         listaTelaWeb = result4;
                         if (err4 || !listaTelaWeb) {
                             callback(err4, projeto, conceito, listaTelaApp, listaTelaWeb);
@@ -67,7 +156,7 @@ module.exports = function (Projetomysql) {
                         }
                         callback(null, projeto, conceito, listaTelaApp, listaTelaWeb);
                     })
-                   
+
                 })
 
             })
