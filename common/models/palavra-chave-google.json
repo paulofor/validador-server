@@ -18,6 +18,11 @@
       "type": "hasMany",
       "model": "PalavraChaveEstatistica",
       "foreignKey": ""
+    },
+    "palavraGoogleProjetos": {
+      "type": "hasMany",
+      "model": "PalavraGoogleProjeto",
+      "foreignKey": ""
     }
   },
   "acls": [],
