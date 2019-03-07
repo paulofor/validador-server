@@ -505,7 +505,7 @@
       "description": "Retorna projeto, conceito ativo e lista de item de validacao do idProjeto",
       "http": [
         {
-          "path": "/projetoConceitoItemValidacao",
+          "path": "/projetoConceitoTelaItemValidacao",
           "verb": "get"
         }
       ]
