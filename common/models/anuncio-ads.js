@@ -36,7 +36,7 @@ module.exports = function (Anuncioads) {
               " ( " +
               " select CampanhaAnuncioResultado.anuncioAdsId from CampanhaAnuncioResultado " +
               " where CampanhaAnuncioResultado.campanhaAdsId = " + idCampanha +
-              " ) ";
+              " ) order by mediaConversao desc, mediaCtr desc";
     ds.connector.query(sql, callback);
   };
 
