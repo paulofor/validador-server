@@ -354,5 +354,9 @@
   "Contexto": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "ModeloTelaApp": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
