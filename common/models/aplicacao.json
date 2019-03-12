@@ -50,6 +50,11 @@
       "type": "hasMany",
       "model": "ComponenteWeb",
       "foreignKey": ""
+    },
+    "telaApps": {
+      "type": "hasMany",
+      "model": "TelaApp",
+      "foreignKey": ""
     }
   },
   "acls": [],

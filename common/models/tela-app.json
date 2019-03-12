@@ -29,6 +29,11 @@
       "type": "belongsTo",
       "model": "ConceitoProduto",
       "foreignKey": ""
+    },
+    "modeloTelaApp": {
+      "type": "belongsTo",
+      "model": "ModeloTelaApp",
+      "foreignKey": ""
     }
   },
   "acls": [],
