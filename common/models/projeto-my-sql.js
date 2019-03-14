@@ -4,7 +4,15 @@ var app = require('../../server/server');
 
 module.exports = function (Projetomysql) {
 
+    /**
+     * Retorna todos os projetos com lista de aplicacoes ativas ( normalmente apenas uma )
+     * @param {Function(Error, array)} callback
+     */
 
+    Projetomysql.ListaComAplicacaoAtiva = function (callback) {
+        var filtro = { "include" : "aplicacaos" };
+        Projetomysql.find(filtro,callback);
+    };
 
     /**
      * Calcula somatorio para todos os projetos
@@ -31,20 +39,20 @@ module.exports = function (Projetomysql) {
 
         ds.connector.query(sqlQuantidade, (err, result) => {
             if (err) {
-                callback(err,null);
+                callback(err, null);
                 return;
             };
             //console.log('Result1' , result);
         });
         ds.connector.query(sqlCustoTotal, (err, result) => {
             if (err) {
-                callback(err,null);
+                callback(err, null);
                 return;
             };
             //console.log('Result2' , result);
         });
-        callback(null,{});
-       
+        callback(null, {});
+
     };
 
 

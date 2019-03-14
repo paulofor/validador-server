@@ -80,6 +80,11 @@
       "type": "hasMany",
       "model": "ItemValidacaoPagina",
       "foreignKey": ""
+    },
+    "aplicacaos": {
+      "type": "hasMany",
+      "model": "aplicacao",
+      "foreignKey": ""
     }
   },
   "acls": [],
@@ -612,6 +617,24 @@
         {
           "path": "/calculaSomatorioTodos",
           "verb": "post"
+        }
+      ]
+    },
+    "ListaComAplicacaoAtiva": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "listaProjeto",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Retorna todos os projetos com lista de aplicacoes ativas ( normalmente apenas uma )",
+      "http": [
+        {
+          "path": "/listaComAplicacaoAtiva",
+          "verb": "get"
         }
       ]
     }
