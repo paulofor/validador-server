@@ -423,6 +423,31 @@
           "verb": "get"
         }
       ]
+    },
+    "AtualizaResultado": {
+      "accepts": [
+        {
+          "arg": "campanha",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaResultado",
+          "verb": "post"
+        }
+      ]
     }
   }
 }

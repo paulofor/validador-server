@@ -8,6 +8,19 @@ module.exports = function (Campanhaads) {
 
 
     /**
+     * 
+     * @param {object} campanha 
+     * @param {Function(Error, object)} callback
+     */
+
+    Campanhaads.AtualizaResultado = function (campanha, callback) {
+        Campanhaads.upsert(campanha,(err,result) => {
+            callback(err,result);
+        });
+    };
+
+
+    /**
     *
     * @param {Function(Error)} callback
     */
@@ -16,13 +29,13 @@ module.exports = function (Campanhaads) {
         console.log('Ola Mundo');
         var rolls = [];
 
-        var listaObj  = [{'valor' : 1} , {'valor' : 2} , {'valor' : 3}];
+        var listaObj = [{ 'valor': 1 }, { 'valor': 2 }, { 'valor': 3 }];
         listaObj.forEach(obj => {
             rolls.push(obj.valor);
         })
         console.log("soma: %s", stats.stdev(rolls))
         console.log("desvio: %s", stats.mean(rolls));
-        var result = { 'media' : 0 , 'soma' : 0};
+        var result = { 'media': 0, 'soma': 0 };
         console.log('Antes:' + JSON.stringify(result));
         result.media = stats.mean(rolls);
         result.soma = stats.sum(rolls);
@@ -32,7 +45,7 @@ module.exports = function (Campanhaads) {
     };
 
 
-    function extraiEstatisticas(lista , retorno) {
+    function extraiEstatisticas(lista, retorno) {
         var ctrs = [];
         var conversoes = [];
         var impressoes = [];
@@ -52,9 +65,9 @@ module.exports = function (Campanhaads) {
 
         retorno.ocorrencias = ctrs.length;
 
-        console.log('Lista: ' , JSON.stringify(lista));
-        console.log('Resultado: ' , JSON.stringify(retorno));
-        
+        console.log('Lista: ', JSON.stringify(lista));
+        console.log('Resultado: ', JSON.stringify(retorno));
+
         var x = Math.max(ctrs);
 
         return retorno;
@@ -62,7 +75,7 @@ module.exports = function (Campanhaads) {
 
 
     function carregaCampanhaComProjeto(idCampanha, retorno) {
-       
+
     }
 
     /**
@@ -72,14 +85,20 @@ module.exports = function (Campanhaads) {
      */
 
     Campanhaads.CalculaResultados = function (idCampanha, callback) {
+        Campanhaads.PermiteEditar(idCampanha,0,(err,result) => {
+            
+        })
         app.models.ProjetoMySql.ObtemPorIdCampanha(idCampanha, (err, result) => {
             if (err) {
-                callback(err,null);
+                callback(err, null);
                 return;
             }
             var projeto = result;
             //console.log('Projeto: ' , projeto);
             //console.log('Id: ' , projeto.id);
+            app.models.ProjetoMySql.CalculaSomatorio(projeto.id, (err,result) => {
+
+            });
             app.models.CampanhaPalavraChaveResultado.find({ 'where': { 'campanhaAdsId': idCampanha } }, (err, listaPalavraCampanha) => {
                 if (err) {
                     callback(err, null);
@@ -87,38 +106,38 @@ module.exports = function (Campanhaads) {
                 }
                 if (listaPalavraCampanha) {
                     listaPalavraCampanha.forEach((palavraResultado) => {
-                        app.models.CampanhaPalavraChaveResultado.ListaComResultadoPorPalavraIdProjeto(palavraResultado.palavraChaveGoogleId,projeto.id
+                        app.models.CampanhaPalavraChaveResultado.ListaComResultadoPorPalavraIdProjeto(palavraResultado.palavraChaveGoogleId, projeto.id
                             , (err, listaResultadoPalavra) => {
-                            if (err) {
-                                callback(err, null);
-                                return;
-                            }
-                            if (listaResultadoPalavra) {
-                                // Calcular Aqui
-                                
+                                if (err) {
+                                    callback(err, null);
+                                    return;
+                                }
+                                if (listaResultadoPalavra) {
+                                    // Calcular Aqui
 
-                                app.models.PalavraGoogleProjeto.findOne({
-                                    'where': {
-                                        'and':
-                                            [
-                                                { 'palavraChaveGoogleId': palavraResultado.palavraChaveGoogleId },
-                                                { 'projetoMySqlId': projeto.id }
-                                            ]
-                                    }
-                                }, (err, relacionamentoPalavra) => {
-                                    if (err) {
-                                        callback(err,null);
-                                        return;
-                                    }
-                                    if (relacionamentoPalavra) {
-                                        //console.log('Antes: ' , relacionamentoPalavra);
-                                        relacionamentoPalavra = extraiEstatisticas(listaResultadoPalavra,relacionamentoPalavra);
-                                        //console.log('Relcionamento Palavra: ', JSON.stringify(relacionamentoPalavra));
-                                        app.models.PalavraGoogleProjeto.upsert(relacionamentoPalavra);
-                                    }
-                                })
-                            }
-                        })
+
+                                    app.models.PalavraGoogleProjeto.findOne({
+                                        'where': {
+                                            'and':
+                                                [
+                                                    { 'palavraChaveGoogleId': palavraResultado.palavraChaveGoogleId },
+                                                    { 'projetoMySqlId': projeto.id }
+                                                ]
+                                        }
+                                    }, (err, relacionamentoPalavra) => {
+                                        if (err) {
+                                            callback(err, null);
+                                            return;
+                                        }
+                                        if (relacionamentoPalavra) {
+                                            //console.log('Antes: ' , relacionamentoPalavra);
+                                            relacionamentoPalavra = extraiEstatisticas(listaResultadoPalavra, relacionamentoPalavra);
+                                            //console.log('Relcionamento Palavra: ', JSON.stringify(relacionamentoPalavra));
+                                            app.models.PalavraGoogleProjeto.upsert(relacionamentoPalavra);
+                                        }
+                                    })
+                                }
+                            })
                     });
                 }
             });
@@ -131,18 +150,18 @@ module.exports = function (Campanhaads) {
             }
             if (listaRelacionamentoAnuncio) {
                 listaRelacionamentoAnuncio.forEach((item) => {
-                    app.models.CampanhaAnuncioResultado.ListaComResultadoPorIdAnuncio(item.anuncioAdsId, (err, listaResultadoAnuncio)=> {
+                    app.models.CampanhaAnuncioResultado.ListaComResultadoPorIdAnuncio(item.anuncioAdsId, (err, listaResultadoAnuncio) => {
                         if (err) {
                             callback(err, null);
                             return;
                         };
-                        app.models.AnuncioAds.findById(item.anuncioAdsId , (err, anuncio) => {
+                        app.models.AnuncioAds.findById(item.anuncioAdsId, (err, anuncio) => {
                             if (err) {
-                                callback(err,null);
+                                callback(err, null);
                                 return;
                             }
                             if (anuncio) {
-                                anuncio = extraiEstatisticas(listaResultadoAnuncio,anuncio);
+                                anuncio = extraiEstatisticas(listaResultadoAnuncio, anuncio);
                                 //console.log('Anuncio: ', JSON.stringify(anuncio));
                                 app.models.AnuncioAds.upsert(anuncio);
                             }
@@ -313,7 +332,7 @@ module.exports = function (Campanhaads) {
         var listaCampanha;
         var prazo = new Date();
         //prazo.setDate(prazo + 60); // 60 dias
-        prazo.setTime(prazo.getTime() - 60 * 86400000);
+        prazo.setTime(prazo.getTime() - 45 * 86400000);
         console.log('Prazo:', prazo);
         Campanhaads.find({
             "where": { and: [{ "dataFinal": { "gt": prazo } }, { "dataInicial": { "lt": new Date() } }] },
