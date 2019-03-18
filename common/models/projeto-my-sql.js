@@ -64,8 +64,39 @@ module.exports = function (Projetomysql) {
 
     Projetomysql.CalculaSomatorio = function (idProjeto, callback) {
         var resposta;
-        // TODO
-        callback(null, resposta);
+        var sqlQuantidade = "update ProjetoMySql set ProjetoMySql.quantidadeCampanha = " +
+            " ( " +
+            " select count(*) from CampanhaAds " +
+            " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            " where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id  " +
+            " and CampanhaAds.dataResultado is not null " +
+            " ) " +
+            " where id = " + idProjeto;
+        var sqlCustoTotal = "update ProjetoMySql set ProjetoMySql.custoCampanha = " +
+            " ( " +
+            " select sum(CampanhaAds.orcamentoTotalExecutado)  from CampanhaAds " +
+            " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            " where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id " +
+            " and CampanhaAds.dataResultado is not null " +
+            " ) " +
+            " where id = " + idProjeto;
+        var ds = Projetomysql.dataSource;
+
+        ds.connector.query(sqlQuantidade, (err, result) => {
+            if (err) {
+                callback(err, null);
+                return;
+            };
+            //console.log('Result1' , result);
+        });
+        ds.connector.query(sqlCustoTotal, (err, result) => {
+            if (err) {
+                callback(err, null);
+                return;
+            };
+            //console.log('Result2' , result);
+        });
+        callback(null, {});
     };
 
 
