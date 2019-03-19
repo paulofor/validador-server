@@ -35,6 +35,24 @@ module.exports = function (Projetomysql) {
             " where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id " +
             " and CampanhaAds.dataResultado is not null " +
             " ) ";
+        var sqlQuantidadeAnuncio = "update ProjetoMySql set ProjetoMySql.quantidadeAnuncio = " +
+            " ( " +
+            " select count(*) from AnuncioAds " +
+            " where AnuncioAds.projetoMySqlId = ProjetoMySql.id  " +
+            " ) ";
+        var sqlQuantidadePalavra = "update ProjetoMySql set ProjetoMySql.quantidadePalavraChave = " +
+            " ( " +
+            " select count(*) from PalavraGoogleProjeto " +
+            " where PalavraGoogleProjeto.projetoMySqlId = ProjetoMySql.id  " +
+            " and PalavraGoogleProjeto.ativo = 1 " +
+            " ) ";
+        var sqlQuantidadeAberta = "update ProjetoMySql set ProjetoMySql.quantidadeCampanhaAberta = " +
+            " ( " +
+            " select count(*) from CampanhaAds " +
+            " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            " where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id  " +
+            " and CampanhaAds.dataFechamento is null " +
+            " ) ";
         var ds = Projetomysql.dataSource;
 
         ds.connector.query(sqlQuantidade, (err, result) => {
@@ -51,7 +69,28 @@ module.exports = function (Projetomysql) {
             };
             //console.log('Result2' , result);
         });
-        callback(null, {});
+        ds.connector.query(sqlQuantidadeAnuncio, (err, result) => {
+            if (err) {
+                callback(err, null);
+                return;
+            };
+            //console.log('Result2' , result);
+        });
+        ds.connector.query(sqlQuantidadePalavra, (err, result) => {
+            if (err) {
+                callback(err, null);
+                return;
+            };
+            //console.log('Result2' , result);
+        });
+        ds.connector.query(sqlQuantidadeAberta, (err, result) => {
+            if (err) {
+                callback(err, null);
+                return;
+            };
+            //console.log('Result2' , result);
+        });
+        //callback(null, {});
 
     };
 
@@ -80,6 +119,42 @@ module.exports = function (Projetomysql) {
             " and CampanhaAds.dataResultado is not null " +
             " ) " +
             " where id = " + idProjeto;
+        
+        var sqlQuantidadeAnuncio = "update ProjetoMySql set ProjetoMySql.quantidadeAnuncio = " +
+            " ( " +
+            " select count(*) from AnuncioAds " +
+            " where AnuncioAds.projetoMySqlId = ProjetoMySql.id  " +
+            " ) " +
+            " where id = " + idProjeto;
+        
+        var sqlQuantidadePalavra = "update ProjetoMySql set ProjetoMySql.quantidadePalavraChave = " +
+            " ( " +
+            " select count(*) from PalavraGoogleProjeto " +
+            " where PalavraGoogleProjeto.projetoMySqlId = ProjetoMySql.id  " +
+            " and PalavraGoogleProjeto.ativo = 1 " +
+            " ) " +
+            " where id = " + idProjeto;
+        
+        var sqlQuantidadeAberta = "update ProjetoMySql set ProjetoMySql.quantidadeCampanhaAberta = " +
+            " ( " +
+            " select count(*) from CampanhaAds " +
+            " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            " where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id  " +
+            " and CampanhaAds.dataFechamento is null " +
+            " ) " +
+            " where id = " + idProjeto;
+        
+        var sqlTempo = "update ProjetoMySql set ProjetoMySql.quantidadeCampanha = " +
+            " ( " +
+            " select count(*) from CampanhaAds " +
+            " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            " where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id  " +
+            " and CampanhaAds.dataResultado is not null " +
+            " ) " +
+            " where id = " + idProjeto;
+        
+
+
         var ds = Projetomysql.dataSource;
 
         ds.connector.query(sqlQuantidade, (err, result) => {
@@ -90,6 +165,27 @@ module.exports = function (Projetomysql) {
             //console.log('Result1' , result);
         });
         ds.connector.query(sqlCustoTotal, (err, result) => {
+            if (err) {
+                callback(err, null);
+                return;
+            };
+            //console.log('Result2' , result);
+        });
+        ds.connector.query(sqlQuantidadeAnuncio, (err, result) => {
+            if (err) {
+                callback(err, null);
+                return;
+            };
+            //console.log('Result2' , result);
+        });
+        ds.connector.query(sqlQuantidadeAberta, (err, result) => {
+            if (err) {
+                callback(err, null);
+                return;
+            };
+            //console.log('Result2' , result);
+        });
+        ds.connector.query(sqlQuantidadePalavra, (err, result) => {
             if (err) {
                 callback(err, null);
                 return;
