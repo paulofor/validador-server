@@ -11,6 +11,9 @@
     },
     "tipo": {
       "type": "string"
+    },
+    "sobrescreveHtml" : {
+      "type": "number"
     }
   },
   "validations": [],
