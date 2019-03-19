@@ -38,7 +38,10 @@ module.exports = function (Projetomysql) {
         var sqlQuantidadeAnuncio = "update ProjetoMySql set ProjetoMySql.quantidadeAnuncio = " +
             " ( " +
             " select count(*) from AnuncioAds " +
-            " where AnuncioAds.projetoMySqlId = ProjetoMySql.id  " +
+            " inner join ValorConceito on ValorConceito.id = AnuncioAds.valorConceitoId " +
+            " inner join ConceitoProduto on ConceitoProduto.id = ValorConceito.conceitoProdutoId " +
+            " where ConceitoProduto.projetoMySqlId = ProjetoMySql.id  " +
+            " and ConceitoProduto.ativo = 1 " +
             " ) ";
         var sqlQuantidadePalavra = "update ProjetoMySql set ProjetoMySql.quantidadePalavraChave = " +
             " ( " +
@@ -90,7 +93,7 @@ module.exports = function (Projetomysql) {
             };
             //console.log('Result2' , result);
         });
-        //callback(null, {});
+        callback(null, {});
 
     };
 
@@ -123,7 +126,10 @@ module.exports = function (Projetomysql) {
         var sqlQuantidadeAnuncio = "update ProjetoMySql set ProjetoMySql.quantidadeAnuncio = " +
             " ( " +
             " select count(*) from AnuncioAds " +
-            " where AnuncioAds.projetoMySqlId = ProjetoMySql.id  " +
+            " inner join ValorConceito on ValorConceito.id = AnuncioAds.valorConceitoId " +
+            " inner join ConceitoProduto on ConceitoProduto.id = ValorConceito.conceitoProdutoId " +
+            " where ConceitoProduto.projetoMySqlId = ProjetoMySql.id  " +
+            " and ConceitoProduto.ativo = 1 " +
             " ) " +
             " where id = " + idProjeto;
         
