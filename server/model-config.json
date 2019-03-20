@@ -358,5 +358,9 @@
   "ModeloTelaApp": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "PaletaCor": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

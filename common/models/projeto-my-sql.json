@@ -34,16 +34,15 @@
     "tempoTotal": {
       "type": "date"
     },
-    "quantidadeAnuncio" : {
-      "type" : "number"
+    "quantidadeAnuncio": {
+      "type": "number"
     },
-    "quantidadeCampanhaAberta" : {
-      "type" : "number"
+    "quantidadeCampanhaAberta": {
+      "type": "number"
     },
-    "quantidadePalavraChave" : {
-      "type" : "number"
+    "quantidadePalavraChave": {
+      "type": "number"
     }
-    
   },
   "validations": [],
   "relations": {

@@ -12,7 +12,7 @@
     "tipo": {
       "type": "string"
     },
-    "sobrescreveHtml" : {
+    "sobrescreveHtml": {
       "type": "number"
     }
   },

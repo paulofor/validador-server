@@ -1,0 +1,29 @@
+{
+  "name": "PaletaCor",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "cor1": {
+      "type": "string"
+    },
+    "cor2": {
+      "type": "string"
+    },
+    "cor3": {
+      "type": "string"
+    },
+    "cor4": {
+      "type": "string"
+    },
+    "cor5": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
