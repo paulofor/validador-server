@@ -5,6 +5,20 @@ var app = require('../../server/server');
 module.exports = function (Aplicacao) {
 
 
+    /**
+     * Obtem a aplicacao e lista de cores ativas
+     * @param {object} idAplicacao 
+     * @param {Function(Error, object)} callback
+     */
+
+    Aplicacao.ObtemComCorAtiva = function (idAplicacao, callback) {
+        var aplicacao;
+        // TODO
+        callback(null, aplicacao);
+    };
+
+
+
 
     /**
     * Obtem a aplicacao do conceito
@@ -12,17 +26,17 @@ module.exports = function (Aplicacao) {
     * @param {Function(Error, object)} callback
     */
 
-    Aplicacao.ObtemPorIdConceito = function(idConceito, callback) {
+    Aplicacao.ObtemPorIdConceito = function (idConceito, callback) {
         var ds = Aplicacao.dataSource;
         var sql = "select aplicacao.* "
-        var sql =   " select aplicacao.* from aplicacao " +
-                    " inner join ConceitoProduto on ConceitoProduto.projetoMySqlId = aplicacao.projetoMySqlId " +
-                    " where ConceitoProduto.id = " + idConceito;
-        ds.connector.query(sql,(err,result) => {
-            if (result.length!=1) {
-                callback('Retornou diferente de um' , null);
+        var sql = " select aplicacao.* from aplicacao " +
+            " inner join ConceitoProduto on ConceitoProduto.projetoMySqlId = aplicacao.projetoMySqlId " +
+            " where ConceitoProduto.id = " + idConceito;
+        ds.connector.query(sql, (err, result) => {
+            if (result.length != 1) {
+                callback('Retornou diferente de um', null);
             } else {
-                callback(null,result[0]);
+                callback(null, result[0]);
             }
         })
     };
@@ -39,12 +53,12 @@ module.exports = function (Aplicacao) {
         console.log('idAplicacao: ', idAplicacao);
 
         app.models.TipoComponenteWeb.find((err, listaComponente) => {
-            console.log('Erro1:' , err);
-            console.log('ListaComponente: ' , listaComponente.length , ' itens');
+            console.log('Erro1:', err);
+            console.log('ListaComponente: ', listaComponente.length, ' itens');
             listaComponente.map((tipoComponente) => {
                 app.models.entidade.find({ "where": { "id_aplicacao": idAplicacao } }, (err, listaEntidade) => {
-                    console.log('Erro2:' , err);
-                    console.log('ListaEntidade: ' , listaEntidade.length , ' itens');
+                    console.log('Erro2:', err);
+                    console.log('ListaEntidade: ', listaEntidade.length, ' itens');
                     listaEntidade.map((entidade) => {
                         trataItem(entidade, tipoComponente);
                     })
@@ -55,22 +69,23 @@ module.exports = function (Aplicacao) {
     }
 
     function trataItem(entidade, tipoComponente) {
-        let filtro = {"where": { "and" : [ {"entidadeId" : entidade.id } , {"tipoComponenteWebId" : tipoComponente.id} ] }};
+        let filtro = { "where": { "and": [{ "entidadeId": entidade.id }, { "tipoComponenteWebId": tipoComponente.id }] } };
         app.models.ComponenteWeb.find(filtro, (erro, resultado) => {
-            console.log('result: ' , resultado);
-            if (resultado.length==0) {
-                let nova = { 
-                    "entidadeId" : entidade.id , 
-                    "tipoComponenteWebId" : tipoComponente.id , 
-                    "nome" : entidade.nome + tipoComponente.nome ,
-                    "aplicacaoId" : entidade.id_aplicacao };
+            console.log('result: ', resultado);
+            if (resultado.length == 0) {
+                let nova = {
+                    "entidadeId": entidade.id,
+                    "tipoComponenteWebId": tipoComponente.id,
+                    "nome": entidade.nome + tipoComponente.nome,
+                    "aplicacaoId": entidade.id_aplicacao
+                };
                 app.models.ComponenteWeb.create(nova, (erro, resultado) => {
-                    console.log('Erro-insert: ' , erro);                   
+                    console.log('Erro-insert: ', erro);
                 })
             }
         });
     }
 
-   
+
 
 };
