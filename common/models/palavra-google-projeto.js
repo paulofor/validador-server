@@ -2,6 +2,20 @@
 
 module.exports = function (Palavragoogleprojeto) {
 
+    /**
+     * Obtem as palavras-chaves de projeto com ligação na campanha caso exista
+     * @param {number} idProjeto
+     * @param {number} idCampanha
+     * @param {Function(Error, array)} callback
+     */
+
+    Palavragoogleprojeto.ObtemPorProjetoCampanha = function (idProjeto, idCampanha, callback) {
+        var listaPalavra;
+        // TODO
+        callback(null, listaPalavra);
+    };
+
+
 
 
     /**
@@ -20,7 +34,7 @@ module.exports = function (Palavragoogleprojeto) {
             }
         }, (err, result) => {
             if (err) {
-                callback(err,null);
+                callback(err, null);
                 return;
             }
             if (!result) {

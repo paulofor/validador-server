@@ -118,6 +118,37 @@
           "verb": "post"
         }
       ]
+    },
+    "ObtemPorProjetoCampanha": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "idCampanha",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaPalavra",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem as palavras-chaves de projeto com ligação na campanha caso exista",
+      "http": [
+        {
+          "path": "/obtemPorProjetoCampanha",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

@@ -23,6 +23,11 @@
       "type": "hasMany",
       "model": "PalavraGoogleProjeto",
       "foreignKey": ""
+    },
+    "campanhaPalavraChaveResultados": {
+      "type": "hasMany",
+      "model": "CampanhaPalavraChaveResultado",
+      "foreignKey": ""
     }
   },
   "acls": [],

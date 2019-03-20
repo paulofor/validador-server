@@ -54,7 +54,7 @@ module.exports = function (Projetomysql) {
             " select count(*) from CampanhaAds " +
             " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
             " where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id  " +
-            " and CampanhaAds.dataFechamento is null " +
+            " and CampanhaAds.dataResultado is null " +
             " ) ";
         var ds = Projetomysql.dataSource;
 
@@ -146,7 +146,7 @@ module.exports = function (Projetomysql) {
             " select count(*) from CampanhaAds " +
             " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
             " where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id  " +
-            " and CampanhaAds.dataFechamento is null " +
+            " and CampanhaAds.dataResultado is null " +
             " ) " +
             " where id = " + idProjeto;
         
