@@ -25,5 +25,31 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {
+    "ObtemPorIdAplicacao": {
+      "accepts": [
+        {
+          "arg": "idAplicacao",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "paletaCor",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/obtemPorIdAplicacao",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }
