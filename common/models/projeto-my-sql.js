@@ -56,6 +56,11 @@ module.exports = function (Projetomysql) {
             " where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id  " +
             " and CampanhaAds.dataResultado is null " +
             " ) ";
+        var sqlTempoTotal = "update ProjetoMySql set ProjetoMySql.tempoTotal = " +
+            " ( " +
+            " select  SEC_TO_TIME( SUM( TIME_TO_SEC( tempo ) ) ) from TempoExecucao " +
+            " where projetoMySqlId = ProjetoMySql.id " +
+            " ) ";
         var ds = Projetomysql.dataSource;
 
         ds.connector.query(sqlQuantidade, (err, result) => {
@@ -87,6 +92,13 @@ module.exports = function (Projetomysql) {
             //console.log('Result2' , result);
         });
         ds.connector.query(sqlQuantidadeAberta, (err, result) => {
+            if (err) {
+                callback(err, null);
+                return;
+            };
+            //console.log('Result2' , result);
+        });
+        ds.connector.query(sqlTempoTotal, (err, result) => {
             if (err) {
                 callback(err, null);
                 return;
