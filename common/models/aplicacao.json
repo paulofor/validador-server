@@ -55,6 +55,11 @@
       "type": "hasMany",
       "model": "TelaApp",
       "foreignKey": ""
+    },
+    "paletaAplicacaos": {
+      "type": "hasMany",
+      "model": "PaletaAplicacao",
+      "foreignKey": ""
     }
   },
   "acls": [],
@@ -98,6 +103,31 @@
       "http": [
         {
           "path": "/obtemPorIdConceito",
+          "verb": "get"
+        }
+      ]
+    },
+    "ObtemComCorAtiva": {
+      "accepts": [
+        {
+          "arg": "idAplicacao",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "aplicacao",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem a aplicacao e lista de cores ativas",
+      "http": [
+        {
+          "path": "/obtemComCorAtiva",
           "verb": "get"
         }
       ]

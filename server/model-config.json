@@ -362,5 +362,9 @@
   "PaletaCor": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "PaletaAplicacao": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

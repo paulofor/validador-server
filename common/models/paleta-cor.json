@@ -23,7 +23,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "paletaAplicacaos": {
+      "type": "hasMany",
+      "model": "PaletaAplicacao",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {
     "ObtemPorIdAplicacao": {
