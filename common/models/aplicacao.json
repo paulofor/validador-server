@@ -60,6 +60,11 @@
       "type": "hasMany",
       "model": "PaletaAplicacao",
       "foreignKey": ""
+    },
+    "paletaCors": {
+      "type": "belongsTo",
+      "model": "PaletaCor",
+      "foreignKey": ""
     }
   },
   "acls": [],
