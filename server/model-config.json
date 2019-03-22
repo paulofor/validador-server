@@ -366,5 +366,9 @@
   "PaletaAplicacao": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "ComponenteApp": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
