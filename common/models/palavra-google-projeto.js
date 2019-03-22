@@ -10,9 +10,8 @@ module.exports = function (Palavragoogleprojeto) {
      */
 
     Palavragoogleprojeto.ObtemPorProjetoCampanha = function (idProjeto, idCampanha, callback) {
-        var listaPalavra;
-        // TODO
-        callback(null, listaPalavra);
+        filtro = { "where" : { "projetoMySqlId" : idProjeto } , "include" : {"relation" : "palavraChaveGoogle" , "scope" : {"include" : {"relation" : "campanhaPalavraChaveResultados" , "scope" : { "where" : {"campanhaAdsId" : idCampanha } } } } } };
+        Palavragoogleprojeto.find(filtro,callback);
     };
 
 
