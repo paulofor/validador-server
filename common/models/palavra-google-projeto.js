@@ -1,5 +1,7 @@
 'use strict';
 
+var app = require('../../server/server');
+
 module.exports = function (Palavragoogleprojeto) {
 
     /**
@@ -9,9 +11,13 @@ module.exports = function (Palavragoogleprojeto) {
      * @param {Function(Error, array)} callback
      */
 
-    Palavragoogleprojeto.ObtemPorProjetoCampanha = function (idProjeto, idCampanha, callback) {
-        var filtro = { "where" : { "projetoMySqlId" : idProjeto } , "include" : {"relation" : "palavraChaveGoogle" , "scope" : {"include" : {"relation" : "campanhaPalavraChaveResultados" , "scope" : { "where" : {"campanhaAdsId" : idCampanha } } } } } };
-        Palavragoogleprojeto.find(filtro,callback);
+    Palavragoogleprojeto.ObtemPorCampanha = function (idCampanha, callback) {
+        app.models.ProjetoMySql.ObtemPorIdCampanha(idCampanha, (err,result) => {
+            if (result) {
+                var filtro = { "where" : { "projetoMySqlId" : result.id } , "include" : {"relation" : "palavraChaveGoogle" , "scope" : {"include" : {"relation" : "campanhaPalavraChaveResultados" , "scope" : { "where" : {"campanhaAdsId" : idCampanha } } } } } };
+                Palavragoogleprojeto.find(filtro,callback);
+            }
+        })
     };
 
 
