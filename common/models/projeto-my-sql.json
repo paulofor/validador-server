@@ -646,6 +646,31 @@
           "verb": "get"
         }
       ]
+    },
+    "AlteraEtapa": {
+      "accepts": [
+        {
+          "arg": "projeto",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Alteracao da etapa",
+      "http": [
+        {
+          "path": "/alteraEtapa",
+          "verb": "post"
+        }
+      ]
     }
   }
 }

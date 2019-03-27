@@ -4,14 +4,30 @@ var app = require('../../server/server');
 
 module.exports = function (Projetomysql) {
 
+
+    /**
+     * Alteracao da etapa
+     * @param {object} projeto
+     * @param {Function(Error, object)} callback
+     */
+
+    Projetomysql.AlteraEtapa = function (projeto, callback) {
+        var sqlUpdate = "update ProjetoMySql set etapaProjetoId = " + projeto.etapaProjetoId +
+            " where id = " + projeto.id;
+        var ds = Projetomysql.dataSource;
+        ds.connector.query(sqlUpdate,callback);
+    };
+
+
+
     /**
      * Retorna todos os projetos com lista de aplicacoes ativas ( normalmente apenas uma )
      * @param {Function(Error, array)} callback
      */
 
     Projetomysql.ListaComAplicacaoAtiva = function (callback) {
-        var filtro = { "include" : "aplicacaos" };
-        Projetomysql.find(filtro,callback);
+        var filtro = { "include": "aplicacaos" };
+        Projetomysql.find(filtro, callback);
     };
 
     /**
@@ -134,7 +150,7 @@ module.exports = function (Projetomysql) {
             " and CampanhaAds.dataResultado is not null " +
             " ) " +
             " where id = " + idProjeto;
-        
+
         var sqlQuantidadeAnuncio = "update ProjetoMySql set ProjetoMySql.quantidadeAnuncio = " +
             " ( " +
             " select count(*) from AnuncioAds " +
@@ -144,7 +160,7 @@ module.exports = function (Projetomysql) {
             " and ConceitoProduto.ativo = 1 " +
             " ) " +
             " where id = " + idProjeto;
-        
+
         var sqlQuantidadePalavra = "update ProjetoMySql set ProjetoMySql.quantidadePalavraChave = " +
             " ( " +
             " select count(*) from PalavraGoogleProjeto " +
@@ -152,7 +168,7 @@ module.exports = function (Projetomysql) {
             " and PalavraGoogleProjeto.ativo = 1 " +
             " ) " +
             " where id = " + idProjeto;
-        
+
         var sqlQuantidadeAberta = "update ProjetoMySql set ProjetoMySql.quantidadeCampanhaAberta = " +
             " ( " +
             " select count(*) from CampanhaAds " +
@@ -161,7 +177,7 @@ module.exports = function (Projetomysql) {
             " and CampanhaAds.dataResultado is null " +
             " ) " +
             " where id = " + idProjeto;
-        
+
         var sqlTempo = "update ProjetoMySql set ProjetoMySql.quantidadeCampanha = " +
             " ( " +
             " select count(*) from CampanhaAds " +
@@ -170,7 +186,7 @@ module.exports = function (Projetomysql) {
             " and CampanhaAds.dataResultado is not null " +
             " ) " +
             " where id = " + idProjeto;
-        
+
 
 
         var ds = Projetomysql.dataSource;
