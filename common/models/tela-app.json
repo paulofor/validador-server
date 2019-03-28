@@ -14,6 +14,9 @@
     },
     "sobrescreveHtml": {
       "type": "number"
+    },
+    "sobrescreveTs": {
+      "type": "number"
     }
   },
   "validations": [],
