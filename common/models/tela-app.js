@@ -34,6 +34,19 @@ module.exports = function (Telaapp) {
     };
 
 
+
+    /**
+    * as telas app listadas para essa entidade
+    * @param {number} idEntidade
+    * @param {Function(Error, array)} callback
+    */
+    Telaapp.TelasAppPorIdEntidadeParaGerador = function (idEntidade, callback) {
+       var ds = Telaapp.dataSource;
+        var sql = "select TelaApp.* from TelaApp " +
+            " where entidadeId = " + idEntidade;
+        ds.connector.query(sql, callback);
+    };
+
     /**
     * Obtem todas as telas com elementos internos necessarios para o gerador de codigo
     * @param {number} idAplicacao 
@@ -41,7 +54,7 @@ module.exports = function (Telaapp) {
     */
     Telaapp.TelasAppPorIdAplicacaoParaGerador = function (idAplicacao, callback) {
         // ISSO FOI MUITO BOM ! MUDOU ESTRUTURA MUDEI AQUI E CLIENTE FICOU IGUAL (13-03-2019)
-        
+
         var ds = Telaapp.dataSource;
         //var sql = "select TelaApp.* from TelaApp " +
         //    " inner join ConceitoProduto on ConceitoProduto.id = TelaApp.conceitoProdutoId " +
@@ -50,13 +63,13 @@ module.exports = function (Telaapp) {
         //    " and aplicacao.id_aplicacao = " + idAplicacao;
         var sql = "select TelaApp.* from TelaApp " +
             " where aplicacaoId = " + idAplicacao;
-        ds.connector.query(sql,callback);
-       
+        ds.connector.query(sql, callback);
+
     };
 
     function obtemEntidade(item) {
-        app.models.entidade.findById(item.entidadeId, (err,result) => {
-            console.log('Entidade:' , result);
+        app.models.entidade.findById(item.entidadeId, (err, result) => {
+            console.log('Entidade:', result);
             if (!err) {
                 return result;
             } else {

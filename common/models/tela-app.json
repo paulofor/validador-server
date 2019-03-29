@@ -104,6 +104,31 @@
           "verb": "get"
         }
       ]
+    },
+    "TelasAppPorIdEntidadeParaGerador": {
+      "accepts": [
+        {
+          "arg": "idEntidade",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaTela",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "as telas app listadas para essa entidade",
+      "http": [
+        {
+          "path": "/telasAppPorIdEntidadeParaGerador",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
