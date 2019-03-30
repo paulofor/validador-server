@@ -43,7 +43,8 @@ module.exports = function (Telaapp) {
     Telaapp.TelasAppPorIdEntidadeParaGerador = function (idEntidade, callback) {
        var ds = Telaapp.dataSource;
         var sql = "select TelaApp.* from TelaApp " +
-            " where entidadeId = " + idEntidade;
+            " where entidadeId = " + idEntidade +
+            " and aplicacaoId <> 0";
         ds.connector.query(sql, callback);
     };
 
