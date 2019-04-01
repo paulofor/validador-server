@@ -13,6 +13,7 @@ module.exports = function (Projetomysql) {
 
     Projetomysql.AlteraEtapa = function (projeto, callback) {
         var sqlUpdate = "update ProjetoMySql set etapaProjetoId = " + projeto.etapaProjetoId +
+            ", codigo = '" + projeto.codigo + "' " +
             " where id = " + projeto.id;
         var ds = Projetomysql.dataSource;
         ds.connector.query(sqlUpdate,callback);
