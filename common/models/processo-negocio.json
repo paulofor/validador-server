@@ -28,6 +28,11 @@
       "type": "hasMany",
       "model": "PlanoExecucao",
       "foreignKey": ""
+    },
+    "etapaProjetos": {
+      "type": "hasAndBelongsToMany",
+      "model": "EtapaProjeto",
+      "foreignKey": ""
     }
   },
   "acls": [],
