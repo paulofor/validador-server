@@ -15,8 +15,8 @@
     "ordenacao": {
       "type": "number"
     },
-    "ativo" : {
-      "type" : "number" 
+    "ativo": {
+      "type": "number"
     }
   },
   "validations": [],
@@ -24,6 +24,12 @@
     "projetoMySqls": {
       "type": "hasMany",
       "model": "ProjetoMySql",
+      "foreignKey": ""
+    },
+    "processoNegocios": {
+      "type": "hasAndBelongsToMany",
+      "model": "ProcessoNegocio",
+      "throughTable": "ProcessoNegocioEtapaProjeto",
       "foreignKey": ""
     }
   },
