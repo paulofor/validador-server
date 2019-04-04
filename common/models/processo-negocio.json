@@ -29,9 +29,9 @@
       "model": "PlanoExecucao",
       "foreignKey": ""
     },
-    "etapaProjetos": {
-      "type": "hasAndBelongsToMany",
-      "model": "EtapaProjeto",
+    "processoNegocioEtapaProjetos": {
+      "type": "hasOne",
+      "model": "ProcessoNegocioEtapaProjeto",
       "foreignKey": ""
     }
   },

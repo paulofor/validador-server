@@ -26,13 +26,38 @@
       "model": "ProjetoMySql",
       "foreignKey": ""
     },
-    "processoNegocios": {
-      "type": "hasAndBelongsToMany",
-      "model": "ProcessoNegocio",
-      "throughTable": "ProcessoNegocioEtapaProjeto",
+    "processoNegocioEtapaProjetos": {
+      "type": "hasOne",
+      "model": "ProcessoNegocioEtapaProjeto",
       "foreignKey": ""
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "ObtemAtivaComProcessoPorId": {
+      "accepts": [
+        {
+          "arg": "idProcessoNegocio",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaEtapa",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem as etapas ativas e com o processo de negocio quando associado",
+      "http": [
+        {
+          "path": "/obtemAtivaComProcessoPorId",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }

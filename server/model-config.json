@@ -370,5 +370,9 @@
   "ComponenteApp": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "ProcessoNegocioEtapaProjeto": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

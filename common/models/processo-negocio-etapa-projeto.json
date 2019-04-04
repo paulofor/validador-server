@@ -1,0 +1,45 @@
+{
+  "name": "ProcessoNegocioEtapaProjeto",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "AtualizaPorProcesso": {
+      "accepts": [
+        {
+          "arg": "idProcesso",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "listaEtapa",
+          "type": "array",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "atualizaPorProcesso",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}
