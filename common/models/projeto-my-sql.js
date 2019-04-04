@@ -6,6 +6,19 @@ module.exports = function (Projetomysql) {
 
 
     /**
+     *
+     * @param {number} idProcesso
+     * @param {Function(Error, array)} callback
+     */
+
+    Projetomysql.ObtemPorIdProcesso = function (idProcesso, callback) {
+        var listaProjeto;
+        // TODO
+        callback(null, listaProjeto);
+    };
+
+
+    /**
      * Alteracao da etapa
      * @param {object} projeto
      * @param {Function(Error, object)} callback
@@ -16,7 +29,7 @@ module.exports = function (Projetomysql) {
             ", codigo = '" + projeto.codigo + "' " +
             " where id = " + projeto.id;
         var ds = Projetomysql.dataSource;
-        ds.connector.query(sqlUpdate,callback);
+        ds.connector.query(sqlUpdate, callback);
     };
 
 

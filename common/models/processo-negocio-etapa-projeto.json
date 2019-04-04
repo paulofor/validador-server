@@ -36,7 +36,7 @@
       "description": "",
       "http": [
         {
-          "path": "atualizaPorProcesso",
+          "path": "/atualizaPorProcesso",
           "verb": "post"
         }
       ]

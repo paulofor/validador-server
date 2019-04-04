@@ -671,6 +671,31 @@
           "verb": "post"
         }
       ]
+    },
+    "ObtemPorIdProcesso": {
+      "accepts": [
+        {
+          "arg": "idProcesso",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaProjeto",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/obtemPorIdProcesso",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

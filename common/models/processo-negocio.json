@@ -128,6 +128,31 @@
           "verb": "get"
         }
       ]
+    },
+    "ObtemAtivoComEtapaPorId": {
+      "accepts": [
+        {
+          "arg": "idEtapa",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaProcesso",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem os processos de negocio ativos e com a etapa quando associado",
+      "http": [
+        {
+          "path": "/obtemAtivoComEtapaPorId",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

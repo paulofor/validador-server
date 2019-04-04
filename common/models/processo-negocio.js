@@ -4,7 +4,25 @@ var app = require('../../server/server');
 
 module.exports = function (Processonegocio) {
 
+    /**
+     *
+     * @param {number} idEtapa
+     * @param {Function(Error, object)} callback
+     */
 
+    Processonegocio.ObtemAtivoComEtapaPorId = function (idEtapa, callback) {
+        var filtro = {
+            "where" : { "ativo" : 1 },
+            "order" : "ordenacao ASC",
+            "include": {
+                "relation": "processoNegocioEtapaProjetos",
+                "scope": {
+                    "where": { "etapaProjetoId": idEtapa }
+                }
+            }
+        }
+        Processonegocio.find(filtro, callback);
+    };
 
     /**
     * Obtem todas as informações para o dia
@@ -14,39 +32,41 @@ module.exports = function (Processonegocio) {
         //console.log('Contexto' + idContexto);
         var listaProcesso, diaSemana, semana, listaTempoExecucao;
         var dataReferencia = new Date();
-        console.log('Data: ' , dataReferencia);
-        app.models.DiaSemana.findOne({ 'where': { 'posicaoDia': dataReferencia.getDay() - 1} }, (err, result1) => {
+        console.log('Data: ', dataReferencia);
+        app.models.DiaSemana.findOne({ 'where': { 'posicaoDia': dataReferencia.getDay() - 1 } }, (err, result1) => {
             console.log('Dia:', result1);
             diaSemana = result1;
             app.models.Semana.ObtemPorData(dataReferencia, (err, result2) => {
                 console.log('Semana', result2);
                 semana = result2;
-                var filtroPlano = { 
-                    "include" : "processoNegocio" ,
-                    "where" : 
-                    { "and" : [
-                        {"semanaId" : semana.id},
-                        {"diaSemanaId": diaSemana.id},
-                        {"tempoEstimado" : { "neq" : 0 }},
-                        {"contextoId" : idContexto }
-                    ] } 
+                var filtroPlano = {
+                    "include": "processoNegocio",
+                    "where":
+                        {
+                            "and": [
+                                { "semanaId": semana.id },
+                                { "diaSemanaId": diaSemana.id },
+                                { "tempoEstimado": { "neq": 0 } },
+                                { "contextoId": idContexto }
+                            ]
+                        }
                 }
                 //console.log('Filtro: ' , JSON.stringify(filtroPlano));
-                app.models.PlanoExecucao.find(filtroPlano, (err,result3) => {
+                app.models.PlanoExecucao.find(filtroPlano, (err, result3) => {
                     listaProcesso = result3;
                     var filtroTempo = {
-                        "include" : ["processoNegocio" , "projetoMySql"],
-                        "where" : {
-                            "and" : 
-                            [
-                            {"semanaId" : semana.id},
-                            {"diaSemanaId": diaSemana.id},
-                            {"contextoId" : idContexto }
-                            ]
+                        "include": ["processoNegocio", "projetoMySql"],
+                        "where": {
+                            "and":
+                                [
+                                    { "semanaId": semana.id },
+                                    { "diaSemanaId": diaSemana.id },
+                                    { "contextoId": idContexto }
+                                ]
                         },
-                        "order" : "horaInicio DESC"
+                        "order": "horaInicio DESC"
                     }
-                    app.models.TempoExecucao.find(filtroTempo, (err,result)=> {
+                    app.models.TempoExecucao.find(filtroTempo, (err, result) => {
                         listaTempoExecucao = result;
                         callback(null, listaProcesso, diaSemana, semana, listaTempoExecucao);
                     })
@@ -73,9 +93,9 @@ module.exports = function (Processonegocio) {
                 console.log("Resultado: ", JSON.stringify(result));
             })
             */
-            console.log('Item: ' , item);
+            console.log('Item: ', item);
             item.planoExecucaos.forEach((plano) => {
-                console.log('Plano: ', JSON.stringify(plano)); 
+                console.log('Plano: ', JSON.stringify(plano));
                 app.models.PlanoExecucao.upsert(plano, (err, result) => {
                     console.log('Erro:', err);
                     //console.log("Resultado: ", JSON.stringify(result));
