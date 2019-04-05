@@ -12,9 +12,9 @@ module.exports = function (Projetomysql) {
      */
 
     Projetomysql.ObtemPorIdProcesso = function (idProcesso, callback) {
-        var listaProjeto;
-        // TODO
-        callback(null, listaProjeto);
+        var sql = "select * from ProjetoMySql";
+        var ds = Projetomysql.dataSource;
+        ds.connector.query(sql, callback);
     };
 
 

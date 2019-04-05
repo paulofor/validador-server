@@ -40,6 +40,37 @@
           "verb": "post"
         }
       ]
+    },
+    "AtualizaPorEtapa": {
+      "accepts": [
+        {
+          "arg": "idEtapa",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "listaProcesso",
+          "type": "array",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaPorEtapa",
+          "verb": "post"
+        }
+      ]
     }
   }
 }

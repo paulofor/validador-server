@@ -13,7 +13,7 @@ module.exports = function (Processonegocio) {
     Processonegocio.ObtemAtivoComEtapaPorId = function (idEtapa, callback) {
         var filtro = {
             "where" : { "ativo" : 1 },
-            "order" : "ordenacao ASC",
+            "order" : "nome ASC",
             "include": {
                 "relation": "processoNegocioEtapaProjetos",
                 "scope": {

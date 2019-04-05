@@ -27,4 +27,31 @@ module.exports = function (Processonegocioetapaprojeto) {
 
     };
 
+
+    /**
+    *
+    * @param {number} idEtapa
+    * @param {array} listaProcesso
+    * @param {Function(Error, object)} callback
+    */
+
+    Processonegocioetapaprojeto.AtualizaPorEtapa = function (idEtapa, listaProcesso, callback) {
+        var sqlDelete = "delete from ProcessoNegocioEtapaProjeto where etapaProjetoId = " + idEtapa;
+        var ds = Processonegocioetapaprojeto.dataSource;
+        ds.connector.query(sqlDelete, (err1, result1) => {
+            //console.log('Retorno 1: ' , result , " - Erro: " , )
+            if (err1) {
+                callback(err1, null);
+                return;
+            }
+            listaProcesso.forEach((processo) => {
+                if (processo.processoNegocioEtapaProjetos != null) {
+                    Processonegocioetapaprojeto.create(processo.processoNegocioEtapaProjetos);
+                }
+            });
+            callback(null, { 'result': 'ok' });
+        });
+    };
+
+
 };

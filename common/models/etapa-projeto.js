@@ -12,7 +12,7 @@ module.exports = function (Etapaprojeto) {
     Etapaprojeto.ObtemAtivaComProcessoPorId = function (idProcessoNegocio, callback) {
         var filtro = {
             "where" : { "ativo" : 1 },
-            "order" : "nome ASC",
+            "order" : "ordenacao ASC",
             "include": {
                 "relation": "processoNegocioEtapaProjetos",
                 "scope": {
