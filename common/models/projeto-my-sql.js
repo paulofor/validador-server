@@ -575,16 +575,17 @@ module.exports = function (Projetomysql) {
 
     /**
      * Lista de projetos que atualmente estao em um tipo de etapa
-     * @param {string} codigoEtapa
+     * @param {string} codigoProcesso
      * @param {Function(Error, array)} callback
      */
 
-    Projetomysql.ListaPorCodigoEtapa = function (codigoEtapa, callback) {
+    Projetomysql.ListaPorCodigoProcesso = function (codigoProcesso, callback) {
         var ds = Projetomysql.dataSource;
-        var sql = "select ProjetoMySql.* " +
+        var sql = "select distinct ProjetoMySql.* " +
             " from ProjetoMySql " +
-            " inner join EtapaProjeto on EtapaProjeto.id = ProjetoMySql.etapaProjetoId " +
-            " where EtapaProjeto.codigo = '" + codigoEtapa + "' ";
+            " inner join ProcessoNegocioEtapaProjeto on ProcessoNegocioEtapaProjeto.etapaProjetoId = ProjetoMySql.etapaProjetoId " +
+            " inner join ProcessoNegocio on ProcessoNegocio.id = ProcessoNegocioEtapaProjeto.processoNegocioId " +
+            " where ProcessoNegocio.codigo = '" + codigoProcesso + "' ";
         ds.connector.query(sql, callback);
     };
 

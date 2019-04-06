@@ -295,10 +295,10 @@
         }
       ]
     },
-    "ListaPorCodigoEtapa": {
+    "ListaPorCodigoProcesso": {
       "accepts": [
         {
-          "arg": "codigoEtapa",
+          "arg": "codigoProcesso",
           "type": "string",
           "required": true,
           "description": ""
@@ -312,10 +312,10 @@
           "description": ""
         }
       ],
-      "description": "Lista de projetos que atualmente estao em um tipo de etapa",
+      "description": "Lista de projetos que atualmente estao em um tipo de processo",
       "http": [
         {
-          "path": "/listaPorCodigoEtapa",
+          "path": "/listaPorCodigoProcesso",
           "verb": "get"
         }
       ]

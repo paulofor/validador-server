@@ -20,6 +20,9 @@
     },
     "ativo": {
       "type": "number"
+    },
+    "codigo" : {
+      "type" : "string"
     }
   },
   "validations": [],
