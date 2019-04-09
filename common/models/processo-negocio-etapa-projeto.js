@@ -19,6 +19,7 @@ module.exports = function (Processonegocioetapaprojeto) {
             }
             listaEtapa.forEach((etapa) => {
                 if (etapa.processoNegocioEtapaProjetos != null) {
+                    delete processo.processoNegocioEtapaProjetos.id;
                     Processonegocioetapaprojeto.create(etapa.processoNegocioEtapaProjetos);
                 }
             });
@@ -36,21 +37,22 @@ module.exports = function (Processonegocioetapaprojeto) {
     */
 
     Processonegocioetapaprojeto.AtualizaPorEtapa = function (idEtapa, listaProcesso, callback) {
+        //console.log('Lista Processo: ' , JSON.stringify(listaProcesso));
         var sqlDelete = "delete from ProcessoNegocioEtapaProjeto where etapaProjetoId = " + idEtapa;
         var ds = Processonegocioetapaprojeto.dataSource;
         ds.connector.query(sqlDelete, (err1, result1) => {
-            //console.log('Retorno 1: ' , result , " - Erro: " , )
             if (err1) {
                 callback(err1, null);
                 return;
             }
             listaProcesso.forEach((processo) => {
-                console.log('Processo: ' , JSON.stringify(processo));
+                //console.log('Processo: ' , JSON.stringify(processo));
                 if (processo.processoNegocioEtapaProjetos != null) {
-                    console.log('Vai criar ' , JSON.stringify(processo.processoNegocioEtapaProjetos));
+                    delete processo.processoNegocioEtapaProjetos.id;
+                    //console.log('Vai criar ' , JSON.stringify(processo.processoNegocioEtapaProjetos));
                     Processonegocioetapaprojeto.create(processo.processoNegocioEtapaProjetos, (err,result) => {
-                        console.log('Err: ' , err);
-                        console.log('Result: ' , JSON.stringify(result));
+                        //console.log('Err: ' , err);
+                        //console.log('Result: ' , JSON.stringify(result));
                     });
                 }
             });
