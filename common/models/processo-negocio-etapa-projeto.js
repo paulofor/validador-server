@@ -45,8 +45,13 @@ module.exports = function (Processonegocioetapaprojeto) {
                 return;
             }
             listaProcesso.forEach((processo) => {
+                console.log('Processo: ' , JSON.stringify(processo));
                 if (processo.processoNegocioEtapaProjetos != null) {
-                    Processonegocioetapaprojeto.create(processo.processoNegocioEtapaProjetos);
+                    console.log('Vai criar ' , JSON.stringify(processo.processoNegocioEtapaProjetos));
+                    Processonegocioetapaprojeto.create(processo.processoNegocioEtapaProjetos, (err,result) => {
+                        console.log('Err: ' , err);
+                        console.log('Result: ' , JSON.stringify(result));
+                    });
                 }
             });
             callback(null, { 'result': 'ok' });
