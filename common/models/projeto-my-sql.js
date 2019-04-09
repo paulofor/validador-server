@@ -12,7 +12,7 @@ module.exports = function (Projetomysql) {
      */
 
     Projetomysql.ObtemPorIdProcesso = function (idProcesso, callback) {
-         var sql = "select distinct * from ProjetoMySql " +
+         var sql = "select distinct ProjetoMySql.* from ProjetoMySql " +
         " inner join ProcessoNegocioEtapaProjeto on ProcessoNegocioEtapaProjeto.etapaProjetoId = ProjetoMySql.etapaProjetoId " +
         " where ProcessoNegocioEtapaProjeto.processoNegocioId = " + idProcesso;
         var ds = Projetomysql.dataSource;
