@@ -17,6 +17,12 @@
     },
     "sobrescreveTs": {
       "type": "number"
+    },
+    "nomeMenu" : {
+      "type" : "string"
+    },
+    "posicaoMenu" : {
+      "type" : "number"
     }
   },
   "validations": [],
@@ -45,6 +51,16 @@
       "type": "hasMany",
       "model": "ComponenteApp",
       "foreignKey": ""
+    },
+    "telaEdicao": {
+      "type": "hasOne",
+      "model": "TelaApp",
+      "foreignKey": "telaAppEdicaoId"
+    },
+    "telaDisplay": {
+      "type": "hasOne",
+      "model": "TelaApp",
+      "foreignKey": "telaAppDisplayId"
     }
   },
   "acls": [],

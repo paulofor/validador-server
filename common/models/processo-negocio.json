@@ -21,8 +21,8 @@
     "ativo": {
       "type": "number"
     },
-    "codigo" : {
-      "type" : "string"
+    "codigo": {
+      "type": "string"
     }
   },
   "validations": [],
