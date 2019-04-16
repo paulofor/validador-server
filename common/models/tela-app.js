@@ -55,17 +55,16 @@ module.exports = function (Telaapp) {
     */
     Telaapp.TelasAppPorIdAplicacaoParaGerador = function (idAplicacao, callback) {
         // ISSO FOI MUITO BOM ! MUDOU ESTRUTURA MUDEI AQUI E CLIENTE FICOU IGUAL (13-03-2019)
-
-        var ds = Telaapp.dataSource;
+        //var ds = Telaapp.dataSource;
         //var sql = "select TelaApp.* from TelaApp " +
         //    " inner join ConceitoProduto on ConceitoProduto.id = TelaApp.conceitoProdutoId " +
         //    " inner join aplicacao on aplicacao.projetoMySqlId = ConceitoProduto.projetoMySqlId " +
         //    " where ConceitoProduto.ativo = 1 " +
         //    " and aplicacao.id_aplicacao = " + idAplicacao;
-        var sql = "select TelaApp.* from TelaApp " +
-            " where aplicacaoId = " + idAplicacao;
-        ds.connector.query(sql, callback);
-
+        //var sql = "select TelaApp.* from TelaApp " +
+        //    " where aplicacaoId = " + idAplicacao;
+        //ds.connector.query(sql, callback);
+        Telaapp.find({'where' : {'aplicacaoId' : idAplicacao} , 'include' : 'telaEdicao'},callback);
     };
 
     function obtemEntidade(item) {

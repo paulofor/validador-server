@@ -53,12 +53,12 @@
       "foreignKey": ""
     },
     "telaEdicao": {
-      "type": "hasOne",
+      "type": "belongsTo",
       "model": "TelaApp",
       "foreignKey": "telaAppEdicaoId"
     },
     "telaDisplay": {
-      "type": "hasOne",
+      "type": "belongsTo",
       "model": "TelaApp",
       "foreignKey": "telaAppDisplayId"
     }
