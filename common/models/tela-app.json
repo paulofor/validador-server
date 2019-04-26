@@ -37,6 +37,11 @@
       "model": "entidade",
       "foreignKey": ""
     },
+    "entidadePut": {
+      "type": "belongsTo",
+      "model": "entidade",
+      "foreignKey": ""
+    } ,
     "conceitoProduto": {
       "type": "belongsTo",
       "model": "ConceitoProduto",
