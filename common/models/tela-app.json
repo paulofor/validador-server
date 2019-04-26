@@ -150,6 +150,31 @@
           "verb": "get"
         }
       ]
+    },
+    "TelasAppPorIdEntidadePutParaGerador": {
+      "accepts": [
+        {
+          "arg": "idEntidade",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaTela",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "as telas app listadas para essa entidade como put",
+      "http": [
+        {
+          "path": "/telasAppPorIdEntidadePutParaGerador",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
