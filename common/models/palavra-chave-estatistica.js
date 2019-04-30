@@ -114,9 +114,9 @@ module.exports = function (Palavrachaveestatistica) {
      */
 
     Palavrachaveestatistica.InsereLista = function (listaResultados, callback) {
-        console.log('Recebeu lista ' , listaResultados[0].palavraChaveGoogleId);
+        //console.log('Recebeu lista ' , listaResultados[0].palavraChaveGoogleId);
         callback(null);
-        console.log('Respondeu lista ', listaResultados[0].palavraChaveGoogleId);
+        //console.log('Respondeu lista ', listaResultados[0].palavraChaveGoogleId);
         var ds = Palavrachaveestatistica.dataSource;
         listaResultados.forEach((item) => {
             trataItem(ds, item);
