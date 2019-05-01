@@ -44,7 +44,7 @@ module.exports = function (Telaapp) {
         var ds = Telaapp.dataSource;
         var sql = "select TelaApp.* from TelaApp " +
             " where entidadeId = " + idEntidade +
-            " and aplicacaoId <> 0";
+            " and aplicacaoId <> 0 and ativo = 1";
         ds.connector.query(sql, callback);
     };
 
@@ -57,7 +57,7 @@ module.exports = function (Telaapp) {
         var ds = Telaapp.dataSource;
         var sql = "select TelaApp.* from TelaApp " +
             " where entidadePutId = " + idEntidade +
-            " and aplicacaoId <> 0";
+            " and aplicacaoId <> 0 and ativo = 1";
         ds.connector.query(sql, callback);
     };
 
@@ -77,7 +77,7 @@ module.exports = function (Telaapp) {
         //var sql = "select TelaApp.* from TelaApp " +
         //    " where aplicacaoId = " + idAplicacao;
         //ds.connector.query(sql, callback);
-        Telaapp.find({ 'where': { 'aplicacaoId': idAplicacao }, 'include': 'telaEdicao' }, callback);
+        Telaapp.find({ 'where': {'and' :[{'ativo' : 1},{ 'aplicacaoId': idAplicacao }]}, 'include': 'telaEdicao' }, callback);
     };
 
     function obtemEntidade(item) {

@@ -23,6 +23,9 @@
     },
     "posicaoMenu" : {
       "type" : "number"
+    },
+    "ativo" : {
+      "type" : "number"
     }
   },
   "validations": [],
