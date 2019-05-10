@@ -590,11 +590,14 @@ module.exports = function (Projetomysql) {
     };
 
 
+
+
+    // Nao usar mais (10/05/2019)
+
     /**
      * Retorna todos os projetos que ainda estão na fase de serem associados com palavras chaves ainda em momento inicial usando codigo de etapa = IDEA
      * @param {Function(Error, array)} callback
      */
-
     Projetomysql.ListaIdeiaBaseComPalavras = function (callback) {
         //let filtro = { "include" : {"relation" : "etapaProjeto" , 
         //                        "scope" : { "where" : { "codigo" : "IDEA" }}}};
