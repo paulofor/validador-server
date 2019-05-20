@@ -4,6 +4,25 @@ var app = require('../../server/server');
 
 module.exports = function (Palavragoogleprojeto) {
 
+
+
+    /**
+     * Cria uma palavra-chave para um projeto que ainda não existe
+     * @param {object} palavraProjeto
+     * @param {Function(Error, object)} callback
+     */
+
+    Palavragoogleprojeto.CriaPalavra = function (palavraProjeto, callback) {
+        app.models.PalavraChaveGoogle.findById(palavraProjeto.palavraChaveGoogleId, (err,result) => {
+            if (err) {
+                app.models.PalavraChaveGoogle.create(palavraProjeto.palavraChaveGoogleId, (err,result) => {
+                    Palavragoogleprojeto.create(palavraProjeto, callback);
+                })
+            }
+        })
+    };
+
+
     /**
      * Obtem as palavras-chaves de projeto com ligação na campanha caso exista
      * @param {number} idProjeto
@@ -12,10 +31,10 @@ module.exports = function (Palavragoogleprojeto) {
      */
 
     Palavragoogleprojeto.ObtemPorCampanha = function (idCampanha, callback) {
-        app.models.ProjetoMySql.ObtemPorIdCampanha(idCampanha, (err,result) => {
+        app.models.ProjetoMySql.ObtemPorIdCampanha(idCampanha, (err, result) => {
             if (result) {
-                var filtro = { "where" : { "projetoMySqlId" : result.id } , "include" : {"relation" : "palavraChaveGoogle" , "scope" : {"include" : {"relation" : "campanhaPalavraChaveResultados" , "scope" : { "where" : {"campanhaAdsId" : idCampanha } } } } } };
-                Palavragoogleprojeto.find(filtro,callback);
+                var filtro = { "where": { "projetoMySqlId": result.id }, "include": { "relation": "palavraChaveGoogle", "scope": { "include": { "relation": "campanhaPalavraChaveResultados", "scope": { "where": { "campanhaAdsId": idCampanha } } } } } };
+                Palavragoogleprojeto.find(filtro, callback);
             }
         })
     };

@@ -18,14 +18,14 @@
     "sobrescreveTs": {
       "type": "number"
     },
-    "nomeMenu" : {
-      "type" : "string"
+    "nomeMenu": {
+      "type": "string"
     },
-    "posicaoMenu" : {
-      "type" : "number"
+    "posicaoMenu": {
+      "type": "number"
     },
-    "ativo" : {
-      "type" : "number"
+    "ativo": {
+      "type": "number"
     }
   },
   "validations": [],
@@ -44,7 +44,7 @@
       "type": "belongsTo",
       "model": "entidade",
       "foreignKey": ""
-    } ,
+    },
     "conceitoProduto": {
       "type": "belongsTo",
       "model": "ConceitoProduto",

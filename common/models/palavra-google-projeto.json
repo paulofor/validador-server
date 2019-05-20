@@ -143,6 +143,31 @@
           "verb": "get"
         }
       ]
+    },
+    "CriaPalavra": {
+      "accepts": [
+        {
+          "arg": "palavraProjeto",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Cria uma palavra-chave para um projeto que ainda não existe",
+      "http": [
+        {
+          "path": "/criaPalavra",
+          "verb": "post"
+        }
+      ]
     }
   }
 }
