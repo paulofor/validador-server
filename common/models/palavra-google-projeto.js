@@ -14,8 +14,12 @@ module.exports = function (Palavragoogleprojeto) {
 
     Palavragoogleprojeto.CriaPalavra = function (palavraProjeto, callback) {
         app.models.PalavraChaveGoogle.findById(palavraProjeto.palavraChaveGoogleId, (err,result) => {
-            if (err) {
-                app.models.PalavraChaveGoogle.create(palavraProjeto.palavraChaveGoogleId, (err,result) => {
+            //console.log('Err1' , JSON.stringify(err));
+            //console.log('Res1' , JSON.stringify(result));
+            if (!result) {
+                app.models.PalavraChaveGoogle.create({'palavra' : palavraProjeto.palavraChaveGoogleId}, (err,result) => {
+                    //console.log('Err2' , JSON.stringify(err));
+                    //console.log('Res2' , JSON.stringify(result));
                     Palavragoogleprojeto.create(palavraProjeto, callback);
                 })
             }
