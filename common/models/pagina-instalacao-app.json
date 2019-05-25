@@ -1,0 +1,66 @@
+{
+  "name": "PaginaInstalacaoApp",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "mensagemPrincipal": {
+      "type": "string"
+    },
+    "mensagemSecundaria": {
+      "type": "string"
+    },
+    "botaoAcao": {
+      "type": "string"
+    },
+    "imagemFundo": {
+      "type": "string"
+    },
+    "corBase": {
+      "type": "string"
+    },
+    "marcaLogo": {
+      "type": "string"
+    },
+    "codigoHash": {
+      "type": "string"
+    },
+    "permiteEdicao": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "itemValidacaoPaginas": {
+      "type": "hasMany",
+      "model": "ItemValidacaoPagina",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "campanhaAds": {
+      "type": "hasMany",
+      "model": "CampanhaAds",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "projeto": {
+      "type": "belongsTo",
+      "model": "ProjetoMySql",
+      "foreignKey": "projetoMySqlId",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

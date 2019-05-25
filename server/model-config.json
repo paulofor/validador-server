@@ -374,5 +374,9 @@
   "ProcessoNegocioEtapaProjeto": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "PaginaInstalacaoApp": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
