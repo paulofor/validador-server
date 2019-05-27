@@ -75,6 +75,14 @@
         "nestRemoting": true
       }
     },
+    "paginaInstalacaoApps": {
+      "type": "hasMany",
+      "model": "PaginaInstalacaoApp",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
     "etapaProjeto": {
       "type": "belongsTo",
       "model": "EtapaProjeto",
