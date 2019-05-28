@@ -32,6 +32,24 @@
     },
     "permiteEdicao": {
       "type": "number"
+    },
+    "totalVisualizacao": {
+      "type": "number"
+    },
+    "totalInteresse": {
+      "type": "number"
+    },
+    "quantidadeCampanha": {
+      "type": "number"
+    },
+    "taxaConversao": {
+      "type": "number"
+    },
+    "mediaVisualizacaoCampanha": {
+      "type": "number"
+    },
+    "mediaInteresseCampanha": {
+      "type": "number"
     }
   },
   "validations": [],
