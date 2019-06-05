@@ -39,6 +39,7 @@ module.exports = function (Itemvalidacaopagina) {
 
         var sqlNova = "SELECT ItemValidacaoPagina.* FROM ItemValidacaoPagina " +
         " where ItemValidacaoPagina.paginaValidacaoWebId is null " +
+        " and ItemValidacaoPagina.paginaInstalacaoAppId is null " +
         " and ItemValidacaoPagina.projetoMySqlId = " + idProjeto; 
         ds.connector.query(sqlNova, function (err, result) {
             //console.log(JSON.stringify(result));
