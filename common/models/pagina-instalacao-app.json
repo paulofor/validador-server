@@ -32,6 +32,9 @@
     },
     "permiteEdicao": {
       "type": "number"
+    },
+    "urlInstalacao" : {
+      "type" : "string"
     }
   },
   "validations": [],
