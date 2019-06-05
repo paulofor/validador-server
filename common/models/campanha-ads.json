@@ -120,6 +120,11 @@
       "model": "PaginaValidacaoWeb",
       "foreignKey": ""
     },
+    "paginaInstalacaoApp": {
+      "type": "belongsTo",
+      "model": "PaginaInstalacaoApp",
+      "foreignKey": ""
+    },
     "setupCampanha": {
       "type": "belongsTo",
       "model": "SetupCampanha",
