@@ -14,8 +14,8 @@ module.exports = function (Campanhaads) {
      */
 
     Campanhaads.AtualizaResultado = function (campanha, callback) {
-        Campanhaads.upsert(campanha,(err,result) => {
-            callback(err,result);
+        Campanhaads.upsert(campanha, (err, result) => {
+            callback(err, result);
         });
     };
 
@@ -85,8 +85,8 @@ module.exports = function (Campanhaads) {
      */
 
     Campanhaads.CalculaResultados = function (idCampanha, callback) {
-        Campanhaads.PermiteEditar(idCampanha,0,(err,result) => {
-            
+        Campanhaads.PermiteEditar(idCampanha, 0, (err, result) => {
+
         })
         app.models.ProjetoMySql.ObtemPorIdCampanha(idCampanha, (err, result) => {
             if (err) {
@@ -96,7 +96,7 @@ module.exports = function (Campanhaads) {
             var projeto = result;
             //console.log('Projeto: ' , projeto);
             //console.log('Id: ' , projeto.id);
-            app.models.ProjetoMySql.CalculaSomatorio(projeto.id, (err,result) => {
+            app.models.ProjetoMySql.CalculaSomatorio(projeto.id, (err, result) => {
 
             });
             app.models.CampanhaPalavraChaveResultado.find({ 'where': { 'campanhaAdsId': idCampanha } }, (err, listaPalavraCampanha) => {
@@ -312,9 +312,10 @@ module.exports = function (Campanhaads) {
             " SetupCampanha.maxCpcGrupoAnuncio as 'setupCampanhaMaxCpcGrupoAnuncio', " +
             " SetupCampanha.nome as 'setupCampanhaNome' " +
             " FROM CampanhaAds " +
-            " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            " left outer join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            " left outer join PaginaInstalacaoApp on PaginaInstalacaoApp.id = CampanhaAds.paginaInstalacaoAppId " +
             " inner join SetupCampanha on SetupCampanha.id = CampanhaAds.setupCampanhaId " +
-            " where PaginaValidacaoWeb.projetoMySqlId = " + idProjeto +
+            " where (PaginaValidacaoWeb.projetoMySqlId = " + idProjeto + " or PaginaInstalacaoApp.projetoMySqlId = " + idProjeto + " ) "
             " order by dataInicial desc ";
         var ds = Campanhaads.dataSource;
         ds.connector.query(sql, callback);
@@ -529,26 +530,47 @@ module.exports = function (Campanhaads) {
         campanha.dataCriacao = new Date();
         //console.log('campanha: ' , JSON.stringify(campanha));
         //console.log('campanha.paginaValidacaoWebId' , campanha.paginaValidacaoWebId);
-        app.models.PaginaValidacaoWeb.findById(campanha.paginaValidacaoWebId, (err, result) => {
-            if (err) {
-                callback(err, null);
-                return;
-            }
-            var paginaValidacaoWeb = result;
-            campanha.urlAlvo = 'http://validacao.kinghost.net/oferta/?id=' + paginaValidacaoWeb.codigoHash;
-            campanha.urlAlvoMobile = 'http://validacao.kinghost.net/oferta/?id=' + paginaValidacaoWeb.codigoHash;
-            campanha.permiteEdicao = 1;
-            app.models.ProjetoMySql.findById(paginaValidacaoWeb.projetoMySqlId, (err, result) => {
+        if (campanha.paginaValidacaoWebId) {
+            app.models.PaginaValidacaoWeb.findById(campanha.paginaValidacaoWebId, (err, result) => {
                 if (err) {
                     callback(err, null);
                     return;
                 }
-                var projeto = result;
-                campanha.nome = projeto.codigo + '_' + campanha.nome;
-                Campanhaads.create(campanha, callback);
+                var paginaValidacaoWeb = result;
+                campanha.urlAlvo = 'http://validacao.kinghost.net/oferta/?id=' + paginaValidacaoWeb.codigoHash;
+                campanha.urlAlvoMobile = 'http://validacao.kinghost.net/oferta/?id=' + paginaValidacaoWeb.codigoHash;
+                campanha.permiteEdicao = 1;
+                app.models.ProjetoMySql.findById(paginaValidacaoWeb.projetoMySqlId, (err, result) => {
+                    if (err) {
+                        callback(err, null);
+                        return;
+                    }
+                    var projeto = result;
+                    campanha.nome = projeto.codigo + '_' + campanha.nome;
+                    Campanhaads.create(campanha, callback);
+                })
             })
-
-        })
+        } else {
+            app.models.PaginaInstalacaoApp.findById(campanha.paginaInstalacaoAppId, (err, result) => {
+                if (err) {
+                    callback(err, null);
+                    return;
+                }
+                var paginaInstalacaoApp = result;
+                campanha.urlAlvo = 'http://validacao.kinghost.net/oferta/?inst=' + paginaInstalacaoApp.codigoHash;
+                campanha.urlAlvoMobile = 'http://validacao.kinghost.net/oferta/?inst=' + paginaInstalacaoApp.codigoHash;
+                campanha.permiteEdicao = 1;
+                app.models.ProjetoMySql.findById(paginaInstalacaoApp.projetoMySqlId, (err, result) => {
+                    if (err) {
+                        callback(err, null);
+                        return;
+                    }
+                    var projeto = result;
+                    campanha.nome = projeto.codigo + '_' + campanha.nome;
+                    Campanhaads.create(campanha, callback);
+                })
+            })
+        }
 
     };
 
