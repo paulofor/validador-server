@@ -26,12 +26,14 @@ module.exports = function (Anuncioads) {
    */
   Anuncioads.DisponiveisPorIdCampanha = function (idCampanha, callback) {
     var ds = Anuncioads.dataSource;
-    var sql = " select AnuncioAds.* from AnuncioAds " +
+    var sql = " select distinct AnuncioAds.* from AnuncioAds " +
               " inner join ValorConceito on ValorConceito.id = AnuncioAds.valorConceitoId " +
               " inner join ConceitoProduto on ConceitoProduto.id = ValorConceito.conceitoProdutoId " +
-              " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.conceitoProdutoId = ConceitoProduto.id " +
-              " inner join CampanhaAds on CampanhaAds.paginaValidacaoWebId = PaginaValidacaoWeb.id " +
-              " where CampanhaAds.id = " + idCampanha +
+              " left outer join PaginaValidacaoWeb on PaginaValidacaoWeb.conceitoProdutoId = ConceitoProduto.id " +
+              " left outer join CampanhaAds c1 on c1.paginaValidacaoWebId = PaginaValidacaoWeb.id " +
+              " left outer join PaginaInstalacaoApp on PaginaInstalacaoApp.conceitoProdutoId = ConceitoProduto.id " +
+              " left outer join CampanhaAds c2 on c2.paginaInstalacaoAppId = PaginaInstalacaoApp.id " +
+              " where (c1.id = " + idCampanha + " or c2.id = " + idCampanha + ") " +
               " and AnuncioAds.id not in " +
               " ( " +
               " select CampanhaAnuncioResultado.anuncioAdsId from CampanhaAnuncioResultado " +

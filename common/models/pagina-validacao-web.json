@@ -90,6 +90,11 @@
       "type": "belongsTo",
       "model": "ConceitoProduto",
       "foreignKey": ""
+    },
+    "visitantes": {
+      "type": "hasMany",
+      "model": "Visitante",
+      "foreignKey": ""
     }
   },
   "acls": [],

@@ -253,10 +253,12 @@ module.exports = function (Projetomysql) {
     */
 
     Projetomysql.ObtemPorIdCampanha = function (idCampanha, callback) {
-        var sql = 'select ProjetoMySql.* from ProjetoMySql ' +
-            ' inner join PaginaValidacaoWeb on PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id ' +
-            ' inner join CampanhaAds on CampanhaAds.paginaValidacaoWebId = PaginaValidacaoWeb.id ' +
-            ' where CampanhaAds.id = ' + idCampanha;
+        var sql = 'select distinct ProjetoMySql.* from ProjetoMySql ' +
+            ' left outer join PaginaValidacaoWeb on PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id ' +
+            ' left outer join PaginaInstalacaoApp on PaginaInstalacaoApp.projetoMySqlId = ProjetoMySql.id ' +
+            ' left outer join CampanhaAds c1 on c1.paginaValidacaoWebId = PaginaValidacaoWeb.id ' +
+            ' left outer join CampanhaAds c2 on c2.paginaInstalacaoAppId = PaginaInstalacaoApp.id ' +
+            ' where (c1.id = ' + idCampanha + ' or c2.id = ' + idCampanha + ' ) ';
         var ds = Projetomysql.dataSource;
 
         ds.connector.query(sql, (err, result) => {

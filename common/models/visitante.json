@@ -14,6 +14,9 @@
     },
     "id": {
       "type": "number"
+    },
+    "dispositivo": {
+      "type": "string"
     }
   },
   "validations": [],
@@ -21,10 +24,12 @@
     "paginaValidacaoWeb": {
       "type": "belongsTo",
       "model": "PaginaValidacaoWeb",
-      "foreignKey": "",
-      "options": {
-        "nestRemoting": true
-      }
+      "foreignKey": ""
+    },
+    "paginaInstalacaoApp": {
+      "type": "belongsTo",
+      "model": "PaginaInstalacaoApp",
+      "foreignKey": ""
     }
   },
   "acls": [],
