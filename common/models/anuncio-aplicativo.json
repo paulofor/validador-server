@@ -1,0 +1,35 @@
+{
+  "name": "AnuncioAplicativo",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "titulo1": {
+      "type": "string"
+    },
+    "titulo2": {
+      "type": "string"
+    },
+    "titulo3": {
+      "type": "string"
+    },
+    "titulo4": {
+      "type": "string"
+    },
+    "pacoteApp": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "campanhaAds": {
+      "type": "belongsTo",
+      "model": "CampanhaAds",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

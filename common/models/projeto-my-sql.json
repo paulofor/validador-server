@@ -102,6 +102,11 @@
       "type": "hasMany",
       "model": "aplicacao",
       "foreignKey": ""
+    },
+    "anuncioAplicativos": {
+      "type": "hasMany",
+      "model": "AnuncioAplicativo",
+      "foreignKey": ""
     }
   },
   "acls": [],

@@ -378,5 +378,9 @@
   "PaginaInstalacaoApp": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "AnuncioAplicativo": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

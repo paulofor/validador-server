@@ -129,6 +129,16 @@
       "type": "belongsTo",
       "model": "SetupCampanha",
       "foreignKey": ""
+    },
+    "anuncioAplicativos": {
+      "type": "hasOne",
+      "model": "AnuncioAplicativo",
+      "foreignKey": ""
+    },
+    "anuncioAplicativo": {
+      "type": "belongsTo",
+      "model": "AnuncioAplicativo",
+      "foreignKey": ""
     }
   },
   "acls": [],
