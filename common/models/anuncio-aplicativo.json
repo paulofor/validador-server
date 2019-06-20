@@ -24,11 +24,7 @@
   },
   "validations": [],
   "relations": {
-    "campanhaAds": {
-      "type": "belongsTo",
-      "model": "CampanhaAds",
-      "foreignKey": ""
-    }
+   
   },
   "acls": [],
   "methods": {}
