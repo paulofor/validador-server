@@ -20,6 +20,9 @@
     },
     "pacoteApp": {
       "type": "string"
+    },
+    "permiteEdicao" : {
+      "type" : "number"
     }
   },
   "validations": [],

@@ -19,7 +19,7 @@ module.exports = function (Processonegocioetapaprojeto) {
             }
             listaEtapa.forEach((etapa) => {
                 if (etapa.processoNegocioEtapaProjetos != null) {
-                    delete processo.processoNegocioEtapaProjetos.id;
+                    delete etapa.processoNegocioEtapaProjetos.id;
                     Processonegocioetapaprojeto.create(etapa.processoNegocioEtapaProjetos);
                 }
             });

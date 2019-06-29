@@ -314,8 +314,10 @@ module.exports = function (Campanhaads) {
             " FROM CampanhaAds " +
             " left outer join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
             " left outer join PaginaInstalacaoApp on PaginaInstalacaoApp.id = CampanhaAds.paginaInstalacaoAppId " +
+            " left outer join AnuncioAplicativo on AnuncioAplicativo.id = CampanhaAds.anuncioAplicativoId " +
             " inner join SetupCampanha on SetupCampanha.id = CampanhaAds.setupCampanhaId " +
-            " where (PaginaValidacaoWeb.projetoMySqlId = " + idProjeto + " or PaginaInstalacaoApp.projetoMySqlId = " + idProjeto + " ) "
+            " where (PaginaValidacaoWeb.projetoMySqlId = " + idProjeto + " or PaginaInstalacaoApp.projetoMySqlId = " + idProjeto +
+            " or AnuncioAplicativo.projetoMySqlId = " + idProjeto + " ) " +
             " order by dataInicial desc ";
         var ds = Campanhaads.dataSource;
         ds.connector.query(sql, callback);
@@ -393,7 +395,8 @@ module.exports = function (Campanhaads) {
             "include": [
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
                 { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } },
-                "setupCampanha"
+                "setupCampanha",
+                "anuncioAplicativo"
             ]
         },
             (err, result) => {
@@ -415,7 +418,8 @@ module.exports = function (Campanhaads) {
             "include": [
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
                 { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } },
-                "setupCampanha"
+                "setupCampanha",
+                "anuncioAplicativo"
             ]
         },
             (err, result) => {
@@ -551,25 +555,54 @@ module.exports = function (Campanhaads) {
                 })
             })
         } else {
-            app.models.PaginaInstalacaoApp.findById(campanha.paginaInstalacaoAppId, (err, result) => {
-                if (err) {
-                    callback(err, null);
-                    return;
-                }
-                var paginaInstalacaoApp = result;
-                campanha.urlAlvo = 'http://validacao.kinghost.net/oferta/?inst=' + paginaInstalacaoApp.codigoHash;
-                campanha.urlAlvoMobile = 'http://validacao.kinghost.net/oferta/?inst=' + paginaInstalacaoApp.codigoHash;
-                campanha.permiteEdicao = 1;
-                app.models.ProjetoMySql.findById(paginaInstalacaoApp.projetoMySqlId, (err, result) => {
+
+            if (campanha.paginaInstalacaoAppId) {
+                app.models.PaginaInstalacaoApp.findById(campanha.paginaInstalacaoAppId, (err, result) => {
                     if (err) {
+
                         callback(err, null);
                         return;
                     }
-                    var projeto = result;
-                    campanha.nome = projeto.codigo + '_' + campanha.nome;
-                    Campanhaads.create(campanha, callback);
+                    var paginaInstalacaoApp = result;
+                    campanha.urlAlvo = 'http://validacao.kinghost.net/oferta/?inst=' + paginaInstalacaoApp.codigoHash;
+                    campanha.urlAlvoMobile = 'http://validacao.kinghost.net/oferta/?inst=' + paginaInstalacaoApp.codigoHash;
+                    campanha.permiteEdicao = 1;
+                    app.models.ProjetoMySql.findById(paginaInstalacaoApp.projetoMySqlId, (err, result) => {
+                        if (err) {
+                            callback(err, null);
+                            return;
+                        }
+                        var projeto = result;
+                        campanha.nome = projeto.codigo + '_' + campanha.nome;
+                        Campanhaads.create(campanha, callback);
+                    })
                 })
-            })
+            } else {
+                // campanha App
+                //console.log('campanha' , JSON.stringify(campanha) );
+                //console.log('campanha.anuncioAplicativoId:' , campanha.anuncioAplicativoId);
+                app.models.AnuncioAplicativo.findById(campanha.anuncioAplicativoId, (err, result) => {
+                    if (err) {
+                        console.log('Erro1', err);
+                        callback(err, null);
+                        return;
+                    }
+                    var anuncioAplicativo = result;
+                    campanha.permiteEdicao = 1;
+                    //console.log('anuncioAplicativo' , JSON.stringify(anuncioAplicativo) );
+                    app.models.ProjetoMySql.findById(anuncioAplicativo.projetoMySqlId, (err, result) => {
+                        if (err) {
+                            callback(err, null);
+                            return;
+                        }
+                        var projeto = result;
+                        campanha.nome = projeto.codigo + '_APP_' + campanha.nome;
+                        Campanhaads.create(campanha, callback);
+                    })
+                })
+
+            }
+
         }
 
     };

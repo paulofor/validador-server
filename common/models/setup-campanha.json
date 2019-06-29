@@ -15,8 +15,7 @@
       "required": true
     },
     "estrategia": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "diaSemanaInicio": {
       "type": "string"
@@ -43,6 +42,15 @@
       "type": "number"
     },
     "cliqueTotal": {
+      "type": "number"
+    },
+    "tipoCampanha": {
+      "type": "string"
+    },
+    "custoInstalacao": {
+      "type": "number"
+    },
+    "totalInstalacao": {
       "type": "number"
     }
   },

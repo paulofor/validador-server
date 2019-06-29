@@ -130,7 +130,7 @@
       "model": "SetupCampanha",
       "foreignKey": ""
     },
-    "anuncioAplicativos": {
+    "anuncioAplicativo": {
       "type": "belongsTo",
       "model": "AnuncioAplicativo",
       "foreignKey": ""
