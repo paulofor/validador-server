@@ -382,5 +382,13 @@
   "AnuncioAplicativo": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "VersaoApp": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "RespostaVersao": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

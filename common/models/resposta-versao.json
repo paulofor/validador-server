@@ -1,0 +1,20 @@
+{
+  "name": "RespostaVersao",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "pergunta": {
+      "type": "string"
+    },
+    "resposta": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

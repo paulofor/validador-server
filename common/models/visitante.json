@@ -30,6 +30,11 @@
       "type": "belongsTo",
       "model": "PaginaInstalacaoApp",
       "foreignKey": ""
+    },
+    "respostaVersaos": {
+      "type": "hasMany",
+      "model": "RespostaVersao",
+      "foreignKey": ""
     }
   },
   "acls": [],

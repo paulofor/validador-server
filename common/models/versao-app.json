@@ -1,32 +1,29 @@
 {
-  "name": "AnuncioAplicativo",
+  "name": "VersaoApp",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "titulo1": {
+    "nome": {
       "type": "string"
     },
-    "titulo2": {
+    "objetivo": {
       "type": "string"
     },
-    "titulo3": {
+    "codigoVersao": {
       "type": "string"
-    },
-    "titulo4": {
-      "type": "string"
-    },
-    "pacoteApp": {
-      "type": "string"
-    },
-    "permiteEdicao": {
-      "type": "number"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "respostaVersaos": {
+      "type": "hasMany",
+      "model": "RespostaVersao",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
