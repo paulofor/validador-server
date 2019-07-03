@@ -22,6 +22,16 @@
       "type": "hasMany",
       "model": "RespostaVersao",
       "foreignKey": ""
+    },
+    "conceitoProduto": {
+      "type": "belongsTo",
+      "model": "ConceitoProduto",
+      "foreignKey": ""
+    },
+    "projetoMySql": {
+      "type": "belongsTo",
+      "model": "ProjetoMySql",
+      "foreignKey": ""
     }
   },
   "acls": [],
