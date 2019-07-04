@@ -11,6 +11,9 @@
     },
     "resposta": {
       "type": "string"
+    },
+    "dataHora" : {
+      "type" : "date"
     }
   },
   "validations": [],
