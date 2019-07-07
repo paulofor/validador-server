@@ -12,8 +12,8 @@
     "resposta": {
       "type": "string"
     },
-    "dataHora" : {
-      "type" : "date"
+    "dataHora": {
+      "type": "date"
     }
   },
   "validations": [],

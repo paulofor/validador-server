@@ -15,8 +15,11 @@
     "codigoVersao": {
       "type": "string"
     },
-    "permiteEdicao" : {
-      "type" : "number"
+    "permiteEdicao": {
+      "type": "number"
+    },
+    "pacoteApp": {
+      "type": "string"
     }
   },
   "validations": [],
@@ -34,6 +37,11 @@
     "projetoMySql": {
       "type": "belongsTo",
       "model": "ProjetoMySql",
+      "foreignKey": ""
+    },
+    "visitantes": {
+      "type": "hasMany",
+      "model": "Visitante",
       "foreignKey": ""
     }
   },

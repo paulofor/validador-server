@@ -107,6 +107,11 @@
       "type": "hasMany",
       "model": "AnuncioAplicativo",
       "foreignKey": ""
+    },
+    "versaoApps": {
+      "type": "hasMany",
+      "model": "VersaoApp",
+      "foreignKey": ""
     }
   },
   "acls": [],

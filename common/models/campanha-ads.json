@@ -134,6 +134,11 @@
       "type": "belongsTo",
       "model": "AnuncioAplicativo",
       "foreignKey": ""
+    },
+    "versaoApp": {
+      "type": "belongsTo",
+      "model": "VersaoApp",
+      "foreignKey": ""
     }
   },
   "acls": [],
