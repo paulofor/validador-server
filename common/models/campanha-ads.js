@@ -537,7 +537,7 @@ module.exports = function (Campanhaads) {
         if (campanha.paginaValidacaoWebId) {
             app.models.PaginaValidacaoWeb.findById(campanha.paginaValidacaoWebId, (err, result) => {
                 if (err) {
-                    callback(err, null);
+                    callback("Faltando IdPaginaValidacaoWeb", null);
                     return;
                 }
                 var paginaValidacaoWeb = result;
@@ -546,7 +546,7 @@ module.exports = function (Campanhaads) {
                 campanha.permiteEdicao = 1;
                 app.models.ProjetoMySql.findById(paginaValidacaoWeb.projetoMySqlId, (err, result) => {
                     if (err) {
-                        callback(err, null);
+                        callback("Projeto nao encontrado", null);
                         return;
                     }
                     var projeto = result;
@@ -560,7 +560,7 @@ module.exports = function (Campanhaads) {
                 app.models.PaginaInstalacaoApp.findById(campanha.paginaInstalacaoAppId, (err, result) => {
                     if (err) {
 
-                        callback(err, null);
+                        callback("Faltando IdPaginaInstalacaoApp", null);
                         return;
                     }
                     var paginaInstalacaoApp = result;
@@ -584,7 +584,7 @@ module.exports = function (Campanhaads) {
                 app.models.AnuncioAplicativo.findById(campanha.anuncioAplicativoId, (err, result) => {
                     if (err) {
                         console.log('Erro1', err);
-                        callback(err, null);
+                        callback("Faltando IdAnuncioAplicativo", null);
                         return;
                     }
                     var anuncioAplicativo = result;
@@ -592,7 +592,7 @@ module.exports = function (Campanhaads) {
                     //console.log('anuncioAplicativo' , JSON.stringify(anuncioAplicativo) );
                     app.models.ProjetoMySql.findById(anuncioAplicativo.projetoMySqlId, (err, result) => {
                         if (err) {
-                            callback(err, null);
+                            callback("Projeto nao encontrado", null);
                             return;
                         }
                         var projeto = result;
