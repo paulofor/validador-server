@@ -17,6 +17,12 @@
     },
     "dispositivo": {
       "type": "string"
+    },
+    "fcmToken": {
+      "type": "string"
+    },
+    "dataHoraNotificacao": {
+      "type": "date"
     }
   },
   "validations": [],
