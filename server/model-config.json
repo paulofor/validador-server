@@ -390,5 +390,9 @@
   "RespostaVersao": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "PresencaLoja": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

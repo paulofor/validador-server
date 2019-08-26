@@ -1,0 +1,65 @@
+{
+  "name": "PresencaLoja",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "descricaoBreve": {
+      "type": "string"
+    },
+    "descricaoCompleta": {
+      "type": "string"
+    },
+    "tela1": {
+      "type": "string"
+    },
+    "tela2": {
+      "type": "string"
+    },
+    "tela3": {
+      "type": "string"
+    },
+    "tela4": {
+      "type": "string"
+    },
+    "tela5": {
+      "type": "string"
+    },
+    "tela6": {
+      "type": "string"
+    },
+    "tela7": {
+      "type": "string"
+    },
+    "tela8": {
+      "type": "string"
+    },
+    "icone512x512": {
+      "type": "string"
+    },
+    "imagem1024x500": {
+      "type": "string"
+    },
+    "printLoja": {
+      "type": "string"
+    },
+    "comentarioPre": {
+      "type": "string"
+    },
+    "comentarioPos": {
+      "type": "string"
+    },
+    "dataPre": {
+      "type": "date"
+    },
+    "dataPos": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
