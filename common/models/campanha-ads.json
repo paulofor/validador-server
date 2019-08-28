@@ -139,6 +139,11 @@
       "type": "belongsTo",
       "model": "VersaoApp",
       "foreignKey": ""
+    },
+    "presencaLoja": {
+      "type": "belongsTo",
+      "model": "PresencaLoja",
+      "foreignKey": ""
     }
   },
   "acls": [],
