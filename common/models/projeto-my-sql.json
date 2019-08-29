@@ -112,6 +112,11 @@
       "type": "hasMany",
       "model": "VersaoApp",
       "foreignKey": ""
+    },
+    "presencaLojas": {
+      "type": "hasMany",
+      "model": "PresencaLoja",
+      "foreignKey": ""
     }
   },
   "acls": [],
