@@ -394,5 +394,13 @@
   "PresencaLoja": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "IdeiaMelhoria": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "Recurso": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

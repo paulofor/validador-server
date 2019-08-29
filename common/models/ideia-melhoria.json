@@ -1,0 +1,53 @@
+{
+  "name": "IdeiaMelhoria",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "descricaoBreve": {
+      "type": "string"
+    },
+    "descricaoCompleta": {
+      "type": "string"
+    },
+    "dataCriacao": {
+      "type": "date"
+    },
+    "dataPlanejadaImplementacao": {
+      "type": "date"
+    },
+    "dataImplementacao": {
+      "type": "date"
+    },
+    "tempoConsumido": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "projetoMySql": {
+      "type": "belongsTo",
+      "model": "ProjetoMySql",
+      "foreignKey": ""
+    },
+    "conceitoProduto": {
+      "type": "belongsTo",
+      "model": "ConceitoProduto",
+      "foreignKey": ""
+    },
+    "campanhaAdsOrigem": {
+      "type": "belongsTo",
+      "model": "CampanhaAds",
+      "foreignKey": ""
+    },
+    "campanhaAdsAplicacao": {
+      "type": "belongsTo",
+      "model": "CampanhaAds",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
