@@ -144,6 +144,11 @@
       "type": "belongsTo",
       "model": "PresencaLoja",
       "foreignKey": ""
+    },
+    "ideiaMelhoria": {
+      "type": "belongsTo",
+      "model": "IdeiaMelhoria",
+      "foreignKey": ""
     }
   },
   "acls": [],

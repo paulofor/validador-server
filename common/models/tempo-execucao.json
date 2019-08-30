@@ -52,6 +52,11 @@
       "type": "belongsTo",
       "model": "ProcessoNegocio",
       "foreignKey": ""
+    },
+    "ideiaMelhoria": {
+      "type": "belongsTo",
+      "model": "IdeiaMelhoria",
+      "foreignKey": ""
     }
   },
   "acls": [],

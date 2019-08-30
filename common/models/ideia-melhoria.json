@@ -23,6 +23,9 @@
     },
     "tempoConsumido": {
       "type": "date"
+    },
+    "ativa": {
+      "type": "number"
     }
   },
   "validations": [],
@@ -38,11 +41,6 @@
       "foreignKey": ""
     },
     "campanhaAdsOrigem": {
-      "type": "belongsTo",
-      "model": "CampanhaAds",
-      "foreignKey": ""
-    },
-    "campanhaAdsAplicacao": {
       "type": "belongsTo",
       "model": "CampanhaAds",
       "foreignKey": ""
