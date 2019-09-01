@@ -56,6 +56,18 @@
     },
     "dataPos": {
       "type": "date"
+    },
+    "quantidadeCampanha" : {
+      "type" : "number"
+    },
+    "mediaConversao" : {
+      "type" : "number"
+    },
+    "mediaTaxaConversao" : {
+      "type" : "number"
+    },
+    "mediaCustoConversao" : {
+      "type" : "number"
     }
   },
   "validations": [],
