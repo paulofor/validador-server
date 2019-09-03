@@ -57,17 +57,17 @@
     "dataPos": {
       "type": "date"
     },
-    "quantidadeCampanha" : {
-      "type" : "number"
+    "quantidadeCampanha": {
+      "type": "number"
     },
-    "mediaConversao" : {
-      "type" : "number"
+    "mediaConversao": {
+      "type": "number"
     },
-    "mediaTaxaConversao" : {
-      "type" : "number"
+    "mediaTaxaConversao": {
+      "type": "number"
     },
-    "mediaCustoConversao" : {
-      "type" : "number"
+    "mediaCustoConversao": {
+      "type": "number"
     }
   },
   "validations": [],

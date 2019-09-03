@@ -26,7 +26,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "grupoAnuncioAplicativos": {
+      "type": "hasMany",
+      "model": "GrupoAnuncioAplicativo",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

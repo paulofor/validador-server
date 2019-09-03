@@ -149,6 +149,11 @@
       "type": "belongsTo",
       "model": "IdeiaMelhoria",
       "foreignKey": ""
+    },
+    "grupoAnuncioAplicativos": {
+      "type": "hasMany",
+      "model": "GrupoAnuncioAplicativo",
+      "foreignKey": ""
     }
   },
   "acls": [],

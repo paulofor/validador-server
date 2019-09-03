@@ -1,0 +1,41 @@
+{
+  "name": "GrupoAnuncioAplicativo",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "idAds": {
+      "type": "string"
+    },
+    "quantidadeImpressao": {
+      "type": "number"
+    },
+    "quantidadeClique": {
+      "type": "number"
+    },
+    "conversao": {
+      "type": "number"
+    },
+    "custoInstalacao": {
+      "type": "number"
+    },
+    "ctr": {
+      "type": "number"
+    },
+    "custoConversao": {
+      "type": "number"
+    },
+    "taxaConversao": {
+      "type": "number"
+    },
+    "cpcMedio": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

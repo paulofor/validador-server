@@ -402,5 +402,9 @@
   "Recurso": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "GrupoAnuncioAplicativo": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
