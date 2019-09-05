@@ -406,5 +406,9 @@
   "GrupoAnuncioAplicativo": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "ClienteExperimental": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

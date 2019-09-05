@@ -81,6 +81,11 @@
       "type": "belongsTo",
       "model": "ConceitoProduto",
       "foreignKey": ""
+    },
+    "clienteExperimentals": {
+      "type": "hasMany",
+      "model": "ClienteExperimental",
+      "foreignKey": ""
     }
   },
   "acls": [],

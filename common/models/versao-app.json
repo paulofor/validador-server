@@ -43,6 +43,11 @@
       "type": "hasMany",
       "model": "Visitante",
       "foreignKey": ""
+    },
+    "clienteExperimentals": {
+      "type": "hasMany",
+      "model": "ClienteExperimental",
+      "foreignKey": ""
     }
   },
   "acls": [],
