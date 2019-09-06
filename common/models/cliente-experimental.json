@@ -17,6 +17,12 @@
     },
     "whatsapp": {
       "type": "string"
+    },
+    "faixaEtaria" : {
+      "type" : "string"
+    },
+    "tempoDisponivel" : {
+      "type" : "string"
     }
   },
   "validations": [],
