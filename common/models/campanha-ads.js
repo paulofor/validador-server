@@ -340,8 +340,9 @@ module.exports = function (Campanhaads) {
         Campanhaads.find({
             "where": { and: [{ "dataFinal": { "gt": prazo } }, { "dataInicial": { "lt": new Date() } }] },
             "include": [
-                { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
-                { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
+                { "relation":"versaoApp" },
+                { "relation": "campanhaAnuncioResultados", "scope": { "include": "anuncioAds" } },
+                { "relation": "campanhaPalavraChaveResultados", "scope": { "include": "palavraChaveAds" } }
             ]
         },
             (err, result) => {
@@ -362,6 +363,7 @@ module.exports = function (Campanhaads) {
         Campanhaads.find({
             "where": { "id": idCampanha },
             "include": [
+                { "relation": "versaoApp" },
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
                 { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
             ]
