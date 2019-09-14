@@ -46,6 +46,11 @@
       "type": "hasMany",
       "model": "RespostaVersao",
       "foreignKey": ""
+    },
+    "clienteExperimental": {
+      "type": "hasOne",
+      "model": "ClienteExperimental",
+      "foreignKey": ""
     }
   },
   "acls": [],
