@@ -310,7 +310,10 @@ module.exports = function (Campanhaads) {
         */
         var sql = " SELECT CampanhaAds.* , " +
             " SetupCampanha.maxCpcGrupoAnuncio as 'setupCampanhaMaxCpcGrupoAnuncio', " +
-            " SetupCampanha.nome as 'setupCampanhaNome' " +
+            " SetupCampanha.nome as 'setupCampanhaNome', " +
+            " SetupCampanha.custoInstalacao as 'setupCustoInstalacao', " +
+            " SetupCampanha.totalInstalacao as 'setupTotalInstalacao', " +
+            " SetupCampanha.custoTotal as 'setupCustoTotal' " +
             " FROM CampanhaAds " +
             " left outer join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
             " left outer join PaginaInstalacaoApp on PaginaInstalacaoApp.id = CampanhaAds.paginaInstalacaoAppId " +
