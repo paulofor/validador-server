@@ -1,0 +1,38 @@
+{
+  "name": "DispositivoUsuario",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "tokenFcm": {
+      "type": "string"
+    },
+    "dataHoraCriacao": {
+      "type": "date"
+    },
+    "dataUltimoAcesso": {
+      "type": "date"
+    },
+    "dataChamada": {
+      "type": "date"
+    },
+    "temMudanca": {
+      "type": "number"
+    },
+    "ativo": {
+      "type": "number"
+    },
+    "codigoDispositivo": {
+      "type": "string"
+    },
+    "microSd": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

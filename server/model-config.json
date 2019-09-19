@@ -410,5 +410,9 @@
   "ClienteExperimental": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "DispositivoUsuario": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

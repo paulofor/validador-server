@@ -159,6 +159,11 @@
       "type": "hasMany",
       "model": "ClienteExperimental",
       "foreignKey": ""
+    },
+    "dispositivoUsuarios": {
+      "type": "hasMany",
+      "model": "DispositivoUsuario",
+      "foreignKey": ""
     }
   },
   "acls": [],
