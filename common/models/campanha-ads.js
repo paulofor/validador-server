@@ -313,7 +313,8 @@ module.exports = function (Campanhaads) {
             " SetupCampanha.nome as 'setupCampanhaNome', " +
             " SetupCampanha.custoInstalacao as 'setupCustoInstalacao', " +
             " SetupCampanha.totalInstalacao as 'setupTotalInstalacao', " +
-            " SetupCampanha.custoTotal as 'setupCustoTotal' " +
+            " SetupCampanha.custoTotal as 'setupCustoTotal', " +
+            " (select count(*) from DispositivoUsuario where campanhaAdsId = CampanhaAds.id) as 'qtdeInstalacao' " +
             " FROM CampanhaAds " +
             " left outer join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
             " left outer join PaginaInstalacaoApp on PaginaInstalacaoApp.id = CampanhaAds.paginaInstalacaoAppId " +
