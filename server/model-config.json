@@ -414,5 +414,13 @@
   "DispositivoUsuario": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "ItemValorApp": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "ValorVersao": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
