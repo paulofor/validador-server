@@ -122,6 +122,11 @@
       "type": "hasMany",
       "model": "ClienteExperimental",
       "foreignKey": ""
+    },
+    "itemValorApps": {
+      "type": "hasMany",
+      "model": "ItemValorApp",
+      "foreignKey": ""
     }
   },
   "acls": [],
