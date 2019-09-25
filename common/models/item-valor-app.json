@@ -11,6 +11,9 @@
     },
     "descricao": {
       "type": "string"
+    },
+    "dataCriacao": {
+      "type": "Date"
     }
   },
   "validations": [],

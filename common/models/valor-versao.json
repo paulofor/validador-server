@@ -7,7 +7,13 @@
   },
   "properties": {},
   "validations": [],
-  "relations": {},
+  "relations": {
+    "itemValorApp": {
+      "type": "belongsTo",
+      "model": "ItemValorApp",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

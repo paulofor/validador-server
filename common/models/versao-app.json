@@ -53,6 +53,11 @@
       "type": "hasMany",
       "model": "DispositivoUsuario",
       "foreignKey": ""
+    },
+    "valorVersaos": {
+      "type": "hasMany",
+      "model": "ValorVersao",
+      "foreignKey": ""
     }
   },
   "acls": [],
