@@ -14,6 +14,9 @@
     },
     "dataCriacao": {
       "type": "Date"
+    },
+    "imagem1": {
+      "type": "string"
     }
   },
   "validations": [],
