@@ -15,5 +15,37 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "AtualizaPorVersaoApp": {
+      "accepts": [
+        {
+          "arg": "idVersaoApp",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "listaRelacionamento",
+          "type": "array",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Atualizacao do relacionamento de um versao app",
+      "http": [
+        {
+          "path": "/atualizaPorVersaoApp",
+          "verb": "put"
+        }
+      ]
+    }
+  }
 }
