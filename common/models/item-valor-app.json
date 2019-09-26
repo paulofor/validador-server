@@ -20,7 +20,15 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "valorVersaos": {
+      "type": "hasMany",
+      "model": "ValorVersao",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
-  "methods": {}
+  "methods": {
+
+  }
 }

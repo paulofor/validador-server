@@ -1,0 +1,1 @@
+.\node_modules\.bin\lb-sdk server\server.js \Aplicacoes\validador\validador01\src\app\shared\sdk -d ng2web
