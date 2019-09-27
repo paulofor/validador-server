@@ -20,10 +20,12 @@ Valorversao.AtualizaPorVersaoApp = function(idVersaoApp, listaRelacionamento, ca
             return;
         }
         listaRelacionamento.forEach((itemValor) => {
-            let valorVersao = new Object();
-            valorVersao.versaoAppId = idVersaoApp;
-            valorVersao.itemValorAppId = itemValor.id;
-            Valorversao.create(valorVersao);
+            if (itemValor.valorVersaos.length>0) {
+                let valorVersao = new Object();
+                valorVersao.versaoAppId = idVersaoApp;
+                valorVersao.itemValorAppId = itemValor.id;
+                Valorversao.create(valorVersao);
+            }
         });
         callback(null, { 'result': 'ok' });
     });
