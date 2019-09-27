@@ -19,10 +19,11 @@ Valorversao.AtualizaPorVersaoApp = function(idVersaoApp, listaRelacionamento, ca
             callback(err1, null);
             return;
         }
-        listaRelacionamento.forEach((etapa) => {
-            if (etapa.processoNegocioEtapaProjetos != null) {
-                delete etapa.processoNegocioEtapaProjetos.id;
-                Processonegocioetapaprojeto.create(etapa.processoNegocioEtapaProjetos);
+        listaRelacionamento.forEach((itemValor) => {
+            if (itemValor.valorVersaos.length > 0) {
+                let rel = itemValor.valorVersaos[0];
+                //delete itemValor.processoNegocioEtapaProjetos.id;
+                Valorversao.create(rel);
             }
         });
         callback(null, { 'result': 'ok' });
