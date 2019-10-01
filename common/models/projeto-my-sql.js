@@ -5,6 +5,35 @@ var app = require('../../server/server');
 module.exports = function (Projetomysql) {
 
 
+
+
+    /**
+     * Atualiza totais por campanhas
+     * @param {Function(Error, object)} callback
+     */
+
+    Projetomysql.AtualizaTotais = function (callback) {
+        var ds = Projetomysql.dataSource;
+        var sql1 = " update CampanhaAds " +
+            " set projetoMySqlId = (select projetoMySqlId from AnuncioAplicativo where AnuncioAplicativo.id = CampanhaAds.anuncioAplicativoId) " +
+            " where projetoMySqlId is null";
+        ds.connector.query(sql1, (err, result) => {
+            if (err) {
+                callback(err, null);
+                return;
+            };
+            //console.log('Result1' , result);
+        });
+
+        var sql2 = "update ProjetoMySql set ProjetoMySql.custoCampanha = " +
+                    " ( " +
+                    " select sum(CampanhaAds.orcamentoTotalExecutado)  from CampanhaAds " + 
+                    " where CampanhaAds.projetoMySqlId = ProjetoMySql.id " +
+                    " )";
+        ds.connector.query(sql2,callback); 
+    };
+
+
     /**
      *
      * @param {number} idProcesso
@@ -12,9 +41,9 @@ module.exports = function (Projetomysql) {
      */
 
     Projetomysql.ObtemPorIdProcesso = function (idProcesso, callback) {
-         var sql = "select distinct ProjetoMySql.* from ProjetoMySql " +
-        " inner join ProcessoNegocioEtapaProjeto on ProcessoNegocioEtapaProjeto.etapaProjetoId = ProjetoMySql.etapaProjetoId " +
-        " where ProcessoNegocioEtapaProjeto.processoNegocioId = " + idProcesso;
+        var sql = "select distinct ProjetoMySql.* from ProjetoMySql " +
+            " inner join ProcessoNegocioEtapaProjeto on ProcessoNegocioEtapaProjeto.etapaProjetoId = ProjetoMySql.etapaProjetoId " +
+            " where ProcessoNegocioEtapaProjeto.processoNegocioId = " + idProcesso;
         var ds = Projetomysql.dataSource;
         ds.connector.query(sql, callback);
     };

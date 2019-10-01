@@ -127,6 +127,11 @@
       "type": "hasMany",
       "model": "ItemValorApp",
       "foreignKey": ""
+    },
+    "campanhaAds": {
+      "type": "hasMany",
+      "model": "CampanhaAds",
+      "foreignKey": ""
     }
   },
   "acls": [],
@@ -727,6 +732,24 @@
         {
           "path": "/obtemPorIdProcesso",
           "verb": "get"
+        }
+      ]
+    },
+    "AtualizaTotais": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Atualiza totais por campanhas",
+      "http": [
+        {
+          "path": "/atualizaTotais",
+          "verb": "post"
         }
       ]
     }

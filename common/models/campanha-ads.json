@@ -164,6 +164,11 @@
       "type": "hasMany",
       "model": "DispositivoUsuario",
       "foreignKey": ""
+    },
+    "projetoMySql": {
+      "type": "belongsTo",
+      "model": "ProjetoMySql",
+      "foreignKey": ""
     }
   },
   "acls": [],
