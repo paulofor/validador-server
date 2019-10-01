@@ -132,6 +132,11 @@
       "type": "hasMany",
       "model": "CampanhaAds",
       "foreignKey": ""
+    },
+    "custoMes": {
+      "type": "hasMany",
+      "model": "CustoMes",
+      "foreignKey": ""
     }
   },
   "acls": [],

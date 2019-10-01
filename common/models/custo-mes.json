@@ -1,0 +1,29 @@
+{
+  "name": "CustoMes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "ano": {
+      "type": "number"
+    },
+    "mes": {
+      "type": "number"
+    },
+    "valorCampanha": {
+      "type": "number"
+    },
+    "orcamentoCampanha": {
+      "type": "number"
+    },
+    "data": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

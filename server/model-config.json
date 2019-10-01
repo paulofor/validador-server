@@ -422,5 +422,9 @@
   "ValorVersao": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "CustoMes": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
