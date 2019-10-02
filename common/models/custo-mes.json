@@ -25,5 +25,68 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {
+    "CriaAnoProjeto": {
+      "accepts": [
+        {
+          "arg": "ano",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Cria itens para um projeto no ano 12 + 1",
+      "http": [
+        {
+          "path": "/criaAnoProjeto",
+          "verb": "post"
+        }
+      ]
+    },
+    "AtualizaCustoMes": {
+      "accepts": [
+        {
+          "arg": "mes",
+          "type": "number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "ano",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Atualiza Custo Mes",
+      "http": [
+        {
+          "path": "/atualizaCustoMes",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }
