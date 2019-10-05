@@ -426,5 +426,9 @@
   "CustoMes": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "AnuncioAplicacaoResultado": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

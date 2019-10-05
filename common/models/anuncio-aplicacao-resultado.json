@@ -1,0 +1,26 @@
+{
+  "name": "AnuncioAplicacaoResultado",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "idAds1": {
+      "type": "string"
+    },
+    "idAds2": {
+      "type": "string"
+    },
+    "conversao1": {
+      "type": "number"
+    },
+    "ctr1": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
