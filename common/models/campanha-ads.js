@@ -5,7 +5,84 @@ var stats = require("stats-lite");
 
 module.exports = function (Campanhaads) {
 
+    /**
+     * 
+     * @param {Function(Error, object)} callback
+     */
 
+    Campanhaads.AtualizaInstalacao = function (callback) {
+        var saida = { 'saida': 'ok' };
+        var sql1 = " update DispositivoUsuario " +
+            " set campanhaAdsId = ( " +
+            " select id from CampanhaAds " +
+            " where CampanhaAds.versaoAppId = DispositivoUsuario.versaoAppId " +
+            " and DispositivoUsuario.dataHoraCriacao between CampanhaAds.dataInicial and CampanhaAds.dataFinal) " +
+            " where campanhaAdsId is null ";
+        var sql2 = " update CampanhaAds " +
+            " set quantidadeInstalacaoUsuario = ( " +
+            " select count(*) from DispositivoUsuario " +
+            " where DispositivoUsuario.campanhaAdsId = CampanhaAds.id " +
+            " and DispositivoUsuario.tokenFcm is not null )";
+        var sql3 = " update CampanhaAds " +
+            " set taxaInstalacaoUsuario = (orcamentoTotalExecutado / quantidadeInstalacaoUsuario) " +
+            " where quantidadeInstalacaoUsuario is not null " +
+            " and quantidadeInstalacaoUsuario >0";
+        var ds = Campanhaads.dataSource;
+        ds.connector.query(sql1, (err1, result1) => {
+            if (err1) {
+                callback(err1, null);
+                return;
+            }
+            ds.connector.query(sql2, (err2, result2) => {
+                if (err2) {
+                    callback(err2, null);
+                    return;
+                }
+                ds.connector.query(sql3, callback);
+
+            })
+        });
+    };
+
+
+    /**
+    * 
+    * @param {Function(Error)} callback
+    */
+
+    Campanhaads.AtualizaInstalacaoUsuario = function (callback) {
+        var sql1 = " update DispositivoUsuario " +
+            " set campanhaAdsId = ( " +
+            " select id from CampanhaAds " +
+            " where CampanhaAds.versaoAppId = DispositivoUsuario.versaoAppId " +
+            " and DispositivoUsuario.dataHoraCriacao between CampanhaAds.dataInicial and CampanhaAds.dataFinal) " +
+            " where campanhaAdsId is null ";
+        var sql2 = " update CampanhaAds " +
+            " set quantidadeInstalacaoUsuario = ( " +
+            " select count(*) from DispositivoUsuario " +
+            " where DispositivoUsuario.campanhaAdsId = CampanhaAds.id " +
+            " and DispositivoUsuario.tokenFcm is not null";
+        var sql3 = " update CampanhaAds " +
+            " set taxaInstalacaoUsuario = (orcamentoTotalExecutado / quantidadeInstalacaoUsuario) " +
+            " where quantidadeInstalacaoUsuario is not null " +
+            " and quantidadeInstalacaoUsuario >0";
+        var ds = Campanhaads.dataSource;
+        ds.connector.query(sql1, (err1, result1) => {
+            if (err1) {
+                callback(err1);
+                return;
+            }
+            ds.connector.query(sql2, (err2, result2) => {
+                if (err2) {
+                    callback(err2);
+                    return;
+                }
+                ds.connector.query(sql3, (err3, result3) => {
+                    callback(err3);
+                })
+            })
+        });
+    };
 
     /**
      * 
@@ -367,7 +444,7 @@ module.exports = function (Campanhaads) {
         Campanhaads.find({
             "where": { "id": idCampanha },
             "include": [
-                { "relation": "versaoApp" },              
+                { "relation": "versaoApp" },
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
                 { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
             ]
@@ -439,10 +516,10 @@ module.exports = function (Campanhaads) {
 
     /*
     assembly.parts.add(partId,
-  function(err) {
-  ...
-});
-*/
+    function(err) {
+    ...
+    });
+    */
 
 
     /**
@@ -504,7 +581,7 @@ module.exports = function (Campanhaads) {
     }
 
     /*
-   Campanhaads.CriaNovaPorPagina = function (idPagina, callback) {
+    Campanhaads.CriaNovaPorPagina = function (idPagina, callback) {
        //var teste = new AnuncioAds(null,null);
        console.log('Campanha: ' , JSON.stringify(Campanhaads));
        var campanha = { 'nome' : 'teste01' , 'finalizadaProducao' : true};
@@ -530,8 +607,8 @@ module.exports = function (Campanhaads) {
                
            })
        })
-   };
-   */
+    };
+    */
     /**
      * Cria uma nova campanha inicializando campos
      * @param {object} campanha 

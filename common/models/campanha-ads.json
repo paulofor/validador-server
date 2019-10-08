@@ -493,6 +493,35 @@
           "verb": "post"
         }
       ]
+    },
+    "AtualizaInstalacaoUsuario": {
+      "accepts": [],
+      "returns": [],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaInstalacaoUsuario",
+          "verb": "post"
+        }
+      ]
+    },
+    "AtualizaInstalacao": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaInstalacao",
+          "verb": "post"
+        }
+      ]
     }
   }
 }
