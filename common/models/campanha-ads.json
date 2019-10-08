@@ -83,6 +83,12 @@
     },
     "objetivo": {
       "type": "string"
+    },
+    "quantidadeInstalacaoUsuario" : {
+      "type" : "number"
+    },
+    "taxaInstalacaoUsuario" : {
+      "type" : "number"
     }
   },
   "validations": [],
