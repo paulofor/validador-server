@@ -5,7 +5,7 @@ var stats = require("stats-lite");
 
 module.exports = function (Campanhaads) {
 
-    /**
+    /**America/Sao_Paulo
      * 
      * @param {Function(Error, object)} callback
      */
@@ -16,7 +16,7 @@ module.exports = function (Campanhaads) {
             " set campanhaAdsId = ( " +
             " select id from CampanhaAds " +
             " where CampanhaAds.versaoAppId = DispositivoUsuario.versaoAppId " +
-            " and DispositivoUsuario.dataHoraCriacao between CampanhaAds.dataInicial and CampanhaAds.dataFinal) " +
+            " and CONVERT_TZ(DispositivoUsuario.dataHoraCriacao,'GMT','America/Sao_Paulo') between CampanhaAds.dataInicial and CampanhaAds.dataFinal) " +
             " where campanhaAdsId is null ";
         var sql2 = " update CampanhaAds " +
             " set quantidadeInstalacaoUsuario = ( " +
