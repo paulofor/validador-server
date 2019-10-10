@@ -265,7 +265,22 @@ module.exports = function (Campanhaads) {
                 callback(err1, null);
                 return;
             }
-            Campanhaads.PermiteEditar(idCampanha, 0, callback);
+            Campanhaads.findById(idCampanha, (err2,campanha) => {
+                if (err2) {
+                    callback(err2,null);
+                    return;
+                }
+                if (campanha.anuncioAplicativoId && campanha.anuncioAplicativoId != 0) {
+                    let resultado = {'campanhaAdsId' : campanha.id , 'anuncioAplicativoId' : campanha.anuncioAplicativoId };
+                    app.models.AnuncioAplicacaoResultado.create(resultado, (err3,result) => {
+                        if (err3) {
+                            callback(err3,null);
+                            return;
+                        }
+                        Campanhaads.PermiteEditar(idCampanha, 0, callback);
+                    })
+                }
+            })
         });
     };
 
