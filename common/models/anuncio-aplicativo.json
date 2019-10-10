@@ -36,6 +36,11 @@
       "type": "hasMany",
       "model": "ClienteExperimental",
       "foreignKey": ""
+    },
+    "anuncioAplicacaoResultados": {
+      "type": "hasMany",
+      "model": "AnuncioAplicacaoResultado",
+      "foreignKey": ""
     }
   },
   "acls": [],

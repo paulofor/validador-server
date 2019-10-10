@@ -6,21 +6,51 @@
     "validateUpsert": true
   },
   "properties": {
-    "idAds1": {
+    "idAds": {
       "type": "string"
     },
-    "idAds2": {
-      "type": "string"
-    },
-    "conversao1": {
+    "quantidadeImpressao": {
       "type": "number"
     },
-    "ctr1": {
+    "quantidadeClique": {
       "type": "number"
+    },
+    "quantidadeConversao": {
+      "type": "number"
+    },
+    "orcamentoTotalExecutado": {
+      "type": "number"
+    },
+    "ctr": {
+      "type": "number"
+    },
+    "cpcMedio": {
+      "type": "number"
+    },
+    "conversao": {
+      "type": "number"
+    },
+    "custoConversao": {
+      "type": "number"
+    },
+    "taxaConversao": {
+      "type": "number"
+    },
+    "quantidadeInstalacaoUsuario" : {
+      "type" : "number"
+    },
+    "taxaInstalacaoUsuario" : {
+      "type" : "number"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "anuncioAplicativo": {
+      "type": "belongsTo",
+      "model": "AnuncioAplicativo",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
