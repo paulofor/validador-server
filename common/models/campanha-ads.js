@@ -497,7 +497,8 @@ module.exports = function (Campanhaads) {
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
                 { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } },
                 "setupCampanha",
-                "anuncioAplicativo"
+                "anuncioAplicativo",
+                { "relation": "anuncioAplicacaoResultados", scope: { "include": "anuncioAplicativo" } }
             ]
         },
             (err, result) => {
@@ -521,7 +522,8 @@ module.exports = function (Campanhaads) {
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
                 { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } },
                 "setupCampanha",
-                "anuncioAplicativo"
+                "anuncioAplicativo",
+                { "relation": "anuncioAplicacaoResultados", scope: { "include": "anuncioAplicativo" } }
             ]
         },
             (err, result) => {
