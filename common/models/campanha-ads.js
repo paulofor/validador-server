@@ -438,7 +438,8 @@ module.exports = function (Campanhaads) {
             "include": [
                 { "relation": "versaoApp" },
                 { "relation": "campanhaAnuncioResultados", "scope": { "include": "anuncioAds" } },
-                { "relation": "campanhaPalavraChaveResultados", "scope": { "include": "palavraChaveAds" } }
+                { "relation": "campanhaPalavraChaveResultados", "scope": { "include": "palavraChaveAds" } },
+                { "relation": "anuncioAplicacaoResultados", scope: { "include": "anuncioAplicativo" } }
             ]
         },
             (err, result) => {
@@ -461,7 +462,8 @@ module.exports = function (Campanhaads) {
             "include": [
                 { "relation": "versaoApp" },
                 { "relation": "campanhaAnuncioResultados", scope: { "include": "anuncioAds" } },
-                { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } }
+                { "relation": "campanhaPalavraChaveResultados", scope: { "include": "palavraChaveAds" } },
+                { "relation": "anuncioAplicacaoResultados", scope: { "include": "anuncioAplicativo" } }
             ]
         },
             (err, result) => {
