@@ -15,9 +15,6 @@
     "quantidadeClique": {
       "type": "number"
     },
-    "quantidadeConversao": {
-      "type": "number"
-    },
     "orcamentoTotalExecutado": {
       "type": "number"
     },

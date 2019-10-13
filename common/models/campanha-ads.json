@@ -39,9 +39,6 @@
     "quantidadeClique": {
       "type": "number"
     },
-    "quantidadeConversao": {
-      "type": "number"
-    },
     "orcamentoDia": {
       "type": "number"
     },
