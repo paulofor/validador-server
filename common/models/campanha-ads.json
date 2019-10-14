@@ -502,17 +502,6 @@
         }
       ]
     },
-    "AtualizaInstalacaoUsuario": {
-      "accepts": [],
-      "returns": [],
-      "description": "",
-      "http": [
-        {
-          "path": "/atualizaInstalacaoUsuario",
-          "verb": "post"
-        }
-      ]
-    },
     "AtualizaInstalacao": {
       "accepts": [],
       "returns": [

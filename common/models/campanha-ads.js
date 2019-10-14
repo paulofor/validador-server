@@ -46,45 +46,6 @@ module.exports = function (Campanhaads) {
 
 
     /**
-    * 
-    * @param {Function(Error)} callback
-    */
-
-    Campanhaads.AtualizaInstalacaoUsuario = function (callback) {
-        var sql1 = " update DispositivoUsuario " +
-            " set campanhaAdsId = ( " +
-            " select id from CampanhaAds " +
-            " where CampanhaAds.versaoAppId = DispositivoUsuario.versaoAppId " +
-            " and DispositivoUsuario.dataHoraCriacao between CampanhaAds.dataInicial and CampanhaAds.dataFinal) " +
-            " where campanhaAdsId is null ";
-        var sql2 = " update CampanhaAds " +
-            " set quantidadeInstalacaoUsuario = ( " +
-            " select count(*) from DispositivoUsuario " +
-            " where DispositivoUsuario.campanhaAdsId = CampanhaAds.id " +
-            " and DispositivoUsuario.tokenFcm is not null";
-        var sql3 = " update CampanhaAds " +
-            " set taxaInstalacaoUsuario = (orcamentoTotalExecutado / quantidadeInstalacaoUsuario) " +
-            " where quantidadeInstalacaoUsuario is not null " +
-            " and quantidadeInstalacaoUsuario >0";
-        var ds = Campanhaads.dataSource;
-        ds.connector.query(sql1, (err1, result1) => {
-            if (err1) {
-                callback(err1);
-                return;
-            }
-            ds.connector.query(sql2, (err2, result2) => {
-                if (err2) {
-                    callback(err2);
-                    return;
-                }
-                ds.connector.query(sql3, (err3, result3) => {
-                    callback(err3);
-                })
-            })
-        });
-    };
-
-    /**
      * 
      * @param {object} campanha 
      * @param {Function(Error, object)} callback
