@@ -1,0 +1,29 @@
+{
+  "name": "UsuarioProduto",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nome": {
+      "type": "string"
+    },
+    "senha": {
+      "type": "string"
+    },
+    "chave": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "dispositivoUsuarios": {
+      "type": "hasMany",
+      "model": "DispositivoUsuario",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

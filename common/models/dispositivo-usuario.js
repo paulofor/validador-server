@@ -1,12 +1,50 @@
 'use strict';
 
-module.exports = function(Dispositivousuario) {
 
-/**
- * Atualiza com o id campanha atual
- * @param {number} idDispositivoUsuario 
- * @param {Function(Error, object)} callback
- */
+var app = require('../../server/server');
+const crypto = require('crypto');
+
+module.exports = function (Dispositivousuario) {
+
+
+
+  /**
+   * Cria usuario e dispositivo
+   * @param {object} dispositivo 
+   * @param {Function(Error, string)} callback
+   */
+  Dispositivousuario.CriaComUsuario = function (dispositivo, callback) {
+    // deveria ter transacao aqui.
+    var current_date = (new Date()).valueOf().toString();
+    var random = Math.random().toString();
+    var chaveUsuario = crypto.createHash('sha1').update(current_date + random).digest('hex');
+    var usuario = { 'chave': chaveUsuario };
+    app.models.UsuarioProduto.create(usuario, (err, result) => {
+      if (err) {
+        callback(err, null);
+        return;
+      }
+      dispositivo.usuarioProdutoId = result.id;
+      dispositivo.dataHoraCriacao = new Date();
+      Dispositivousuario.create(dispositivo, (err2, result2) => {
+        if (err2) {
+          callback(err, null);
+          return;
+        } else {
+          callback(null, chaveUsuario);
+        }
+      })
+
+    })
+  };
+
+
+
+  /**
+   * Atualiza com o id campanha atual
+   * @param {number} idDispositivoUsuario 
+   * @param {Function(Error, object)} callback
+   */
 
   Dispositivousuario.AtualizaCampanha = function (idDispositivoUsuario, callback) {
     var dispositivoUsuario;

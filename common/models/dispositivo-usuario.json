@@ -35,7 +35,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "usuarioProduto": {
+      "type": "belongsTo",
+      "model": "UsuarioProduto",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {
     "AtualizaCampanha": {
@@ -60,6 +66,31 @@
         {
           "path": "/atualizaCampanha",
           "verb": "put"
+        }
+      ]
+    },
+    "CriaComUsuario": {
+      "accepts": [
+        {
+          "arg": "dispositivo",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "chaveUsuario",
+          "type": "string",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Cria usuario e dispositivo",
+      "http": [
+        {
+          "path": "/criaComUsuario",
+          "verb": "post"
         }
       ]
     }

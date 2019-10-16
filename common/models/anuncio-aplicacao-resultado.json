@@ -33,11 +33,11 @@
     "taxaConversao": {
       "type": "number"
     },
-    "quantidadeInstalacaoUsuario" : {
-      "type" : "number"
+    "quantidadeInstalacaoUsuario": {
+      "type": "number"
     },
-    "taxaInstalacaoUsuario" : {
-      "type" : "number"
+    "taxaInstalacaoUsuario": {
+      "type": "number"
     }
   },
   "validations": [],

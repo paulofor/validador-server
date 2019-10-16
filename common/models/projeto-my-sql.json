@@ -137,6 +137,11 @@
       "type": "hasMany",
       "model": "CustoMes",
       "foreignKey": ""
+    },
+    "usuarioProdutos": {
+      "type": "hasMany",
+      "model": "UsuarioProduto",
+      "foreignKey": ""
     }
   },
   "acls": [],
