@@ -29,5 +29,68 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "RegistraVisitaTelaApp": {
+      "accepts": [
+        {
+          "arg": "chaveUsuario",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "chavePagina",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/registraVisitaTelaApp",
+          "verb": "post"
+        }
+      ]
+    },
+    "RegistraVisitaVersaoApp": {
+      "accepts": [
+        {
+          "arg": "chaveUsuario",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "chaveVersaoApp",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/registraVisitaVersaoApp",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }
