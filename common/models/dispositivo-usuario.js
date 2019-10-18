@@ -18,7 +18,7 @@ module.exports = function (Dispositivousuario) {
     var current_date = (new Date()).valueOf().toString();
     var random = Math.random().toString();
     var chaveUsuario = crypto.createHash('sha1').update(current_date + random).digest('hex');
-    app.models.VersaoApp.find({ 'where': { 'id': dispositivo.versaoAppId } }, (err1, result1) => {
+    app.models.VersaoApp.findById(dispositivo.versaoAppId , (err1, result1) => {
       if (err1) {
         callback(err1, null);
         return;
@@ -29,7 +29,7 @@ module.exports = function (Dispositivousuario) {
           callback(err2, null);
           return;
         }
-        dispositivo.usuarioProdutoId = result.id;
+        dispositivo.usuarioProdutoId = result2.id;
         dispositivo.dataHoraCriacao = new Date();
         Dispositivousuario.create(dispositivo, (err3, result3) => {
           if (err3) {

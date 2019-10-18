@@ -1,0 +1,33 @@
+{
+  "name": "VisitaApp",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "dataHora": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "telaApp": {
+      "type": "belongsTo",
+      "model": "TelaApp",
+      "foreignKey": ""
+    },
+    "usuarioProduto": {
+      "type": "belongsTo",
+      "model": "UsuarioProduto",
+      "foreignKey": ""
+    },
+    "versaoApp": {
+      "type": "belongsTo",
+      "model": "VersaoApp",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

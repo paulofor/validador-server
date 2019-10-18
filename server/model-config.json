@@ -434,5 +434,9 @@
   "UsuarioProduto": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "VisitaApp": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
