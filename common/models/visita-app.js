@@ -12,13 +12,13 @@ module.exports = function (Visitaapp) {
      */
     Visitaapp.RegistraVisitaTelaApp = function (chaveUsuario, chavePagina, callback) {
         var resultado = new Object();
-        app.models.UsuarioProduto.find({'chave' : chaveUsuario} , (err1,result1) => {
+        app.models.UsuarioProduto.findOne({'where' : {'chave' : chaveUsuario}} , (err1,result1) => {
             if (err1) {
                 callback(err1,null);
                 return;
             }
             resultado.usuarioProdutoId = result1.id;
-            app.models.TelaApp.findOne({'chave' : chavePagina }, (err2,result2) => {
+            app.models.TelaApp.findOne({'where' : {'chave' : chavePagina }}, (err2,result2) => {
                 if (err2) {
                     callback(err2,null);
                     return;
@@ -40,7 +40,7 @@ module.exports = function (Visitaapp) {
    */
     Visitaapp.RegistraVisitaVersaoApp = function (chaveUsuario, chaveVersaoApp, callback) {
         var resultado = new Object();
-        app.models.UsuarioProduto.find({'chave' : chaveUsuario} , (err1,result1) => {
+        app.models.UsuarioProduto.findOne({ 'where' : {'chave' : chaveUsuario} }, (err1,result1) => {
             if (err1) {
                 callback(err1,null);
                 return;
