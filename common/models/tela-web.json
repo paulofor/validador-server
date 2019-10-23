@@ -17,6 +17,9 @@
     },
     "nomeMenu": {
       "type": "string"
+    },
+    "chave" : {
+      "type": "string"
     }
   },
   "validations": [],

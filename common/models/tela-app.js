@@ -1,9 +1,32 @@
 'use strict';
 
 var app = require('../../server/server');
+const crypto = require('crypto');
 
 module.exports = function (Telaapp) {
 
+
+
+    Telaapp.observe('before save', function atualizaChave(ctx, next) {
+        var current_date = (new Date()).valueOf().toString();
+        var random = Math.random().toString();
+        var chave = crypto.createHash('sha1').update(current_date + random).digest('hex');
+        //console.log('ctx.instance:' , JSON.stringify(ctx.instance));
+        if (ctx.instance) {
+            //console.log('ctx.instance.chave:' , JSON.stringify(ctx.instance.chave));
+            if (!ctx.instance.chave) {
+                //console.log('Entrou 1');
+                ctx.instance.chave = chave;
+            }
+        } else {
+            //console.log('ctx.data.chave:' , JSON.stringify(ctx.data.chave));
+            if (!ctx.data.chave) {
+                //console.log('Entrou 2');
+                ctx.data.chave = chave;
+            }
+        }
+        next();
+    })
 
 
     /**

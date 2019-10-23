@@ -21,6 +21,9 @@
     "nomeMenu": {
       "type": "string"
     },
+    "chave": {
+      "type": "string"
+    },
     "posicaoMenu": {
       "type": "number"
     },
