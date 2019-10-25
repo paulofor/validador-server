@@ -58,6 +58,11 @@
       "type": "hasMany",
       "model": "ValorVersao",
       "foreignKey": ""
+    },
+    "campanhaAds": {
+      "type": "hasMany",
+      "model": "CampanhaAds",
+      "foreignKey": ""
     }
   },
   "acls": [],

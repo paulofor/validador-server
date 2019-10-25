@@ -104,6 +104,11 @@
       "type": "hasMany",
       "model": "ClienteExperimental",
       "foreignKey": ""
+    },
+    "campanhaAds": {
+      "type": "hasMany",
+      "model": "CampanhaAds",
+      "foreignKey": ""
     }
   },
   "acls": [],
