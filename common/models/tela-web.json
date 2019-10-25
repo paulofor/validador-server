@@ -18,7 +18,7 @@
     "nomeMenu": {
       "type": "string"
     },
-    "chave" : {
+    "chave": {
       "type": "string"
     }
   },

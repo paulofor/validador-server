@@ -68,6 +68,24 @@
     },
     "mediaCustoConversao": {
       "type": "number"
+    },
+    "mediaCtr": {
+      "type": "number"
+    },
+    "mediaInstalacao": {
+      "type": "number"
+    },
+    "mediaCustoInstalacao": {
+      "type": "number"
+    },
+    "mediaTaxaInstalacao": {
+      "type": "number"
+    },
+    "mediaImpressao": {
+      "type": "number"
+    },
+    "mediaClique": {
+      "type": "number"
     }
   },
   "validations": [],
