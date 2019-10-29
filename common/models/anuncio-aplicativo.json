@@ -50,6 +50,9 @@
     },
     "quantidadeCampanha": {
       "type": "number"
+    },
+    "mediaCpc" : {
+      "type" : "number"
     }
   },
   "validations": [],

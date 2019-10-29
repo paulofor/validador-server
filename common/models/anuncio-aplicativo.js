@@ -8,10 +8,18 @@ module.exports = function (Anuncioaplicativo) {
      */
 
     Anuncioaplicativo.CalculaMedias = function (callback) {
-        var sql2 = " update AnuncioAplicativo " +
-            " set mediaImpressao = (select avg(quantidadeImpressao) from CampanhaAds where CampanhaAds.anuncioAplicativoId = AnuncioAplicativo.id) ";
-        var ds = Campanhaads.dataSource;
-        ds.connector.query(sql1, callback);
+        var sql = " update AnuncioAplicativo " +
+            " set " +
+            " mediaImpressao = (select avg(quantidadeImpressao) " +
+            " from AnuncioAplicacaoResultado where AnuncioAplicacaoResultado.anuncioAplicativoId = AnuncioAplicativo.id), " +
+            " mediaCtr = (select avg(ctr) " +
+            " from AnuncioAplicacaoResultado where AnuncioAplicacaoResultado.anuncioAplicativoId = AnuncioAplicativo.id), " +
+            " mediaCustoConversao = (select avg(custoConversao) " +
+            " from AnuncioAplicacaoResultado where AnuncioAplicacaoResultado.anuncioAplicativoId = AnuncioAplicativo.id), " +
+            " mediaCpc = (select avg(cpcMedio) " +
+            " from AnuncioAplicacaoResultado where AnuncioAplicacaoResultado.anuncioAplicativoId = AnuncioAplicativo.id)";
+        var ds = Anuncioaplicativo.dataSource;
+        ds.connector.query(sql, callback);
     };
 
 };
