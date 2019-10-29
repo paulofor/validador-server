@@ -90,24 +90,5 @@
     }
   },
   "acls": [],
-  "methods": {
-    "CalculaMedias": {
-      "accepts": [],
-      "returns": [
-        {
-          "arg": "resultado",
-          "type": "string",
-          "root": true,
-          "description": ""
-        }
-      ],
-      "description": "",
-      "http": [
-        {
-          "path": "/calculaMedias",
-          "verb": "post"
-        }
-      ]
-    }
-  }
+  "methods": {}
 }

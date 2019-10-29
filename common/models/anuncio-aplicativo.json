@@ -23,6 +23,33 @@
     },
     "permiteEdicao": {
       "type": "number"
+    },
+    "mediaCtr": {
+      "type": "number"
+    },
+    "mediaConversao": {
+      "type": "number"
+    },
+    "mediaCustoConversao": {
+      "type": "number"
+    },
+    "mediaInstalacao": {
+      "type": "number"
+    },
+    "mediaCustoInstalacao": {
+      "type": "number"
+    },
+    "mediaTaxaInstalacao": {
+      "type": "number"
+    },
+    "mediaImpressao": {
+      "type": "number"
+    },
+    "mediaClique": {
+      "type": "number"
+    },
+    "quantidadeCampanha": {
+      "type": "number"
     }
   },
   "validations": [],
@@ -44,5 +71,24 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "CalculaMedias": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "string",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/calculaMedias",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }
