@@ -23,7 +23,12 @@ module.exports = function (Dispositivousuario) {
         callback(err1, null);
         return;
       }
-      var usuario = { 'chave': chaveUsuario , 'projetoMySqlId' : result1.projetoMySqlId };
+      var usuario = { 
+            'chave': chaveUsuario , 
+            'projetoMySqlId' : result1.projetoMySqlId , 
+            'dataHoraCriacao' : new Date() , 
+            'dataUltimoAcesso' : new Date()
+          };
       app.models.UsuarioProduto.create(usuario, (err2, result2) => {
         if (err2) {
           callback(err2, null);
