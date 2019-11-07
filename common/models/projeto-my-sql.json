@@ -763,8 +763,5 @@
         }
       ]
     }
-  },
-  "mixins": {
-    "Counts": true
   }
 }
