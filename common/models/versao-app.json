@@ -20,6 +20,9 @@
     },
     "pacoteApp": {
       "type": "string"
+    },
+    "analise": {
+      "type": "string"
     }
   },
   "validations": [],
@@ -62,6 +65,11 @@
     "campanhaAds": {
       "type": "hasMany",
       "model": "CampanhaAds",
+      "foreignKey": ""
+    },
+    "telaAppInicial": {
+      "type": "belongsTo",
+      "model": "TelaApp",
       "foreignKey": ""
     }
   },
