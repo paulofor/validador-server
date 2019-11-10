@@ -105,7 +105,7 @@ module.exports = function (Telaapp) {
 
     function obtemEntidade(item) {
         app.models.entidade.findById(item.entidadeId, (err, result) => {
-            console.log('Entidade:', result);
+            //console.log('Entidade:', result);
             if (!err) {
                 return result;
             } else {

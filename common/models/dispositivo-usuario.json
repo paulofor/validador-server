@@ -32,6 +32,9 @@
     },
     "microSd": {
       "type": "number"
+    },
+    "versaoSo" : {
+      "type" : "string"
     }
   },
   "validations": [],
@@ -90,6 +93,37 @@
       "http": [
         {
           "path": "/criaComUsuario",
+          "verb": "post"
+        }
+      ]
+    },
+    "AtualizaToken": {
+      "accepts": [
+        {
+          "arg": "chaveUsuario",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "token",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaToken",
           "verb": "post"
         }
       ]

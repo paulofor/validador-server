@@ -17,6 +17,10 @@ module.exports = function (Visitaapp) {
                 callback(err1, null);
                 return;
             }
+            if (!result1) {
+                callback('usuario não encontrado - chave: ' + chaveUsuario, null);
+                return;
+            }
             resultado.usuarioProdutoId = result1.id;
             result1.dataUltimoAcesso = new Date();
             //console.log('Objeto: ' , JSON.stringify(result1));
@@ -46,6 +50,10 @@ module.exports = function (Visitaapp) {
         app.models.UsuarioProduto.findOne({ 'where': { 'chave': chaveUsuario } }, (err1, result1) => {
             if (err1) {
                 callback(err1, null);
+                return;
+            }
+            if (!result1) {
+                callback('usuario não encontrado - chave: ' + chaveUsuario, null);
                 return;
             }
             result1.dataUltimoAcesso = new Date();

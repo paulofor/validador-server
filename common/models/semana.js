@@ -22,7 +22,7 @@ module.exports = function (Semana) {
                 ]
             }
         };
-        console.log('Filtro: ' , filtro);
+        //console.log('Filtro: ' , filtro);
         Semana.findOne(filtro, callback);
     };
 
@@ -48,18 +48,18 @@ module.exports = function (Semana) {
     Semana.CriaParaAno = function (ano, callback) {
         var data = new Date(ano, 0, 1, 3, 0, 0, 0);
         var ind = 0;
-        console.log('anos: ', ano, " - ", data);
+        //console.log('anos: ', ano, " - ", data);
         while (data.getUTCFullYear() == ano) {
             while (data.getUTCDay() != 1) {
                 data.setDate(data.getDate() + 1);
             }
             if (data.getUTCFullYear() == ano) {
                 ind++;
-                console.log("Segunda:" + data);
+                //console.log("Segunda:" + data);
                 var data2 = new Date(data);
                 data2.setDate(data.getDate() + 6);
                 var semana = new Semana({ "seqAno": ind, "primeiroDia": data, "ultimoDia": data2, "ano": data.getUTCFullYear(), "mes": data.getUTCMonth() + 1 });
-                console.log('Semana: ', JSON.stringify(semana));
+                //console.log('Semana: ', JSON.stringify(semana));
                 Semana.create(semana);
                 data.setDate(data.getDate() + 1);
             }

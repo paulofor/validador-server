@@ -64,20 +64,20 @@ module.exports = function (Campanhaads) {
     */
     Campanhaads.TesteEstatistica = function (callback) {
         // TODO
-        console.log('Ola Mundo');
+        //console.log('Ola Mundo');
         var rolls = [];
 
         var listaObj = [{ 'valor': 1 }, { 'valor': 2 }, { 'valor': 3 }];
         listaObj.forEach(obj => {
             rolls.push(obj.valor);
         })
-        console.log("soma: %s", stats.stdev(rolls))
-        console.log("desvio: %s", stats.mean(rolls));
+        //console.log("soma: %s", stats.stdev(rolls))
+        //console.log("desvio: %s", stats.mean(rolls));
         var result = { 'media': 0, 'soma': 0 };
-        console.log('Antes:' + JSON.stringify(result));
+        //console.log('Antes:' + JSON.stringify(result));
         result.media = stats.mean(rolls);
         result.soma = stats.sum(rolls);
-        console.log('Depois:' + JSON.stringify(result));
+        //console.log('Depois:' + JSON.stringify(result));
 
         callback(null);
     };
@@ -103,8 +103,8 @@ module.exports = function (Campanhaads) {
 
         retorno.ocorrencias = ctrs.length;
 
-        console.log('Lista: ', JSON.stringify(lista));
-        console.log('Resultado: ', JSON.stringify(retorno));
+        //console.log('Lista: ', JSON.stringify(lista));
+        //console.log('Resultado: ', JSON.stringify(retorno));
 
         var x = Math.max(ctrs);
 
@@ -393,7 +393,7 @@ module.exports = function (Campanhaads) {
         var prazo = new Date();
         //prazo.setDate(prazo + 60); // 60 dias
         prazo.setTime(prazo.getTime() - 45 * 86400000);
-        console.log('Prazo:', prazo);
+        //console.log('Prazo:', prazo);
         Campanhaads.find({
             "where": { and: [{ "dataFinal": { "gt": prazo } }, { "dataInicial": { "lt": new Date() } }] },
             "include": [
@@ -548,7 +548,7 @@ module.exports = function (Campanhaads) {
 
                         })
                         campanhaGrava.palavraChaveAds.add(item.id, (err, result) => {
-                            console.log('Erro3:', err);
+                            //console.log('Erro3:', err);
                         })
                     }
                 })
@@ -563,25 +563,25 @@ module.exports = function (Campanhaads) {
     /*
     Campanhaads.CriaNovaPorPagina = function (idPagina, callback) {
        //var teste = new AnuncioAds(null,null);
-       console.log('Campanha: ' , JSON.stringify(Campanhaads));
+       //console.log('Campanha: ' , JSON.stringify(Campanhaads));
        var campanha = { 'nome' : 'teste01' , 'finalizadaProducao' : true};
        Campanhaads.create(campanha, (err,result) => {
            var campanhaGrava = result;
            var anuncioSrv = app.models.AnuncioAds;
-           console.log('Campanhaads.hasAndBelongsToMany=' , Campanhaads.hasAndBelongsToMany);
+           //console.log('Campanhaads.hasAndBelongsToMany=' , Campanhaads.hasAndBelongsToMany);
            for (var item in Campanhaads.hasAndBelongsToMany) {
-               console.log('Propriedade:' , item);
+               //console.log('Propriedade:' , item);
            }
            //console.log('Anuncio Srv: ', anuncioSrv);
            anuncioSrv.ListaParaTesteCampanha((err, result) => {
                for (var item of result) {
-                   console.log('Item', item);
+                   //console.log('Item', item);
                }
                campanhaGrava.nome = "Campanha-" + campanhaGrava.id;
                campanhaGrava.anuncioAds = result;
                Campanhaads.update(campanhaGrava, (err, result) => {
-                   console.log('Erro:' , err);
-                   console.log("Resultado: " , JSON.stringify(result));
+                   //console.log('Erro:' , err);
+                   //console.log("Resultado: " , JSON.stringify(result));
                    callback(null, campanhaGrava);
                })
                
@@ -648,7 +648,7 @@ module.exports = function (Campanhaads) {
                 //console.log('campanha.anuncioAplicativoId:' , campanha.anuncioAplicativoId);
                 app.models.AnuncioAplicativo.findById(campanha.anuncioAplicativoId, (err, result) => {
                     if (err) {
-                        console.log('Erro1', err);
+                        //console.log('Erro1', err);
                         callback("Faltando IdAnuncioAplicativo", null);
                         return;
                     }

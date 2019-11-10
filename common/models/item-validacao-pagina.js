@@ -17,8 +17,11 @@ module.exports = function (Itemvalidacaopagina) {
         var nomeImagem = '';
         ds.connector.query(sql, function (err, result) {
             //console.log(result);
-            if (err) console.error(err);
-            else nomeImagem = 'img' + result[0].novoId + '.jpg';
+            if (err) {
+                //console.error(err);
+            } else {
+                nomeImagem = 'img' + result[0].novoId + '.jpg';
+            }
             callback(err, nomeImagem);
 
         });

@@ -10,7 +10,7 @@ module.exports = function (Campanhaanuncioresultado) {
     */
 
     Campanhaanuncioresultado.ListaComResultadoPorIdAnuncio = function (idAnuncio, callback) {
-        console.log('Campanhaanuncioresultado (idAnuncio) : ' , idAnuncio);
+        //console.log('Campanhaanuncioresultado (idAnuncio) : ' , idAnuncio);
         var sql = 'select CampanhaAnuncioResultado.* from CampanhaAnuncioResultado ' +
             ' inner join CampanhaAds on CampanhaAds.id = CampanhaAnuncioResultado.campanhaAdsId ' +
             ' where anuncioAdsId = ' + idAnuncio +

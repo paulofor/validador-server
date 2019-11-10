@@ -8,6 +8,29 @@ module.exports = function (Dispositivousuario) {
 
 
 
+
+  /**
+   * 
+   * @param {string} chaveUsuario 
+   * @param {string} token 
+   * @param {Function(Error, object)} callback
+   */
+
+  Dispositivousuario.AtualizaToken = function (chaveUsuario, token, callback) {
+    if (chaveUsuario && token) {
+      var ds = Dispositivousuario.dataSource;
+      var sql = " update DispositivoUsuario  " +
+        " set tokenFcm = '" + token + "', " +
+        " dataAlteracao = UTC_TIMESTAMP() " +
+        " where usuarioProdutoId = (select id from UsuarioProduto where chave = '" + chaveUsuario + "')";
+      ds.connector.query(sql, callback);
+    } else {
+      callback(null, 'sem valores')
+    }
+  };
+
+
+
   /**
    * Cria usuario e dispositivo
    * @param {object} dispositivo 
@@ -15,20 +38,21 @@ module.exports = function (Dispositivousuario) {
    */
   Dispositivousuario.CriaComUsuario = function (dispositivo, callback) {
     // deveria ter transacao aqui.
+    console.log('Dispositivo: ' , JSON.stringify(dispositivo));
     var current_date = (new Date()).valueOf().toString();
     var random = Math.random().toString();
     var chaveUsuario = crypto.createHash('sha1').update(current_date + random).digest('hex');
-    app.models.VersaoApp.findById(dispositivo.versaoAppId , (err1, result1) => {
+    app.models.VersaoApp.findById(dispositivo.versaoAppId, (err1, result1) => {
       if (err1) {
         callback(err1, null);
         return;
       }
-      var usuario = { 
-            'chave': chaveUsuario , 
-            'projetoMySqlId' : result1.projetoMySqlId , 
-            'dataHoraCriacao' : new Date() , 
-            'dataUltimoAcesso' : new Date()
-          };
+      var usuario = {
+        'chave': chaveUsuario,
+        'projetoMySqlId': result1.projetoMySqlId,
+        'dataHoraCriacao': new Date(),
+        'dataUltimoAcesso': new Date()
+      };
       app.models.UsuarioProduto.create(usuario, (err2, result2) => {
         if (err2) {
           callback(err2, null);

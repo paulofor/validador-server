@@ -19,7 +19,7 @@ module.exports = function (Planoexecucao) {
         var ds = Planoexecucao.dataSource;
         ds.connector.query(sql, (err, result) => {
             if (err) {
-                console.log(err);
+                //console.log(err);
                // callback(err,null);
                 return;
             }
@@ -36,7 +36,7 @@ module.exports = function (Planoexecucao) {
                             }
                  Planoexecucao.create(plano, (err,res) => {
                     if (err) {
-                        console.log(err);
+                        //console.log(err);
                         //callback(err,null);
                         return;
                     }
@@ -44,7 +44,7 @@ module.exports = function (Planoexecucao) {
                     plano.diaSemanaId = 2;
                     Planoexecucao.create(plano, (err,res) => {
                         if (err) {
-                            console.log(err);
+                            //console.log(err);
                             //callback(err,null);
                             return;
                         }
@@ -52,28 +52,28 @@ module.exports = function (Planoexecucao) {
                         plano.diaSemanaId = 3;
                         Planoexecucao.create(plano, (err,res) => { 
                             if (err) {
-                                console.log(err);
+                                //console.log(err);
                                 //callback(err,null);
                                 return;
                             }
                             plano.diaSemanaId = 4;
                             Planoexecucao.create(plano, (err,res) => { 
                                 if (err) {
-                                    console.log(err);
+                                    //console.log(err);
                                     //callback(err,null);
                                     return;
                                 }
                                 plano.diaSemanaId = 5;
                                 Planoexecucao.create(plano, (err,res) => {
                                     if (err) {
-                                        console.log(err);
+                                        //console.log(err);
                                         //callback(err,null);
                                         return;
                                     }
                                     plano.diaSemanaId = 6;
                                     Planoexecucao.create(plano, (err,res) => {
                                         if (err) {
-                                            console.log(err);
+                                            //console.log(err);
                                             //callback(err,null);
                                             return;
                                         }

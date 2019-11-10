@@ -26,8 +26,8 @@ module.exports = function (Campanhapalavrachaveresultado) {
         } 
         }
         */
-        console.log('ListaComResultadoPorPalavraIdProjeto (palavra) : ' , palavra);
-        console.log('ListaComResultadoPorPalavraIdProjeto (idProjeto) : ' , idProjeto);
+        //console.log('ListaComResultadoPorPalavraIdProjeto (palavra) : ' , palavra);
+        //console.log('ListaComResultadoPorPalavraIdProjeto (idProjeto) : ' , idProjeto);
         var sql = "select CampanhaPalavraChaveResultado.* from CampanhaPalavraChaveResultado " +
             " inner join CampanhaAds on CampanhaAds.id = CampanhaPalavraChaveResultado.campanhaAdsId " +
             " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +

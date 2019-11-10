@@ -87,8 +87,8 @@ module.exports = function (Palavragoogleprojeto) {
 
         var filtro = { "where": { "palavraChaveGoogleId": "palavra" } };
 
-        console.log('Relacionamento:', relacionamentoComProjeto);
-        console.log('Projeto:', projeto);
+        //console.log('Relacionamento:', relacionamentoComProjeto);
+        //console.log('Projeto:', projeto);
 
 
         if (projeto.id == 0) {
