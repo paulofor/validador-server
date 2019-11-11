@@ -1,0 +1,35 @@
+{
+  "name": "UsuarioProdutoDesen",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nome": {
+      "type": "string"
+    },
+    "senha": {
+      "type": "string"
+    },
+    "chave": {
+      "type": "string"
+    },
+    "dataHoraCriacao": {
+      "type": "date"
+    },
+    "dataUltimoAcesso": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "dispositivoUsuarios": {
+      "type": "hasMany",
+      "model": "DispositivoUsuarioDesen",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -33,8 +33,8 @@
     "microSd": {
       "type": "number"
     },
-    "versaoSo" : {
-      "type" : "string"
+    "versaoSo": {
+      "type": "string"
     }
   },
   "validations": [],
