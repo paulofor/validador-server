@@ -438,13 +438,5 @@
   "VisitaApp": {
     "dataSource": "mysqlDS",
     "public": true
-  },
-  "DispositivoUsuarioDesen": {
-    "dataSource": "mysqlDS",
-    "public": true
-  },
-  "UsuarioProdutoDesen": {
-    "dataSource": "mysqlDS",
-    "public": true
   }
 }
