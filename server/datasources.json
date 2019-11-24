@@ -12,6 +12,15 @@
     "user": "lojadigicom30",
     "connector": "mysql"
   },
+  "coletorJavaDataBase": {
+    "host": "mysql.lojadigicom.com.br",
+    "port": 3306,
+    "database": "lojadigicom27",
+    "password": "aspnet",
+    "name": "coletorJavaDataBase",
+    "user": "lojadigicom27",
+    "connector": "mysql"
+  },
   "storage": {
     "name": "storage",
     "connector": "loopback-component-storage",

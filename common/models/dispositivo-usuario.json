@@ -35,6 +35,15 @@
     },
     "versaoSo": {
       "type": "string"
+    },
+    "serial": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "fabricante": {
+      "type": "string"
     }
   },
   "validations": [],

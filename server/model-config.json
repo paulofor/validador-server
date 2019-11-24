@@ -446,5 +446,17 @@
   "UsuarioProdutoDesen": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "Cosmetic_OportunidadeDia": {
+    "dataSource": "coletorJavaDataBase",
+    "public": true
+  },
+  "ContagemProduto": {
+    "dataSource": "coletorJavaDataBase",
+    "public": true
+  },
+  "LojaVirtual": {
+    "dataSource": "coletorJavaDataBase",
+    "public": true
   }
 }

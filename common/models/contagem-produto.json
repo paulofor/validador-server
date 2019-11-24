@@ -1,0 +1,54 @@
+{
+  "name": "ContagemProduto",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mysql": {
+    "table": "contagem_produto"
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "mysql": {
+        "columnName": "id_contagem_produto"
+      }
+    },
+    "quantidade": {
+      "type": "number"
+    },
+    "data": {
+      "type": "date"
+    },
+    "percentualDiferenca": {
+      "type": "number",
+      "mysql": {
+        "columnName": "percentual_diferenca"
+      }
+    },
+    "possibilidadeErro": {
+      "type": "number",
+      "mysql": {
+        "columnName": "possibilidade_erro"
+      }
+    },
+    "idNaturezaProduto": {
+      "type": "number",
+      "mysql": {
+        "columnName": "id_natureza_produto_ra"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "lojaVirtual": {
+      "type": "belongsTo",
+      "model": "LojaVirtual",
+      "foreignKey": "id_loja_virtual_ra"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

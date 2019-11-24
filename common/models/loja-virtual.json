@@ -1,0 +1,36 @@
+{
+  "name": "LojaVirtual",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mysql": {
+    "table": "loja_virtual"
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "mysql": {
+        "columnName": "id_loja_virtual"
+      }
+    },
+    "nomeLojaVirtual": {
+      "type": "string",
+      "mysql": {
+        "columnName": "nome_loja_virtual"
+      }
+    },
+    "urlInicial": {
+      "type": "string",
+      "mysql": {
+        "columnName": "url_inicial_brinquedo"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
