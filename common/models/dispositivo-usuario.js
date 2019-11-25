@@ -13,8 +13,12 @@ module.exports = function (Dispositivousuario) {
  * @param {Function(Error, array)} callback
  */
   Dispositivousuario.CosmeticCenterNotificacao = function (callback) {
-    var lista;
-    callback(null, lista);
+    var ds = Dispositivousuario.dataSource;
+    var sql=  " select distinct DispositivoUsuario.* " +
+        " from DispositivoUsuario " +
+        " inner join UsuarioProduto on UsuarioProduto.id = usuarioProdutoId " +
+        " where UsuarioProduto.projetoMySqlId = 32 ";
+    ds.connector.query(sql, callback);
   };
 
   /**
