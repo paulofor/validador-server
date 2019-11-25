@@ -8,6 +8,14 @@ module.exports = function (Dispositivousuario) {
 
 
 
+  /**
+ *
+ * @param {Function(Error, array)} callback
+ */
+  Dispositivousuario.CosmeticCenterNotificacao = function (callback) {
+    var lista;
+    callback(null, lista);
+  };
 
   /**
    * 
@@ -38,7 +46,7 @@ module.exports = function (Dispositivousuario) {
    */
   Dispositivousuario.CriaComUsuario = function (dispositivo, callback) {
     // deveria ter transacao aqui.
-    console.log('Dispositivo: ' , JSON.stringify(dispositivo));
+    console.log('Dispositivo: ', JSON.stringify(dispositivo));
     var current_date = (new Date()).valueOf().toString();
     var random = Math.random().toString();
     var chaveUsuario = crypto.createHash('sha1').update(current_date + random).digest('hex');
