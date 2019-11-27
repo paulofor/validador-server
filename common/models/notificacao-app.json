@@ -1,0 +1,29 @@
+{
+  "name": "NotificacaoApp",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "dataHoraEnvio": {
+      "type": "date"
+    },
+    "tokenDado": {
+      "type": "string"
+    },
+    "dataHoraAcesso": {
+      "type": "date"
+    },
+    "resultadoEnvio": {
+      "type": "string"
+    },
+    "tipoEnvio": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

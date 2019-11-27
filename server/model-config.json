@@ -450,5 +450,9 @@
   "LojaVirtual": {
     "dataSource": "coletorJavaDataBase",
     "public": true
+  },
+  "NotificacaoApp": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

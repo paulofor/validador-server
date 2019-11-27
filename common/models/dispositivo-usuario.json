@@ -52,6 +52,11 @@
       "type": "belongsTo",
       "model": "UsuarioProduto",
       "foreignKey": ""
+    },
+    "notificacaoApps": {
+      "type": "hasMany",
+      "model": "NotificacaoApp",
+      "foreignKey": ""
     }
   },
   "acls": [],
