@@ -9,7 +9,7 @@
     "dataHoraEnvio": {
       "type": "date"
     },
-    "tokenDado": {
+    "tokenNotificacao": {
       "type": "string"
     },
     "dataHoraAcesso": {
@@ -20,10 +20,104 @@
     },
     "tipoEnvio": {
       "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "corpo": {
+      "type": "string"
+    },
+    "badge": {
+      "type": "string"
+    },
+    "cor": {
+      "type": "string"
     }
   },
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {
+    "PreparaEnvio": {
+      "accepts": [
+        {
+          "arg": "notificacao",
+          "type": "object",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "tokenNotificacao",
+          "type": "string",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Passo inicial para envio de notificação",
+      "http": [
+        {
+          "path": "/preparaEnvio",
+          "verb": "post"
+        }
+      ]
+    },
+    "ResultadoEnvio": {
+      "accepts": [
+        {
+          "arg": "resultado",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "tokenNotificacao",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Atualiza o resultado de um envio de notificacao normalmente sucesso ou fracasso",
+      "http": [
+        {
+          "path": "/resultadoEnvio",
+          "verb": "post"
+        }
+      ]
+    },
+    "RegistraAcesso": {
+      "accepts": [
+        {
+          "arg": "tokenNotificacao",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/registraAcesso",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }
