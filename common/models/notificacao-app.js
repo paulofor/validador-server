@@ -1,6 +1,7 @@
 'use strict';
 
 const crypto = require('crypto');
+var app = require('../../server/server');
 
 module.exports = function (Notificacaoapp) {
 
@@ -12,11 +13,11 @@ module.exports = function (Notificacaoapp) {
      */
 
     Notificacaoapp.RegistraAcesso = function (tokenNotificacao, callback) {
-        if (resultado && tokenNotificacao) {
+        if (tokenNotificacao) {
             var ds = Notificacaoapp.dataSource;
             var sql = " update NotificacaoApp  " +
                 " set dataHoraAcesso = UTC_TIMESTAMP() " +
-                " where tokenNotificacao = " + tokenNotificacao;
+                " where tokenNotificacao = '" + tokenNotificacao + "'";
             ds.connector.query(sql, callback);
         } else {
             callback(null, 'sem valores')
@@ -35,9 +36,9 @@ module.exports = function (Notificacaoapp) {
         if (resultado && tokenNotificacao) {
             var ds = Notificacaoapp.dataSource;
             var sql = " update NotificacaoApp  " +
-                " set ressultadoEnvio = '" + resultado + "', " +
+                " set resultadoEnvio = '" + resultado + "', " +
                 " dataHoraEnvio = UTC_TIMESTAMP() " +
-                " where tokenNotificacao = " + tokenNotificacao;
+                " where tokenNotificacao = '" + tokenNotificacao + "'";
             ds.connector.query(sql, callback);
         } else {
             callback(null, 'sem valores')
@@ -51,12 +52,23 @@ module.exports = function (Notificacaoapp) {
      */
 
     Notificacaoapp.PreparaEnvio = function (notificacao, callback) {
-        var tokenNotificacao = crypto.createHash('sha1').update(current_date + random).digest('hex');
-        notificacao.tokenNotificacao = tokenNotificacao;
-        notificacao.dataHoraCriacao = new Date();
-        Notificacaoapp.create(notificacao, (err, result) => {
-            callback(err, tokenNotificacao);
+        app.models.DispositivoUsuario.findOne({'where': {'tokenFcm' : notificacao.tokenFcm}}, (err,dispositivoUsuario) => {
+            if (dispositivoUsuario) {
+                //console.log('DispositivoUsuario: ' , JSON.stringify(dispositivoUsuario));
+                var current_date = (new Date()).valueOf().toString();
+                var random = Math.random().toString();
+                var tokenNotificacao = crypto.createHash('sha512').update(current_date + random).digest('hex');
+                notificacao.tokenNotificacao = tokenNotificacao;
+                notificacao.dataHoraCriacao = new Date();
+                notificacao.dispositivoUsuarioId = dispositivoUsuario.id;
+                notificacao.usuarioProdutoId = dispositivoUsuario.usuarioProdutoId;
+                //console.log('NotificacaoApp: ' , JSON.stringify(notificacao));
+                Notificacaoapp.create(notificacao, callback);
+            } else {
+                callback(err,dispositivoUsuario);
+            }
         })
+        
     };
 
 };

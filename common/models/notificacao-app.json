@@ -49,8 +49,8 @@
       ],
       "returns": [
         {
-          "arg": "tokenNotificacao",
-          "type": "string",
+          "arg": "saida",
+          "type": "object",
           "root": true,
           "description": ""
         }
