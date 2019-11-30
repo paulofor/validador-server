@@ -15,6 +15,9 @@
     "dataHoraAcesso": {
       "type": "date"
     },
+    "dataHoraCriacao": {
+      "type": "date"
+    },
     "resultadoEnvio": {
       "type": "string"
     },
@@ -32,6 +35,9 @@
     },
     "cor": {
       "type": "string"
+    },
+    "tokenFcm" : {
+      "type" : "string"
     }
   },
   "validations": [],

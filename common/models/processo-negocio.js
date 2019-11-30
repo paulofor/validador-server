@@ -32,7 +32,7 @@ module.exports = function (Processonegocio) {
         //console.log('Contexto' + idContexto);
         var listaProcesso, diaSemana, semana, listaTempoExecucao;
         var dataReferencia = new Date();
-        console.log('Data: ', dataReferencia);
+        //console.log('Data: ', dataReferencia);
         app.models.DiaSemana.findOne({ 'where': { 'posicaoDia': dataReferencia.getDay() - 1 } }, (err, result1) => {
             console.log('Dia:', result1);
             diaSemana = result1;
