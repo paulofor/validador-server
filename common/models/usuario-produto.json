@@ -36,5 +36,31 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "CadastraLogin": {
+      "accepts": [
+        {
+          "arg": "usuario",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resposta",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/cadastraLogin",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }

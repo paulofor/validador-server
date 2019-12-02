@@ -36,8 +36,8 @@
     "cor": {
       "type": "string"
     },
-    "tokenFcm" : {
-      "type" : "string"
+    "tokenFcm": {
+      "type": "string"
     }
   },
   "validations": [],
