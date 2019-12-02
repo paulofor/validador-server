@@ -15,7 +15,7 @@ Usuarioproduto.CadastraLogin = function(usuario, callback) {
             " senha = '" + usuario.senha + "' " +
             " where chave = '" + usuario.chave + "'";
     var ds = Usuarioproduto.dataSource;
-    ds.connector.query(sql1, (err1, result1) => {
+    ds.connector.query(sql, (err1, result1) => {
         if (err1) {
             callback(err1, null);
             return;
