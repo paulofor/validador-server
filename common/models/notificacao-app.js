@@ -13,6 +13,7 @@ module.exports = function (Notificacaoapp) {
      */
 
     Notificacaoapp.RegistraAcesso = function (tokenNotificacao, callback) {
+        console.log('tokenNotificacao: ' , tokenNotificacao);
         if (tokenNotificacao) {
             var ds = Notificacaoapp.dataSource;
             var sql = " update NotificacaoApp  " +
