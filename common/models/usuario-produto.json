@@ -61,6 +61,31 @@
           "verb": "post"
         }
       ]
+    },
+    "PeriodoGratuito": {
+      "accepts": [
+        {
+          "arg": "chave",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "dias",
+          "type": "number",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/periodoGratuito",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
