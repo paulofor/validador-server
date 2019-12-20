@@ -20,6 +20,12 @@
     },
     "dataUltimoAcesso": {
       "type": "date"
+    },
+    "codigoPagSeguro": {
+      "type": "string"
+    },
+    "dataPagSeguro": {
+      "type": "date"
     }
   },
   "validations": [],
@@ -84,6 +90,37 @@
         {
           "path": "/periodoGratuito",
           "verb": "get"
+        }
+      ]
+    },
+    "RegistraAssinatura": {
+      "accepts": [
+        {
+          "arg": "chaveUsuario",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "pagSeguroId",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/registraAssinatura",
+          "verb": "post"
         }
       ]
     }
