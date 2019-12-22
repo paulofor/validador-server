@@ -454,5 +454,9 @@
   "NotificacaoApp": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "PagSeguro": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

@@ -83,6 +83,12 @@
           "type": "number",
           "root": false,
           "description": ""
+        },
+        {
+          "arg": "status",
+          "type": "string",
+          "root": false,
+          "description": ""
         }
       ],
       "description": "",

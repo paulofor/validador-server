@@ -1,5 +1,7 @@
 'use strict';
 
+var app = require('../../server/server');
+
 module.exports = function (Usuarioproduto) {
 
 
@@ -57,15 +59,26 @@ module.exports = function (Usuarioproduto) {
     Usuarioproduto.PeriodoGratuito = function (chave, callback) {
         var dias = 20;
         Usuarioproduto.findOne({ 'where': { 'chave': chave } }, (err, usuario) => {
+            if (!usuario) {
+                callback('Usuario não encontrado - chave: ' + chave,null,null);
+                return;
+            }
             console.log('Usuario:' + JSON.stringify(usuario));
             let dataCorrente = new Date();
             console.log('Data Corrente: ', dataCorrente);
             var diferenca1 = dataCorrente.getTime() - usuario.dataHoraCriacao.getTime();
-            console.log('Diferenca1: ', diferenca1);
+            //console.log('Diferenca1: ', diferenca1);
             var Difference_In_Days = diferenca1 / (1000 * 3600 * 24);
             console.log('Dias(1)', Difference_In_Days);
             dias = 20 - Math.floor(Difference_In_Days);
-            callback(null, dias);
+            if (usuario.codigoPagSeguro) {
+                app.models.PagSeguro.VerificaPagamento(usuario.codigoPagSeguro, (err,result) => {
+                    console.log('Result:' , JSON.stringify(result));
+                    callback(null,dias,result.status);
+                })
+            } else {
+                callback(null, dias, null);
+            }
         })
 
     };
