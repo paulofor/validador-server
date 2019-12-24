@@ -21,7 +21,7 @@
   "cors": false,
   "httpMode": false,
   "certConfig": {
-    "path": "/home/validacao/ssl/",
+    "path": "/home/digicom/ssl/",
     "key": "server_key.pem",
     "cert": "server_cert.pem",
     "ca": [],
