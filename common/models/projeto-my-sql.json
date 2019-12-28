@@ -142,6 +142,11 @@
       "type": "hasMany",
       "model": "UsuarioProduto",
       "foreignKey": ""
+    },
+    "dsUsuarios": {
+      "type": "hasMany",
+      "model": "DsUsuario",
+      "foreignKey": ""
     }
   },
   "acls": [],

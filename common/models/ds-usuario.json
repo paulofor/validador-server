@@ -1,0 +1,67 @@
+{
+  "name": "DsUsuario",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "dia": {
+      "type": "date"
+    },
+    "qtdeInstalacao": {
+      "type": "number"
+    },
+    "qtdeAtivoNotificacao": {
+      "type": "number"
+    },
+    "qtdeRespostaNotificacao": {
+      "type": "number"
+    },
+    "qtdePaginaPrincipal": {
+      "type": "number"
+    },
+    "qtdeAbreAplicacao": {
+      "type": "number"
+    },
+    "qtdeNotificacao": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "CriaDiaAnoAplicacao": {
+      "accepts": [
+        {
+          "arg": "idAplicacao",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "ano",
+          "type": "number",
+          "required": true,
+          "description": "Ano com quatro dígitos"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Cria registros para um ano e uma aplicação",
+      "http": [
+        {
+          "path": "/criaDiaAnoAplicacao",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}
