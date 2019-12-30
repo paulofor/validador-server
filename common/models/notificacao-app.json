@@ -38,6 +38,9 @@
     },
     "tokenFcm": {
       "type": "string"
+    },
+    "erroEnvio": {
+      "type": "string"
     }
   },
   "validations": [],

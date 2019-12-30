@@ -53,6 +53,7 @@ module.exports = function (Notificacaoapp) {
      */
 
     Notificacaoapp.PreparaEnvio = function (notificacao, callback) {
+        //console.log('Notificacao: ' , JSON.stringify(notificacao));
         app.models.DispositivoUsuario.findOne({'where': {'tokenFcm' : notificacao.tokenFcm}}, (err,dispositivoUsuario) => {
             if (dispositivoUsuario) {
                 //console.log('DispositivoUsuario: ' , JSON.stringify(dispositivoUsuario));

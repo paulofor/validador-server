@@ -147,6 +147,11 @@
       "type": "hasMany",
       "model": "DsUsuario",
       "foreignKey": ""
+    },
+    "notificacaoApps": {
+      "type": "hasMany",
+      "model": "NotificacaoApp",
+      "foreignKey": ""
     }
   },
   "acls": [],
