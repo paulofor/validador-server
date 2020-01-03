@@ -37,7 +37,20 @@
     },
     "numAno" : {
       "type" : "number"
+    },
+    "qtdeAssinatura" : {
+      "type" : "number"
+    },
+    "qtdeTotalAssinatura" : {
+      "type" : "nummber"
+    },
+    "qtdeFluxoAssinatura" : {
+      "type" : "number"
+    },
+    "qtdePeriodoGratuito" : {
+      "type" : "number"
     }
+
   },
   "validations": [],
   "relations": {},
