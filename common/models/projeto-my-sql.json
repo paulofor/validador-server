@@ -142,6 +142,16 @@
       "type": "hasMany",
       "model": "UsuarioProduto",
       "foreignKey": ""
+    },
+    "dsUsuarios": {
+      "type": "hasMany",
+      "model": "DsUsuario",
+      "foreignKey": ""
+    },
+    "notificacaoApps": {
+      "type": "hasMany",
+      "model": "NotificacaoApp",
+      "foreignKey": ""
     }
   },
   "acls": [],

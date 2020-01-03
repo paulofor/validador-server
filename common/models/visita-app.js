@@ -30,6 +30,10 @@ module.exports = function (Visitaapp) {
                         callback(err2, null);
                         return;
                     }
+                    if (!result2) {
+                        callback('pagina não encontrada - chave: ' + chavePagina, null);
+                        return;
+                    }
                     resultado.telaAppId = result2.id;
                     resultado.dataHora = new Date();
                     Visitaapp.create(resultado, callback);
