@@ -3,16 +3,16 @@
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
-    "validateUpsert": true
+    "validateUpsert": false
   },
   "properties": {
     "dia": {
       "type": "date",
-      "id" : true
+      "id": 1
     },
-    "projetoMySqlId" : {
-      "type" : "number",
-      "id" : true
+    "projetoMySqlId": {
+      "type": "number",
+      "id": 2
     },
     "qtdeInstalacao": {
       "type": "number"
@@ -32,34 +32,33 @@
     "qtdeNotificacao": {
       "type": "number"
     },
-    "numMes" : {
+    "numMes": {
       "type": "number"
     },
-    "numAno" : {
-      "type" : "number"
+    "numAno": {
+      "type": "number"
     },
-    "qtdeAssinatura" : {
-      "type" : "number"
+    "qtdeAssinatura": {
+      "type": "number"
     },
-    "qtdeTotalAssinatura" : {
-      "type" : "nummber"
+    "qtdeTotalAssinatura": {
+      "type": "number"
     },
-    "qtdeFluxoAssinatura" : {
-      "type" : "number"
+    "qtdeFluxoAssinatura": {
+      "type": "number"
     },
-    "qtdePeriodoGratuito" : {
-      "type" : "number"
+    "qtdePeriodoGratuito": {
+      "type": "number"
     }
-
   },
   "validations": [],
   "relations": {},
   "acls": [],
   "methods": {
-    "CriaDiaAnoAplicacao": {
+    "CriaDiaAnoProjeto": {
       "accepts": [
         {
-          "arg": "idAplicacao",
+          "arg": "idProjeto",
           "type": "number",
           "required": true,
           "description": ""
@@ -82,7 +81,82 @@
       "description": "Cria registros para um ano e uma aplicação",
       "http": [
         {
-          "path": "/criaDiaAnoAplicacao",
+          "path": "/criaDiaAnoProjeto",
+          "verb": "post"
+        }
+      ]
+    },
+    "AtualizaPeriodo": {
+      "accepts": [
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": "Atualiza a tabela toda."
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaPeriodo",
+          "verb": "post"
+        }
+      ]
+    },
+    "AtualizaPeriodoMesAno": {
+      "accepts": [
+        {
+          "arg": "mes",
+          "type": "number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "ano",
+          "type": "number",
+          "required": false,
+          "description": "Atualiza apenas para um mês - atualmente: tabela toda."
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaPeriodoMesAno",
+          "verb": "post"
+        }
+      ]
+    },
+    "AtualizaPeriodoAno": {
+      "accepts": [
+        {
+          "arg": "ano",
+          "type": "number",
+          "required": false,
+          "description": "Atualiza apenas um ano - atualmente: tabela toda."
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaPeriodoAno",
           "verb": "post"
         }
       ]
