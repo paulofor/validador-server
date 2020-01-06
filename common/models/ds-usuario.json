@@ -87,8 +87,7 @@
       ]
     },
     "AtualizaPeriodo": {
-      "accepts": [
-      ],
+      "accepts": [],
       "returns": [
         {
           "arg": "resultado",
