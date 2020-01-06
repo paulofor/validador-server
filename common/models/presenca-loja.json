@@ -130,6 +130,31 @@
           "verb": "post"
         }
       ]
+    },
+    "CalculaMetricaProjeto": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": "Por enquanto fazendo para todos os projetos"
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/calculaMetricaProjeto",
+          "verb": "post"
+        }
+      ]
     }
   }
 }
