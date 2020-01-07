@@ -79,6 +79,9 @@
     },
     "quantidadeCampanha": {
       "type": "number"
+    },
+    "mediaCustoTotal": {
+      "type": "number"
     }
   },
   "validations": [],
@@ -90,5 +93,49 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "CalculaMetricaCampanha": {
+      "accepts": [
+        {
+          "arg": "idCampanha",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "por enquanto nao implementada",
+      "http": [
+        {
+          "path": "/calculaMetricaCampanha",
+          "verb": "post"
+        }
+      ]
+    },
+    "CalculaMetrica": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/calculaMetrica",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }
