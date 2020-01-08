@@ -1,15 +1,32 @@
 'use strict';
 
+
+
+
 //var http = require("http");
 var request = require('request');
 var xml2js = require('xml2js');
 
 module.exports = function (Pagseguro) {
 
+    /**
+     *
+     * @param {Function(Error, object)} callback
+     */
+
+    Pagseguro.Display = function (callback) {
+        //console.log('token:' , token);
+        //console.log('host:' , host);
+        var resultado = {};
+        callback(null, resultado);
+    };
+
 
 
     var token = 'CB4CBC8D23374F219598172EF26BEC37'; 
     var host = 'ws.sandbox.pagseguro.uol.com.br'; 
+    //var token = 'A';
+    //var host = 'ws.pagseguro.uol.com.br';
 
     /**
      * 
@@ -41,7 +58,7 @@ module.exports = function (Pagseguro) {
 
 
 
-    
+
 
     //var urlSession = 'https://ws.pagseguro.uol.com.br/v2/sessions?email=paulofore@gmail.com&token=' + token;
     var urlSession = 'https://ws.sandbox.pagseguro.uol.com.br/v2/sessions?email=paulofore@gmail.com&token=' + token;
@@ -228,6 +245,8 @@ module.exports = function (Pagseguro) {
     }
 
 
+
+
     /**
      * 
      * @param {object} cliente 
@@ -236,7 +255,7 @@ module.exports = function (Pagseguro) {
 
     Pagseguro.VerificaPagamento = function (cliente, callback) {
         var urlVerificaPorNotificacao = 'https://' + host + '/pre-approvals/' + cliente + '?email=paulofore@gmail.com&token=' + token;
-        console.log('url:' , urlVerificaPorNotificacao);
+        console.log('url:', urlVerificaPorNotificacao);
         var mensagem = {
             headers: {
                 "Content-Type": "application/json;charset=ISO-8859-1",

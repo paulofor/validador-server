@@ -205,6 +205,24 @@
           "verb": "post"
         }
       ]
+    },
+    "Display": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/display",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

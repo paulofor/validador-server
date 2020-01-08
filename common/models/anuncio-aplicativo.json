@@ -92,31 +92,6 @@
           "verb": "post"
         }
       ]
-    },
-    "CalculaMetricaProjeto": {
-      "accepts": [
-        {
-          "arg": "idProjeto",
-          "type": "number",
-          "required": true,
-          "description": ""
-        }
-      ],
-      "returns": [
-        {
-          "arg": "result",
-          "type": "object",
-          "root": true,
-          "description": ""
-        }
-      ],
-      "description": "Ainda nao implementada",
-      "http": [
-        {
-          "path": "/calculaMetricaProjeto",
-          "verb": "post"
-        }
-      ]
     }
   }
 }

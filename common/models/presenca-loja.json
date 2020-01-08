@@ -113,24 +113,6 @@
   },
   "acls": [],
   "methods": {
-    "CalculaMetrica": {
-      "accepts": [],
-      "returns": [
-        {
-          "arg": "result",
-          "type": "object",
-          "root": true,
-          "description": ""
-        }
-      ],
-      "description": "",
-      "http": [
-        {
-          "path": "/calculaMetrica",
-          "verb": "post"
-        }
-      ]
-    },
     "CalculaMetricaProjeto": {
       "accepts": [
         {
