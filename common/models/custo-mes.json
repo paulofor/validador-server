@@ -87,6 +87,31 @@
           "verb": "post"
         }
       ]
+    },
+    "CriaAno": {
+      "accepts": [
+        {
+          "arg": "ano",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Criar dados com projeto null, totalizacao para meses",
+      "http": [
+        {
+          "path": "/criaAno",
+          "verb": "post"
+        }
+      ]
     }
   }
 }
