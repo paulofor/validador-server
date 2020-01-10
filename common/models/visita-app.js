@@ -10,7 +10,7 @@ module.exports = function (Visitaapp) {
      * @param {string} chavePagina
      * @param {Function(Error, object)} callback
      */
-    Visitaapp.RegistraVisitaTelaApp = function (chaveUsuario, chavePagina, callback) {
+    Visitaapp.RegistraVisitaTelaApp = function (chaveUsuario, chavePagina, idVersaoApp, callback) {
         var resultado = new Object();
         app.models.UsuarioProduto.findOne({ 'where': { 'chave': chaveUsuario } }, (err1, result1) => {
             if (err1) {
@@ -36,6 +36,9 @@ module.exports = function (Visitaapp) {
                     }
                     resultado.telaAppId = result2.id;
                     resultado.dataHora = new Date();
+                    if (idVersaoApp) {
+                        resultado.versaoAppId = idVersaoApp;
+                    }
                     Visitaapp.create(resultado, callback);
                 })
             })

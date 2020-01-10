@@ -43,6 +43,12 @@
           "type": "string",
           "required": true,
           "description": ""
+        },
+        {
+          "arg": "idVersaoApp",
+          "type": "number",
+          "required": false,
+          "description": ""
         }
       ],
       "returns": [
