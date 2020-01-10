@@ -10,7 +10,7 @@
     "password": "aspnet007",
     "name": "mysqlDS",
     "user": "lojadigicom36",
-    "connector": "memory"
+    "connector": "mysqlDS"
   },
   "coletorJavaDataBase": {
     "host": "mysql.lojadigicom.com.br",
@@ -19,7 +19,7 @@
     "password": "aspnet",
     "name": "coletorJavaDataBase",
     "user": "lojadigicom27",
-    "connector": "memory"
+    "connector": "mysqlDS"
   },
   "storage": {
     "name": "storage",
