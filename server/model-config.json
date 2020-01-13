@@ -462,5 +462,13 @@
   "DsUsuario": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "RecursoProduto": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "IndicadorProduto": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
