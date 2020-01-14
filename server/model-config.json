@@ -470,5 +470,13 @@
   "IndicadorProduto": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "FunilProjeto": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "EtapaCliente": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

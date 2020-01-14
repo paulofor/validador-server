@@ -152,6 +152,16 @@
       "type": "hasMany",
       "model": "NotificacaoApp",
       "foreignKey": ""
+    },
+    "funilProjetos": {
+      "type": "hasMany",
+      "model": "FunilProjeto",
+      "foreignKey": ""
+    },
+    "etapaClientes": {
+      "type": "hasMany",
+      "model": "EtapaCliente",
+      "foreignKey": ""
     }
   },
   "acls": [],
