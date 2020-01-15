@@ -8,6 +8,9 @@
   "properties": {
     "nome": {
       "type": "string"
+    },
+    "posicao": {
+      "type": "number"
     }
   },
   "validations": [],

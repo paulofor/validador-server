@@ -1,0 +1,56 @@
+{
+  "name": "MetricaCampanha",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "campanhaAdsId" : {
+      "type" : "number"
+    },
+    "dia" : {
+      "type" : "date"
+    },
+    "impressao": {
+      "type": "number"
+    },
+    "accImpressao": {
+      "type": "number"
+    },
+    "ctr": {
+      "type": "number"
+    },
+    "accCtr": {
+      "type": "number"
+    },
+    "cpc": {
+      "type": "number"
+    },
+    "accCpc": {
+      "type": "number"
+    },
+    "conversao": {
+      "type": "number"
+    },
+    "accConversao": {
+      "type": "number"
+    },
+    "custoConversao": {
+      "type": "number"
+    },
+    "accCustoConversao": {
+      "type": "number"
+    },
+    "taxaConversao": {
+      "type": "number"
+    },
+    "accTaxaConversao": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

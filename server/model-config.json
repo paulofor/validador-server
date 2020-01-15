@@ -478,5 +478,9 @@
   "EtapaCliente": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "MetricaCampanha": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

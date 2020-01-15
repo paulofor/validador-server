@@ -177,6 +177,11 @@
       "type": "hasMany",
       "model": "AnuncioAplicacaoResultado",
       "foreignKey": ""
+    },
+    "metricaCampanhas": {
+      "type": "hasMany",
+      "model": "MetricaCampanha",
+      "foreignKey": ""
     }
   },
   "acls": [],
