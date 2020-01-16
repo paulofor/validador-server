@@ -16,5 +16,62 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {
+    "CriaPosicionada": {
+      "accepts": [
+        {
+          "arg": "etapaCliente",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/criaPosicionada",
+          "verb": "post"
+        }
+      ]
+    },
+    "DeslocaPosicao": {
+      "accepts": [
+        {
+          "arg": "idEtapa",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "sentido",
+          "type": "number",
+          "required": true,
+          "description": "+1 aumenta posicao, -1 diminui posicao"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "retorno",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/deslocaPosicao",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }

@@ -6,11 +6,11 @@
     "validateUpsert": true
   },
   "properties": {
-    "campanhaAdsId" : {
-      "type" : "number"
+    "campanhaAdsId": {
+      "type": "number"
     },
-    "dia" : {
-      "type" : "date"
+    "dia": {
+      "type": "date"
     },
     "impressao": {
       "type": "number"
