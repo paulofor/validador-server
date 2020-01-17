@@ -9,11 +9,16 @@ module.exports = function (Etapacliente) {
     * @param {Function(Error, object)} callback
     */
     Etapacliente.CriaPosicionada = function (etapaCliente, callback) {
+        //console.log('EtapaCliente: ' , JSON.stringify(etapaCliente));
         var resultado;
         var filtro = {"where" : { "funilNegocioId" : etapaCliente.funilNegocioId } , "order" : "posicao desc"  }
         Etapacliente.findOne(filtro, (err,result) => {
             let maior = result;
-            etapaCliente.posicao = maior.posicao + 1;
+            if (maior) {
+                etapaCliente.posicao = maior.posicao + 1;
+            } else {
+                etapaCliente.posicao = 1;
+            }
             Etapacliente.create(etapaCliente, callback);
         })
     };
