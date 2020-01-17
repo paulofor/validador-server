@@ -11,10 +11,25 @@
     },
     "posicao": {
       "type": "number"
+    },
+    "descricao" : {
+      "type" : "string"
+    },
+    "formula" : {
+      "type" : "string"
+    },
+    "sql" : {
+      "type" : "string"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "valorMetricaEtapas": {
+      "type": "hasMany",
+      "model": "ValorMetricaEtapa",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {
     "CriaPosicionada": {

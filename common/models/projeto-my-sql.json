@@ -152,6 +152,11 @@
       "type": "hasMany",
       "model": "NotificacaoApp",
       "foreignKey": ""
+    },
+    "valorMetricaEtapas": {
+      "type": "hasMany",
+      "model": "ValorMetricaEtapa",
+      "foreignKey": ""
     }
   },
   "acls": [],

@@ -482,5 +482,9 @@
   "MetricaCampanha": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "ValorMetricaEtapa": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
