@@ -11,6 +11,8 @@ module.exports = function (Setupcampanha) {
     from CampanhaAds where CampanhaAds.setupCampanhaId = SetupCampanha.id), 
     mediaCustoTotal = (select avg(orcamentoTotalExecutado) 
     from CampanhaAds where CampanhaAds.setupCampanhaId = SetupCampanha.id)
+    mediaConversao = (select avg(conversao) 
+    from CampanhaAds where CampanhaAds.setupCampanhaId = SetupCampanha.id)
     */
 
 
@@ -36,7 +38,9 @@ module.exports = function (Setupcampanha) {
             " mediaCustoConversao = (select avg(custoConversao)  " +
             " from CampanhaAds where CampanhaAds.setupCampanhaId = SetupCampanha.id), " +
             " mediaCustoTotal = (select avg(orcamentoTotalExecutado) " +
-            " from CampanhaAds where CampanhaAds.setupCampanhaId = SetupCampanha.id)" ;
+            " from CampanhaAds where CampanhaAds.setupCampanhaId = SetupCampanha.id), " +
+            " mediaConversao = (select avg(conversao) " + 
+            " from CampanhaAds where CampanhaAds.setupCampanhaId = SetupCampanha.id) ";
         var ds = Setupcampanha.dataSource;
         ds.connector.query(sql, callback);
     };

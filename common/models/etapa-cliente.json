@@ -12,14 +12,14 @@
     "posicao": {
       "type": "number"
     },
-    "descricao" : {
-      "type" : "string"
+    "descricao": {
+      "type": "string"
     },
-    "formula" : {
-      "type" : "string"
+    "formula": {
+      "type": "string"
     },
-    "sql" : {
-      "type" : "string"
+    "sql": {
+      "type": "string"
     }
   },
   "validations": [],
