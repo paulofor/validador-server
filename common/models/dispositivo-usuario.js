@@ -17,7 +17,7 @@ module.exports = function (Dispositivousuario) {
     var sql=  " select distinct DispositivoUsuario.* " +
         " from DispositivoUsuario " +
         " inner join UsuarioProduto on UsuarioProduto.id = usuarioProdutoId " +
-        " where UsuarioProduto.projetoMySqlId = 32 ";
+        " where UsuarioProduto.projetoMySqlId = 32 and tokenFcm is not null ";
     ds.connector.query(sql, callback);
   };
 
