@@ -35,6 +35,11 @@
       "type": "hasMany",
       "model": "ValorMetricaEtapa",
       "foreignKey": ""
+    },
+    "valorEtapaFunilSemanas": {
+      "type": "hasMany",
+      "model": "ValorEtapaFunilSemana",
+      "foreignKey": ""
     }
   },
   "acls": [],

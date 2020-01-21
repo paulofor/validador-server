@@ -486,5 +486,17 @@
   "ValorMetricaEtapa": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "ValorEtapaFunilDia": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ValorEtapaFunilSemana": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "ValorEtapaFunilCampanha": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

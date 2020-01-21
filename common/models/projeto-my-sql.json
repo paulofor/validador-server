@@ -157,6 +157,16 @@
       "type": "hasMany",
       "model": "ValorMetricaEtapa",
       "foreignKey": ""
+    },
+    "valorEtapaFunilDia": {
+      "type": "hasMany",
+      "model": "ValorEtapaFunilDia",
+      "foreignKey": ""
+    },
+    "valorEtapaFunilSemanas": {
+      "type": "hasMany",
+      "model": "ValorEtapaFunilSemana",
+      "foreignKey": ""
     }
   },
   "acls": [],

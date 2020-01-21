@@ -1,0 +1,26 @@
+{
+  "name": "ValorEtapaFunilDia",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "data": {
+      "type": "date"
+    },
+    "valor": {
+      "type": "number"
+    },
+    "taxa": {
+      "type": "number"
+    },
+    "custo": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

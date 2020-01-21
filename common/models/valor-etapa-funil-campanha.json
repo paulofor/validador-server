@@ -1,0 +1,23 @@
+{
+  "name": "ValorEtapaFunilCampanha",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "valor": {
+      "type": "number"
+    },
+    "taxa": {
+      "type": "number"
+    },
+    "custo": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

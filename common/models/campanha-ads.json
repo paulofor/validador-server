@@ -182,6 +182,11 @@
       "type": "hasMany",
       "model": "MetricaCampanha",
       "foreignKey": ""
+    },
+    "valorEtapaFunilCampanhas": {
+      "type": "hasMany",
+      "model": "ValorEtapaFunilCampanha",
+      "foreignKey": ""
     }
   },
   "acls": [],

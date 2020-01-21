@@ -28,6 +28,16 @@
       "type": "hasMany",
       "model": "ValorMetricaEtapa",
       "foreignKey": ""
+    },
+    "valorEtapaFunilDia": {
+      "type": "hasMany",
+      "model": "ValorEtapaFunilDia",
+      "foreignKey": ""
+    },
+    "valorEtapaFunilCampanhas": {
+      "type": "hasMany",
+      "model": "ValorEtapaFunilCampanha",
+      "foreignKey": ""
     }
   },
   "acls": [],
