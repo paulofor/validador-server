@@ -19,5 +19,31 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {
+    "CriaEtapas": {
+      "accepts": [
+        {
+          "arg": "idCampanha",
+          "type": "number",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/criaEtapas",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }
