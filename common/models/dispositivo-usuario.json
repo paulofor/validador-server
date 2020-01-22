@@ -159,6 +159,31 @@
           "verb": "get"
         }
       ]
+    },
+    "FindOneApp": {
+      "accepts": [
+        {
+          "arg": "filtro",
+          "type": "object",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "igual ao find one porem com log para ser usado nos apps",
+      "http": [
+        {
+          "path": "/findOneApp",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

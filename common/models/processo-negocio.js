@@ -34,10 +34,10 @@ module.exports = function (Processonegocio) {
         var dataReferencia = new Date();
         //console.log('Data: ', dataReferencia);
         app.models.DiaSemana.findOne({ 'where': { 'posicaoDia': dataReferencia.getDay() - 1 } }, (err, result1) => {
-            console.log('Dia:', result1);
+            //console.log('Dia:', result1);
             diaSemana = result1;
             app.models.Semana.ObtemPorData(dataReferencia, (err, result2) => {
-                console.log('Semana', result2);
+                //console.log('Semana', result2);
                 semana = result2;
                 var filtroPlano = {
                     "include": "processoNegocio",

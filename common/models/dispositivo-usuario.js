@@ -14,10 +14,10 @@ module.exports = function (Dispositivousuario) {
  */
   Dispositivousuario.CosmeticCenterNotificacao = function (callback) {
     var ds = Dispositivousuario.dataSource;
-    var sql=  " select distinct DispositivoUsuario.* " +
-        " from DispositivoUsuario " +
-        " inner join UsuarioProduto on UsuarioProduto.id = usuarioProdutoId " +
-        " where UsuarioProduto.projetoMySqlId = 32 and tokenFcm is not null ";
+    var sql = " select distinct DispositivoUsuario.* " +
+      " from DispositivoUsuario " +
+      " inner join UsuarioProduto on UsuarioProduto.id = usuarioProdutoId " +
+      " where UsuarioProduto.projetoMySqlId = 32 and tokenFcm is not null ";
     ds.connector.query(sql, callback);
   };
 
@@ -41,7 +41,20 @@ module.exports = function (Dispositivousuario) {
     }
   };
 
+  /**
+   * igual ao find one porem com log para ser usado nos apps
+   * @param {object} filtro
+   * @param {Function(Error, object)} callback
+   */
 
+  Dispositivousuario.FindOneApp = function (filtro, callback) {
+    console.log(new Date(), ' - Dispositivousuario.FindOneApp.filtro: ', JSON.stringify(filtro));
+    Dispositivousuario.findOne(filtro, (err, result) => {
+      callback(err, result);
+      console.log(new Date(), ' - Dispositivousuario.FindOneApp.err: ', JSON.stringify(err));
+      console.log(new Date(), ' - Dispositivousuario.FindOneApp.result: ', JSON.stringify(result));
+    })
+  };
 
   /**
    * Cria usuario e dispositivo
@@ -50,7 +63,7 @@ module.exports = function (Dispositivousuario) {
    */
   Dispositivousuario.CriaComUsuario = function (dispositivo, callback) {
     // deveria ter transacao aqui.
-    console.log('Dispositivo: ', JSON.stringify(dispositivo));
+    console.log(new Date(), ' - Dispositivousuario.CriaComUsuario.dispositivo: ', JSON.stringify(dispositivo));
     var current_date = (new Date()).valueOf().toString();
     var random = Math.random().toString();
     var chaveUsuario = crypto.createHash('sha1').update(current_date + random).digest('hex');
