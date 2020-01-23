@@ -6,6 +6,14 @@
     "validateUpsert": true
   },
   "properties": {
+    "semanaId": {
+      "type": "number",
+      "id": true
+    },
+    "projetoMySqlId": {
+      "type": "number",
+      "id": true
+    },
     "valor": {
       "type": "number"
     },
@@ -19,5 +27,37 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {
+    "CriaEtapa": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "ano",
+          "type": "number",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "retorno",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/criaEtapa",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }

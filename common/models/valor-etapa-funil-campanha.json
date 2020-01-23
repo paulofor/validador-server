@@ -6,13 +6,13 @@
     "validateUpsert": true
   },
   "properties": {
-    "campanhaAdsId" : {
-      "type" : "number",
-      "id" : true
+    "campanhaAdsId": {
+      "type": "number",
+      "id": true
     },
-    "etapaClienteId" : {
-      "type" : "number",
-      "id" : true
+    "etapaClienteId": {
+      "type": "number",
+      "id": true
     },
     "valor": {
       "type": "number"
@@ -27,31 +27,5 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {
-    "CriaEtapa": {
-      "accepts": [
-        {
-          "arg": "idCampanha",
-          "type": "number",
-          "required": false,
-          "description": ""
-        }
-      ],
-      "returns": [
-        {
-          "arg": "saida",
-          "type": "object",
-          "root": true,
-          "description": ""
-        }
-      ],
-      "description": "",
-      "http": [
-        {
-          "path": "/criaEtapa",
-          "verb": "post"
-        }
-      ]
-    }
-  }
+  "methods": {}
 }

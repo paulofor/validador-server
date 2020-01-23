@@ -6,7 +6,15 @@ const crypto = require('crypto');
 
 module.exports = function (Dispositivousuario) {
 
+  /**
+   *
+   * @param {Function(Error, object)} callback
+   */
 
+  DispositivoUsuario.AtualizaAtivo = function (callback) {
+    var saida;
+    callback(null, saida);
+  };
 
   /**
  *

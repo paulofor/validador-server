@@ -184,6 +184,24 @@
           "verb": "get"
         }
       ]
+    },
+    "AtualizaAtivo": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaAtivo",
+          "verb": "post"
+        }
+      ]
     }
   }
 }
