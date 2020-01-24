@@ -56,7 +56,7 @@ module.exports = function (Dispositivousuario) {
    */
 
   Dispositivousuario.FindOneApp = function (filtro, callback) {
-    console.log(new Date(), ' - Dispositivousuario.FindOneApp.filtro: ', JSON.stringify(filtro));
+    console.log(new Date() + ' - Dispositivousuario.FindOneApp.filtro: ' + JSON.stringify(filtro));
     Dispositivousuario.findOne(filtro, (err, result) => {
       callback(err, result);
       console.log(new Date(), ' - Dispositivousuario.FindOneApp.err: ', JSON.stringify(err));
@@ -72,12 +72,12 @@ module.exports = function (Dispositivousuario) {
    */
 
   Dispositivousuario.FindByUuid = function (uuid, callback) {
-    console.log(new Date(), ' - Dispositivousuario.FindByUuid.uuid: ', uuid);
-    let filtro = {'where' : {'uuid' : uuid} , "include" : "usuarioProduto" };
+    console.log(new Date() + " - Dispositivousuario.FindByUuid.uuid:" + uuid);
+    let filtro = { 'where': { 'uuid': uuid }, "include": "usuarioProduto" };
     Dispositivousuario.findOne(filtro, (err, result) => {
       callback(err, result);
-      console.log(new Date(), ' - Dispositivousuario.FindByUuid.err: ', JSON.stringify(err));
-      console.log(new Date(), ' - Dispositivousuario.FindByUuid.result: ', JSON.stringify(result));
+      console.log(new Date() + " - Dispositivousuario.FindByUuid.err:" + JSON.stringify(err));
+      console.log(new Date() + " - Dispositivousuario.FindByUuid.result:" + JSON.stringify(result));
     })
   };
 
