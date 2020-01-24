@@ -73,7 +73,7 @@ module.exports = function (Dispositivousuario) {
 
   Dispositivousuario.FindByUuid = function (uuid, callback) {
     console.log(new Date(), ' - Dispositivousuario.FindByUuid.uuid: ', uuid);
-    let filtro = {'where' : {'uuid' : uuid}};
+    let filtro = {'where' : {'uuid' : uuid} , "include" : "usuarioProduto" };
     Dispositivousuario.findOne(filtro, (err, result) => {
       callback(err, result);
       console.log(new Date(), ' - Dispositivousuario.FindByUuid.err: ', JSON.stringify(err));
