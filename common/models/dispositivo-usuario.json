@@ -202,6 +202,31 @@
           "verb": "post"
         }
       ]
+    },
+    "FindByUuid": {
+      "accepts": [
+        {
+          "arg": "uuid",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "item",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/findByUuid",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

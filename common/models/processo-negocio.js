@@ -93,18 +93,18 @@ module.exports = function (Processonegocio) {
                 console.log("Resultado: ", JSON.stringify(result));
             })
             */
-            console.log('Item: ', item);
+            //console.log('Item: ', item);
             item.planoExecucaos.forEach((plano) => {
-                console.log('Plano: ', JSON.stringify(plano));
+                //console.log('Plano: ', JSON.stringify(plano));
                 app.models.PlanoExecucao.upsert(plano, (err, result) => {
-                    console.log('Erro:', err);
+                    //console.log('Erro:', err);
                     //console.log("Resultado: ", JSON.stringify(result));
                 })
             })
 
 
         });
-        console.log('Finalizado');
+        //console.log('Finalizado');
         callback(null);
     };
 

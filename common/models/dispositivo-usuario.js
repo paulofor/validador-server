@@ -11,7 +11,7 @@ module.exports = function (Dispositivousuario) {
    * @param {Function(Error, object)} callback
    */
 
-  DispositivoUsuario.AtualizaAtivo = function (callback) {
+  Dispositivousuario.AtualizaAtivo = function (callback) {
     var saida;
     callback(null, saida);
   };
@@ -63,6 +63,24 @@ module.exports = function (Dispositivousuario) {
       console.log(new Date(), ' - Dispositivousuario.FindOneApp.result: ', JSON.stringify(result));
     })
   };
+
+
+  /**
+   *
+   * @param {string} uuid
+   * @param {Function(Error, object)} callback
+   */
+
+  Dispositivousuario.FindByUuid = function (uuid, callback) {
+    console.log(new Date(), ' - Dispositivousuario.FindByUuid.uuid: ', uuid);
+    let filtro = {'where' : {'uuid' : uuid}};
+    Dispositivousuario.findOne(filtro, (err, result) => {
+      callback(err, result);
+      console.log(new Date(), ' - Dispositivousuario.FindByUuid.err: ', JSON.stringify(err));
+      console.log(new Date(), ' - Dispositivousuario.FindByUuid.result: ', JSON.stringify(result));
+    })
+  };
+
 
   /**
    * Cria usuario e dispositivo

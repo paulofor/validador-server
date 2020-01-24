@@ -16,11 +16,11 @@ module.exports = function (Valoretapafunilsemana) {
         app.models.Semana.find(filtro, (err, result) => {
             //console.log('Result: ' , console.log(result));
             result.forEach((item) => {
-                console.log('Item: ', JSON.stringify(item));
+                //console.log('Item: ', JSON.stringify(item));
                 let valor = { 'projetoMySqlId': idProjeto, 'semanaId': item.id };
                 console.log(valor);
                 Valoretapafunilsemana.create(valor, (err, result) => {
-                    console.log('Erro: ', JSON.stringify(err));;
+                    //console.log('Erro: ', JSON.stringify(err));;
                 });
             })
         })
