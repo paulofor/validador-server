@@ -5,6 +5,27 @@ var app = require('../../server/server');
 module.exports = function (Projetomysql) {
 
 
+    /**
+     *
+     * @param {number} idProjeto
+     * @param {Function(Error, object)} callback
+     */
+    Projetomysql.ObtemMetricaCampanha = function (idProjeto, callback) {
+        let filtro = {
+            "include": {
+                "relation": "campanhaAds",
+                "scope": {
+                    "order": "dataInicial desc",
+                    "include": {
+                        "relation": "valorEtapaFunilCampanhas",
+                        "scope": { "include": "etapaCliente" }
+                    }
+                }
+            }
+        };
+        Projetomysql.findById(idProjeto, filtro , callback);
+    };
+
 
 
     /**
@@ -26,11 +47,11 @@ module.exports = function (Projetomysql) {
         });
 
         var sql2 = "update ProjetoMySql set ProjetoMySql.custoCampanha = " +
-                    " ( " +
-                    " select sum(CampanhaAds.orcamentoTotalExecutado)  from CampanhaAds " + 
-                    " where CampanhaAds.projetoMySqlId = ProjetoMySql.id " +
-                    " )";
-        ds.connector.query(sql2,callback); 
+            " ( " +
+            " select sum(CampanhaAds.orcamentoTotalExecutado)  from CampanhaAds " +
+            " where CampanhaAds.projetoMySqlId = ProjetoMySql.id " +
+            " )";
+        ds.connector.query(sql2, callback);
     };
 
 

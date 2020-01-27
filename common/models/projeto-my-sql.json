@@ -787,6 +787,31 @@
           "verb": "post"
         }
       ]
+    },
+    "ObtemMetricaCampanha": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/obtemMetricaCampanha",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

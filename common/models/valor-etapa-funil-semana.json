@@ -22,6 +22,9 @@
     },
     "custo": {
       "type": "number"
+    },
+    "posicaoEtapa": {
+      "type": "number"
     }
   },
   "validations": [],
