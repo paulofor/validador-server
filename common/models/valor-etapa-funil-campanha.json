@@ -37,31 +37,6 @@
   },
   "acls": [],
   "methods": {
-    "CriaEtapa": {
-      "accepts": [
-        {
-          "arg": "idCampanha",
-          "type": "number",
-          "required": false,
-          "description": ""
-        }
-      ],
-      "returns": [
-        {
-          "arg": "retorno",
-          "type": "object",
-          "root": true,
-          "description": ""
-        }
-      ],
-      "description": "",
-      "http": [
-        {
-          "path": "/criaEtapa",
-          "verb": "post"
-        }
-      ]
-    },
     "AtualizaValor": {
       "accepts": [],
       "returns": [
