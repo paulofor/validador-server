@@ -31,12 +31,25 @@ module.exports = function (Valoretapafunilcampanha) {
   posicaoEtapa = (select posicao from EtapaCliente where id = etapaClienteId)
   where etapaClienteId = 4;
   
-  update ValorEtapaFunilCampanha
-  set valor = (
-  select count(distinct VisitaApp.usuarioProdutoId) from VisitaApp
-  inner join DispositivoUsuario on DispositivoUsuario.campanhaAdsId = VisitaApp.usuarioProdutoId
-  )
-  where etapaClienteId = 5;
+update ValorEtapaFunilCampanha
+set valor = (
+select count(distinct usuarioProdutoId) 
+from
+(
+select 
+VisitaApp.usuarioProdutoId, 
+count(distinct date(VisitaApp.dataHora)) as qtde, 
+DispositivoUsuario.campanhaAdsId as campanhaId
+from VisitaApp 
+inner join UsuarioProduto on UsuarioProduto.id = VisitaApp.usuarioProdutoId
+inner join DispositivoUsuario on DispositivoUsuario.usuarioProdutoId = UsuarioProduto.id
+where VisitaApp.dataHora >= DATE_ADD(UsuarioProduto.dataHoraCriacao, INTERVAL 5 DAY) // dias depois da instalação - inicio
+and VisitaApp.dataHora <= DATE_ADD(UsuarioProduto.dataHoraCriacao, INTERVAL 12 DAY)  // dias depois da instalação - final
+) as tab
+where qtde > 0 // quantidade de dias
+and ValorEtapaFunilCampanha.campanhaAdsId = campanhaId
+and ValorEtapaFunilCampanha.etapaClienteId = 5
+)
   
   
   update ValorEtapaFunilCampanha
@@ -80,37 +93,76 @@ module.exports = function (Valoretapafunilcampanha) {
       " posicaoEtapa = (select posicao from EtapaCliente where id = etapaClienteId) " +
       " where etapaClienteId = 4; ";
 
-    var sql5 = " update ValorEtapaFunilCampanha " +
-      " set valor = ( " +
-      " select count(distinct VisitaApp.usuarioProdutoId) from VisitaApp " +
-      " inner join DispositivoUsuario on DispositivoUsuario.campanhaAdsId = VisitaApp.usuarioProdutoId " +
-      " ) " +
-      " posicaoEtapa = (select posicao from EtapaCliente where id = etapaClienteId) " +
-      " where etapaClienteId = 5;";
+    var sql5 = "update ValorEtapaFunilCampanha " +
+      " set valor = (  " +
+      " select count(distinct usuarioProdutoId)  " +
+      " from  " +
+      " (  " +
+      " select   " +
+      " VisitaApp.usuarioProdutoId,   " +
+      " count(distinct date(VisitaApp.dataHora)) as qtde,  " +
+      " DispositivoUsuario.campanhaAdsId as campanhaId  " +
+      " from VisitaApp  " +
+      " inner join UsuarioProduto on UsuarioProduto.id = VisitaApp.usuarioProdutoId  " +
+      " inner join DispositivoUsuario on DispositivoUsuario.usuarioProdutoId = UsuarioProduto.id  " +
+      " where VisitaApp.dataHora >= DATE_ADD(UsuarioProduto.dataHoraCriacao, INTERVAL 3 DAY)  " + // dias depois da instalação - inicio
+      " and VisitaApp.dataHora <= DATE_ADD(UsuarioProduto.dataHoraCriacao, INTERVAL 12 DAY)   " + // dias depois da instalação - final
+      " ) as tab  " +
+      " where qtde > 2  " + // quantidade de dias
+      " and ValorEtapaFunilCampanha.campanhaAdsId = campanhaId  " +
+      " ) ," +
+      " posicaoEtapa = (select posicao from EtapaCliente where id = ValorEtapaFunilCampanha.etapaClienteId ) " +
+      " where ValorEtapaFunilCampanha.etapaClienteId = 5 ";
+
+    var sql6 = "update ValorEtapaFunilCampanha " +
+      " set posicaoEtapa = (select posicao from EtapaCliente where id = ValorEtapaFunilCampanha.etapaClienteId ) " +
+      " where ValorEtapaFunilCampanha.etapaClienteId = 6 ";
+
+    var sql7 = "update ValorEtapaFunilCampanha " +
+      " set posicaoEtapa = (select posicao from EtapaCliente where id = ValorEtapaFunilCampanha.etapaClienteId ) " +
+      " where ValorEtapaFunilCampanha.etapaClienteId = 7 ";
+
+
+    var sql8 = "update ValorEtapaFunilCampanha " +
+      " set posicaoEtapa = (select posicao from EtapaCliente where id = ValorEtapaFunilCampanha.etapaClienteId ) " +
+      " where ValorEtapaFunilCampanha.etapaClienteId = 8 ";
+
+
 
     var sqlCusto = " update ValorEtapaFunilCampanha " +
       " set custo = (select orcamentoTotalExecutado / valor " +
       " from CampanhaAds  " +
       " where CampanhaAds.id = ValorEtapaFunilCampanha.campanhaAdsId )";
 
-      
+
     var ds = Valoretapafunilcampanha.dataSource;
     ds.connector.query(sql1, (err, result) => {
-      console.log("Sql1-err:" + err);
+      //console.log("Sql1-err:" + err);
       ds.connector.query(sql2, (err, result) => {
-        console.log("Sql2-err:" + err);
+        //console.log("Sql2-err:" + err);
         ds.connector.query(sql3, (err, result) => {
-          console.log("Sql3-err:" + err);
+          //console.log("Sql3-err:" + err);
           ds.connector.query(sql4, (err, result) => {
-            console.log("Sql4-err:" + err);
-            ds.connector.query(sqlCusto, (err, result) => {
-              console.log("sqlCusto-err:" + err);
-              callback(err, result);
+            //console.log("Sql4-err:" + err);
+            ds.connector.query(sql5, (err, result) => {
+              //console.log("Sql5-err:" + err);
+              ds.connector.query(sql6, (err, result) => {
+                ds.connector.query(sql7, (err, result) => {
+                  ds.connector.query(sql8, (err, result) => {
+                    ds.connector.query(sqlCusto, (err, result) => {
+                      //console.log("sqlCusto-err:" + err);
+                      callback(err, result);
+                    })
+                  })
+                })
+              })
             })
           })
         })
       })
     });
+
+
   };
 
 

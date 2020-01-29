@@ -89,7 +89,7 @@ module.exports = function (Dispositivousuario) {
    */
   Dispositivousuario.CriaComUsuario = function (dispositivo, callback) {
     // deveria ter transacao aqui.
-    console.log(new Date(), ' - Dispositivousuario.CriaComUsuario.dispositivo: ', JSON.stringify(dispositivo));
+    console.log(new Date() + " - Dispositivousuario.CriaComUsuario.dispositivo:" + JSON.stringify(dispositivo));
     var current_date = (new Date()).valueOf().toString();
     var random = Math.random().toString();
     var chaveUsuario = crypto.createHash('sha1').update(current_date + random).digest('hex');
