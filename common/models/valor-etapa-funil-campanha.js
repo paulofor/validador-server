@@ -58,6 +58,19 @@ and ValorEtapaFunilCampanha.etapaClienteId = 5
   where CampanhaAds.id = ValorEtapaFunilCampanha.campanhaAdsId )
   
   
+update ValorEtapaFunilCampanha
+set valor = (
+select count(distinct(NotificacaoApp.usuarioProdutoId))
+from NotificacaoApp
+inner join UsuarioProduto on UsuarioProduto.id = NotificacaoApp.usuarioProdutoId
+inner join DispositivoUsuario on DispositivoUsuario.usuarioProdutoId = UsuarioProduto.id
+where NotificacaoApp.dataHoraCriacao >= DATE_ADD(UsuarioProduto.dataHoraCriacao, INTERVAL 7 DAY)
+and NotificacaoApp.resultadoEnvio = 'sucesso'
+and ValorEtapaFunilCampanha.campanhaAdsId = DispositivoUsuario.campanhaAdsId
+)
+where ValorEtapaFunilCampanha.etapaClienteId = 8 
+
+
   */
 
 
@@ -124,9 +137,39 @@ and ValorEtapaFunilCampanha.etapaClienteId = 5
 
 
     var sql8 = "update ValorEtapaFunilCampanha " +
+      " set valor = ( " +
+      " select count(distinct(NotificacaoApp.usuarioProdutoId)) " +
+      " from NotificacaoApp " +
+      " inner join UsuarioProduto on UsuarioProduto.id = NotificacaoApp.usuarioProdutoId " +
+      " inner join DispositivoUsuario on DispositivoUsuario.usuarioProdutoId = UsuarioProduto.id " +
+      " where NotificacaoApp.dataHoraCriacao >= DATE_ADD(UsuarioProduto.dataHoraCriacao, INTERVAL 7 DAY) " +
+      " and NotificacaoApp.resultadoEnvio = 'sucesso' " +
+      " and ValorEtapaFunilCampanha.campanhaAdsId = DispositivoUsuario.campanhaAdsId " +
+      " ) , " +
       " set posicaoEtapa = (select posicao from EtapaCliente where id = ValorEtapaFunilCampanha.etapaClienteId ) " +
       " where ValorEtapaFunilCampanha.etapaClienteId = 8 ";
 
+
+      var sql5 = "update ValorEtapaFunilCampanha " +
+      " set valor = (  " +
+      " select count(distinct usuarioProdutoId)  " +
+      " from  " +
+      " (  " +
+      " select   " +
+      " VisitaApp.usuarioProdutoId,   " +
+      " count(distinct date(VisitaApp.dataHora)) as qtde,  " +
+      " DispositivoUsuario.campanhaAdsId as campanhaId  " +
+      " from VisitaApp  " +
+      " inner join UsuarioProduto on UsuarioProduto.id = VisitaApp.usuarioProdutoId  " +
+      " inner join DispositivoUsuario on DispositivoUsuario.usuarioProdutoId = UsuarioProduto.id  " +
+      " where VisitaApp.dataHora >= DATE_ADD(UsuarioProduto.dataHoraCriacao, INTERVAL 3 DAY)  " + // dias depois da instalação - inicio
+      " and VisitaApp.dataHora <= DATE_ADD(UsuarioProduto.dataHoraCriacao, INTERVAL 12 DAY)   " + // dias depois da instalação - final
+      " ) as tab  " +
+      " where qtde > 2  " + // quantidade de dias
+      " and ValorEtapaFunilCampanha.campanhaAdsId = campanhaId  " +
+      " ) ," +
+      " posicaoEtapa = (select posicao from EtapaCliente where id = ValorEtapaFunilCampanha.etapaClienteId ) " +
+      " where ValorEtapaFunilCampanha.etapaClienteId = 5 ";
 
 
     var sqlCusto = " update ValorEtapaFunilCampanha " +
@@ -178,13 +221,13 @@ and ValorEtapaFunilCampanha.etapaClienteId = 5
       result.forEach((item) => {
         //console.log('Item: ', JSON.stringify(item));
         let valor = { 'campanhaAdsId': idCampanha, 'etapaClienteId': item.id };
-        console.log(valor);
+        //console.log(valor);
         Valoretapafunilcampanha.create(valor, (err, result) => {
           //console.log('Erro: ', JSON.stringify(err));;
         });
       })
     })
-    var saida;
+    var saida = 'executando';
     callback(null, saida);
   };
 
