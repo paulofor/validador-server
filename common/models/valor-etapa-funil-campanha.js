@@ -90,17 +90,17 @@ where ValorEtapaFunilCampanha.etapaClienteId = 8
 
     var sql1 = "update ValorEtapaFunilCampanha " +
       " set valor = (select quantidadeImpressao from CampanhaAds where CampanhaAds.id = ValorEtapaFunilCampanha.campanhaAdsId), " +
-      " posicaoEtapa = (select posicao from EtapaCliente where id = etapaClienteId) " +
+      " posicaoEtapa = (select posicao from EtapaCliente where id = 1) " +
       " where etapaClienteId = 1;"
 
     var sql2 = "update ValorEtapaFunilCampanha " +
       " set valor = (select quantidadeClique from CampanhaAds where CampanhaAds.id = ValorEtapaFunilCampanha.campanhaAdsId), " +
-      " posicaoEtapa = (select posicao from EtapaCliente where id = etapaClienteId) " +
+      " posicaoEtapa = (select posicao from EtapaCliente where id = 2) " +
       " where etapaClienteId = 2; "
 
     var sql3 = "update ValorEtapaFunilCampanha " +
       " set valor = (select conversao from CampanhaAds where CampanhaAds.id = ValorEtapaFunilCampanha.campanhaAdsId), " +
-      " posicaoEtapa = (select posicao from EtapaCliente where id = etapaClienteId) " +
+      " posicaoEtapa = (select posicao from EtapaCliente where id = 3) " +
       " where etapaClienteId = 3; "
 
     var sql4 = "update ValorEtapaFunilCampanha " +
@@ -109,7 +109,7 @@ where ValorEtapaFunilCampanha.etapaClienteId = 8
       " inner join DispositivoUsuario on DispositivoUsuario.usuarioProdutoId = VisitaApp.usuarioProdutoId " +
       " where ValorEtapaFunilCampanha.campanhaAdsId = DispositivoUsuario.campanhaAdsId " +
       " ), " +
-      " posicaoEtapa = (select posicao from EtapaCliente where id = etapaClienteId) " +
+      " posicaoEtapa = (select posicao from EtapaCliente where id = 4) " +
       " where etapaClienteId = 4; ";
 
     var sql5 = "update ValorEtapaFunilCampanha " +
@@ -160,7 +160,7 @@ where ValorEtapaFunilCampanha.etapaClienteId = 8
       " and NotificacaoApp.resultadoEnvio = 'sucesso' " +
       " and ValorEtapaFunilCampanha.campanhaAdsId = DispositivoUsuario.campanhaAdsId " +
       " ) , " +
-      " set posicaoEtapa = (select posicao from EtapaCliente where id = ValorEtapaFunilCampanha.etapaClienteId ) " +
+      " posicaoEtapa = (select posicao from EtapaCliente where id = ValorEtapaFunilCampanha.etapaClienteId ) " +
       " where ValorEtapaFunilCampanha.etapaClienteId = 8 ";
 
 
@@ -194,20 +194,23 @@ where ValorEtapaFunilCampanha.etapaClienteId = 8
 
     var ds = Valoretapafunilcampanha.dataSource;
     ds.connector.query(sql1, (err, result) => {
-      //console.log("Sql1-err:" + err);
+      console.log("Sql1-err:" + err);
       ds.connector.query(sql2, (err, result) => {
-        //console.log("Sql2-err:" + err);
+        console.log("Sql2-err:" + err);
         ds.connector.query(sql3, (err, result) => {
-          //console.log("Sql3-err:" + err);
+          console.log("Sql3-err:" + err);
           ds.connector.query(sql4, (err, result) => {
-            //console.log("Sql4-err:" + err);
+            console.log("Sql4-err:" + err);
             ds.connector.query(sql5, (err, result) => {
-              //console.log("Sql5-err:" + err);
+              console.log("Sql5-err:" + err);
               ds.connector.query(sql6, (err, result) => {
+                console.log("Sql6-err:" + err);
                 ds.connector.query(sql7, (err, result) => {
+                  console.log("Sql7-err:" + err);
                   ds.connector.query(sql8, (err, result) => {
+                    console.log("Sql8-err:" + err);
                     ds.connector.query(sqlCusto, (err, result) => {
-                      //console.log("sqlCusto-err:" + err);
+                      console.log("sqlCusto-err:" + err);
                       callback(err, result);
                     })
                   })

@@ -43,6 +43,11 @@
       "type": "belongsTo",
       "model": "FunilNegocio",
       "foreignKey": ""
+    },
+    "etapaCliente": {
+      "type": "belongsTo",
+      "model": "EtapaCliente",
+      "foreignKey": ""
     }
   },
   "acls": [],
