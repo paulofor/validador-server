@@ -51,11 +51,17 @@ and ValorEtapaFunilCampanha.campanhaAdsId = campanhaId
 and ValorEtapaFunilCampanha.etapaClienteId = 5
 )
   
-  
-  update ValorEtapaFunilCampanha
-  set custo = (select orcamentoTotalExecutado / valor
-  from CampanhaAds
-  where CampanhaAds.id = ValorEtapaFunilCampanha.campanhaAdsId )
+update ValorEtapaFunilCampanha
+set valor = ( 
+select count(distinct VisitaApp.usuarioProdutoId) 
+from VisitaApp 
+inner join UsuarioProduto on UsuarioProduto.id = VisitaApp.usuarioProdutoId
+inner join DispositivoUsuario on DispositivoUsuario.usuarioProdutoId = UsuarioProduto.id  
+where VisitaApp.telaAppId = 74 
+and ValorEtapaFunilCampanha.campanhaAdsId = DispositivoUsuario.campanhaAdsId 
+) , 
+posicaoEtapa = (select posicao from EtapaCliente where id = ValorEtapaFunilCampanha.etapaClienteId ) 
+where ValorEtapaFunilCampanha.etapaClienteId = 6; 
   
   
 update ValorEtapaFunilCampanha
@@ -128,7 +134,15 @@ where ValorEtapaFunilCampanha.etapaClienteId = 8
       " where ValorEtapaFunilCampanha.etapaClienteId = 5 ";
 
     var sql6 = "update ValorEtapaFunilCampanha " +
-      " set posicaoEtapa = (select posicao from EtapaCliente where id = ValorEtapaFunilCampanha.etapaClienteId ) " +
+      " set valor = ( " + 
+      " select count(distinct VisitaApp.usuarioProdutoId) " +
+      " from VisitaApp " +
+      " inner join UsuarioProduto on UsuarioProduto.id = VisitaApp.usuarioProdutoId " +
+      " inner join DispositivoUsuario on DispositivoUsuario.usuarioProdutoId = UsuarioProduto.id  " +
+      " where VisitaApp.telaAppId = 74 " +
+      " and ValorEtapaFunilCampanha.campanhaAdsId = DispositivoUsuario.campanhaAdsId " +
+      " ) , " +
+      " posicaoEtapa = (select posicao from EtapaCliente where id = ValorEtapaFunilCampanha.etapaClienteId ) " +
       " where ValorEtapaFunilCampanha.etapaClienteId = 6 ";
 
     var sql7 = "update ValorEtapaFunilCampanha " +
