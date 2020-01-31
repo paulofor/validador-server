@@ -5,6 +5,20 @@ var stats = require("stats-lite");
 
 module.exports = function (Campanhaads) {
 
+
+
+    /**
+     * 
+     * @param {number} idCampanha 
+     * @param {Function(Error, object)} callback
+     */
+    Campanhaads.CriaValorEtapaFunil = function (idCampanha, callback) {
+        app.models.ValorEtapaFunilCampanha(idCampanha,callback);
+    };
+
+
+
+
     /**America/Sao_Paulo
      * 
      * @param {Function(Error, object)} callback
@@ -226,16 +240,16 @@ module.exports = function (Campanhaads) {
                 callback(err1, null);
                 return;
             }
-            Campanhaads.findById(idCampanha, (err2,campanha) => {
+            Campanhaads.findById(idCampanha, (err2, campanha) => {
                 if (err2) {
-                    callback(err2,null);
+                    callback(err2, null);
                     return;
                 }
                 if (campanha.anuncioAplicativoId && campanha.anuncioAplicativoId != 0) {
-                    let resultado = {'campanhaAdsId' : campanha.id , 'anuncioAplicativoId' : campanha.anuncioAplicativoId };
-                    app.models.AnuncioAplicacaoResultado.create(resultado, (err3,result) => {
+                    let resultado = { 'campanhaAdsId': campanha.id, 'anuncioAplicativoId': campanha.anuncioAplicativoId };
+                    app.models.AnuncioAplicacaoResultado.create(resultado, (err3, result) => {
                         if (err3) {
-                            callback(err3,null);
+                            callback(err3, null);
                             return;
                         }
                         Campanhaads.PermiteEditar(idCampanha, 0, callback);

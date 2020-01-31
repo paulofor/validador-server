@@ -57,6 +57,11 @@
       "type": "belongsTo",
       "model": "IdeiaMelhoria",
       "foreignKey": ""
+    },
+    "recursoProduto": {
+      "type": "belongsTo",
+      "model": "RecursoProduto",
+      "foreignKey": ""
     }
   },
   "acls": [],

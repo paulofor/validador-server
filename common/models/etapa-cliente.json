@@ -38,6 +38,11 @@
       "type": "hasMany",
       "model": "ValorEtapaFunilCampanha",
       "foreignKey": ""
+    },
+    "funilNegocio": {
+      "type": "belongsTo",
+      "model": "FunilNegocio",
+      "foreignKey": ""
     }
   },
   "acls": [],

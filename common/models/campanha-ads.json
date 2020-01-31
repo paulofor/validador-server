@@ -529,6 +529,31 @@
           "verb": "post"
         }
       ]
+    },
+    "CriaValorEtapaFunil": {
+      "accepts": [
+        {
+          "arg": "idCampanha",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/criaValorEtapaFunil",
+          "verb": "post"
+        }
+      ]
     }
   }
 }

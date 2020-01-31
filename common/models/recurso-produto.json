@@ -9,10 +9,28 @@
     "nome": {
       "type": "string",
       "required": true
+    },
+    "descricao": {
+      "type": "string"
+    },
+    "dataImplantacao": {
+      "type": "date"
+    },
+    "tempoConsumido": {
+      "type": "date"
+    },
+    "desenvolvimento": {
+      "type": "number"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "etapaCliente": {
+      "type": "belongsTo",
+      "model": "EtapaCliente",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
