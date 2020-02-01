@@ -77,6 +77,19 @@ and ValorEtapaFunilCampanha.campanhaAdsId = DispositivoUsuario.campanhaAdsId
 where ValorEtapaFunilCampanha.etapaClienteId = 8 
 
 
+update ValorEtapaFunilCampanha 
+set taxa = ( select tx from 
+(
+select (100 * (v1.valor / v2.valor)) as tx, v1.campanhaAdsId as campanhaId, v1.etapaClienteId as etapaId
+from ValorEtapaFunilCampanha as v1, ValorEtapaFunilCampanha as v2, EtapaCliente
+where 
+v2.etapaClienteId = EtapaCliente.etapaClienteId
+and v2.campanhaAdsId = v1.campanhaAdsId
+and EtapaCliente.id = v1.etapaClienteId 
+) as tab
+where ValorEtapaFunilCampanha.campanhaAdsId = campanhaId
+and ValorEtapaFunilCampanha.etapaClienteId = etapaId)
+
   */
 
 
@@ -191,27 +204,43 @@ where ValorEtapaFunilCampanha.etapaClienteId = 8
       " from CampanhaAds  " +
       " where CampanhaAds.id = ValorEtapaFunilCampanha.campanhaAdsId )";
 
+    var sqlTaxa = " update ValorEtapaFunilCampanha " +
+      " set taxa = ( select tx from " +
+      " ( " +
+      " select (100 * (v1.valor / v2.valor)) as tx, v1.campanhaAdsId as campanhaId, v1.etapaClienteId as etapaId " +
+      " from ValorEtapaFunilCampanha as v1, ValorEtapaFunilCampanha as v2, EtapaCliente " +
+      " where " +
+      " v2.etapaClienteId = EtapaCliente.etapaClienteId " +
+      " and v2.campanhaAdsId = v1.campanhaAdsId " +
+      " and EtapaCliente.id = v1.etapaClienteId " +
+      " ) as tab " +
+      " where ValorEtapaFunilCampanha.campanhaAdsId = campanhaId " +
+      " and ValorEtapaFunilCampanha.etapaClienteId = etapaId)";
+
+
 
     var ds = Valoretapafunilcampanha.dataSource;
     ds.connector.query(sql1, (err, result) => {
-      console.log("Sql1-err:" + err);
+      //console.log("Sql1-err:" + err);
       ds.connector.query(sql2, (err, result) => {
-        console.log("Sql2-err:" + err);
+        //console.log("Sql2-err:" + err);
         ds.connector.query(sql3, (err, result) => {
-          console.log("Sql3-err:" + err);
+          //console.log("Sql3-err:" + err);
           ds.connector.query(sql4, (err, result) => {
-            console.log("Sql4-err:" + err);
+            //console.log("Sql4-err:" + err);
             ds.connector.query(sql5, (err, result) => {
-              console.log("Sql5-err:" + err);
+              //console.log("Sql5-err:" + err);
               ds.connector.query(sql6, (err, result) => {
-                console.log("Sql6-err:" + err);
+                //console.log("Sql6-err:" + err);
                 ds.connector.query(sql7, (err, result) => {
-                  console.log("Sql7-err:" + err);
+                  //console.log("Sql7-err:" + err);
                   ds.connector.query(sql8, (err, result) => {
-                    console.log("Sql8-err:" + err);
+                    //console.log("Sql8-err:" + err);
                     ds.connector.query(sqlCusto, (err, result) => {
-                      console.log("sqlCusto-err:" + err);
-                      callback(err, result);
+                      //console.log("sqlCusto-err:" + err);
+                      ds.connector.query(sqlTaxa, (err, result) => {
+                        callback(err, result);
+                      })
                     })
                   })
                 })
