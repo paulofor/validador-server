@@ -91,17 +91,17 @@ where ValorEtapaFunilCampanha.etapaClienteId = 8
     var sql1 = "update ValorEtapaFunilCampanha " +
       " set valor = (select quantidadeImpressao from CampanhaAds where CampanhaAds.id = ValorEtapaFunilCampanha.campanhaAdsId), " +
       " posicaoEtapa = (select posicao from EtapaCliente where id = 1) " +
-      " where etapaClienteId = 1;"
+      " where ValorEtapaFunilCampanha.etapaClienteId = 1;"
 
     var sql2 = "update ValorEtapaFunilCampanha " +
       " set valor = (select quantidadeClique from CampanhaAds where CampanhaAds.id = ValorEtapaFunilCampanha.campanhaAdsId), " +
       " posicaoEtapa = (select posicao from EtapaCliente where id = 2) " +
-      " where etapaClienteId = 2; "
+      " where ValorEtapaFunilCampanha.etapaClienteId = 2; "
 
     var sql3 = "update ValorEtapaFunilCampanha " +
       " set valor = (select conversao from CampanhaAds where CampanhaAds.id = ValorEtapaFunilCampanha.campanhaAdsId), " +
       " posicaoEtapa = (select posicao from EtapaCliente where id = 3) " +
-      " where etapaClienteId = 3; "
+      " where ValorEtapaFunilCampanha.etapaClienteId = 3; "
 
     var sql4 = "update ValorEtapaFunilCampanha " +
       " set valor = ( " +
@@ -110,7 +110,7 @@ where ValorEtapaFunilCampanha.etapaClienteId = 8
       " where ValorEtapaFunilCampanha.campanhaAdsId = DispositivoUsuario.campanhaAdsId " +
       " ), " +
       " posicaoEtapa = (select posicao from EtapaCliente where id = 4) " +
-      " where etapaClienteId = 4; ";
+      " where ValorEtapaFunilCampanha.etapaClienteId = 4; ";
 
     var sql5 = "update ValorEtapaFunilCampanha " +
       " set valor = (  " +
