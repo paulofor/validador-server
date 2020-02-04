@@ -60,17 +60,19 @@ module.exports = function (Usuarioproduto) {
         var dias = 20;
         Usuarioproduto.findOne({ 'where': { 'chave': chave } }, (err, usuario) => {
             if (!usuario) {
+                console.log(new Date() + "Usuario nao encontrado - chave: " + chave);
                 callback('Usuario não encontrado - chave: ' + chave,null,null);
                 return;
             }
-            //console.log('Usuario:' + JSON.stringify(usuario));
+            console.log(new Date() + " - Usuario:" + JSON.stringify(usuario));
             let dataCorrente = new Date();
             //console.log('Data Corrente: ', dataCorrente);
             var diferenca1 = dataCorrente.getTime() - usuario.dataHoraCriacao.getTime();
             //console.log('Diferenca1: ', diferenca1);
             var Difference_In_Days = diferenca1 / (1000 * 3600 * 24);
-            //console.log('Dias(1)', Difference_In_Days);
+            console.log(new Date() + " - Difference_In_Days:" + Difference_In_Days);
             dias = 20 - Math.floor(Difference_In_Days);
+            console.log(new Date() + " - Dias:" + dias);
             if (usuario.codigoPagSeguro) {
                 app.models.PagSeguro.VerificaPagamento(usuario.codigoPagSeguro, (err,result) => {
                     console.log('Result:' , JSON.stringify(result));

@@ -406,7 +406,7 @@ module.exports = function (Campanhaads) {
         var listaCampanha;
         var prazo = new Date();
         //prazo.setDate(prazo + 60); // 60 dias
-        prazo.setTime(prazo.getTime() - 45 * 86400000);
+        prazo.setTime(prazo.getTime() - 5 * 86400000); // 5 dias depois de terminado.
         //console.log('Prazo:', prazo);
         Campanhaads.find({
             "where": { and: [{ "dataFinal": { "gt": prazo } }, { "dataInicial": { "lt": new Date() } }] },

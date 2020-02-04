@@ -13,12 +13,15 @@ module.exports = function (Semana) {
      */
 
     Semana.ObtemPorData = function (data, callback) {
-        //console.log('Data:' , new Date.UTC());
+        var dia = (data.getDate()>10?data.getDate():"0" + data.getDate());
+        var mes = ((data.getMonth()+1)>10?data.getMonth()+1:"0" + (data.getMonth()+1));
+        var dataPesquisa = data.getFullYear() + "-" + mes + "-" + dia;
+        //console.log('DataPesquisa:' , dataPesquisa);
         var filtro = {
             "where": {
                 "and": [
-                    { "primeiroDia": { "lte": data } },
-                    { "ultimoDia": { "gte": data } }
+                    { "primeiroDia": { "lte": dataPesquisa } },
+                    { "ultimoDia": { "gte": dataPesquisa } }
                 ]
             }
         };

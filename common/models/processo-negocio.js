@@ -31,9 +31,13 @@ module.exports = function (Processonegocio) {
     Processonegocio.ObtemPlanoDia = function (idContexto, callback) {
         //console.log('Contexto' + idContexto);
         var listaProcesso, diaSemana, semana, listaTempoExecucao;
-        var dataReferencia = new Date();
-        //console.log('Data: ', dataReferencia);
-        app.models.DiaSemana.findOne({ 'where': { 'posicaoDia': dataReferencia.getDay() - 1 } }, (err, result1) => {
+        var dataReferencia = new Date(new Date().toLocaleDateString() + " 00:00:00");
+        var posicao = dataReferencia.getDay() - 1;
+        //console.log('Posicao:', posicao);
+        if (posicao==-1) posicao = 6;
+        //console.log('Posicao: ' , posicao);
+        //console.log('dataReferencia: ', dataReferencia , 'dataReferencia.getDay():' , dataReferencia.getDay());
+        app.models.DiaSemana.findOne({ 'where': { 'posicaoDia': posicao } }, (err, result1) => {
             //console.log('Dia:', result1);
             diaSemana = result1;
             app.models.Semana.ObtemPorData(dataReferencia, (err, result2) => {
@@ -55,7 +59,7 @@ module.exports = function (Processonegocio) {
                 app.models.PlanoExecucao.find(filtroPlano, (err, result3) => {
                     listaProcesso = result3;
                     var filtroTempo = {
-                        "include": ["processoNegocio", "projetoMySql"],
+                        "include": ["processoNegocio", "projetoMySql" , "recursoProduto"],
                         "where": {
                             "and":
                                 [
