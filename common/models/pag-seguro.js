@@ -15,18 +15,18 @@ module.exports = function (Pagseguro) {
      */
 
     Pagseguro.Display = function (callback) {
-        //console.log('token:' , token);
-        //console.log('host:' , host);
+        console.log('token:', token);
+        console.log('host:', host);
         var resultado = {};
         callback(null, resultado);
     };
 
 
 
-    var token = 'CB4CBC8D23374F219598172EF26BEC37'; 
-    var host = 'ws.sandbox.pagseguro.uol.com.br'; 
-    //var token = 'A';
-    //var host = 'ws.pagseguro.uol.com.br';
+    //var token = 'CB4CBC8D23374F219598172EF26BEC37'; 
+    //var host = 'ws.sandbox.pagseguro.uol.com.br'; 
+    var token = 'AF';
+    var host = 'ws.pagseguro.uol.com.br';
 
     /**
      * 
@@ -56,7 +56,20 @@ module.exports = function (Pagseguro) {
     };
 
 
+    /**
+    * 
+    * @param {Function(Error, string)} callback
+    */
+    Pagseguro.ObtemSessao = function (callback) {
+        var urlSession = 'https://' + host + '/v2/sessions?email=paulofore@gmail.com&token=' + token;
+        request.post(urlSession, {}, (err, response, body) => {
+            xml2js.parseString(body, (err, result) => {
+                this.idSessao = JSON.stringify(result.session.id).replace(/[^a-zA-Z0-9_-]/g, '');
+                callback(err, this.idSessao);
+            });
+        })
 
+    };
 
 
 
@@ -362,30 +375,7 @@ module.exports = function (Pagseguro) {
 
 
 
-    /**
-     * 
-     * @param {Function(Error, string)} callback
-     */
 
-    Pagseguro.ObtemSessao = function (callback) {
-
-        var proxyUrl = "http://tr626987:Jenlop01@10.21.7.10:82";
-        var proxiedRequest = request.defaults({ 'proxy': proxyUrl });
-
-        console.log('Proxy', JSON.stringify(proxiedRequest));
-        request.post(urlSession, {}, (err, response, body) => {
-            console.log('Body:' + body);
-            console.log('Erro:' + err);
-            console.log('Response: ' + JSON.stringify(response));
-            console.log('Status: ' + response.statusCode);
-            xml2js.parseString(body, (err, result) => {
-                this.idSessao = JSON.stringify(result.session.id).replace(/[^a-zA-Z0-9_-]/g, '');
-                //console.log('id=' + this.idSessao);
-                callback(err, this.idSessao);
-            });
-        })
-
-    };
 
     /**
      *
