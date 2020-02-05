@@ -13,7 +13,7 @@ module.exports = function (Campanhaads) {
      * @param {Function(Error, object)} callback
      */
     Campanhaads.CriaValorEtapaFunil = function (idCampanha, callback) {
-        app.models.ValorEtapaFunilCampanha(idCampanha,callback);
+        app.models.ValorEtapaFunilCampanha.CriaEtapa(idCampanha,callback);
     };
 
 

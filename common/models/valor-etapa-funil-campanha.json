@@ -33,6 +33,11 @@
       "type": "belongsTo",
       "model": "EtapaCliente",
       "foreignKey": ""
+    },
+    "campanhaAds": {
+      "type": "belongsTo",
+      "model": "CampanhaAds",
+      "foreignKey": ""
     }
   },
   "acls": [],
@@ -51,6 +56,31 @@
       "http": [
         {
           "path": "/atualizaValor",
+          "verb": "post"
+        }
+      ]
+    },
+    "CriaEtapa": {
+      "accepts": [
+        {
+          "arg": "idCampanha",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "retorno",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/criaEtapa",
           "verb": "post"
         }
       ]
