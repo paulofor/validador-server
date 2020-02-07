@@ -498,5 +498,9 @@
   "ValorEtapaFunilCampanha": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "VersaoRecurso": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

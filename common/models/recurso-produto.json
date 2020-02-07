@@ -29,6 +29,11 @@
       "type": "belongsTo",
       "model": "EtapaCliente",
       "foreignKey": ""
+    },
+    "versaoRecursos": {
+      "type": "hasMany",
+      "model": "VersaoRecurso",
+      "foreignKey": ""
     }
   },
   "acls": [],

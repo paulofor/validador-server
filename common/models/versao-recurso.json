@@ -1,0 +1,38 @@
+{
+  "name": "VersaoRecurso",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "tempoConsumido": {
+      "type": "date"
+    },
+    "tempoPlanejado": {
+      "type": "date"
+    },
+    "dataImplantacao": {
+      "type": "date"
+    },
+    "mediaIndicadorAntes": {
+      "type": "number"
+    },
+    "mediaIndicadorDepois": {
+      "type": "number"
+    },
+    "emExecucao" : {
+      "type" : "number"
+    },
+    "nome" : {
+      "type" : "string"
+    },
+    "descricao" : {
+      "type" : "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
