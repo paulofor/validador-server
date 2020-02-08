@@ -12,6 +12,9 @@
     "tempoPlanejado": {
       "type": "date"
     },
+    "tempoPlanejadoStr": {
+      "type": "string"
+    },
     "dataImplantacao": {
       "type": "date"
     },
