@@ -7,10 +7,10 @@
   },
   "properties": {
     "tempoConsumido": {
-      "type": "date"
+      "type": "string"
     },
     "tempoPlanejado": {
-      "type": "date"
+      "type": "string"
     },
     "tempoPlanejadoStr": {
       "type": "string"
