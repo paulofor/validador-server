@@ -24,18 +24,46 @@
     "mediaIndicadorDepois": {
       "type": "number"
     },
-    "emExecucao" : {
-      "type" : "number"
+    "emExecucao": {
+      "type": "number"
     },
-    "nome" : {
-      "type" : "string"
+    "nome": {
+      "type": "string"
     },
-    "descricao" : {
-      "type" : "string"
+    "descricao": {
+      "type": "string"
+    },
+    "tempoPlanejadoSemana": {
+      "type": "string"
+    },
+    "tempoRestantePlano": {
+      "type": "string"
+    },
+    "dataPrevista": {
+      "type": "date"
     }
   },
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {
+    "CalculaDataFinalizacao": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/calculaDataFinalizacao",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }
