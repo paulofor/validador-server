@@ -29,14 +29,15 @@ module.exports = function (Tempoexecucao) {
                     " (select  SEC_TO_TIME( SUM( TIME_TO_SEC( tempo ) ) ) from TempoExecucao " +
                     " where recursoProdutoId = " + execucao.recursoProdutoId + " ) " +
                     " where id = " + execucao.recursoProdutoId;
-                var sql2 = "update VersaoRecurso set tempoConsumido = " +
-                    " (select  SEC_TO_TIME( SUM( TIME_TO_SEC( tempo ) ) ) from TempoExecucao " +
-                    " where recursoProdutoId = " + execucao.recursoProdutoId + " ) " +
-                    " where recursoProdutoId = " + execucao.recursoProdutoId + " and " +
-                    " and versaoRecursoId = " + execucao.versaoRecursoId;
                 ds.connector.query(sql1, (err,result) => {
                     
                 });
+            }
+            if (execucao.versaoRecursoId) {
+                var sql2 = "update VersaoRecurso set tempoConsumido = " +
+                    " (select  SEC_TO_TIME( SUM( TIME_TO_SEC( tempo ) ) ) from TempoExecucao " +
+                    " where versaoRecursoId = " + execucao.versaoRecursoId + " ) " +
+                    " where id = " + execucao.versaoRecursoId;
                 ds.connector.query(sql2, (err,result) => {
                     
                 });

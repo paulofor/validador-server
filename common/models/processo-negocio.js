@@ -59,7 +59,7 @@ module.exports = function (Processonegocio) {
                 app.models.PlanoExecucao.find(filtroPlano, (err, result3) => {
                     listaProcesso = result3;
                     var filtroTempo = {
-                        "include": ["processoNegocio", "projetoMySql" , 
+                        "include": ["processoNegocio", "projetoMySql" , "versaoRecurso" ,
                             { "relation" : "recursoProduto" , "scope" : 
                                 { "include" : {"relation" : "versaoRecursos" , "scope" : {"where" : {"emExecucao":"1"} } }  }
                             }
