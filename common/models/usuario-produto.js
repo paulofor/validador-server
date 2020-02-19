@@ -5,6 +5,19 @@ var app = require('../../server/server');
 module.exports = function (Usuarioproduto) {
 
 
+
+
+    /**
+    *
+    * @param {object} usuario
+    * @param {Function(Error, object)} callback
+    */
+    Usuarioproduto.PrimeiroAcesso = function(usuario, callback) {
+        var saida;
+        // TODO
+        callback(null, saida);
+    };
+
     /**
      *
      * @param {string} chaveUsuario

@@ -129,6 +129,31 @@
           "verb": "post"
         }
       ]
+    },
+    "PrimeiroAcesso": {
+      "accepts": [
+        {
+          "arg": "usuario",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/primeiroAcesso",
+          "verb": "post"
+        }
+      ]
     }
   }
 }
