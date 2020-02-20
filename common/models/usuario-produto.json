@@ -26,6 +26,9 @@
     },
     "dataPagSeguro": {
       "type": "date"
+    },
+    "email" : {
+      "type" : "string"
     }
   },
   "validations": [],
@@ -142,7 +145,7 @@
       "returns": [
         {
           "arg": "saida",
-          "type": "object",
+          "type": "string",
           "root": true,
           "description": ""
         }

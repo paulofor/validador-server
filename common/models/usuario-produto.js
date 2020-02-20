@@ -12,10 +12,22 @@ module.exports = function (Usuarioproduto) {
     * @param {object} usuario
     * @param {Function(Error, object)} callback
     */
-    Usuarioproduto.PrimeiroAcesso = function(usuario, callback) {
-        var saida;
-        // TODO
-        callback(null, saida);
+    Usuarioproduto.PrimeiroAcesso = function (usuario, callback) {
+
+        var sql = "update UsuarioProduto " +
+            " set email = '" + usuario.email + "' , " +
+            " senha = '" + usuario.senha + "' " +
+            " where chave = '" + usuario.chave + "' ";
+
+        var ds = Usuarioproduto.dataSource;
+        ds.connector.query(sql, (err1, result1) => {
+            if (err1) {
+                callback(err1, null);
+                return;
+            }
+            callback(null, 'alteracao');
+        });
+
     };
 
     /**
@@ -74,7 +86,7 @@ module.exports = function (Usuarioproduto) {
         Usuarioproduto.findOne({ 'where': { 'chave': chave } }, (err, usuario) => {
             if (!usuario) {
                 console.log(new Date() + "Usuario nao encontrado - chave: " + chave);
-                callback('Usuario não encontrado - chave: ' + chave,null,null);
+                callback('Usuario não encontrado - chave: ' + chave, null, null);
                 return;
             }
             console.log(new Date() + " - Usuario:" + JSON.stringify(usuario));
@@ -87,9 +99,9 @@ module.exports = function (Usuarioproduto) {
             dias = 20 - Math.floor(Difference_In_Days);
             console.log(new Date() + " - Dias:" + dias);
             if (usuario.codigoPagSeguro) {
-                app.models.PagSeguro.VerificaPagamento(usuario.codigoPagSeguro, (err,result) => {
-                    console.log('Result:' , JSON.stringify(result));
-                    callback(null,dias,result.status);
+                app.models.PagSeguro.VerificaPagamento(usuario.codigoPagSeguro, (err, result) => {
+                    console.log('Result:', JSON.stringify(result));
+                    callback(null, dias, result.status);
                 })
             } else {
                 callback(null, dias, null);
