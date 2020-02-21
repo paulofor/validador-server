@@ -27,8 +27,8 @@
     "dataPagSeguro": {
       "type": "date"
     },
-    "email" : {
-      "type" : "string"
+    "email": {
+      "type": "string"
     }
   },
   "validations": [],
@@ -155,6 +155,37 @@
         {
           "path": "/primeiroAcesso",
           "verb": "post"
+        }
+      ]
+    },
+    "ValidaLogin": {
+      "accepts": [
+        {
+          "arg": "login",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "senha",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "situacao",
+          "type": "boolean",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/validaLogin",
+          "verb": "get"
         }
       ]
     }

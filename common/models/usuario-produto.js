@@ -4,7 +4,25 @@ var app = require('../../server/server');
 
 module.exports = function (Usuarioproduto) {
 
-
+    /**
+     *
+     * @param {string} login
+     * @param {string} senha
+     * @param {Function(Error, boolean)} callback
+     */
+    Usuarioproduto.ValidaLogin = function (login, senha, callback) {
+        let filtro = { 'where' :  {'email' : login , 'senha' : senha } };
+        //console.log('Filtro:' , filtro);
+        Usuarioproduto.findOne(filtro, (err,result) => {
+            //console.log('Result:' , result);
+            if (result) {
+                callback(null, true)
+            } else {
+                callback(null, false);
+            }
+        })
+ 
+    };
 
 
     /**
