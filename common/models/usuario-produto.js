@@ -12,17 +12,8 @@ module.exports = function (Usuarioproduto) {
      */
     Usuarioproduto.ValidaLogin = function (login, senha, callback) {
         let filtro = { 'where' :  {'email' : login , 'senha' : senha } };
-        //console.log('Filtro:' , filtro);
-        Usuarioproduto.findOne(filtro, (err,result) => {
-            //console.log('Result:' , result);
-            if (result) {
-                callback(null, true)
-            } else {
-                callback(null, false);
-            }
-        })
- 
-    };
+        Usuarioproduto.findOne(filtro, callback);
+    }
 
 
     /**

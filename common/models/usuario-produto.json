@@ -175,8 +175,8 @@
       ],
       "returns": [
         {
-          "arg": "situacao",
-          "type": "boolean",
+          "arg": "usuario",
+          "type": "object",
           "root": true,
           "description": ""
         }
