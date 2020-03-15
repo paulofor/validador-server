@@ -58,6 +58,49 @@
   },
   "acls": [],
   "methods": {
+    "ObtemPlanoDia": {
+      "accepts": [
+        {
+          "arg": "idContexto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaProcesso",
+          "type": "array",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "diaSemana",
+          "type": "object",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "semana",
+          "type": "object",
+          "root": false,
+          "description": ""
+        },
+        {
+          "arg": "listaTempoExecucao",
+          "type": "array",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "Obtem todas as informações para o dia",
+      "http": [
+        {
+          "path": "/obtemPlanoDia",
+          "verb": "get"
+        }
+      ]
+    },
     "ObtemComPlanoPorSemana": {
       "accepts": [
         {
