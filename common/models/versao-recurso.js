@@ -18,7 +18,7 @@ module.exports = function (Versaorecurso) {
         //console.log('Posicao:', posicao);
         if (posicao==-1) posicao = 6;
         //console.log('Posicao: ' , posicao);
-        console.log('dataReferencia: ', dataReferencia , 'dataReferencia.getDay():' , dataReferencia.getDay());
+        //console.log('dataReferencia: ', dataReferencia , 'dataReferencia.getDay():' , dataReferencia.getDay());
         app.models.DiaSemana.findOne({ 'where': { 'posicaoDia': posicao } }, (err, result1) => {
             //console.log('Dia:', result1);
             diaSemana = result1;
