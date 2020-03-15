@@ -71,24 +71,6 @@
         }
       ]
     },
-    "AtualizaListaComPlano": {
-      "accepts": [
-        {
-          "arg": "listaProcesso",
-          "type": "object",
-          "required": true,
-          "description": ""
-        }
-      ],
-      "returns": [],
-      "description": "Atualiza uma lista com os dados de plano para semana",
-      "http": [
-        {
-          "path": "/autalizaListaComPlano",
-          "verb": "post"
-        }
-      ]
-    },
     "ObtemPlanoDia": {
       "accepts": [
         {

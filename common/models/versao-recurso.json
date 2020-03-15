@@ -44,9 +44,69 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "planoExecucaos": {
+      "type": "hasMany",
+      "model": "PlanoExecucao",
+      "foreignKey": ""
+    },
+    "recursoProduto": {
+      "type": "belongsTo",
+      "model": "RecursoProduto",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {
+    "ObtemComPlanoPorSemana": {
+      "accepts": [
+        {
+          "arg": "idSemana",
+          "type": "number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "idContexto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaProcesso",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem lista de versao-recurso com filtro de contexto e semana",
+      "http": [
+        {
+          "path": "/obtemComPlanoPorSemana",
+          "verb": "get"
+        }
+      ]
+    },
+    "AtualizaListaComPlano": {
+      "accepts": [
+        {
+          "arg": "listaVersaoRecurso",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Atualiza uma lista com os dados de plano para semana",
+      "http": [
+        {
+          "path": "/autalizaListaComPlano",
+          "verb": "post"
+        }
+      ]
+    },
     "CalculaDataFinalizacao": {
       "accepts": [],
       "returns": [

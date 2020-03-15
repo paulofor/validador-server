@@ -1,6 +1,11 @@
 'use strict';
 
+var app = require('../../server/server');
+
 module.exports = function (Versaorecurso) {
+
+
+
 
 
     /*
@@ -15,6 +20,48 @@ module.exports = function (Versaorecurso) {
     */
 
 
+    Versaorecurso.ObtemComPlanoPorSemana = function (idSemana, idContexto, callback) {
+        var listaProcesso;
+        var filtro = {
+            "where": { "emExecucao": "1" },
+            "include": 
+            [
+                {
+                "relation": "planoExecucaos",
+                "scope": { "where": { "and": [{ "semanaId": idSemana }, { "contextoId": idContexto }] } },
+                },
+                "recursoProduto"
+            ] 
+        };
+        Versaorecurso.find(filtro, callback);
+    };
+
+
+    Versaorecurso.AtualizaListaComPlano = function (listaVersaoRecurso, callback) {
+
+        var listaProcesso2 = listaVersaoRecurso.lista;
+        listaProcesso2.forEach((item) => {
+            //console.log('Lista de plano: ', item.planoExecucaos.length);
+            /*
+            app.models.PlanoExecucao.bulkUpdate(item.listaProcesso, null, (err, result) => {
+                console.log('Erro:', err);
+                console.log("Resultado: ", JSON.stringify(result));
+            })
+            */
+            //console.log('Item: ', item);
+            item.planoExecucaos.forEach((plano) => {
+                //console.log('Plano: ', JSON.stringify(plano));
+                app.models.PlanoExecucao.upsert(plano, (err, result) => {
+                    //console.log('Erro:', err);
+                    //console.log("Resultado: ", JSON.stringify(result));
+                })
+            })
+
+
+        });
+        //console.log('Finalizado');
+        callback(null);
+    };
 
     /**
     * 
