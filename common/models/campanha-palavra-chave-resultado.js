@@ -50,6 +50,7 @@ module.exports = function (Campanhapalavrachaveresultado) {
         var sqlDelete = "delete from CampanhaPalavraChaveResultado where campanhaAdsId = " + idCampanha;
         var ds = Campanhapalavrachaveresultado.dataSource;
         app.models.CampanhaAds.findById(idCampanha, (err, result) => {
+            console.log('Pegou campanha: ' , result);
             if (err) {
                 callback(err, 0);
                 return;
@@ -60,17 +61,19 @@ module.exports = function (Campanhapalavrachaveresultado) {
                 return;
             }
             ds.connector.query(sqlDelete, (err, result) => {
+                console.log('Apagou anteriores')
                 if (err) {
                     callback(err, 0);
                     return;
                 };
                 app.models.PalavraChaveGoogle.ListaDisponivelParaCampanha(campanha.id, (err, result) => {
+                    console.log('Lista palavras: ' , JSON.stringify(result));
                     if (err) {
                         callback(err, 0);
                         return;
                     }
                     for (var item of result) {
-                        //console.log('item:', item.palavra);
+                        console.log('item:', item.palavra);
                         var campanhaPalavraChave = {
                             "palavraChaveGoogleId": item.palavra,
                             "campanhaAdsId": campanha.id

@@ -13,7 +13,8 @@ module.exports = function (Palavragoogleprojeto) {
      */
 
     Palavragoogleprojeto.CriaPalavra = function (palavraProjeto, callback) {
-        app.models.PalavraChaveGoogle.findById(palavraProjeto.palavraChaveGoogleId, (err,result) => {
+        //console.log('palavraProjeto.palavraChaveGoogleId,' , palavraProjeto.palavraChaveGoogleId);
+        app.models.PalavraChaveGoogle.findById('startup', (err,result) => {
             //console.log('Err1' , JSON.stringify(err));
             //console.log('Res1' , JSON.stringify(result));
             if (!result) {
@@ -22,6 +23,8 @@ module.exports = function (Palavragoogleprojeto) {
                     //console.log('Res2' , JSON.stringify(result));
                     Palavragoogleprojeto.create(palavraProjeto, callback);
                 })
+            } else {
+                Palavragoogleprojeto.create(palavraProjeto, callback);
             }
         })
     };
@@ -37,7 +40,12 @@ module.exports = function (Palavragoogleprojeto) {
     Palavragoogleprojeto.ObtemPorCampanha = function (idCampanha, callback) {
         app.models.ProjetoMySql.ObtemPorIdCampanha(idCampanha, (err, result) => {
             if (result) {
-                var filtro = { "where": { "projetoMySqlId": result.id }, "include": { "relation": "palavraChaveGoogle", "scope": { "include": { "relation": "campanhaPalavraChaveResultados", "scope": { "where": { "campanhaAdsId": idCampanha } } } } } };
+                var filtro = { 
+                    "where": { "projetoMySqlId": result.id }, 
+                    "include": { "relation": "palavraChaveGoogle", 
+                    "scope": { 
+                        "include": { "relation": "campanhaPalavraChaveResultados", 
+                        "scope": { "where": { "campanhaAdsId": idCampanha } } } } } };
                 Palavragoogleprojeto.find(filtro, callback);
             }
         })
