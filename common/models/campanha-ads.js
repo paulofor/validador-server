@@ -530,7 +530,7 @@ module.exports = function (Campanhaads) {
             var campanha = {
                 "paginaValidacaoWebId": idPagina,
                 "finalizadaProducao": false,
-                "urlAlvo": "http://validacao.kinghost.net/oferta/?id=" + pagina.codigoHash
+                "urlAlvo": "https://www.digicom.inf.br:21101/?id=" + pagina.codigoHash
             };
             Campanhaads.create(campanha, (err, result) => {
                 var campanhaGrava = result;
@@ -620,8 +620,8 @@ module.exports = function (Campanhaads) {
                     return;
                 }
                 var paginaValidacaoWeb = result;
-                campanha.urlAlvo = 'http://validacao.kinghost.net/oferta/?id=' + paginaValidacaoWeb.codigoHash;
-                campanha.urlAlvoMobile = 'http://validacao.kinghost.net/oferta/?id=' + paginaValidacaoWeb.codigoHash;
+                campanha.urlAlvo = 'https://www.digicom.inf.br:21101/?id=' + paginaValidacaoWeb.codigoHash;
+                campanha.urlAlvoMobile = 'https://www.digicom.inf.br:21101/?id=' + paginaValidacaoWeb.codigoHash;
                 campanha.permiteEdicao = 1;
                 app.models.ProjetoMySql.findById(paginaValidacaoWeb.projetoMySqlId, (err, result) => {
                     if (err) {
@@ -643,8 +643,8 @@ module.exports = function (Campanhaads) {
                         return;
                     }
                     var paginaInstalacaoApp = result;
-                    campanha.urlAlvo = 'http://validacao.kinghost.net/oferta/?inst=' + paginaInstalacaoApp.codigoHash;
-                    campanha.urlAlvoMobile = 'http://validacao.kinghost.net/oferta/?inst=' + paginaInstalacaoApp.codigoHash;
+                    campanha.urlAlvo = 'https://www.digicom.inf.br:21101/?inst=' + paginaInstalacaoApp.codigoHash;
+                    campanha.urlAlvoMobile = 'https://www.digicom.inf.br:21101/?inst=' + paginaInstalacaoApp.codigoHash;
                     campanha.permiteEdicao = 1;
                     app.models.ProjetoMySql.findById(paginaInstalacaoApp.projetoMySqlId, (err, result) => {
                         if (err) {
