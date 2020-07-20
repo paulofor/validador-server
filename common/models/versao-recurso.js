@@ -11,8 +11,8 @@ module.exports = function (Versaorecurso) {
         //console.log('Contexto' + idContexto);
         var listaProcesso, diaSemana, semana, listaTempoExecucao;
         var dataReferencia = new Date(new Date().toLocaleDateString() + " 00:00:00");
-        //var dataHoje = new Date();
-        //dataHoje = new Date(dataHoje.getTime() + 86400000);
+        var dataHoje = new Date();
+        dataHoje = new Date(dataHoje.getTime() + 86400000);
         var dataReferencia = new Date(dataHoje.toLocaleDateString() + " 00:00:00");
         var posicao = dataReferencia.getDay() - 1;
         //console.log('Posicao:', posicao);
