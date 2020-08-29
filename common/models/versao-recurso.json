@@ -58,6 +58,37 @@
   },
   "acls": [],
   "methods": {
+    "ObtemComPlanoPorSemana": {
+      "accepts": [
+        {
+          "arg": "idSemana",
+          "type": "number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "idContexto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaProcesso",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem lista de versao-recurso com filtro de contexto e semana",
+      "http": [
+        {
+          "path": "/obtemComPlanoPorSemana",
+          "verb": "get"
+        }
+      ]
+    },
     "ObtemPlanoDia": {
       "accepts": [
         {
@@ -97,37 +128,6 @@
       "http": [
         {
           "path": "/obtemPlanoDia",
-          "verb": "get"
-        }
-      ]
-    },
-    "ObtemComPlanoPorSemana": {
-      "accepts": [
-        {
-          "arg": "idSemana",
-          "type": "number",
-          "required": false,
-          "description": ""
-        },
-        {
-          "arg": "idContexto",
-          "type": "number",
-          "required": true,
-          "description": ""
-        }
-      ],
-      "returns": [
-        {
-          "arg": "listaProcesso",
-          "type": "array",
-          "root": true,
-          "description": ""
-        }
-      ],
-      "description": "Obtem lista de versao-recurso com filtro de contexto e semana",
-      "http": [
-        {
-          "path": "/obtemComPlanoPorSemana",
           "verb": "get"
         }
       ]

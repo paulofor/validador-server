@@ -19,6 +19,12 @@ module.exports = function (Visitaapp) {
             }
             if (!result1) {
                 callback('usuario não encontrado - chave: ' + chaveUsuario, null);
+                app.models.ErroLogicoLog.upsert(
+                        { 
+                        'descricao' : 'usuario não encontrado - chave: ' + chaveUsuario, 
+                        'dataHora' : new Date() ,
+                        'local' : 'Visitaapp.RegistraVisitaTelaApp'
+                        });
                 return;
             }
             resultado.usuarioProdutoId = result1.id;
@@ -31,6 +37,13 @@ module.exports = function (Visitaapp) {
                         return;
                     }
                     if (!result2) {
+                        app.models.ErroLogicoLog.upsert(
+                            { 
+                            'descricao' : 'pagina não encontrada - chave: ' + chavePagina, 
+                            'dataHora' : new Date() ,
+                            'local' : 'Visitaapp.RegistraVisitaTelaApp'
+                            });
+    
                         callback('pagina não encontrada - chave: ' + chavePagina, null);
                         return;
                     }

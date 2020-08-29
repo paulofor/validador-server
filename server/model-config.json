@@ -502,5 +502,9 @@
   "VersaoRecurso": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "ErroLogicoLog": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

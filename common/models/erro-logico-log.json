@@ -1,0 +1,26 @@
+{
+  "name": "ErroLogicoLog",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "descricao": {
+      "type": "string"
+    },
+    "recomendacao": {
+      "type": "string"
+    },
+    "local" : {
+      "type" : "string"
+    },
+    "dataHora": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
