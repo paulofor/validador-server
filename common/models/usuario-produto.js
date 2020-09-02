@@ -4,6 +4,22 @@ var app = require('../../server/server');
 
 module.exports = function (Usuarioproduto) {
 
+
+    /**
+     * Lista para envio de email estimulano acesso ao app
+     * @param {number} idProjeto 
+     * @param {Function(Error, array)} callback
+     */
+
+    Usuarioproduto.listaEmail = function (idProjeto, callback) {
+        var listaEmail = [{'email' : 'paulofore@gmail.com', 'nome' : 'Paulo' , 'chave' : '123456'}];
+
+        callback(null, listaEmail);
+    };
+
+
+
+
     /**
      *
      * @param {string} login
@@ -11,7 +27,7 @@ module.exports = function (Usuarioproduto) {
      * @param {Function(Error, boolean)} callback
      */
     Usuarioproduto.ValidaLogin = function (login, senha, callback) {
-        let filtro = { 'where' :  {'email' : login , 'senha' : senha } };
+        let filtro = { 'where': { 'email': login, 'senha': senha } };
         Usuarioproduto.findOne(filtro, callback);
     }
 

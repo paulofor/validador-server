@@ -506,5 +506,9 @@
   "ErroLogicoLog": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "VisitaAppLog": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

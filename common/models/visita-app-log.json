@@ -1,18 +1,21 @@
 {
-  "name": "ErroLogicoLog",
+  "name": "VisitaAppLog",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "descricao": {
+    "tipo": {
       "type": "string"
     },
-    "recomendacao": {
+    "chaveUsuario": {
       "type": "string"
     },
-    "local": {
+    "versaoApp": {
+      "type": "string"
+    },
+    "chavePagina": {
       "type": "string"
     },
     "dataHora": {

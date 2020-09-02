@@ -11,6 +11,17 @@ module.exports = function (Visitaapp) {
      * @param {Function(Error, object)} callback
      */
     Visitaapp.RegistraVisitaTelaApp = function (chaveUsuario, chavePagina, idVersaoApp, callback) {
+        console.log('chaveUsuario:' , chaveUsuario , ' idVersaoApp:' , idVersaoApp, ' chavePagina:' , chavePagina);
+        app.models.VisitaAppLog.upsert(
+            {
+                'dataHora' : new Date(),
+                'chaveUsuario' : chaveUsuario,
+                'versaoApp' : idVersaoApp,
+                'chavePagina' : chavePagina,
+                'tipo' : 'Tela'
+            }
+        )
+
         var resultado = new Object();
         app.models.UsuarioProduto.findOne({ 'where': { 'chave': chaveUsuario } }, (err1, result1) => {
             if (err1) {
@@ -66,6 +77,15 @@ module.exports = function (Visitaapp) {
      * @param {Function(Error, object)} callback
      */
     Visitaapp.RegistraVisitaVersaoApp = function (chaveUsuario, chaveVersaoApp, callback) {
+        console.log('chaveUsuario:' , chaveUsuario , ' chaveVersaoApp:' , chaveVersaoApp);
+        app.models.VisitaAppLog.upsert(
+            {
+                'dataHora' : new Date(),
+                'chaveUsuario' : chaveUsuario,
+                'versaoApp' : chaveVersaoApp,
+                'tipo' : 'Versao'
+            }
+        )
         var resultado = new Object();
         app.models.UsuarioProduto.findOne({ 'where': { 'chave': chaveUsuario } }, (err1, result1) => {
             if (err1) {

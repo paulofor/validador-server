@@ -188,6 +188,31 @@
           "verb": "get"
         }
       ]
+    },
+    "listaEmail": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaEmail",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Lista para envio de email estimulano acesso ao app",
+      "http": [
+        {
+          "path": "/listaEmail",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
