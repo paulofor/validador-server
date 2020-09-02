@@ -315,7 +315,7 @@ where ValorEtapaFunilCampanha.etapaClienteId = 10;
   */
   Valoretapafunilcampanha.CriaEtapa = function (idCampanha, callback) {
     const filter={"where":{"or":[{"id":1},{"id":2},{"id":3},{"id":4},{"id":5},{"id":6},{"id":7},{"id":8},{"id":9},{"id":10}]}}
-    app.models.EtapaCliente.find((err, result) => {
+    app.models.EtapaCliente.find(filter,(err, result) => {
       //console.log('Result: ' , console.log(result));
       result.forEach((item) => {
         //console.log('Item: ', JSON.stringify(item));
