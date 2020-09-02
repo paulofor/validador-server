@@ -630,6 +630,7 @@ module.exports = function (Campanhaads) {
                     }
                     var projeto = result;
                     campanha.nome = projeto.codigo + '_' + campanha.nome;
+                    campanha.projetoMySqlId = projeto.id;
                     Campanhaads.create(campanha, callback);
                 })
             })
@@ -653,6 +654,7 @@ module.exports = function (Campanhaads) {
                         }
                         var projeto = result;
                         campanha.nome = projeto.codigo + '_' + campanha.nome;
+                        campanha.projetoMySqlId = projeto.id;
                         Campanhaads.create(campanha, callback);
                     })
                 })
@@ -676,6 +678,7 @@ module.exports = function (Campanhaads) {
                         }
                         var projeto = result;
                         campanha.nome = projeto.codigo + '_APP_' + campanha.nome;
+                        campanha.projetoMySqlId = projeto.id;
                         Campanhaads.create(campanha, callback);
                     })
                 })
