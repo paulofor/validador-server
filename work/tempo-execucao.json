@@ -1,0 +1,111 @@
+{
+  "name": "TempoExecucao",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "dataReferencia": {
+      "type": "date",
+      "required": true
+    },
+    "horaInicio": {
+      "type": "date",
+      "required": true
+    },
+    "horaTermino": {
+      "type": "date"
+    },
+    "tempo": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "projetoMySql": {
+      "type": "belongsTo",
+      "model": "ProjetoMySql",
+      "foreignKey": ""
+    },
+    "planoExecucao": {
+      "type": "belongsTo",
+      "model": "PlanoExecucao",
+      "foreignKey": ""
+    },
+    "diaSemana": {
+      "type": "belongsTo",
+      "model": "DiaSemana",
+      "foreignKey": ""
+    },
+    "semana": {
+      "type": "belongsTo",
+      "model": "Semana",
+      "foreignKey": ""
+    },
+    "contexto": {
+      "type": "belongsTo",
+      "model": "Contexto",
+      "foreignKey": ""
+    },
+    "processoNegocio": {
+      "type": "belongsTo",
+      "model": "ProcessoNegocio",
+      "foreignKey": ""
+    },
+    "ideiaMelhoria": {
+      "type": "belongsTo",
+      "model": "IdeiaMelhoria",
+      "foreignKey": ""
+    },
+    "recursoProduto": {
+      "type": "belongsTo",
+      "model": "RecursoProduto",
+      "foreignKey": ""
+    },
+    "versaoRecurso": {
+      "type": "belongsTo",
+      "model": "VersaoRecurso",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {
+    "Insere": {
+      "accepts": [
+        {
+          "arg": "execucao",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Insere novo com os cálculos necessários",
+      "http": [
+        {
+          "path": "/insere",
+          "verb": "post"
+        }
+      ]
+    },
+    "Altera": {
+      "accepts": [
+        {
+          "arg": "execucao",
+          "type": "object",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "Alteracao com calculos",
+      "http": [
+        {
+          "path": "/altera",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}

@@ -510,5 +510,9 @@
   "VisitaAppLog": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "MonitorFaseInicialApp": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

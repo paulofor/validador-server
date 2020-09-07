@@ -51,8 +51,7 @@ module.exports = function (Processonegocio) {
                                 { "semanaId": semana.id },
                                 { "diaSemanaId": diaSemana.id },
                                 { "tempoEstimado": { "neq": 0 } },
-                                { "contextoId": idContexto },
-                                { "processoNegocioId" : { "neq" : null}}
+                                { "contextoId": idContexto }
                             ]
                         }
                 }
@@ -70,8 +69,7 @@ module.exports = function (Processonegocio) {
                                 [
                                     { "semanaId": semana.id },
                                     { "diaSemanaId": diaSemana.id },
-                                    { "contextoId": idContexto },
-                                    { "processoNegocioId" : { "neq" : null}}
+                                    { "contextoId": idContexto }
                                 ]
                         },
                         "order": "horaInicio DESC"

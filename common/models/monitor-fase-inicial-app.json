@@ -1,0 +1,61 @@
+{
+  "name": "MonitorFaseInicialApp",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "descricao": {
+      "type": "string"
+    },
+    "dataHora": {
+      "type": "date"
+    },
+    "objeto": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "Insere": {
+      "accepts": [
+        {
+          "arg": "IdAplicacao",
+          "type": "number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "descricao",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "objeto",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/insere",
+          "verb": "put"
+        }
+      ]
+    }
+  }
+}
