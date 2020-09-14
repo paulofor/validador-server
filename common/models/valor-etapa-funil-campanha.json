@@ -59,6 +59,24 @@
           "verb": "post"
         }
       ]
+    },
+    "AtualizaValorFunil": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaValorFunil",
+          "verb": "post"
+        }
+      ]
     }
   }
 }

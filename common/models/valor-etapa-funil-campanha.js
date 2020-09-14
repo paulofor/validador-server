@@ -119,14 +119,18 @@ where ValorEtapaFunilCampanha.etapaClienteId = 10;
 
   */
 
-
+  Valoretapafunilcampanha.AtualizaValor = function(callback) {
+    app.models.CampanhaAds.AtualizaInstalacao((err,result) => {
+      Valoretapafunilcampanha.AtualizaValorFunil(callback);
+    });
+  };
 
 
   /**
   *
   * @param {Function(Error, object)} callback
   */
-  Valoretapafunilcampanha.AtualizaValor = function (callback) {
+  Valoretapafunilcampanha.AtualizaValorFunil = function (callback) {
 
     var sql1 = "update ValorEtapaFunilCampanha " +
       " set valor = (select quantidadeImpressao from CampanhaAds where CampanhaAds.id = ValorEtapaFunilCampanha.campanhaAdsId), " +
@@ -302,8 +306,6 @@ where ValorEtapaFunilCampanha.etapaClienteId = 10;
         })
       })
     });
-
-
   };
 
 

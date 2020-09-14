@@ -29,6 +29,9 @@
     },
     "email": {
       "type": "string"
+    },
+    "naoEnviaEmail": {
+      "type": "number"
     }
   },
   "validations": [],
@@ -211,6 +214,31 @@
         {
           "path": "/listaEmail",
           "verb": "get"
+        }
+      ]
+    },
+    "DesligaEnvioEmail": {
+      "accepts": [
+        {
+          "arg": "chave",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/desligaEnvioEmail",
+          "verb": "post"
         }
       ]
     }

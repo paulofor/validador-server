@@ -5,6 +5,16 @@ var app = require('../../server/server');
 module.exports = function (Usuarioproduto) {
 
 
+
+    Usuarioproduto.DesligaEnvioEmail = function(chave, callback) {
+        let sql = "update UsuarioProduto set naoEnviaEmail = 1 " +
+            " where chave = '" + chave + "'";
+        let ds = Usuarioproduto.dataSource;
+        ds.connector.query(sql,callback);
+    };
+      
+
+
     /**
      * Lista para envio de email estimulano acesso ao app
      * @param {number} idProjeto 
@@ -12,9 +22,15 @@ module.exports = function (Usuarioproduto) {
      */
 
     Usuarioproduto.listaEmail = function (idProjeto, callback) {
-        var listaEmail = [{'email' : 'paulofore@gmail.com', 'nome' : 'Paulo' , 'chave' : '123456'}];
-
-        callback(null, listaEmail);
+        //var listaEmail = [{'email' : 'paulofore@gmail.com', 'chave' : '1234567'}];
+        //callback(null,listaEmail);
+        
+        let sql = 'select chave, email from UsuarioProduto ' +
+                ' where projetoMySqlId = ' + idProjeto + ' and email is not null and naoEnviaEmail = 0 ' +
+                ' and dataUltimoAcesso >= DATE_SUB(now(), INTERVAL 10 DAY);';
+        let ds = Usuarioproduto.dataSource;
+        ds.connector.query(sql, callback);
+        
     };
 
 

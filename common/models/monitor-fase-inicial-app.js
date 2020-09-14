@@ -13,7 +13,7 @@ module.exports = function(Monitorfaseinicialapp) {
 
 Monitorfaseinicialapp.Insere = function(IdAplicacao, descricao, objeto, callback) {
     const obj = { 'descricao' : descricao, 'dataHora' : new Date() , 'objeto' : objeto };
-    this.upsert(obj,callback);
+    this.create(obj,callback);
   };
   
 };
