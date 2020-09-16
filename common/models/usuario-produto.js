@@ -25,9 +25,21 @@ module.exports = function (Usuarioproduto) {
         //var listaEmail = [{'email' : 'paulofore@gmail.com', 'chave' : '1234567'}];
         //callback(null,listaEmail);
         
-        let sql = 'select chave, email from UsuarioProduto ' +
-                ' where projetoMySqlId = ' + idProjeto + ' and email is not null and naoEnviaEmail = 0 ' +
-                ' and dataUltimoAcesso >= DATE_SUB(now(), INTERVAL 10 DAY);';
+        //let sql = 'select chave, email from UsuarioProduto ' +
+        //        ' where projetoMySqlId = ' + idProjeto + ' and email is not null and naoEnviaEmail = 0 ' +
+        //        ' and dataUltimoAcesso >= DATE_SUB(now(), INTERVAL 10 DAY);';
+
+
+        //let sql = " select id, chave, email from UsuarioProduto " +
+        //    " where projetoMySqlId = " + idProjeto + " and email is not null and naoEnviaEmail = 0 " + 
+        //    " and dataUltimoAcesso >= DATE_SUB(now(), INTERVAL 10 DAY) " +
+        //    " and id in (select usuarioProdutoId from NotificacaoApp where projetoMySqlId = " + idProjeto + " and resultadoEnvio = 'sucesso') ";
+        
+        let sql = " select usuarioProdutoId, email, chave from NotificacaoApp " +
+                " inner join UsuarioProduto on UsuarioProduto.id = NotificacaoApp.usuarioProdutoId " +
+                " where DATE_FORMAT(NotificacaoApp.dataHoraCriacao, '%Y%m%d') = DATE_FORMAT(now(), '%Y%m%d') " +
+                " and resultadoEnvio = 'sucesso' and email is not null and UsuarioProduto.projetoMySqlId = " + idProjeto;
+        
         let ds = Usuarioproduto.dataSource;
         ds.connector.query(sql, callback);
         
