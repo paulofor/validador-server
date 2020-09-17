@@ -37,8 +37,7 @@ module.exports = function (Usuarioproduto) {
         
         let sql = " select usuarioProdutoId, email, chave from NotificacaoApp " +
                 " inner join UsuarioProduto on UsuarioProduto.id = NotificacaoApp.usuarioProdutoId " +
-                " where DATE_FORMAT(NotificacaoApp.dataHoraCriacao, '%Y%m%d') = DATE_FORMAT(now(), '%Y%m%d') " +
-                " and resultadoEnvio = 'sucesso' and email is not null and UsuarioProduto.projetoMySqlId = " + idProjeto;
+                " where resultadoEnvio = 'sucesso' and email is not null and UsuarioProduto.projetoMySqlId = " + idProjeto;
         
         let ds = Usuarioproduto.dataSource;
         ds.connector.query(sql, callback);
