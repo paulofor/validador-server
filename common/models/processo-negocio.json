@@ -64,6 +64,38 @@
           "verb": "get"
         }
       ]
+    },
+    "ObtemComPlanoPorSemana": {
+      "accepts": [
+        {
+          "arg": "idSemana",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "arg": "idContexto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+
+      ],
+      "returns": [
+        {
+          "arg": "listaProcesso",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem os processos de negocio ativos e com a etapa quando associado",
+      "http": [
+        {
+          "path": "/obtemComPlanoPorSemana",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

@@ -7,7 +7,13 @@
   },
   "properties": {},
   "validations": [],
-  "relations": {},
+  "relations": {
+    "etapaProjeto": {
+      "type": "belongsTo",
+      "model": "EtapaProjeto",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {
     "AtualizaPorProcesso": {
