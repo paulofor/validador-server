@@ -13,8 +13,10 @@ module.exports = function (Semana) {
      */
 
     Semana.ObtemPorData = function (data, callback) {
-        var dia = (data.getDate()>10?data.getDate():"0" + data.getDate());
-        var mes = ((data.getMonth()+1)>10?data.getMonth()+1:"0" + (data.getMonth()+1));
+        //console.log('dataChegando:', data);
+        var dia = (data.getDate()>=10?data.getDate():"0" + data.getDate());
+        //console.log('data.getMonth(): ' , data.getMonth());
+        var mes = ((data.getMonth()+1)>=10?data.getMonth()+1:"0" + (data.getMonth()+1));
         var dataPesquisa = data.getFullYear() + "-" + mes + "-" + dia;
         //console.log('DataPesquisa:' , dataPesquisa);
         var filtro = {
