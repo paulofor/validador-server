@@ -246,6 +246,7 @@ module.exports = function (Campanhaads) {
                     return;
                 }
                 if (campanha.anuncioAplicativoId && campanha.anuncioAplicativoId != 0) {
+                    // campnha de aplicativo
                     let resultado = { 'campanhaAdsId': campanha.id, 'anuncioAplicativoId': campanha.anuncioAplicativoId };
                     app.models.AnuncioAplicacaoResultado.create(resultado, (err3, result) => {
                         if (err3) {

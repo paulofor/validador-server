@@ -812,6 +812,31 @@
           "verb": "get"
         }
       ]
+    },
+    "ConsolidadoCampanha": {
+      "accepts": [
+        {
+          "arg": "idProjeto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "projeto",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/consolidadoCampanha",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

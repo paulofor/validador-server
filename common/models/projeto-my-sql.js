@@ -5,6 +5,24 @@ var app = require('../../server/server');
 module.exports = function (Projetomysql) {
 
 
+
+    /**
+    * 
+    * @param {number} idProjeto 
+    * @param {Function(Error, object)} callback
+    */
+    Projetomysql.ConsolidadoCampanha = function(idProjeto, callback) {
+        let sql = "select ProjetoMySql.*, " +
+            " (select max(dataInicial) from CampanhaAds where projetoMySqlId = " + idProjeto + ") as ultima, " +
+            " (select min(dataInicial) from CampanhaAds where projetoMySqlId = " + idProjeto + ") as primeira, " +
+            " (select count(*) from CampanhaAds where projetoMySqlId = " + idProjeto + ") as quantidade " +
+            " from ProjetoMySql " +
+            " where ProjetoMySql.id = " + idProjeto;
+        let ds = Projetomysql.dataSource;
+        ds.connector.query(sql,callback);
+    }; 
+
+
     /**
      *
      * @param {number} idProjeto
