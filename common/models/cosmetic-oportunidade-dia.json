@@ -73,6 +73,24 @@
           "verb": "get"
         }
       ]
+    },
+    "ListaAppComputador": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "lista",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "chamada pelos aplicativos",
+      "http": [
+        {
+          "path": "/listaAppComputador",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
