@@ -19,7 +19,9 @@ module.exports = function (Projetomysql) {
             " from ProjetoMySql " +
             " where ProjetoMySql.id = " + idProjeto;
         let ds = Projetomysql.dataSource;
-        ds.connector.query(sql,callback);
+        ds.connector.query(sql, (err,result) => {
+            callback(err,result[0])
+        });
     }; 
 
 
@@ -85,6 +87,7 @@ module.exports = function (Projetomysql) {
             " where ProcessoNegocioEtapaProjeto.processoNegocioId = " + idProcesso;
         var ds = Projetomysql.dataSource;
         ds.connector.query(sql, callback);
+        
     };
 
 
