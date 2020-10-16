@@ -42,6 +42,15 @@
     },
     "quantidadePalavraChave": {
       "type": "number"
+    },
+    "primeiraCampanha" : {
+      "type" : "date"
+    },
+    "ultimaCampanha" : {
+      "type"  : "date"
+    },
+    "periodoCampanha" : {
+      "type" : "number"
     }
   },
   "validations": [],

@@ -5,6 +5,17 @@ var app = require('../../server/server');
 module.exports = function (Projetomysql) {
 
 
+    /*
+     select ProjetoMySql.*, 
+     (select max(dataInicial) from CampanhaAds where projetoMySqlId = 32) as ultima, 
+     (select min(dataInicial) from CampanhaAds where projetoMySqlId = 32) as primeira, 
+     (select count(*) from CampanhaAds where projetoMySqlId = 32) as quantidade 
+     from ProjetoMySql 
+     where ProjetoMySql.id = 32
+    */
+
+
+
 
     /**
     * 
@@ -20,7 +31,21 @@ module.exports = function (Projetomysql) {
             " where ProjetoMySql.id = " + idProjeto;
         let ds = Projetomysql.dataSource;
         ds.connector.query(sql, (err,result) => {
-            callback(err,result[0])
+            if (!err) {
+                let item = result[0];
+                let sqlVersao = "select VersaoApp.* " +
+                            " from VersaoApp " +
+                            " where VersaoApp.projetoMySqlId = " + idProjeto;
+                ds.connector.query(sqlVersao, (err2,result2) => {
+                    if (!err2) {
+                        
+                    }
+                })
+
+            } else {
+                callback(err,null);
+            }
+            
         });
     }; 
 
@@ -127,15 +152,17 @@ module.exports = function (Projetomysql) {
         var sqlQuantidade = "update ProjetoMySql set ProjetoMySql.quantidadeCampanha = " +
             " ( " +
             " select count(*) from CampanhaAds " +
-            " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
-            " where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id  " +
+            //" inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            //" where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id  " +
+            " where CampanhaAds.projetoMySqlId = ProjetoMySql.id " +
             " and CampanhaAds.dataResultado is not null " +
             " ) ";
         var sqlCustoTotal = "update ProjetoMySql set ProjetoMySql.custoCampanha = " +
             " ( " +
             " select sum(CampanhaAds.orcamentoTotalExecutado)  from CampanhaAds " +
-            " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
-            " where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id " +
+            //" inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            //" where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id  " +
+            " where CampanhaAds.projetoMySqlId = ProjetoMySql.id " +
             " and CampanhaAds.dataResultado is not null " +
             " ) ";
         var sqlQuantidadeAnuncio = "update ProjetoMySql set ProjetoMySql.quantidadeAnuncio = " +
@@ -155,8 +182,9 @@ module.exports = function (Projetomysql) {
         var sqlQuantidadeAberta = "update ProjetoMySql set ProjetoMySql.quantidadeCampanhaAberta = " +
             " ( " +
             " select count(*) from CampanhaAds " +
-            " inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
-            " where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id  " +
+            //" inner join PaginaValidacaoWeb on PaginaValidacaoWeb.id = CampanhaAds.paginaValidacaoWebId " +
+            //" where PaginaValidacaoWeb.projetoMySqlId = ProjetoMySql.id  " +
+            " where CampanhaAds.projetoMySqlId = ProjetoMySql.id " +
             " and CampanhaAds.dataResultado is null " +
             " ) ";
         var sqlTempoTotal = "update ProjetoMySql set ProjetoMySql.tempoTotal = " +
@@ -164,6 +192,12 @@ module.exports = function (Projetomysql) {
             " select  SEC_TO_TIME( SUM( TIME_TO_SEC( tempo ) ) ) from TempoExecucao " +
             " where projetoMySqlId = ProjetoMySql.id " +
             " ) ";
+        var sqlIniFimCampanha = " update ProjetoMySql " +
+            " set primeiraCampanha = (select min(dataInicial) from CampanhaAds where projetoMySqlId = ProjetoMySql.id), " +
+            " ultimaCampanha = (select max(dataInicial) from CampanhaAds where projetoMySqlId = ProjetoMySql.id) ";
+        var sqlPeriodoCampanha = " update ProjetoMySql " +
+            " set periodoCampanha = (select datediff(ultimaCampanha, primeiraCampanha) / 30) ";
+        
         var ds = Projetomysql.dataSource;
 
         ds.connector.query(sqlQuantidade, (err, result) => {
@@ -206,6 +240,20 @@ module.exports = function (Projetomysql) {
                 callback(err, null);
                 return;
             };
+            //console.log('Result2' , result);
+        });
+        ds.connector.query(sqlIniFimCampanha, (err, result) => {
+            if (err) {
+                callback(err, null);
+                return;
+            } else {
+                ds.connector.query(sqlPeriodoCampanha, (err2,result2) => {
+                    if (err2) {
+                        callback(err2,null);
+                        return;
+                    }
+                })
+            }
             //console.log('Result2' , result);
         });
         callback(null, {});
@@ -307,6 +355,13 @@ module.exports = function (Projetomysql) {
             //console.log('Result2' , result);
         });
         ds.connector.query(sqlQuantidadePalavra, (err, result) => {
+            if (err) {
+                callback(err, null);
+                return;
+            };
+            //console.log('Result2' , result);
+        });
+        ds.connector.query(sqlTempo, (err, result) => {
             if (err) {
                 callback(err, null);
                 return;
