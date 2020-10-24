@@ -514,5 +514,9 @@
   "MonitorFaseInicialApp": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "ValorEtapaFunilVersaoApp": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

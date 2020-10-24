@@ -1,0 +1,96 @@
+{
+  "name": "ValorEtapaFunilVersaoApp",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "versaoAppId": {
+      "type": "number",
+      "id": true
+    },
+    "etapaClienteId": {
+      "type": "number",
+      "id": true
+    },
+    "valor": {
+      "type": "number"
+    },
+    "taxa": {
+      "type": "number"
+    },
+    "custo": {
+      "type": "number"
+    },
+    "posicaoEtapa": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "CriaEtapa": {
+      "accepts": [
+        {
+          "arg" : "idVersao",
+          "type" : "number",
+          "description" : ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/criaEtapa",
+          "verb": "post"
+        }
+      ]
+    },
+    "AtualizaValor": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaValor",
+          "verb": "post"
+        }
+      ]
+    },
+    "AtualizaValorFunil": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaValorFunil",
+          "verb": "post"
+        }
+      ]
+    }
+
+  }
+}

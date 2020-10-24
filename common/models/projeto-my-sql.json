@@ -43,14 +43,14 @@
     "quantidadePalavraChave": {
       "type": "number"
     },
-    "primeiraCampanha" : {
-      "type" : "date"
+    "primeiraCampanha": {
+      "type": "date"
     },
-    "ultimaCampanha" : {
-      "type"  : "date"
+    "ultimaCampanha": {
+      "type": "date"
     },
-    "periodoCampanha" : {
-      "type" : "number"
+    "periodoCampanha": {
+      "type": "number"
     }
   },
   "validations": [],

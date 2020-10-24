@@ -71,6 +71,11 @@
       "type": "belongsTo",
       "model": "TelaApp",
       "foreignKey": ""
+    },
+    "valorEtapaFunilVersaoApps": {
+      "type": "hasMany",
+      "model": "ValorEtapaFunilVersaoApp",
+      "foreignKey": ""
     }
   },
   "acls": [],

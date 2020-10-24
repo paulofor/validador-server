@@ -23,6 +23,17 @@ module.exports = function (Projetomysql) {
     * @param {Function(Error, object)} callback
     */
     Projetomysql.ConsolidadoCampanha = function(idProjeto, callback) {
+        let filtro = { 
+                    'where' : {'id' : idProjeto} ,
+                    'include' : [{
+                        'relation' : 'versaoApps' ,
+                        'scope' : { 
+                            'include' :  {'relation' : 'valorEtapaFunilVersaoApps'}
+                        }
+                    }, {'relation' : 'campanhaAds'}]
+                };
+        Projetomysql.findOne(filtro,callback);
+        /*
         let sql = "select ProjetoMySql.*, " +
             " (select max(dataInicial) from CampanhaAds where projetoMySqlId = " + idProjeto + ") as ultima, " +
             " (select min(dataInicial) from CampanhaAds where projetoMySqlId = " + idProjeto + ") as primeira, " +
@@ -45,8 +56,8 @@ module.exports = function (Projetomysql) {
             } else {
                 callback(err,null);
             }
-            
         });
+        */
     }; 
 
 
