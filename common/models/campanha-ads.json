@@ -153,6 +153,11 @@
       "model": "IdeiaMelhoria",
       "foreignKey": ""
     },
+    "etapaProjeto" : {
+      "type" : "belongsTo",
+      "model" : "EtapaProjeto",
+      "foreignKey" : ""
+    },
     "grupoAnuncioAplicativos": {
       "type": "hasMany",
       "model": "GrupoAnuncioAplicativo",

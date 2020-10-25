@@ -30,7 +30,14 @@ module.exports = function (Projetomysql) {
                         'scope' : { 
                             'include' :  {'relation' : 'valorEtapaFunilVersaoApps'}
                         }
-                    }, {'relation' : 'campanhaAds'}]
+                    }, {
+                        'relation' : 'campanhaAds' ,
+                        'scope' : {
+                            'include' : {'relation' : 'versaoApp'},
+                            'order' : 'dataInicial'
+                        },
+                        
+                    }]
                 };
         Projetomysql.findOne(filtro,callback);
         /*
