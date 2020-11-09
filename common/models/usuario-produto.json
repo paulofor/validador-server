@@ -45,6 +45,11 @@
       "type": "hasMany",
       "model": "NotificacaoApp",
       "foreignKey": ""
+    },
+    "visitaApps": {
+      "type": "hasMany",
+      "model": "VisitaApp",
+      "foreignKey": ""
     }
   },
   "acls": [],

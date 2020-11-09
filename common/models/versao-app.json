@@ -76,6 +76,11 @@
       "type": "hasMany",
       "model": "ValorEtapaFunilVersaoApp",
       "foreignKey": ""
+    },
+    "versaoTelaApps": {
+      "type": "hasMany",
+      "model": "VersaoTelaApp",
+      "foreignKey": ""
     }
   },
   "acls": [],

@@ -1,0 +1,35 @@
+{
+  "name": "VersaoTelaApp",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "descricao": {
+      "type": "string"
+    },
+    "codigo": {
+      "type": "string"
+    },
+    "fonteCss": {
+      "type": "string"
+    },
+    "fonteTs": {
+      "type": "string"
+    },
+    "fonteHtml": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "telaApp": {
+      "type": "belongsTo",
+      "model": "TelaApp",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

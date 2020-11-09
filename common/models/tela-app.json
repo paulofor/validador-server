@@ -72,6 +72,11 @@
       "type": "belongsTo",
       "model": "TelaApp",
       "foreignKey": "telaAppDisplayId"
+    },
+    "versaoTelaApps": {
+      "type": "hasMany",
+      "model": "VersaoTelaApp",
+      "foreignKey": ""
     }
   },
   "acls": [],

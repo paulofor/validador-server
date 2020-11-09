@@ -518,5 +518,9 @@
   "ValorEtapaFunilVersaoApp": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "VersaoTelaApp": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
