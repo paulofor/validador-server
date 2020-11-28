@@ -5,7 +5,20 @@ const crypto = require('crypto');
 
 module.exports = function (Telaapp) {
 
-
+    /**
+    * 
+    * @param {number} idVersaoApp 
+    * @param {Function(Error, array)} callback
+    */
+    Telaapp.DisponivelParaVersaoApp = function(idVersaoApp, callback) {
+        let ds = Telaapp.dataSource;
+        let sql = "select distinct TelaApp.* from TelaApp " +
+            " inner join aplicacao on aplicacao.id_aplicacao = TelaApp.aplicacaoId " +
+            " inner join VersaoApp on VersaoApp.projetoMySqlId = aplicacao.projetoMySqlId " +
+            " where VersaoApp.id = " + idVersaoApp +
+            " and TelaApp.id not in (select telaAppId from VersaoTelaApp where versaoAppId = " + idVersaoApp + ")";
+        ds.connector.query(sql, callback);
+    };
 
     Telaapp.observe('before save', function atualizaChave(ctx, next) {
         var current_date = (new Date()).valueOf().toString();

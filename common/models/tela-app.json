@@ -186,6 +186,31 @@
           "verb": "get"
         }
       ]
+    },
+    "DisponivelParaVersaoApp": {
+      "accepts": [
+        {
+          "arg": "idVersaoApp",
+          "type": "number",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "lista",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/disponivelParaVersaoApp",
+          "verb": "get"
+        }
+      ]
     }
   }
 }

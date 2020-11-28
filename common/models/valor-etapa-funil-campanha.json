@@ -41,5 +41,29 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "AtualizaValor": {
+      "accepts": [
+  
+        ],
+      "returns": [
+
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem todas as informações para o dia",
+      "http": [
+        {
+          "path": "/atualizaValor",
+          "verb": "get"
+        }
+      ]
+    }
+
+  }
+
 }
