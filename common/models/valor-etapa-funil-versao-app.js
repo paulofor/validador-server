@@ -188,7 +188,7 @@ module.exports = function(Valoretapafunilversaoapp) {
 
 
 
-    Valoretapafunilversaoapp.AtualizaValor = function (callback) {
+    Valoretapafunilversaoapp.AtualizaValorVersaoApp = function (callback) {
         app.models.CampanhaAds.AtualizaInstalacao((err, result) => {
             Valoretapafunilversaoapp.AtualizaValorFunil(callback);
         });

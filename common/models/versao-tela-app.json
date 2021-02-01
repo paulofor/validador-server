@@ -6,6 +6,14 @@
     "validateUpsert": true
   },
   "properties": {
+    "versaoAppId": {
+      "type": "number",
+      "id": true
+    },
+    "telaAppId": {
+      "type": "number",
+      "id": true
+    },
     "descricao": {
       "type": "string"
     },
@@ -21,8 +29,8 @@
     "fonteHtml": {
       "type": "string"
     },
-    "imagem1" : {
-      "type" : "string"
+    "imagem1": {
+      "type": "string"
     }
   },
   "validations": [],
@@ -30,6 +38,11 @@
     "telaApp": {
       "type": "belongsTo",
       "model": "TelaApp",
+      "foreignKey": ""
+    },
+    "versaoTelaAppMetricas": {
+      "type": "hasMany",
+      "model": "VersaoTelaAppMetrica",
       "foreignKey": ""
     }
   },

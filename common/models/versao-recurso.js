@@ -7,7 +7,7 @@ module.exports = function (Versaorecurso) {
 
 
 
-    Versaorecurso.ObtemPlanoDia = function (idContexto, callback) {
+    Versaorecurso.ObtemPlanoDiaVersao = function (idContexto, callback) {
         //console.log('Contexto' + idContexto);
         var listaProcesso, diaSemana, semana, listaTempoExecucao;
         var dataReferencia = new Date(new Date().toLocaleDateString() + " 00:00:00");
@@ -87,7 +87,7 @@ module.exports = function (Versaorecurso) {
     */
 
 
-    Versaorecurso.ObtemComPlanoPorSemana = function (idSemana, idContexto, callback) {
+    Versaorecurso.ObtemComPlanoPorSemanaVersao = function (idSemana, idContexto, callback) {
         var listaProcesso;
         var filtro = {
             "where": { "emExecucao": "1" },

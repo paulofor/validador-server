@@ -40,7 +40,7 @@
   },
   "acls": [],
   "methods": {
-    "ObtemComPlanoPorSemana": {
+    "ObtemComPlanoPorSemanaProcesso": {
       "accepts": [
         {
           "arg": "idSemana",
@@ -66,7 +66,7 @@
       "description": "Obtem lista de processo com filtro de contexto e semana",
       "http": [
         {
-          "path": "/obtemComPlanoPorSemana",
+          "path": "/obtemComPlanoPorSemanaProcesso",
           "verb": "get"
         }
       ]

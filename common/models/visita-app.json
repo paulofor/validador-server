@@ -26,6 +26,11 @@
       "type": "belongsTo",
       "model": "VersaoApp",
       "foreignKey": ""
+    },
+    "sessaoApp": {
+      "type": "belongsTo",
+      "model": "SessaoApp",
+      "foreignKey": ""
     }
   },
   "acls": [],
@@ -94,6 +99,73 @@
       "http": [
         {
           "path": "/registraVisitaVersaoApp",
+          "verb": "post"
+        }
+      ]
+    },
+    "RegistraVisitaTelaAppSessao": {
+      "accepts": [
+        {
+          "arg": "chaveUsuario",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "chavePagina",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "chaveVersaoApp",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "chaveSessao",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": "",
+      "http": [
+        {
+          "path": "/registraVisitaTelaAppSessao",
+          "verb": "post"
+        }
+      ]
+    },
+    "RegistraVisitaVersaoAppSessao": {
+      "accepts": [
+        {
+          "arg": "chaveUsuario",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "chaveVersaoApp",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "chaveSessao",
+          "type": "string",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/registraVisitaVersaoAppSessao",
           "verb": "post"
         }
       ]

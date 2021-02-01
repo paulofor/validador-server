@@ -31,7 +31,7 @@
   "relations": {},
   "acls": [],
   "methods": {
-    "AtualizaValor": {
+    "AtualizaValorVersaoApp": {
       "accepts": [],
       "returns": [
         {
@@ -44,7 +44,7 @@
       "description": "",
       "http": [
         {
-          "path": "/atualizaValor",
+          "path": "/atualizaValorVersaoApp",
           "verb": "post"
         }
       ]

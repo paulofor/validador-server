@@ -1,0 +1,29 @@
+{
+  "name": "PeriodoMetrica",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "tipo": {
+      "type": "string"
+    },
+    "rotulo": {
+      "type": "string"
+    },
+    "dataInicio": {
+      "type": "string"
+    },
+    "dataFim": {
+      "type": "string"
+    },
+    "ano": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

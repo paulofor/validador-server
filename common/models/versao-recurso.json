@@ -58,7 +58,7 @@
   },
   "acls": [],
   "methods": {
-    "ObtemComPlanoPorSemana": {
+    "ObtemComPlanoPorSemanaVersao": {
       "accepts": [
         {
           "arg": "idSemana",
@@ -84,12 +84,12 @@
       "description": "Obtem lista de versao-recurso com filtro de contexto e semana",
       "http": [
         {
-          "path": "/obtemComPlanoPorSemana",
+          "path": "/obtemComPlanoPorSemanaVersao",
           "verb": "get"
         }
       ]
     },
-    "ObtemPlanoDia": {
+    "ObtemPlanoDiaVersao": {
       "accepts": [
         {
           "arg": "idContexto",
@@ -127,7 +127,7 @@
       "description": "Obtem todas as informações para o dia",
       "http": [
         {
-          "path": "/obtemPlanoDia",
+          "path": "/obtemPlanoDiaVersao",
           "verb": "get"
         }
       ]

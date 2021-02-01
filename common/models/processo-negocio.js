@@ -28,7 +28,7 @@ module.exports = function (Processonegocio) {
     * Obtem todas as informações para o dia
     * @param {Function(Error, array, object, object, array)} callback
     */
-    Processonegocio.ObtemPlanoDia = function (idContexto, callback) {
+    Processonegocio.ObtemPlanoDiaProcesso = function (idContexto, callback) {
         //console.log('Contexto' + idContexto);
         var listaProcesso, diaSemana, semana, listaTempoExecucao;
         var dataReferencia = new Date(new Date().toLocaleDateString() + " 00:00:00");
@@ -127,7 +127,7 @@ module.exports = function (Processonegocio) {
     * @param {Function(Error, array)} callback
     */
 
-    Processonegocio.ObtemComPlanoPorSemana = function (idSemana, idContexto, callback) {
+    Processonegocio.ObtemComPlanoPorSemanaProcesso = function (idSemana, idContexto, callback) {
         var listaProcesso;
         var filtro = {
             "where": { "ativo": "1" },

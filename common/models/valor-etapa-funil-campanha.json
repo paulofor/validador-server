@@ -42,28 +42,23 @@
   },
   "acls": [],
   "methods": {
-    "AtualizaValor": {
-      "accepts": [
-  
-        ],
+    "AtualizaValorCampanha": {
+      "accepts": [],
       "returns": [
-
         {
-          "arg": "resultado",
+          "arg": "saida",
           "type": "object",
           "root": true,
           "description": ""
         }
       ],
-      "description": "Obtem todas as informações para o dia",
+      "description": "",
       "http": [
         {
-          "path": "/atualizaValor",
-          "verb": "get"
+          "path": "/atualizaValorCampanha",
+          "verb": "post"
         }
       ]
     }
-
   }
-
 }

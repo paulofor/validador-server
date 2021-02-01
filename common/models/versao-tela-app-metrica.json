@@ -1,0 +1,41 @@
+{
+  "name": "VersaoTelaAppMetrica",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "versaoAppId": {
+      "type": "number",
+      "id": true
+    },
+    "telaAppId": {
+      "type": "number",
+      "id": true
+    },
+    "periodoMetricaId": {
+      "type": "number",
+      "id": true
+    },
+    "quantidadeTotal": {
+      "type": "number"
+    },
+    "quantidadeSessao": {
+      "type": "number"
+    },
+    "quantidadeUsuario": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "periodoMetricas": {
+      "type": "belongsTo",
+      "model": "PeriodoMetrica",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

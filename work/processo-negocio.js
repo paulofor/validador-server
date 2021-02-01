@@ -125,7 +125,7 @@ module.exports = function (Processonegocio) {
     * @param {Function(Error, array)} callback
     */
 
-    Processonegocio.ObtemComPlanoPorSemana = function (idSemana, idContexto, callback) {
+    Processonegocio.ObtemComPlanoPorSemanaProcesso = function (idSemana, idContexto, callback) {
         var listaProcesso;
         var filtro = {
             "where": { "ativo": "1" },

@@ -40,38 +40,7 @@
   },
   "acls": [],
   "methods": {
-    "ObtemComPlanoPorSemana": {
-      "accepts": [
-        {
-          "arg": "idSemana",
-          "type": "number",
-          "required": false,
-          "description": ""
-        },
-        {
-          "arg": "idContexto",
-          "type": "number",
-          "required": true,
-          "description": ""
-        }
-      ],
-      "returns": [
-        {
-          "arg": "listaProcesso",
-          "type": "array",
-          "root": true,
-          "description": ""
-        }
-      ],
-      "description": "Obtem lista de processo com filtro de contexto e semana",
-      "http": [
-        {
-          "path": "/obtemComPlanoPorSemana",
-          "verb": "get"
-        }
-      ]
-    },
-    "ObtemPlanoDia": {
+    "ObtemPlanoDiaProcesso": {
       "accepts": [
         {
           "arg": "idContexto",
@@ -109,12 +78,42 @@
       "description": "Obtem todas as informações para o dia",
       "http": [
         {
-          "path": "/obtemPlanoDia",
+          "path": "/obtemPlanoDiaProcesso",
           "verb": "get"
         }
       ]
     },
-
+    "ObtemComPlanoPorSemanaProcesso": {
+      "accepts": [
+        {
+          "arg": "idSemana",
+          "type": "number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "idContexto",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaProcesso",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem lista de processo com filtro de contexto e semana",
+      "http": [
+        {
+          "path": "/obtemComPlanoPorSemanaProcesso",
+          "verb": "get"
+        }
+      ]
+    },
     "ObtemAtivoComEtapaPorId": {
       "accepts": [
         {

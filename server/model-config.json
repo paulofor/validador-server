@@ -522,5 +522,17 @@
   "VersaoTelaApp": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "VersaoTelaAppMetrica": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "PeriodoMetrica": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "SessaoApp": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }
