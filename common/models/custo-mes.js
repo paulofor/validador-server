@@ -25,7 +25,7 @@ module.exports = function (Customes) {
 
     Customes.CriaAnoProjeto = function (ano, idProjeto, callback) {
         for (let i = 1; i <= 12; i++) {
-            console.log('i', i);
+            //console.log('i', i);
             let filtro = { "where": { "and": [{ "mes": i }, { "ano": ano }, { "projetoMySqlId": idProjeto }] } };
             Customes.find(filtro, (err, result) => {
                 //console.log('result:', JSON.stringify(result));

@@ -64,9 +64,11 @@ module.exports = function (Telaapp) {
      */
 
     Telaapp.ListaTelaAppProjeto = function (idProjeto, idConceito, callback) {
-        var listaTelaApp;
-        // TODO
-        callback(null, listaTelaApp);
+        var ds = Telaapp.dataSource;
+        let sql = "select TelaApp.* from TelaApp " +
+                " inner join aplicacao on TelaApp.aplicacaoId = aplicacao.id_aplicacao " +
+                " where aplicacao.projetoMySqlId = " + idProjeto
+        ds.connector.query(sql, callback);
     };
 
 

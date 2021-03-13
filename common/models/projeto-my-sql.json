@@ -779,24 +779,6 @@
         }
       ]
     },
-    "AtualizaTotais": {
-      "accepts": [],
-      "returns": [
-        {
-          "arg": "resultado",
-          "type": "object",
-          "root": true,
-          "description": ""
-        }
-      ],
-      "description": "Atualiza totais por campanhas",
-      "http": [
-        {
-          "path": "/atualizaTotais",
-          "verb": "post"
-        }
-      ]
-    },
     "ObtemMetricaCampanha": {
       "accepts": [
         {

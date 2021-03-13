@@ -7,12 +7,10 @@
   },
   "properties": {
     "versaoAppId": {
-      "type": "number",
-      "id": true
+      "type": "number"
     },
     "telaAppId": {
-      "type": "number",
-      "id": true
+      "type": "number"
     },
     "descricao": {
       "type": "string"
@@ -47,5 +45,31 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "CriaVersaoComMetrica": {
+      "accepts": [
+        {
+          "arg": "versaoTelaApp",
+          "type": "object",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/criaVersaoComMetrica",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }

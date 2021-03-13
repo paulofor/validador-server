@@ -6,11 +6,7 @@
     "validateUpsert": true
   },
   "properties": {
-    "versaoAppId": {
-      "type": "number",
-      "id": true
-    },
-    "telaAppId": {
+    "versaoTelaAppId": {
       "type": "number",
       "id": true
     },
@@ -30,12 +26,62 @@
   },
   "validations": [],
   "relations": {
-    "periodoMetricas": {
+    "periodoMetrica": {
       "type": "belongsTo",
       "model": "PeriodoMetrica",
       "foreignKey": ""
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "AtualizaTotais": {
+      "accepts": [
+        {
+          "arg": "idTela",
+          "type": "number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "idVersaoApp",
+          "type": "number",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaTotais",
+          "verb": "post"
+        }
+      ]
+    },
+    "AtualizaGeral": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaGeral",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }

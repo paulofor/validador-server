@@ -12,8 +12,8 @@ module.exports = function(Monitorfaseinicialapp) {
  */
 
 Monitorfaseinicialapp.Insere = function(IdAplicacao, descricao, objeto, callback) {
-    const obj = { 'descricao' : descricao, 'dataHora' : new Date() , 'objeto' : objeto };
-    this.create(obj,callback);
+    let obj = { 'descricao' : descricao, 'dataHora' : new Date() , 'objeto' : objeto };
+    Monitorfaseinicialapp.create(obj,callback);
   };
   
 };

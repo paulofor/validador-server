@@ -75,7 +75,7 @@ angular.module('app', ['angularFileUpload'])
 
     $scope.load = function () {
       $http.get('/api/containers/container1/files').success(function (data) {
-        console.log(data);
+        //console.log(data);
         $scope.files = data;
       });
     };
@@ -87,7 +87,7 @@ angular.module('app', ['angularFileUpload'])
     };
 
     $scope.$on('uploadCompleted', function(event) {
-      console.log('uploadCompleted event received');
+      //console.log('uploadCompleted event received');
       $scope.load();
     });
 

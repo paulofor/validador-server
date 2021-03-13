@@ -91,7 +91,7 @@ module.exports = function (Visitaapp) {
     */
    Visitaapp.RegistraVisitaVersaoAppSessao = function(chaveUsuario, chaveVersaoApp, callback) {
         var chaveSessao;
-        console.log('chaveUsuario:' , chaveUsuario , ' chaveVersaoApp:' , chaveVersaoApp);
+        //console.log('chaveUsuario:' , chaveUsuario , ' chaveVersaoApp:' , chaveVersaoApp);
         app.models.VisitaAppLog.upsert(
             {
                 'dataHora' : new Date(),
@@ -131,7 +131,7 @@ module.exports = function (Visitaapp) {
      * @param {Function(Error, object)} callback
      */
     Visitaapp.RegistraVisitaTelaApp = function (chaveUsuario, chavePagina, idVersaoApp, callback) {
-        console.log('chaveUsuario:' , chaveUsuario , ' idVersaoApp:' , idVersaoApp, ' chavePagina:' , chavePagina);
+        //console.log('chaveUsuario:' , chaveUsuario , ' idVersaoApp:' , idVersaoApp, ' chavePagina:' , chavePagina);
         app.models.VisitaAppLog.upsert(
             {
                 'dataHora' : new Date(),
@@ -183,7 +183,11 @@ module.exports = function (Visitaapp) {
                     if (idVersaoApp) {
                         resultado.versaoAppId = idVersaoApp;
                     }
-                    Visitaapp.create(resultado, callback);
+                    Visitaapp.create(resultado, (err,result) => {
+                        app.models.VersaoTelaAppMetrica.AtualizaTotais(resultado.telaAppId,resultado.versaoAppId,(err1,result1) => {
+                            callback(err,result);
+                        });
+                    });
                 })
             })
         })

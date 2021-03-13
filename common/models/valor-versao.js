@@ -30,5 +30,8 @@ Valorversao.AtualizaPorVersaoApp = function(idVersaoApp, listaRelacionamento, ca
         callback(null, { 'result': 'ok' });
     });
   };
+
+
+
   
 };
