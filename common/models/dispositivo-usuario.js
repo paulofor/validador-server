@@ -82,6 +82,35 @@ module.exports = function (Dispositivousuario) {
   };
 
 
+
+
+  /**
+  * 
+  * @param {string} token 
+  * @param {string} codigoDispositivo 
+  * @param {string} versaoSo 
+  * @param {string} serial 
+  * @param {string} fabricante 
+  * @param {string} uuid 
+  * @param {Function(Error, object)} callback
+  */
+  Dispositivousuario.CriaComUsuarioVariaveis = function(token, codigoDispositivo, versaoSo, serial, fabricante, uuid, versaoAppId, callback) {
+    let dispositivo = {
+      'tokenFcm' : token,
+      'codigoDispositivo' : codigoDispositivo,
+      'versaoSo' : versaoSo,
+      'serial' : serial,
+      'fabricante' : fabricante,
+      'uuid' : uuid ,
+      'versaoAppId' : versaoAppId
+    }
+    Dispositivousuario.CriaComUsuario(dispositivo,callback);
+  };
+
+
+
+
+
   /**
    * Cria usuario e dispositivo
    * @param {object} dispositivo 
@@ -116,6 +145,7 @@ module.exports = function (Dispositivousuario) {
             callback(err, null);
             return;
           } else {
+            console.log('Entregou chave do usuario: ' , chaveUsuario);
             callback(null, chaveUsuario);
           }
         })

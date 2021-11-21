@@ -39,14 +39,13 @@ module.exports = function(Versaotelaappmetrica) {
     * @param {number} idVersaoApp 
     * @param {Function(Error, object)} callback
     */
-    Versaotelaappmetrica.AtualizaTotais = function(idTela, idVersaoApp, callback) {
+    Versaotelaappmetrica.AtualizaTotaisMetrica = function(idTela, idVersaoApp, callback) {
         //console.log('AtualizaTotais. idTela=' , idTela , ' idVersaoApp=' , idVersaoApp);
         let sql = " update VersaoTelaAppMetrica " + 
         " set quantidadeTotal = " +
         " ( " +
         " select count(*) from VisitaApp, VersaoTelaApp " +
         " where " +
-        " VersaoTelaAppMetrica.versaoTelaAppId = VersaoTelaApp.id and " +
         " VersaoTelaApp.telaAppId = VisitaApp.telaAppId and " +
         " VersaoTelaApp.versaoAppId = VisitaApp.versaoAppId and " +
         " VersaoTelaApp.versaoAppId = " + idVersaoApp + " and " +
@@ -56,13 +55,19 @@ module.exports = function(Versaotelaappmetrica) {
         " ( " +
         " select count(distinct usuarioProdutoId) from VisitaApp, VersaoTelaApp " +
         " where " +
-        " VersaoTelaAppMetrica.versaoTelaAppId = VersaoTelaApp.id and " +
         " VersaoTelaApp.telaAppId = VisitaApp.telaAppId and " +
         " VersaoTelaApp.versaoAppId = VisitaApp.versaoAppId and " +
         " VersaoTelaApp.versaoAppId = " + idVersaoApp + " and " +
         " VersaoTelaApp.telaAppId = " + idTela +
         " ) " +
-        " where periodoMetricaId = 0 ";
+        " where periodoMetricaId = 0 and " +
+        " VersaoTelaAppMetrica.versaoTelaAppId = " + 
+        " ( " +
+        " select VersaoTelaApp.id from VersaoTelaApp " +
+        " where " +
+        " VersaoTelaApp.versaoAppId = " + idVersaoApp + " and " +
+        " VersaoTelaApp.telaAppId = " + idTela + 
+        " ) ";
         //console.log(sql);
         let ds = Versaotelaappmetrica.dataSource;
         ds.connector.query(sql,callback);

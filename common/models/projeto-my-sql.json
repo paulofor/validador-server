@@ -631,6 +631,24 @@
         }
       ]
     },
+    "AtualizaTotais": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "resultado",
+          "type": "object",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/atualizaTotais",
+          "verb": "post"
+        }
+      ]
+    },
     "ProjetoConceitoItemValidacao": {
       "accepts": [
         {

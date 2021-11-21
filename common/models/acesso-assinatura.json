@@ -1,0 +1,23 @@
+{
+  "name": "AcessoAssinatura",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "chave": {
+      "type": "string"
+    },
+    "dias": {
+      "type": "number"
+    },
+    "dataHora": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

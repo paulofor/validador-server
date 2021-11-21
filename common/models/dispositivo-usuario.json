@@ -227,6 +227,67 @@
           "verb": "get"
         }
       ]
+    },
+    "CriaComUsuarioVariaveis": {
+      "accepts": [
+        {
+          "arg": "token",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "codigoDispositivo",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "versaoSo",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "serial",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "fabricante",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "uuid",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "versaoAppId",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "saida",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/criaComUsuarioVariaveis",
+          "verb": "post"
+        }
+      ]
     }
   }
 }

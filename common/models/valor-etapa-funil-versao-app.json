@@ -28,7 +28,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "etapaCliente": {
+      "type": "belongsTo",
+      "model": "EtapaCliente",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {
     "AtualizaValorVersaoApp": {
@@ -67,11 +73,12 @@
         }
       ]
     },
-    "CriaEtapa": {
+    "CriaEtapaVersaoApp": {
       "accepts": [
         {
-          "arg": "idVersao",
+          "arg": "idVersaoApp",
           "type": "number",
+          "required": false,
           "description": ""
         }
       ],
@@ -86,7 +93,7 @@
       "description": "",
       "http": [
         {
-          "path": "/criaEtapa",
+          "path": "/criaEtapaVersaoApp",
           "verb": "post"
         }
       ]

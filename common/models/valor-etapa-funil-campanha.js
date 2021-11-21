@@ -119,7 +119,7 @@ where ValorEtapaFunilCampanha.etapaClienteId = 10;
 
   */
 
-  Valoretapafunilcampanha.AtualizaValor = function(callback) {
+  Valoretapafunilcampanha.AtualizaValorCampanha = function(callback) {
     app.models.CampanhaAds.AtualizaInstalacao((err,result) => {
       Valoretapafunilcampanha.AtualizaValorFunil(callback);
     });

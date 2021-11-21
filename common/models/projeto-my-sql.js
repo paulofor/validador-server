@@ -34,7 +34,7 @@ module.exports = function (Projetomysql) {
                         'relation' : 'campanhaAds' ,
                         'scope' : {
                             'include' : [{'relation' : 'versaoApp'}, {'relation' : 'setupCampanha'} ],
-                            'order' : 'dataInicial'
+                            'order' : 'dataInicial desc'
                         },
                         
                     }]

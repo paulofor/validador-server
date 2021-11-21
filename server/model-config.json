@@ -534,5 +534,9 @@
   "SessaoApp": {
     "dataSource": "mysqlDS",
     "public": true
+  },
+  "AcessoAssinatura": {
+    "dataSource": "mysqlDS",
+    "public": true
   }
 }

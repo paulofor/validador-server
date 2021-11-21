@@ -21,7 +21,7 @@
   "cors": false,
   "httpMode": false,
   "certConfig": {
-    "path": "/home/digicom/certificados/",
+    "path": "/home/ubuntu/certificados/",
     "key": "privkey.pem",
     "cert": "cert.pem",
     "ca": [],

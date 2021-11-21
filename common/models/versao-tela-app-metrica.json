@@ -34,7 +34,7 @@
   },
   "acls": [],
   "methods": {
-    "AtualizaTotais": {
+    "AtualizaTotaisMetrica": {
       "accepts": [
         {
           "arg": "idTela",
@@ -60,7 +60,7 @@
       "description": "",
       "http": [
         {
-          "path": "/atualizaTotais",
+          "path": "/atualizaTotaisMetrica",
           "verb": "post"
         }
       ]
