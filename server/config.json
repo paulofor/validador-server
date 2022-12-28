@@ -21,7 +21,7 @@
   "cors": false,
   "httpMode": false,
   "certConfig": {
-    "path": "/home/ubuntu/certificados/",
+    "path": "/etc/letsencrypt/live/vps-40d69db1.vps.ovh.ca/",
     "key": "privkey.pem",
     "cert": "cert.pem",
     "ca": [],

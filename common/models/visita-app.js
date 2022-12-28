@@ -131,7 +131,7 @@ module.exports = function (Visitaapp) {
      * @param {Function(Error, object)} callback
      */
     Visitaapp.RegistraVisitaTelaApp = function (chaveUsuario, chavePagina, idVersaoApp, callback) {
-        //console.log('chaveUsuario:' , chaveUsuario , ' idVersaoApp:' , idVersaoApp, ' chavePagina:' , chavePagina);
+        console.log('chaveUsuario:' , chaveUsuario , ' idVersaoApp:' , idVersaoApp, ' chavePagina:' , chavePagina);
         app.models.VisitaAppLog.upsert(
             {
                 'dataHora' : new Date(),
@@ -184,7 +184,7 @@ module.exports = function (Visitaapp) {
                         resultado.versaoAppId = idVersaoApp;
                     }
                     Visitaapp.create(resultado, (err,result) => {
-                        app.models.VersaoTelaAppMetrica.AtualizaTotais(resultado.telaAppId,resultado.versaoAppId,(err1,result1) => {
+                        app.models.VersaoTelaAppMetrica.AtualizaTotaisMetrica(resultado.telaAppId,resultado.versaoAppId,(err1,result1) => {
                             callback(err,result);
                         });
                     });

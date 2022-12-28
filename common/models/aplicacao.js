@@ -5,6 +5,18 @@ var app = require('../../server/server');
 module.exports = function (Aplicacao) {
 
 
+
+    Aplicacao.CarregaObjeto = function(idAplicacao, callback) {
+        console.log('objeto id ' , idAplicacao);
+        let filtro = {'include' : {'relation' : 'entidades' , 'scope' : {
+                'include' : 'atributoEntidades'
+            }}
+        }
+        Aplicacao.findById(idAplicacao, filtro,callback);
+    }
+
+
+
     /**
      * Obtem a aplicacao e lista de cores ativas
      * @param {object} idAplicacao 

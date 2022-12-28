@@ -136,6 +136,31 @@
           "verb": "get"
         }
       ]
+    },
+    "CarregaObjeto": {
+      "accepts": [
+        {
+          "arg": "idAplicacao",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [
+        {
+          "arg": "aplicacao",
+          "type": "object",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "Obtem a aplicacao com filhos",
+      "http": [
+        {
+          "path": "/carregaObjeto",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
